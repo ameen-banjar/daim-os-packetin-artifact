@@ -1,0 +1,25 @@
+$ /Users/abanjar/Desktop/DAIM/experiments/.interface_probe_clang
+kind,name,value
+sizeof,struct packet_action_header,8
+sizeof,struct packet_action_output,8
+sizeof,struct packet_action_vlan_vid,8
+sizeof,struct packet_action_vlan_pcp,8
+sizeof,struct packet_action_str_vlan,8
+sizeof,struct packet_action_dl_addr,8
+sizeof,struct packet_action_nw_addr,8
+sizeof,struct packet_action_tp_port,8
+sizeof,struct packet_action_nw_tos,8
+sizeof,struct no_rule_packet_info,35
+sizeof,struct switch_port_state,18
+sizeof,struct switch_port_control,17
+sizeof,struct daim_switch_link,13
+sizeof,struct daim_cl_message,2
+sizeof,struct daim_cl_msg_data_request_id,18
+sizeof,struct daim_cl_msg_data_id,12
+constant,DAIM_OS_VERSION,1
+constant,DAIM_INFO_TABLE,161
+constant,DAIM_LINK_CONFIG_TABLE,172
+constant,PORT_FLOOD,65531
+constant,PORT_NONE,65534
+constant,DCP_REQUEST_ID,0
+constant,DCP_REPLY_HOSTS,11

@@ -1,0 +1,32 @@
+{
+  "evidence_level": "measured",
+  "passes": 3,
+  "failures": 0,
+  "skips": 1,
+  "rows": [
+    {
+      "compiler": "clang",
+      "stage": "combined_header_compile",
+      "status": "pass",
+      "returncode": 0
+    },
+    {
+      "compiler": "clang",
+      "stage": "probe_build",
+      "status": "pass",
+      "returncode": 0
+    },
+    {
+      "compiler": "clang",
+      "stage": "probe_run",
+      "status": "pass",
+      "returncode": 0
+    },
+    {
+      "compiler": "gcc",
+      "stage": "duplicate_compiler_alias",
+      "status": "skip",
+      "returncode": ""
+    }
+  ]
+}

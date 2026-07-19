@@ -1,0 +1,139 @@
+{
+  "evidence_level": "measured_emulation",
+  "source": "results/network/stage2_baseline_raw.csv",
+  "bootstrap_seed": 20260718,
+  "bootstrap_resamples": 20000,
+  "summary": [
+    {
+      "network_size": 8,
+      "mode": "daim_adapter",
+      "n": 5,
+      "mean_ms": 12.836796199999998,
+      "sd_ms": 0.2617894257894923,
+      "median_ms": 12.69203725,
+      "bootstrap_95_ci_ms": [
+        12.6605245,
+        13.061431299999999
+      ],
+      "connectivity_passes": 5
+    },
+    {
+      "network_size": 8,
+      "mode": "direct_ovs",
+      "n": 5,
+      "mean_ms": 9.6743819,
+      "sd_ms": 0.23461231194532617,
+      "median_ms": 9.5633855,
+      "bootstrap_95_ci_ms": [
+        9.493391800000001,
+        9.855372
+      ],
+      "connectivity_passes": 5
+    },
+    {
+      "network_size": 16,
+      "mode": "daim_adapter",
+      "n": 5,
+      "mean_ms": 12.820576449999999,
+      "sd_ms": 0.11090695727422614,
+      "median_ms": 12.8472001875,
+      "bootstrap_95_ci_ms": [
+        12.7330123875,
+        12.908140512500001
+      ],
+      "connectivity_passes": 5
+    },
+    {
+      "network_size": 16,
+      "mode": "direct_ovs",
+      "n": 5,
+      "mean_ms": 9.657944924999999,
+      "sd_ms": 0.18181943975987908,
+      "median_ms": 9.6186768125,
+      "bootstrap_95_ci_ms": [
+        9.529533387499999,
+        9.80772395
+      ],
+      "connectivity_passes": 5
+    },
+    {
+      "network_size": 32,
+      "mode": "daim_adapter",
+      "n": 5,
+      "mean_ms": 13.3780363875,
+      "sd_ms": 0.15458206320297793,
+      "median_ms": 13.44768965625,
+      "bootstrap_95_ci_ms": [
+        13.237704787500002,
+        13.47016568125
+      ],
+      "connectivity_passes": 5
+    },
+    {
+      "network_size": 32,
+      "mode": "direct_ovs",
+      "n": 5,
+      "mean_ms": 10.2043660625,
+      "sd_ms": 0.3528132222074449,
+      "median_ms": 10.081871312499999,
+      "bootstrap_95_ci_ms": [
+        9.9463021375,
+        10.507781831249998
+      ],
+      "connectivity_passes": 5
+    },
+    {
+      "network_size": 64,
+      "mode": "daim_adapter",
+      "n": 5,
+      "mean_ms": 16.212632103125,
+      "sd_ms": 0.21121098218652426,
+      "median_ms": 16.103648328125,
+      "bootstrap_95_ci_ms": [
+        16.051156096874998,
+        16.374108109375
+      ],
+      "connectivity_passes": 5
+    },
+    {
+      "network_size": 64,
+      "mode": "direct_ovs",
+      "n": 5,
+      "mean_ms": 12.640385318749999,
+      "sd_ms": 0.33838196890321726,
+      "median_ms": 12.811645312500001,
+      "bootstrap_95_ci_ms": [
+        12.379574596875,
+        12.897744337499997
+      ],
+      "connectivity_passes": 5
+    }
+  ],
+  "comparisons": [
+    {
+      "network_size": 8,
+      "mean_difference_ms": 3.1624142999999982,
+      "mean_ratio": 1.326885410632797,
+      "cohens_d": 12.72229820316236
+    },
+    {
+      "network_size": 16,
+      "mean_difference_ms": 3.162631525,
+      "mean_ratio": 1.327464232769996,
+      "cohens_d": 21.000685767188234
+    },
+    {
+      "network_size": 32,
+      "mean_difference_ms": 3.173670325,
+      "mean_ratio": 1.3110110226898772,
+      "cohens_d": 11.651978806007921
+    },
+    {
+      "network_size": 64,
+      "mean_difference_ms": 3.5722467843750003,
+      "mean_ratio": 1.2826058458104233,
+      "cohens_d": 12.664976537172848
+    }
+  ],
+  "interpretation": "This benchmark measures process-mediated rule installation in the recorded harness; it is not controller throughput or end-to-end new-flow latency."
+}

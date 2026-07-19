@@ -1,0 +1,25 @@
+stage2 size=8 repetition=1
+stage2 size=8 repetition=2
+stage2 size=8 repetition=3
+stage2 size=8 repetition=4
+stage2 size=8 repetition=5
+stage2 size=16 repetition=1
+stage2 size=16 repetition=2
+stage2 size=16 repetition=3
+stage2 size=16 repetition=4
+stage2 size=16 repetition=5
+stage2 size=32 repetition=1
+stage2 size=32 repetition=2
+stage2 size=32 repetition=3
+stage2 size=32 repetition=4
+stage2 size=32 repetition=5
+stage2 size=64 repetition=1
+stage2 size=64 repetition=2
+stage2 size=64 repetition=3
+stage2 size=64 repetition=4
+stage2 size=64 repetition=5
+{
+  "evidence_level": "measured_emulation",
+  "rows": 20,
+  "raw": "/Users/abanjar/Desktop/DAIM/experiments/results/network/stage2_raw.csv"
+}

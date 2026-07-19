@@ -1,0 +1,20 @@
+make: Entering directory '/Users/abanjar/Desktop/DAIM/experiments/implementation'
+rm -f build/*.o build/pic/*.o build/test_core build/test_adapters build/test_concurrency build/test_learning_app build/daim_ovs_flow build/libdaim_core.so
+cc -Iinclude -I../vendor/DAIM-OS-v1.0.0 -std=c11 -Wall -Wextra -Wpedantic -Werror -O2 -c src/daim_core.c -o build/daim_core.o
+cc -Iinclude -I../vendor/DAIM-OS-v1.0.0 -std=c11 -Wall -Wextra -Wpedantic -Werror -O2 tests/test_core.c build/daim_core.o -lpthread -o build/test_core
+cc -Iinclude -I../vendor/DAIM-OS-v1.0.0 -std=c11 -Wall -Wextra -Wpedantic -Werror -O2 -c src/mock_switch_adapter.c -o build/mock_switch_adapter.o
+cc -Iinclude -I../vendor/DAIM-OS-v1.0.0 -std=c11 -Wall -Wextra -Wpedantic -Werror -O2 -c src/ovs_switch_adapter.c -o build/ovs_switch_adapter.o
+cc -Iinclude -I../vendor/DAIM-OS-v1.0.0 -std=c11 -Wall -Wextra -Wpedantic -Werror -O2 tests/test_adapters.c build/mock_switch_adapter.o build/ovs_switch_adapter.o -lpthread -o build/test_adapters
+cc -Iinclude -I../vendor/DAIM-OS-v1.0.0 -std=c11 -Wall -Wextra -Wpedantic -Werror -O2 tests/test_concurrency.c build/daim_core.o -lpthread -o build/test_concurrency
+cc -Iinclude -I../vendor/DAIM-OS-v1.0.0 -std=c11 -Wall -Wextra -Wpedantic -Werror -O2 -c src/daim_learning_app.c -o build/daim_learning_app.o
+cc -Iinclude -I../vendor/DAIM-OS-v1.0.0 -std=c11 -Wall -Wextra -Wpedantic -Werror -O2 tests/test_learning_app.c build/daim_learning_app.o build/daim_core.o build/mock_switch_adapter.o -lpthread -o build/test_learning_app
+build/test_core
+build/test_adapters
+build/test_concurrency
+build/test_learning_app
+cc -Iinclude -I../vendor/DAIM-OS-v1.0.0 -std=c11 -Wall -Wextra -Wpedantic -Werror -O2 tools/daim_ovs_flow.c build/ovs_switch_adapter.o -lpthread -o build/daim_ovs_flow
+cc -Iinclude -I../vendor/DAIM-OS-v1.0.0 -std=c11 -Wall -Wextra -Wpedantic -Werror -O2 -fPIC -c src/daim_core.c -o build/pic/daim_core.o
+cc -Iinclude -I../vendor/DAIM-OS-v1.0.0 -std=c11 -Wall -Wextra -Wpedantic -Werror -O2 -fPIC -c src/ovs_switch_adapter.c -o build/pic/ovs_switch_adapter.o
+cc -Iinclude -I../vendor/DAIM-OS-v1.0.0 -std=c11 -Wall -Wextra -Wpedantic -Werror -O2 -fPIC -c src/daim_learning_app.c -o build/pic/daim_learning_app.o
+cc -shared -fPIC build/pic/daim_core.o build/pic/ovs_switch_adapter.o build/pic/daim_learning_app.o -lpthread -o build/libdaim_core.so
+make: Leaving directory '/Users/abanjar/Desktop/DAIM/experiments/implementation'

@@ -1,0 +1,33 @@
+{
+  "started_utc": "2026-07-18T10:18:38Z",
+  "completed_utc": "2026-07-18T10:19:43Z",
+  "status": "pass",
+  "evidence_level": "measured_emulation_calibration",
+  "config": {
+    "schema_version": "1.0",
+    "evidence_level": "measured_emulation_calibration",
+    "switch_counts": [
+      8,
+      16,
+      32,
+      64
+    ],
+    "methods": [
+      "direct_ovs_ofctl",
+      "daim_adapter"
+    ],
+    "warmup_repetitions": 1,
+    "measured_repetitions": 5,
+    "ping_count_per_repetition": 1,
+    "openflow_version": "OpenFlow13",
+    "topology": "linear switches with one host at each endpoint",
+    "flow_policy": "two fixed in_port/output rules per switch",
+    "randomisation": "method order alternates by repetition",
+    "primary_metric": "per-rule command completion latency in microseconds",
+    "warning": "Calibration measurements determine feasibility and final repetition count; they are not final paper results."
+  },
+  "raw_rule_rows": 2880,
+  "raw_run_rows": 48,
+  "all_ping_runs_successful": true,
+  "interpretation_warning": "Calibration measurements determine feasibility and final repetition count; they are not final paper results."
+}

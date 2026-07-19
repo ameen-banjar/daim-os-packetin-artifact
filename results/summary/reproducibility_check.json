@@ -1,0 +1,13 @@
+{
+  "status": "pass",
+  "procedure": "Two consecutive clean executions of make all followed by SHA-256 comparison of every raw CSV file",
+  "raw_outputs_identical": true,
+  "checked_outputs": {
+    "conflict_detection_pilot.csv": "3cb503bab3c3a93f900d8369cf455b970bee858fb5cd03ad3802bf789117433f",
+    "conformance_results.csv": "2e9b8faa846a5e1d0c37f007647953759fe48f6755a10adfefd4629c84603aa0",
+    "consistency_pilot.csv": "63f8539efee5ca21817d9e42bcd1cbefc6f856dcd8773f28d054e97e74051fd6",
+    "interface_probe_clang.csv": "56ef04be9eceb6e79f12a8943b91b421707ddc3e3cb37ef092d783343321f3bc",
+    "recovery_pilot.csv": "7a24e98ca9f91e64695c0ba2c3926e44cd667cd1e9171339bd289d50e307dd68"
+  },
+  "scope_warning": "This proves deterministic raw package output on the recorded host. It does not validate DAIM-OS network performance."
+}

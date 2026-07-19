@@ -1,0 +1,5 @@
+compiler,stage,status,returncode
+clang,combined_header_compile,pass,0
+clang,probe_build,pass,0
+clang,probe_run,pass,0
+gcc,duplicate_compiler_alias,skip,

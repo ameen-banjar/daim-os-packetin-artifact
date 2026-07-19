@@ -1,0 +1,14 @@
+{
+  "controller_pid": 3395,
+  "controller_state_before": {
+    "s1": "tcp:127.0.0.1:6653",
+    "s2": "tcp:127.0.0.1:6653"
+  },
+  "ping_before": "PING 10.0.0.2 (10.0.0.2) 56(84) bytes of data.\r\n64 bytes from 10.0.0.2: icmp_seq=1 ttl=64 time=5.55 ms\r\n64 bytes from 10.0.0.2: icmp_seq=2 ttl=64 time=0.367 ms\r\n64 bytes from 10.0.0.2: icmp_seq=3 ttl=64 time=0.061 ms\r\n64 bytes from 10.0.0.2: icmp_seq=4 ttl=64 time=0.083 ms\r\n64 bytes from 10.0.0.2: icmp_seq=5 ttl=64 time=0.088 ms\r\n\r\n--- 10.0.0.2 ping statistics ---\r\n5 packets transmitted, 5 received, 0% packet loss, time 4107ms\r\nrtt min/avg/max/mdev = 0.061/1.230/5.553/2.164 ms\r\n",
+  "controller_stopped": true,
+  "ping_after": "PING 10.0.0.2 (10.0.0.2) 56(84) bytes of data.\r\n64 bytes from 10.0.0.2: icmp_seq=1 ttl=64 time=0.164 ms\r\n64 bytes from 10.0.0.2: icmp_seq=2 ttl=64 time=0.049 ms\r\n64 bytes from 10.0.0.2: icmp_seq=3 ttl=64 time=0.083 ms\r\n64 bytes from 10.0.0.2: icmp_seq=4 ttl=64 time=0.046 ms\r\n64 bytes from 10.0.0.2: icmp_seq=5 ttl=64 time=0.059 ms\r\n64 bytes from 10.0.0.2: icmp_seq=6 ttl=64 time=0.062 ms\r\n64 bytes from 10.0.0.2: icmp_seq=7 ttl=64 time=0.059 ms\r\n64 bytes from 10.0.0.2: icmp_seq=8 ttl=64 time=0.055 ms\r\n64 bytes from 10.0.0.2: icmp_seq=9 ttl=64 time=0.059 ms\r\n64 bytes from 10.0.0.2: icmp_seq=10 ttl=64 time=0.061 ms\r\n64 bytes from 10.0.0.2: icmp_seq=11 ttl=64 time=0.067 ms\r\n64 bytes from 10.0.0.2: icmp_seq=12 ttl=64 time=0.163 ms\r\n64 bytes from 10.0.0.2: icmp_seq=13 ttl=64 time=0.060 ms\r\n64 bytes from 10.0.0.2: icmp_seq=14 ttl=64 time=0.107 ms\r\n64 bytes from 10.0.0.2: icmp_seq=15 ttl=64 time=0.124 ms\r\n64 bytes from 10.0.0.2: icmp_seq=16 ttl=64 time=0.196 ms\r\n64 bytes from 10.0.0.2: icmp_seq=17 ttl=64 time=0.206 ms\r\n64 bytes from 10.0.0.2: icmp_seq=18 ttl=64 time=0.163 ms\r\n64 bytes from 10.0.0.2: icmp_seq=19 ttl=64 time=0.212 ms\r\n64 bytes from 10.0.0.2: icmp_seq=20 ttl=64 time=0.205 ms\r\n\r\n--- 10.0.0.2 ping statistics ---\r\n20 packets transmitted, 20 received, 0% packet loss, time 1000ms\r\nrtt min/avg/max/mdev = 0.046/0.110/0.212/0.060 ms\r\n",
+  "controller_state_after": {
+    "s1": "tcp:127.0.0.1:6653",
+    "s2": "tcp:127.0.0.1:6653"
+  }
+}

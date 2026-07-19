@@ -1,0 +1,35 @@
+cff-version: 1.2.0
+message: "If you use this artifact, please cite it and the paper it accompanies once published."
+title: "DAIM-OS Packet-In Artifact: Reconstructing the DAIM-OS Table-and-Signal Control Path"
+type: software
+authors:
+  - family-names: Banjar
+    given-names: Ameen
+    orcid: "https://orcid.org/0000-0002-0871-5153"
+version: 1.0.0
+date-released: 2026-07-19
+license: Apache-2.0
+repository-code: "https://github.com/ameen-banjar/daim-os-packetin-artifact"
+abstract: >-
+  Reproducibility artifact for "Reconstructing the DAIM-OS Table-and-Signal
+  Control Path: An Executable OpenFlow 1.3 Artifact and Evaluation." Contains
+  a mutex-protected C core implementing five writable DAIM-OS tables, a
+  switch-adapter boundary to Open vSwitch, a real Os-Ken OpenFlow 1.3
+  controller bridged to the core via ctypes, and a matched adapter-overhead
+  microbenchmark with raw data and a reproducible analysis script.
+keywords:
+  - software-defined networking
+  - OpenFlow
+  - Open vSwitch
+  - DAIM-OS
+  - reproducible systems research
+references:
+  - type: software
+    title: "DAIM-OS: Distributed Active Information Model Operating System Specification"
+    authors:
+      - family-names: Banjar
+        given-names: Ameen Reda
+        orcid: "https://orcid.org/0000-0002-0871-5153"
+    version: "1.0.0"
+    doi: "10.5281/zenodo.21426560"
+    repository-code: "https://github.com/ameen-banjar/DAIM-OS"

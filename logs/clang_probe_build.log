@@ -1,0 +1,1 @@
+$ /usr/bin/clang -std=c11 -Wall -Wextra -Wpedantic -Werror -I /Users/abanjar/Desktop/DAIM/experiments/vendor/DAIM-OS-v1.0.0 /Users/abanjar/Desktop/DAIM/experiments/src/interface_probe.c -o /Users/abanjar/Desktop/DAIM/experiments/.interface_probe_clang

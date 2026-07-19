@@ -1,0 +1,29 @@
+{
+  "timestamp_utc": "2026-07-18T09:24:03Z",
+  "platform": "macOS-26.3.1-arm64-arm-64bit",
+  "machine": "arm64",
+  "python": "3.11.4 (v3.11.4:d2340ef257, Jun  6 2023, 19:15:51) [Clang 13.0.0 (clang-1300.0.29.30)]",
+  "compilers": {
+    "clang": {
+      "path": "/usr/bin/clang",
+      "version": "Apple clang version 21.0.0 (clang-2100.1.1.101)"
+    },
+    "gcc": {
+      "path": "/usr/bin/gcc",
+      "version": "Apple clang version 21.0.0 (clang-2100.1.1.101)"
+    },
+    "cc": {
+      "path": "/usr/bin/cc",
+      "version": "Apple clang version 21.0.0 (clang-2100.1.1.101)"
+    }
+  },
+  "tools": {
+    "docker": null,
+    "ovs-vsctl": null,
+    "mn": null,
+    "iperf3": null,
+    "tc": null
+  },
+  "daim_release_commit": "c8dfd343d9e1ee0f90cb29d00c6352df83f6a995",
+  "config_sha256": "cec3052b342df1e32ec9b52441287575518e06e9e40a9bbdd51e5eaf232567ed"
+}

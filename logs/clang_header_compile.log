@@ -1,0 +1,1 @@
+$ /usr/bin/clang -std=c11 -Wall -Wextra -Wpedantic -Werror -I /Users/abanjar/Desktop/DAIM/experiments/vendor/DAIM-OS-v1.0.0 -fsyntax-only /Users/abanjar/Desktop/DAIM/experiments/vendor/DAIM-OS-v1.0.0/tests/header_compile.c
