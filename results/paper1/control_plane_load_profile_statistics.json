@@ -1,0 +1,280 @@
+{
+  "evidence_level": "measured_emulation",
+  "source": "results/network/control_plane_load_profile_raw.csv",
+  "bootstrap_seed": 20260719,
+  "bootstrap_resamples": 20000,
+  "repetitions_per_condition": 30,
+  "total_trials": 60,
+  "summary": {
+    "process_per_rule": {
+      "throughput_installs_per_s": {
+        "mean": 66.03944704200184,
+        "sd": 9.964216797299397,
+        "ci": [
+          62.12327213845616,
+          69.02258329029003
+        ],
+        "median": 68.29756963074428,
+        "median_ci": [
+          66.93309248761307,
+          69.61240257039123
+        ],
+        "max": 74.61469086889743,
+        "n_gt_2x_median": 0,
+        "n": 30
+      },
+      "cpu_s": {
+        "mean": 0.1292286,
+        "sd": 0.11258618301813549,
+        "ci": [
+          0.10211143,
+          0.17425197916666668
+        ],
+        "median": 0.10662749999999999,
+        "median_ci": [
+          0.09966999999999998,
+          0.11054150000000001
+        ],
+        "max": 0.706742,
+        "n_gt_2x_median": 2,
+        "n": 30
+      },
+      "max_rss_kib": {
+        "mean": 65675.33333333333,
+        "sd": 39.87682183349408,
+        "ci": [
+          65660.4,
+          65688.26666666666
+        ],
+        "median": 65694.0,
+        "median_ci": [
+          65688.0,
+          65698.0
+        ],
+        "max": 65704.0,
+        "n_gt_2x_median": 0,
+        "n": 30
+      },
+      "control_bytes_total": {
+        "mean": 8064.0,
+        "sd": 0.0,
+        "ci": [
+          8064.0,
+          8064.0
+        ],
+        "median": 8064.0,
+        "median_ci": [
+          8064.0,
+          8064.0
+        ],
+        "max": 8064.0,
+        "n_gt_2x_median": 0,
+        "n": 30
+      },
+      "control_messages_total": {
+        "mean": 84.0,
+        "sd": 0.0,
+        "ci": [
+          84.0,
+          84.0
+        ],
+        "median": 84.0,
+        "median_ci": [
+          84.0,
+          84.0
+        ],
+        "max": 84.0,
+        "n_gt_2x_median": 0,
+        "n": 30
+      },
+      "no_rule_events": {
+        "mean": 236.0,
+        "sd": 16.704325270977595,
+        "ci": [
+          230.53333333333333,
+          242.2
+        ],
+        "median": 233.0,
+        "median_ci": [
+          226.0,
+          238.0
+        ],
+        "max": 282.0,
+        "n_gt_2x_median": 0,
+        "n": 30
+      },
+      "flows_installed": {
+        "mean": 84.0,
+        "sd": 0.0,
+        "ci": [
+          84.0,
+          84.0
+        ],
+        "median": 84.0,
+        "median_ci": [
+          84.0,
+          84.0
+        ],
+        "max": 84.0,
+        "n_gt_2x_median": 0,
+        "n": 30
+      },
+      "elapsed_s": {
+        "mean": 1.3346143520666667,
+        "sd": 0.45705583307181386,
+        "ci": [
+          1.2231587770058332,
+          1.5222491171266663
+        ],
+        "median": 1.2299134390000002,
+        "median_ci": [
+          1.2066815305,
+          1.2550344515
+        ],
+        "max": 3.667805264,
+        "n_gt_2x_median": 1,
+        "n": 30
+      },
+      "n_trials": 30,
+      "all_signals_ok": true,
+      "all_pings_succeeded": true,
+      "ovs_vswitchd_cpu_s_delta_mean": 0.5
+    },
+    "persistent": {
+      "throughput_installs_per_s": {
+        "mean": 252.97251740017413,
+        "sd": 47.40870221970438,
+        "ci": [
+          235.295154396012,
+          268.45365721752444
+        ],
+        "median": 270.34274659775366,
+        "median_ci": [
+          259.24708984879777,
+          281.89522201786417
+        ],
+        "max": 304.818626186008,
+        "n_gt_2x_median": 0,
+        "n": 30
+      },
+      "cpu_s": {
+        "mean": 0.05082593333333333,
+        "sd": 0.031392219903634756,
+        "ci": [
+          0.040819242500000005,
+          0.06315265666666667
+        ],
+        "median": 0.03851550000000001,
+        "median_ci": [
+          0.03532200000000002,
+          0.04636850000000001
+        ],
+        "max": 0.14714899999999997,
+        "n_gt_2x_median": 3,
+        "n": 30
+      },
+      "max_rss_kib": {
+        "mean": 65661.46666666666,
+        "sd": 61.49837863482779,
+        "ci": [
+          65638.53333333334,
+          65681.6
+        ],
+        "median": 65688.0,
+        "median_ci": [
+          65648.0,
+          65698.0
+        ],
+        "max": 65740.0,
+        "n_gt_2x_median": 0,
+        "n": 30
+      },
+      "control_bytes_total": {
+        "mean": 8064.0,
+        "sd": 0.0,
+        "ci": [
+          8064.0,
+          8064.0
+        ],
+        "median": 8064.0,
+        "median_ci": [
+          8064.0,
+          8064.0
+        ],
+        "max": 8064.0,
+        "n_gt_2x_median": 0,
+        "n": 30
+      },
+      "control_messages_total": {
+        "mean": 84.0,
+        "sd": 0.0,
+        "ci": [
+          84.0,
+          84.0
+        ],
+        "median": 84.0,
+        "median_ci": [
+          84.0,
+          84.0
+        ],
+        "max": 84.0,
+        "n_gt_2x_median": 0,
+        "n": 30
+      },
+      "no_rule_events": {
+        "mean": 156.96666666666667,
+        "sd": 12.84518783726858,
+        "ci": [
+          152.56666666666666,
+          161.63333333333333
+        ],
+        "median": 155.5,
+        "median_ci": [
+          149.0,
+          161.0
+        ],
+        "max": 195.0,
+        "n_gt_2x_median": 0,
+        "n": 30
+      },
+      "flows_installed": {
+        "mean": 84.0,
+        "sd": 0.0,
+        "ci": [
+          84.0,
+          84.0
+        ],
+        "median": 84.0,
+        "median_ci": [
+          84.0,
+          84.0
+        ],
+        "max": 84.0,
+        "n_gt_2x_median": 0,
+        "n": 30
+      },
+      "elapsed_s": {
+        "mean": 0.34962409123333343,
+        "sd": 0.09925401644248331,
+        "ci": [
+          0.31794334525666673,
+          0.3879261032450001
+        ],
+        "median": 0.31075442,
+        "median_ci": [
+          0.2979833075,
+          0.3222148275
+        ],
+        "max": 0.635478939,
+        "n_gt_2x_median": 2,
+        "n": 30
+      },
+      "n_trials": 30,
+      "all_signals_ok": true,
+      "all_pings_succeeded": true,
+      "ovs_vswitchd_cpu_s_delta_mean": 0.1,
+      "echo_replies_sent_mean": 0.0
+    }
+  },
+  "interpretation": "Sustained-load resource and control-traffic profile: 40 real reactive Packet-In decisions per trial, 30 repetitions per adapter mode (increased from the original 5 per task #18's follow-up work), within one controller/topology lifetime, ending with a dedicated signal host's packet so the snapshot is taken only after all senders have gone through, not at a predicted event count. Trial order is mode-major here (all process_per_rule repetitions, then all persistent repetitions), unlike task #19's blocked/randomised design, so median_ci is a per-mode outlier-robustness check, not a paired-by-repetition-index comparison. flows_installed and control_bytes_total agree exactly between the measured (persistent) and computed_wire_format (process_per_rule) control-byte accounting methods, cross-validating the latter."
+}

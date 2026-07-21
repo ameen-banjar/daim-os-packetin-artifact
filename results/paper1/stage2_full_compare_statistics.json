@@ -1,0 +1,239 @@
+{
+  "evidence_level": "measured_emulation",
+  "source": "results/network/stage2_full_compare_raw.csv",
+  "bootstrap_seed": 20260719,
+  "bootstrap_resamples": 20000,
+  "summary": [
+    {
+      "network_size": 8,
+      "mode": "daim_process_per_rule",
+      "n": 5,
+      "mean_ms": 13.557342825000001,
+      "sd_ms": 0.06860640783976778,
+      "median_ms": 13.571032125,
+      "bootstrap_95_ci_ms": [
+        13.498486724999998,
+        13.600397699999998
+      ],
+      "connectivity_passes": 5
+    },
+    {
+      "network_size": 8,
+      "mode": "daim_persistent",
+      "n": 5,
+      "mean_ms": 5.860529625,
+      "sd_ms": 0.29472761488765736,
+      "median_ms": 5.795736,
+      "bootstrap_95_ci_ms": [
+        5.646453799999999,
+        6.11184795
+      ],
+      "connectivity_passes": 5
+    },
+    {
+      "network_size": 8,
+      "mode": "direct_ovs_cli",
+      "n": 5,
+      "mean_ms": 9.890496924999999,
+      "sd_ms": 0.18570026610863286,
+      "median_ms": 9.882949125,
+      "bootstrap_95_ci_ms": [
+        9.742724925000001,
+        10.052243950000001
+      ],
+      "connectivity_passes": 5
+    },
+    {
+      "network_size": 8,
+      "mode": "direct_osken",
+      "n": 5,
+      "mean_ms": 1.6299283000000002,
+      "sd_ms": 0.45433800718725653,
+      "median_ms": 1.760759875,
+      "bootstrap_95_ci_ms": [
+        1.277081525,
+        1.977014625
+      ],
+      "connectivity_passes": 5
+    },
+    {
+      "network_size": 16,
+      "mode": "daim_process_per_rule",
+      "n": 5,
+      "mean_ms": 13.181196712500002,
+      "sd_ms": 0.13490079670612165,
+      "median_ms": 13.227148375,
+      "bootstrap_95_ci_ms": [
+        13.065100337500002,
+        13.276685275
+      ],
+      "connectivity_passes": 5
+    },
+    {
+      "network_size": 16,
+      "mode": "daim_persistent",
+      "n": 5,
+      "mean_ms": 6.491551075000001,
+      "sd_ms": 0.16841557536447868,
+      "median_ms": 6.4683466875,
+      "bootstrap_95_ci_ms": [
+        6.367897219374999,
+        6.636880012499999
+      ],
+      "connectivity_passes": 5
+    },
+    {
+      "network_size": 16,
+      "mode": "direct_ovs_cli",
+      "n": 5,
+      "mean_ms": 9.8719707,
+      "sd_ms": 0.05663958486331813,
+      "median_ms": 9.8707300625,
+      "bootstrap_95_ci_ms": [
+        9.829469312499999,
+        9.9202762
+      ],
+      "connectivity_passes": 5
+    },
+    {
+      "network_size": 16,
+      "mode": "direct_osken",
+      "n": 5,
+      "mean_ms": 2.7750578249999998,
+      "sd_ms": 0.16835715193145648,
+      "median_ms": 2.811823375,
+      "bootstrap_95_ci_ms": [
+        2.6435888,
+        2.90652685
+      ],
+      "connectivity_passes": 5
+    },
+    {
+      "network_size": 32,
+      "mode": "daim_process_per_rule",
+      "n": 5,
+      "mean_ms": 13.85276825,
+      "sd_ms": 0.18815944174141996,
+      "median_ms": 13.8245489375,
+      "bootstrap_95_ci_ms": [
+        13.706896050000001,
+        13.9981395125
+      ],
+      "connectivity_passes": 5
+    },
+    {
+      "network_size": 32,
+      "mode": "daim_persistent",
+      "n": 5,
+      "mean_ms": 8.7989379125,
+      "sd_ms": 0.17537405173720313,
+      "median_ms": 8.876888718750001,
+      "bootstrap_95_ci_ms": [
+        8.645603025,
+        8.920689981250002
+      ],
+      "connectivity_passes": 5
+    },
+    {
+      "network_size": 32,
+      "mode": "direct_ovs_cli",
+      "n": 5,
+      "mean_ms": 10.401637637499999,
+      "sd_ms": 0.14599708338810707,
+      "median_ms": 10.4305129375,
+      "bootstrap_95_ci_ms": [
+        10.2858298375,
+        10.5174454375
+      ],
+      "connectivity_passes": 5
+    },
+    {
+      "network_size": 32,
+      "mode": "direct_osken",
+      "n": 5,
+      "mean_ms": 5.28249708125,
+      "sd_ms": 0.2624858298088949,
+      "median_ms": 5.3485776875,
+      "bootstrap_95_ci_ms": [
+        5.079186737500001,
+        5.485807425
+      ],
+      "connectivity_passes": 5
+    },
+    {
+      "network_size": 64,
+      "mode": "daim_process_per_rule",
+      "n": 5,
+      "mean_ms": 16.9033046875,
+      "sd_ms": 0.31352496341773267,
+      "median_ms": 16.958328046875,
+      "bootstrap_95_ci_ms": [
+        16.663846934375,
+        17.141788503125003
+      ],
+      "connectivity_passes": 5
+    },
+    {
+      "network_size": 64,
+      "mode": "daim_persistent",
+      "n": 5,
+      "mean_ms": 13.377280084374998,
+      "sd_ms": 0.33816785073882316,
+      "median_ms": 13.350167296875,
+      "bootstrap_95_ci_ms": [
+        13.115286909375001,
+        13.628568118750001
+      ],
+      "connectivity_passes": 5
+    },
+    {
+      "network_size": 64,
+      "mode": "direct_ovs_cli",
+      "n": 5,
+      "mean_ms": 12.9590694125,
+      "sd_ms": 0.13046004942596132,
+      "median_ms": 13.005408187499999,
+      "bootstrap_95_ci_ms": [
+        12.841661709375,
+        13.035708256249999
+      ],
+      "connectivity_passes": 5
+    },
+    {
+      "network_size": 64,
+      "mode": "direct_osken",
+      "n": 5,
+      "mean_ms": 11.298405525,
+      "sd_ms": 0.4181235349393245,
+      "median_ms": 11.219602703125,
+      "bootstrap_95_ci_ms": [
+        11.014320228125001,
+        11.669812512499998
+      ],
+      "connectivity_passes": 5
+    }
+  ],
+  "comparisons": [
+    {
+      "network_size": 8,
+      "daim_persistent_vs_process_per_rule_ratio": 0.43227715789506116,
+      "daim_persistent_vs_direct_osken_ratio": 3.595575109040072
+    },
+    {
+      "network_size": 16,
+      "daim_persistent_vs_process_per_rule_ratio": 0.49248571405082886,
+      "daim_persistent_vs_direct_osken_ratio": 2.3392489397946155
+    },
+    {
+      "network_size": 32,
+      "daim_persistent_vs_process_per_rule_ratio": 0.6351754215263075,
+      "daim_persistent_vs_direct_osken_ratio": 1.6656777613245557
+    },
+    {
+      "network_size": 64,
+      "daim_persistent_vs_process_per_rule_ratio": 0.7914002812874515,
+      "daim_persistent_vs_direct_osken_ratio": 1.183997162677076
+    }
+  ],
+  "interpretation": "Four-way isolation of process-spawn cost, DAIM Core/ctypes cost, and native-controller OpenFlow cost, extending the original DAIM-vs-direct-ovs-ofctl microbenchmark per external review feedback. Not a flow-setup-latency or new-flow-arrival benchmark."
+}

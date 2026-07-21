@@ -45,3 +45,39 @@ unit tests.
    matches/actions.
 4. Packet-In event receiver and Core callback emission.
 5. Integration test: two hosts, one bridge, one installed DAIM flow.
+
+## Addendum: 19 July 2026 (stage-latency instrumentation)
+
+Adding `struct daim_learning_app_timing`/`daim_learning_app_last_timing()`
+(nanosecond `CLOCK_MONOTONIC` boundaries around the NO_RULE decision path,
+for the Packet-In stage-latency benchmark under `network/`) and linking
+`ovs_persistent_adapter.o` into `libdaim_core.so` prompted a first run of the
+existing ASan/UBSan build on the target Ubuntu 24.04 ARM64 host rather than
+only macOS ARM64, where two pre-existing, unrelated defects were found and
+fixed:
+
+- `ovs_persistent_adapter.c`: `OFPXMC_OPENFLOW_BASIC` (`0x8000`) was a plain
+  signed `int`; `<< 16` overflowed it (UBSan: undefined-behaviour left
+  shift). Fixed by giving the macro an unsigned literal (`0x8000u`).
+- `tests/test_learning_app.c`: the mock adapter created by
+  `daim_mock_adapter_create` was never destroyed before `daim_quit()`
+  (LeakSanitizer, Linux-only, so invisible on the prior macOS-only runs).
+  Fixed by calling `adapter.ops->destroy(&adapter)` before exit.
+
+All five test executables (`test_core`, `test_adapters`, `test_concurrency`,
+`test_learning_app`, `test_persistent_adapter`) now pass under both the
+normal build and ASan+UBSan+LeakSanitizer on Ubuntu 24.04 ARM64, in addition
+to the macOS ARM64 runs above.
+
+## Addendum: 20 July 2026 (wire-size helper for control-traffic accounting)
+
+`daim_ovs_wire_flow_mod_size()` was added to `ovs_persistent_adapter.c`/
+`.h`: a pure function reusing the existing `parse_flow_string`/
+`build_match`/`build_actions`/`build_flow_mod` encoder to compute the
+exact on-wire `OFPT_FLOW_MOD` byte length for a flow string without
+opening a connection, for the sustained-load control-plane profile
+experiment's control-byte accounting (`network/control_plane_load_
+profile.py`, `results/network/CONTROL_PLANE_LOAD_PROFILE_REPORT.md`). All
+five test executables, including `test_persistent_adapter`, continue to
+pass under both the normal build and ASan+UBSan on Ubuntu 24.04 ARM64
+with this addition.

@@ -8,12 +8,14 @@ PIC_BUILD := $(BUILD)/pic
 CORE_OBJ := $(BUILD)/daim_core.o
 MOCK_OBJ := $(BUILD)/mock_switch_adapter.o
 OVS_OBJ := $(BUILD)/ovs_switch_adapter.o
+PERSISTENT_OBJ := $(BUILD)/ovs_persistent_adapter.o
 LEARNING_OBJ := $(BUILD)/daim_learning_app.o
 PIC_CORE_OBJ := $(PIC_BUILD)/daim_core.o
 PIC_OVS_OBJ := $(PIC_BUILD)/ovs_switch_adapter.o
+PIC_PERSISTENT_OBJ := $(PIC_BUILD)/ovs_persistent_adapter.o
 PIC_LEARNING_OBJ := $(PIC_BUILD)/daim_learning_app.o
-TESTS := $(BUILD)/test_core $(BUILD)/test_adapters $(BUILD)/test_concurrency $(BUILD)/test_learning_app
-TOOLS := $(BUILD)/daim_ovs_flow
+TESTS := $(BUILD)/test_core $(BUILD)/test_adapters $(BUILD)/test_concurrency $(BUILD)/test_learning_app $(BUILD)/test_persistent_adapter
+TOOLS := $(BUILD)/daim_ovs_flow $(BUILD)/test_persistent_live $(BUILD)/daim_persistent_flow
 SHARED_LIB := $(BUILD)/libdaim_core.so
 
 .PHONY: all check clean
@@ -25,6 +27,7 @@ check: $(TESTS)
 	$(BUILD)/test_adapters
 	$(BUILD)/test_concurrency
 	$(BUILD)/test_learning_app
+	$(BUILD)/test_persistent_adapter
 
 $(BUILD):
 	mkdir -p $(BUILD)
@@ -41,6 +44,9 @@ $(MOCK_OBJ): src/mock_switch_adapter.c include/daim_switch_adapter.h | $(BUILD)
 $(OVS_OBJ): src/ovs_switch_adapter.c include/ovs_switch_adapter.h include/daim_switch_adapter.h | $(BUILD)
 	$(CC) $(CPPFLAGS) $(CFLAGS) -c $< -o $@
 
+$(PERSISTENT_OBJ): src/ovs_persistent_adapter.c include/ovs_persistent_adapter.h include/daim_switch_adapter.h | $(BUILD)
+	$(CC) $(CPPFLAGS) $(CFLAGS) -c $< -o $@
+
 $(LEARNING_OBJ): src/daim_learning_app.c include/daim_learning_app.h include/daim_core.h include/daim_switch_adapter.h | $(BUILD)
 	$(CC) $(CPPFLAGS) $(CFLAGS) -c $< -o $@
 
@@ -48,6 +54,9 @@ $(PIC_CORE_OBJ): src/daim_core.c include/daim_core.h | $(PIC_BUILD)
 	$(CC) $(CPPFLAGS) $(CFLAGS) -fPIC -c $< -o $@
 
 $(PIC_OVS_OBJ): src/ovs_switch_adapter.c include/ovs_switch_adapter.h include/daim_switch_adapter.h | $(PIC_BUILD)
+	$(CC) $(CPPFLAGS) $(CFLAGS) -fPIC -c $< -o $@
+
+$(PIC_PERSISTENT_OBJ): src/ovs_persistent_adapter.c include/ovs_persistent_adapter.h include/daim_switch_adapter.h | $(PIC_BUILD)
 	$(CC) $(CPPFLAGS) $(CFLAGS) -fPIC -c $< -o $@
 
 $(PIC_LEARNING_OBJ): src/daim_learning_app.c include/daim_learning_app.h include/daim_core.h include/daim_switch_adapter.h | $(PIC_BUILD)
@@ -65,10 +74,19 @@ $(BUILD)/test_concurrency: tests/test_concurrency.c $(CORE_OBJ)
 $(BUILD)/test_learning_app: tests/test_learning_app.c $(LEARNING_OBJ) $(CORE_OBJ) $(MOCK_OBJ)
 	$(CC) $(CPPFLAGS) $(CFLAGS) $^ $(LDLIBS) -o $@
 
+$(BUILD)/test_persistent_adapter: tests/test_persistent_adapter.c $(PERSISTENT_OBJ)
+	$(CC) $(CPPFLAGS) $(CFLAGS) $^ $(LDLIBS) -o $@
+
 $(BUILD)/daim_ovs_flow: tools/daim_ovs_flow.c $(OVS_OBJ)
 	$(CC) $(CPPFLAGS) $(CFLAGS) $^ $(LDLIBS) -o $@
 
-$(SHARED_LIB): $(PIC_CORE_OBJ) $(PIC_OVS_OBJ) $(PIC_LEARNING_OBJ)
+$(BUILD)/test_persistent_live: tools/test_persistent_live.c $(PERSISTENT_OBJ)
+	$(CC) $(CPPFLAGS) $(CFLAGS) $^ $(LDLIBS) -o $@
+
+$(BUILD)/daim_persistent_flow: tools/daim_persistent_flow.c $(PERSISTENT_OBJ)
+	$(CC) $(CPPFLAGS) $(CFLAGS) $^ $(LDLIBS) -o $@
+
+$(SHARED_LIB): $(PIC_CORE_OBJ) $(PIC_OVS_OBJ) $(PIC_PERSISTENT_OBJ) $(PIC_LEARNING_OBJ)
 	$(CC) -shared -fPIC $^ $(LDLIBS) -o $@
 
 clean:

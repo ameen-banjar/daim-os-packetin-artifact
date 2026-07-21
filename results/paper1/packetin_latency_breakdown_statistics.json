@@ -1,0 +1,155 @@
+{
+  "evidence_level": "measured_emulation",
+  "source": "results/network/packetin_latency_breakdown_raw.csv",
+  "bootstrap_seed": 20260719,
+  "bootstrap_resamples": 20000,
+  "stages": [
+    "dispatch",
+    "ctypes_in",
+    "decision",
+    "table_write",
+    "install_call",
+    "ctypes_out",
+    "packetout_send",
+    "confirm"
+  ],
+  "summary": [
+    {
+      "mode": "process_per_rule",
+      "n": 30,
+      "confirmed_n": 30,
+      "ping_success_n": 30,
+      "priming_ok_n": 30,
+      "installed_n": 30,
+      "mean_us": {
+        "dispatch": 89.99316666666667,
+        "ctypes_in": 18.4603,
+        "decision": 0.8958,
+        "table_write": 4.6822,
+        "install_call": 9812.655533333334,
+        "ctypes_out": 4.594433333333333,
+        "packetout_send": 38.73183333333334,
+        "confirm": 1789.4957666666667,
+        "total": 11759.667500000001
+      },
+      "sd_us": {
+        "dispatch": 35.33463977076723,
+        "ctypes_in": 5.064708972474338,
+        "decision": 0.315458221727018,
+        "table_write": 22.922497789816408,
+        "install_call": 1410.0438227504144,
+        "ctypes_out": 2.8829473027744914,
+        "packetout_send": 19.54921860169305,
+        "confirm": 421.54432295235273,
+        "total": 1582.166553997828
+      },
+      "bootstrap_95_ci_us": {
+        "dispatch": [
+          79.28963,
+          103.98127583333331
+        ],
+        "ctypes_in": [
+          16.9503675,
+          20.514633333333332
+        ],
+        "decision": [
+          0.7972,
+          1.0207333333333335
+        ],
+        "table_write": [
+          0.4570666666666666,
+          13.085200833333332
+        ],
+        "install_call": [
+          9419.50805666667,
+          10399.988158333334
+        ],
+        "ctypes_out": [
+          3.8999666666666664,
+          5.752832499999997
+        ],
+        "packetout_send": [
+          33.326326666666674,
+          46.73084166666666
+        ],
+        "confirm": [
+          1654.8156733333333,
+          1950.2558425000002
+        ],
+        "total": [
+          11296.604315833334,
+          12391.964985833332
+        ]
+      }
+    },
+    {
+      "mode": "persistent",
+      "n": 30,
+      "confirmed_n": 30,
+      "ping_success_n": 30,
+      "priming_ok_n": 30,
+      "installed_n": 30,
+      "mean_us": {
+        "dispatch": 87.47486666666666,
+        "ctypes_in": 13.912966666666666,
+        "decision": 0.5319,
+        "table_write": 0.4000000000000001,
+        "install_call": 23.914666666666665,
+        "ctypes_out": 2.236266666666667,
+        "packetout_send": 22.639566666666667,
+        "confirm": 2436.641433333333,
+        "total": 2587.8196666666668
+      },
+      "sd_us": {
+        "dispatch": 58.636092467972695,
+        "ctypes_in": 7.707374321381118,
+        "decision": 0.34693459087388157,
+        "table_write": 0.18290472364330693,
+        "install_call": 17.2461382470622,
+        "ctypes_out": 1.9100918182179065,
+        "packetout_send": 13.171090329236966,
+        "confirm": 907.4266684654976,
+        "total": 979.5123769184528
+      },
+      "bootstrap_95_ci_us": {
+        "dispatch": [
+          70.0617975,
+          111.3796699999999
+        ],
+        "ctypes_in": [
+          11.622533333333335,
+          16.99649833333333
+        ],
+        "decision": [
+          0.43043333333333333,
+          0.6696283333333309
+        ],
+        "table_write": [
+          0.34303333333333336,
+          0.4708
+        ],
+        "install_call": [
+          18.490995,
+          30.432963333333323
+        ],
+        "ctypes_out": [
+          1.6932333333333338,
+          3.0002675000000005
+        ],
+        "packetout_send": [
+          18.629795833333333,
+          27.780132499999993
+        ],
+        "confirm": [
+          2147.448555833333,
+          2775.7524433333333
+        ],
+        "total": [
+          2273.153584166667,
+          2958.998262499999
+        ]
+      }
+    }
+  ],
+  "interpretation": "Stage-decomposed latency of the reactive Packet-In path (real OpenFlow Packet-In -> NO_RULE -> DAIM Core decision -> confirmed installed OVS rule), 30 randomised-order repetitions per adapter mode. Extends the prior functional-only Packet-In acceptance test (STAGE_PACKETIN_BRIDGE_REPORT.md) with a real latency distribution, addressing the construct- and internal-validity threats named in the manuscript for this specific experiment."
+}

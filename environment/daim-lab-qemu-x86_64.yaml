@@ -1,0 +1,24 @@
+# Reproducible Lima configuration for the DAIM Linux laboratory -- x86-64
+# variant of daim-lab-qemu.yaml, used for task #20 (a second, x86-64
+# environment) and task #21 (an independent clean rerun, since this VM is
+# built only from this file and environment/provision_ubuntu.sh, with no
+# artifacts carried over from the ARM64 VM). Same release, same package
+# list, same specs as the ARM64 config; only the architecture and image
+# differ. On an ARM64 host this runs under QEMU's software (TCG) emulation,
+# not hardware-accelerated virtualisation, so it is much slower per
+# operation than daim-lab-qemu.yaml -- expect the same experiments to take
+# an order of magnitude longer here.
+images:
+  - location: "https://cloud-images.ubuntu.com/releases/24.04/release-20240821/ubuntu-24.04-server-cloudimg-amd64.img"
+    arch: "x86_64"
+    digest: "sha256:0e25ca6ee9f08ec5d4f9910054b66ae7163c6152e81a3e67689d89bd6e4dfa69"
+cpus: 4
+memory: 6GiB
+disk: 30GiB
+arch: x86_64
+vmType: qemu
+mounts:
+  - location: "~"
+    writable: true
+  - location: "/tmp/lima"
+    writable: true

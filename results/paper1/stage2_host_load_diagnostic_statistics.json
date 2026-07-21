@@ -1,0 +1,45 @@
+{
+  "evidence_level": "measured_emulation",
+  "source": "results/network/stage2_host_load_diagnostic_raw.csv",
+  "n_trials": 120,
+  "overall_pearson_r_install_vs_load_before": -0.0388232434251914,
+  "per_mode": {
+    "daim_process_per_rule": {
+      "n": 30,
+      "median_install_us": 15558.66853125,
+      "pearson_r_install_vs_load_before": -0.0024368894885917133,
+      "n_tail_trials": 0,
+      "tail_mean_load_before": null,
+      "non_tail_mean_load_before": 1.7893333333333339,
+      "tail_trial_indices": []
+    },
+    "daim_persistent": {
+      "n": 30,
+      "median_install_us": 12704.691796875,
+      "pearson_r_install_vs_load_before": 0.09495166648566081,
+      "n_tail_trials": 0,
+      "tail_mean_load_before": null,
+      "non_tail_mean_load_before": 1.9716666666666667,
+      "tail_trial_indices": []
+    },
+    "direct_ovs_cli": {
+      "n": 30,
+      "median_install_us": 12138.399484375,
+      "pearson_r_install_vs_load_before": 0.0925186275622638,
+      "n_tail_trials": 0,
+      "tail_mean_load_before": null,
+      "non_tail_mean_load_before": 1.8916666666666664,
+      "tail_trial_indices": []
+    },
+    "direct_osken": {
+      "n": 30,
+      "median_install_us": 11167.6435078125,
+      "pearson_r_install_vs_load_before": -0.19691997755429422,
+      "n_tail_trials": 0,
+      "tail_mean_load_before": null,
+      "non_tail_mean_load_before": 1.8450000000000002,
+      "tail_trial_indices": []
+    }
+  },
+  "interpretation": "Pearson correlation between each trial's install time and the 1-minute host load average sampled immediately before that trial started, plus a direct comparison of mean load before tail trials (install time > 2x that mode's own median, same threshold as STAGE2_FULL_COMPARE_PAIRED_REPORT.md) versus non-tail trials. A positive correlation and higher tail-trial load would support host load as a contributing cause; a weak or absent correlation would indicate the tail is not explained by 1-minute load average as measured here."
+}

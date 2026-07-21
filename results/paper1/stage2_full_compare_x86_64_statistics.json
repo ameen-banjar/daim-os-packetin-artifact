@@ -1,0 +1,330 @@
+{
+  "evidence_level": "measured_emulation",
+  "arm64_source": "results/network/stage2_full_compare_raw.csv",
+  "x86_64_source": "results/network/stage2_full_compare_x86_64_raw.csv",
+  "bootstrap_seed": 20260720,
+  "bootstrap_resamples": 20000,
+  "arm64_n_trials": 80,
+  "arm64_ping_failures": 0,
+  "x86_64_n_trials": 80,
+  "x86_64_ping_failures": 0,
+  "arm64_per_mode_size": {
+    "8": {
+      "daim_process_per_rule": {
+        "n": 5,
+        "mean_us": 13557.342825,
+        "bootstrap_95_ci_us": [
+          13495.973300000001,
+          13600.397700000001
+        ]
+      },
+      "daim_persistent": {
+        "n": 5,
+        "mean_us": 5860.529625,
+        "bootstrap_95_ci_us": [
+          5646.4538,
+          6111.84795
+        ]
+      },
+      "direct_ovs_cli": {
+        "n": 5,
+        "mean_us": 9890.496925,
+        "bootstrap_95_ci_us": [
+          9743.122800000001,
+          10052.641824999999
+        ]
+      },
+      "direct_osken": {
+        "n": 5,
+        "mean_us": 1629.9283,
+        "bootstrap_95_ci_us": [
+          1282.8419749999998,
+          1977.0146249999998
+        ]
+      }
+    },
+    "16": {
+      "daim_process_per_rule": {
+        "n": 5,
+        "mean_us": 13181.1967125,
+        "bootstrap_95_ci_us": [
+          13075.34675,
+          13276.685275
+        ]
+      },
+      "daim_persistent": {
+        "n": 5,
+        "mean_us": 6491.551074999999,
+        "bootstrap_95_ci_us": [
+          6367.973625,
+          6636.880012500001
+        ]
+      },
+      "direct_ovs_cli": {
+        "n": 5,
+        "mean_us": 9871.9707,
+        "bootstrap_95_ci_us": [
+          9829.4693125,
+          9921.0465
+        ]
+      },
+      "direct_osken": {
+        "n": 5,
+        "mean_us": 2775.057825,
+        "bootstrap_95_ci_us": [
+          2643.5888,
+          2906.5268499999997
+        ]
+      }
+    },
+    "32": {
+      "daim_process_per_rule": {
+        "n": 5,
+        "mean_us": 13852.76825,
+        "bootstrap_95_ci_us": [
+          13706.89605,
+          13998.139512500002
+        ]
+      },
+      "daim_persistent": {
+        "n": 5,
+        "mean_us": 8798.937912500001,
+        "bootstrap_95_ci_us": [
+          8645.603025,
+          8920.68998125
+        ]
+      },
+      "direct_ovs_cli": {
+        "n": 5,
+        "mean_us": 10401.6376375,
+        "bootstrap_95_ci_us": [
+          10285.8298375,
+          10517.4454375
+        ]
+      },
+      "direct_osken": {
+        "n": 5,
+        "mean_us": 5282.4970812500005,
+        "bootstrap_95_ci_us": [
+          5079.1867375,
+          5485.807425
+        ]
+      }
+    },
+    "64": {
+      "daim_process_per_rule": {
+        "n": 5,
+        "mean_us": 16903.3046875,
+        "bootstrap_95_ci_us": [
+          16663.846934375,
+          17141.788503125
+        ]
+      },
+      "daim_persistent": {
+        "n": 5,
+        "mean_us": 13377.280084375001,
+        "bootstrap_95_ci_us": [
+          13108.978125,
+          13648.94833125
+        ]
+      },
+      "direct_ovs_cli": {
+        "n": 5,
+        "mean_us": 12959.069412499999,
+        "bootstrap_95_ci_us": [
+          12841.661709375,
+          13035.70825625
+        ]
+      },
+      "direct_osken": {
+        "n": 5,
+        "mean_us": 11298.405525,
+        "bootstrap_95_ci_us": [
+          11014.320228125001,
+          11646.731903125003
+        ]
+      }
+    }
+  },
+  "x86_64_per_mode_size": {
+    "8": {
+      "daim_process_per_rule": {
+        "n": 5,
+        "mean_us": 91940.514375,
+        "bootstrap_95_ci_us": [
+          90374.427275,
+          93594.98574999999
+        ]
+      },
+      "daim_persistent": {
+        "n": 5,
+        "mean_us": 55946.72884999999,
+        "bootstrap_95_ci_us": [
+          54192.243449999994,
+          58149.594999999994
+        ]
+      },
+      "direct_ovs_cli": {
+        "n": 5,
+        "mean_us": 90935.65520000001,
+        "bootstrap_95_ci_us": [
+          89734.74979999999,
+          92391.78864999999
+        ]
+      },
+      "direct_osken": {
+        "n": 5,
+        "mean_us": 29617.673349999997,
+        "bootstrap_95_ci_us": [
+          25074.20445,
+          35407.4768
+        ]
+      }
+    },
+    "16": {
+      "daim_process_per_rule": {
+        "n": 5,
+        "mean_us": 93200.35321249999,
+        "bootstrap_95_ci_us": [
+          91597.1635375,
+          95400.7964125
+        ]
+      },
+      "daim_persistent": {
+        "n": 5,
+        "mean_us": 67965.5001375,
+        "bootstrap_95_ci_us": [
+          65794.0560625,
+          71151.3364625
+        ]
+      },
+      "direct_ovs_cli": {
+        "n": 5,
+        "mean_us": 89500.21085,
+        "bootstrap_95_ci_us": [
+          87622.3406375,
+          91181.5375375
+        ]
+      },
+      "direct_osken": {
+        "n": 5,
+        "mean_us": 44978.226,
+        "bootstrap_95_ci_us": [
+          39206.6287875,
+          50559.7834
+        ]
+      }
+    },
+    "32": {
+      "daim_process_per_rule": {
+        "n": 5,
+        "mean_us": 102824.67254375,
+        "bootstrap_95_ci_us": [
+          100947.32273125,
+          105022.4686375
+        ]
+      },
+      "daim_persistent": {
+        "n": 5,
+        "mean_us": 86263.21848125,
+        "bootstrap_95_ci_us": [
+          85830.40331250001,
+          86686.28801875
+        ]
+      },
+      "direct_ovs_cli": {
+        "n": 5,
+        "mean_us": 102185.04293125,
+        "bootstrap_95_ci_us": [
+          98323.83381250003,
+          105711.740475
+        ]
+      },
+      "direct_osken": {
+        "n": 5,
+        "mean_us": 87721.623425,
+        "bootstrap_95_ci_us": [
+          84144.45384375,
+          92990.94679375
+        ]
+      }
+    },
+    "64": {
+      "daim_process_per_rule": {
+        "n": 5,
+        "mean_us": 116695.134309375,
+        "bootstrap_95_ci_us": [
+          116339.091571875,
+          117046.81740000001
+        ]
+      },
+      "daim_persistent": {
+        "n": 5,
+        "mean_us": 133245.148553125,
+        "bootstrap_95_ci_us": [
+          129326.97429687499,
+          137517.1083625
+        ]
+      },
+      "direct_ovs_cli": {
+        "n": 5,
+        "mean_us": 121627.96511250001,
+        "bootstrap_95_ci_us": [
+          116206.599609375,
+          127049.33061562499
+        ]
+      },
+      "direct_osken": {
+        "n": 5,
+        "mean_us": 170734.50911249997,
+        "bootstrap_95_ci_us": [
+          167112.776334375,
+          174999.07395624998
+        ]
+      }
+    }
+  },
+  "mode_ratios_by_architecture": {
+    "8": {
+      "arm64": {
+        "persistent_over_process_per_rule": 0.4322771578950612,
+        "persistent_over_direct_osken": 3.5955751090400727
+      },
+      "x86_64": {
+        "persistent_over_process_per_rule": 0.6085100701287,
+        "persistent_over_direct_osken": 1.8889643419610473
+      }
+    },
+    "16": {
+      "arm64": {
+        "persistent_over_process_per_rule": 0.4924857140508288,
+        "persistent_over_direct_osken": 2.339248939794615
+      },
+      "x86_64": {
+        "persistent_over_process_per_rule": 0.7292408000057289,
+        "persistent_over_direct_osken": 1.511075606616855
+      }
+    },
+    "32": {
+      "arm64": {
+        "persistent_over_process_per_rule": 0.6351754215263077,
+        "persistent_over_direct_osken": 1.665677761324556
+      },
+      "x86_64": {
+        "persistent_over_process_per_rule": 0.8389350177074145,
+        "persistent_over_direct_osken": 0.9833746243308311
+      }
+    },
+    "64": {
+      "arm64": {
+        "persistent_over_process_per_rule": 0.7914002812874517,
+        "persistent_over_direct_osken": 1.1839971626770762
+      },
+      "x86_64": {
+        "persistent_over_process_per_rule": 1.1418226590311265,
+        "persistent_over_direct_osken": 0.7804230629516581
+      }
+    }
+  },
+  "interpretation": "Absolute install times are not comparable across architectures here: x86-64 runs under QEMU TCG software emulation on the same ARM64 host (no physical x86-64 machine was available), inflating per-operation cost by roughly an order of magnitude and unevenly across modes. The informative comparison is whether each mode's relative ratio to the others replicates in direction and rough magnitude across architectures."
+}
