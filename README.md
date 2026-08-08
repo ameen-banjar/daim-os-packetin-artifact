@@ -148,3 +148,6 @@ Apache License 2.0 (matching the DAIM-OS specification). See `LICENSE`.
 
 See `CITATION.cff`. If you use this artifact, please also cite the paper
 once published, and the DAIM-OS specification (DOI above) that it implements.
+
+Version 1.1.0 is archived on Zenodo: https://doi.org/10.5281/zenodo.21855229.
+The version-independent concept DOI is https://doi.org/10.5281/zenodo.21441309.
