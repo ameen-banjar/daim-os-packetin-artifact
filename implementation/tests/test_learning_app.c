@@ -31,6 +31,20 @@ int main(void)
     assert(flows_installed == 0);
     assert(table_count == 1);
 
+    /* The flood decision above still ran the full pipeline: entry/decision/
+       table-write/install/exit must be populated and monotonic, with
+       installed == 0 since the destination was unknown. */
+    {
+        struct daim_learning_app_timing t;
+        daim_learning_app_last_timing(&t);
+        assert(t.entry_ns > 0);
+        assert(t.decision_done_ns >= t.entry_ns);
+        assert(t.table_write_done_ns >= t.decision_done_ns);
+        assert(t.install_done_ns >= t.table_write_done_ns);
+        assert(t.exit_ns >= t.install_done_ns);
+        assert(t.installed == 0);
+    }
+
     /* B replies on port 2; A is now known on port 1, so a flow is installed. */
     memset(&info, 0, sizeof(info));
     info.in_port = 2;
@@ -47,6 +61,18 @@ int main(void)
     assert(stats.flows_added == 1);
     assert(strcmp(stats.last_bridge, "s1") == 0);
 
+    /* This second call installed a flow: installed == 1 and timestamps are
+       still monotonic. */
+    {
+        struct daim_learning_app_timing t;
+        daim_learning_app_last_timing(&t);
+        assert(t.installed == 1);
+        assert(t.decision_done_ns >= t.entry_ns);
+        assert(t.table_write_done_ns >= t.decision_done_ns);
+        assert(t.install_done_ns >= t.table_write_done_ns);
+        assert(t.exit_ns >= t.install_done_ns);
+    }
+
     /* A second bridge keeps an independent MAC table (unknown again). */
     memset(&info, 0, sizeof(info));
     info.in_port = 5;
@@ -56,6 +82,7 @@ int main(void)
 
     assert(daim_core_table_count(DAIM_PACKET_FORWARDING_TABLE) == 3);
 
+    adapter.ops->destroy(&adapter);
     daim_quit();
     return 0;
 }

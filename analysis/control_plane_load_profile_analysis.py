@@ -45,8 +45,8 @@ def draw_chart(summary, path):
     width, height = 1400, 480
     image = Image.new("RGB", (width, height), "white")
     draw = ImageDraw.Draw(image)
-    font = ImageFont.load_default(size=20)
-    small = ImageFont.load_default(size=16)
+    font = ImageFont.load_default(size=34)
+    small = ImageFont.load_default(size=30)
 
     panel_w = width // len(METRICS)
     for pi, (key, label, scale) in enumerate(METRICS):

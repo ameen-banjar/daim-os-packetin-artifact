@@ -1,9 +1,12 @@
+#define _POSIX_C_SOURCE 200809L
+
 #include "daim_learning_app.h"
 #include "daim_core.h"
 
 #include <pthread.h>
 #include <stdio.h>
 #include <string.h>
+#include <time.h>
 
 #define MAX_ENTRIES 4096
 #define MAX_BRIDGE_LEN 64
@@ -24,9 +27,17 @@ struct app_state {
     uint16_t decided_port;
     uint64_t no_rule_events;
     uint64_t flows_installed;
+    struct daim_learning_app_timing last_timing;
 };
 
 static struct app_state g_app;
+
+static uint64_t monotonic_ns(void)
+{
+    struct timespec ts;
+    clock_gettime(CLOCK_MONOTONIC, &ts);
+    return (uint64_t)ts.tv_sec * 1000000000ULL + (uint64_t)ts.tv_nsec;
+}
 
 static uint16_t lookup_port(const char *bridge, const uint8_t mac[MAC_ADDR_LEN])
 {
@@ -101,6 +112,7 @@ static void on_no_rule(uint16_t sig_type, void *data)
 
     learn(g_app.current_bridge, info->mac_src, info->in_port);
     out_port = lookup_port(g_app.current_bridge, info->mac_dst);
+    g_app.last_timing.decision_done_ns = monotonic_ns();
 
     memset(&entry, 0, sizeof(entry));
     entry.in_port = info->in_port;
@@ -118,10 +130,14 @@ static void on_no_rule(uint16_t sig_type, void *data)
     memcpy(buf + sizeof(entry), &action, sizeof(action));
 
     daim_table_write(DAIM_PACKET_FORWARDING_TABLE, buf, (uint32_t)sizeof(buf), ADD);
+    g_app.last_timing.table_write_done_ns = monotonic_ns();
 
+    g_app.last_timing.installed = 0;
     if (out_port != PORT_FLOOD) {
         install_flow(g_app.current_bridge, info->in_port, info->mac_dst, out_port);
+        g_app.last_timing.installed = 1;
     }
+    g_app.last_timing.install_done_ns = monotonic_ns();
 
     g_app.decided_port = out_port;
 }
@@ -140,6 +156,7 @@ int daim_learning_app_init(struct daim_switch_adapter *adapter)
     g_app.no_rule_events = 0;
     g_app.flows_installed = 0;
     memset(g_app.current_bridge, 0, sizeof(g_app.current_bridge));
+    memset(&g_app.last_timing, 0, sizeof(g_app.last_timing));
     pthread_mutex_unlock(&g_app.lock);
     daim_signal(NO_RULE, on_no_rule);
     return 0;
@@ -152,11 +169,27 @@ uint16_t daim_learning_app_packet_in(const char *bridge, struct no_rule_packet_i
         return PORT_NONE;
     }
     pthread_mutex_lock(&g_app.lock);
+    g_app.last_timing.entry_ns = monotonic_ns();
     snprintf(g_app.current_bridge, MAX_BRIDGE_LEN, "%s", bridge);
     daim_core_emit(NO_RULE, info);
     result = g_app.decided_port;
+    g_app.last_timing.exit_ns = monotonic_ns();
     pthread_mutex_unlock(&g_app.lock);
     return result;
+}
+
+void daim_learning_app_last_timing(struct daim_learning_app_timing *out)
+{
+    if (!out) {
+        return;
+    }
+    if (!g_app.ready) {
+        memset(out, 0, sizeof(*out));
+        return;
+    }
+    pthread_mutex_lock(&g_app.lock);
+    *out = g_app.last_timing;
+    pthread_mutex_unlock(&g_app.lock);
 }
 
 void daim_learning_app_stats(uint64_t *no_rule_events, uint64_t *flows_installed, size_t *table_count)

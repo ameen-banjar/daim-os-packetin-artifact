@@ -42,8 +42,8 @@ def draw_chart(summary, path):
     width, height = 1600, 1000
     image = Image.new("RGB", (width, height), "white")
     draw = ImageDraw.Draw(image)
-    font = ImageFont.load_default(size=22)
-    small = ImageFont.load_default(size=18)
+    font = ImageFont.load_default(size=36)
+    small = ImageFont.load_default(size=31)
     left, top, right, bottom = 140, 80, 1500, 800
     draw.line((left, top, left, bottom), fill="#222222", width=3)
     draw.line((left, bottom, right, bottom), fill="#222222", width=3)

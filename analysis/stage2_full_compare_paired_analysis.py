@@ -61,15 +61,15 @@ def bootstrap_median_ci(values, rng):
 
 
 def draw_chart(per_mode, paired, path):
-    width, height = 1650, 620
+    width, height = 1500, 1250
     image = Image.new("RGB", (width, height), "white")
     draw = ImageDraw.Draw(image)
-    font = ImageFont.load_default(size=20)
-    small = ImageFont.load_default(size=15)
+    font = ImageFont.load_default(size=34)
+    small = ImageFont.load_default(size=30)
 
     # Left panel: per-mode mean install time vs. size, with CI whiskers.
-    left0, left1 = 90, 720
-    top, bottom = 40, 460
+    left0, left1 = 120, 1380
+    top, bottom = 70, 500
     draw.line((left0, top, left0, bottom), fill="#222222", width=2)
     draw.line((left0, bottom, left1, bottom), fill="#222222", width=2)
     ymax = max(per_mode[s][m]["bootstrap_95_ci_us"][1] for s in SIZES for m in MODES) * 1.1
@@ -98,13 +98,14 @@ def draw_chart(per_mode, paired, path):
         draw.rectangle((left0, cy, left0 + 16, cy + 12), fill=MODE_COLORS[m])
         draw.text((left0 + 22, cy - 2), MODE_LABELS[m], fill="#222222", font=small)
 
-    # Right panel: paired mean differences (persistent - other) per size, forest-plot style.
-    right0, right1 = 850, 1610
+    # Lower panel: paired mean differences (persistent - other), forest-plot style.
+    right0, right1 = 120, 1380
+    top, bottom = 670, 1100
     all_diffs = [paired[s][f"{a}_minus_{b}"]["bootstrap_95_ci_us"] for s in SIZES for a, b in PAIRS]
     dmax = max(abs(v) for ci in all_diffs for v in ci) * 1.15
 
     def xd_of(v):
-        return right0 + 200 + (v / dmax) * 200
+        return (right0 + right1) / 2 + (v / dmax) * 430
 
     draw.line((xd_of(0), top, xd_of(0), bottom), fill="#222222", width=2)
     row_h = (bottom - top) / (len(SIZES) * len(PAIRS))
@@ -123,9 +124,9 @@ def draw_chart(per_mode, paired, path):
             row += 1
     draw.text((right0, bottom + 30), "Paired mean difference vs. persistent (us), 95% CI; 0 = no difference", fill="#222222", font=font)
     for i, (a, b) in enumerate(PAIRS):
-        cy = top + i * 22
-        draw.rectangle((right0 + 420, cy, right0 + 436, cy + 12), fill=pair_colors[i])
-        draw.text((right0 + 442, cy - 2), f"persistent - {MODE_LABELS[b]}", fill="#222222", font=small)
+        cy = top + i * 30
+        draw.rectangle((right0 + 670, cy, right0 + 690, cy + 18), fill=pair_colors[i])
+        draw.text((right0 + 700, cy - 4), f"persistent - {MODE_LABELS[b]}", fill="#222222", font=small)
 
     image.save(path)
 

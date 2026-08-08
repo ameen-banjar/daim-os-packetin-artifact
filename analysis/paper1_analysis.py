@@ -37,8 +37,8 @@ def draw_chart(rows, path):
     width, height = 1500, 900
     image = Image.new("RGB", (width, height), "white")
     draw = ImageDraw.Draw(image)
-    font = ImageFont.load_default(size=24)
-    small = ImageFont.load_default(size=20)
+    font = ImageFont.load_default(size=36)
+    small = ImageFont.load_default(size=30)
     left, top, right, bottom = 130, 80, 1420, 760
     draw.line((left, top, left, bottom), fill="#222222", width=3)
     draw.line((left, bottom, right, bottom), fill="#222222", width=3)
@@ -132,9 +132,9 @@ def draw_architecture(path):
     width, height = 1700, 1010
     image = Image.new("RGB", (width, height), "white")
     draw = ImageDraw.Draw(image)
-    title_font = ImageFont.load_default(size=26)
-    font = ImageFont.load_default(size=20)
-    small = ImageFont.load_default(size=17)
+    title_font = ImageFont.load_default(size=42)
+    font = ImageFont.load_default(size=30)
+    small = ImageFont.load_default(size=32)
 
     draw.text((20, 20), "DAIM-OS table-and-signal control path: component architecture", fill="#111111", font=title_font)
 
@@ -147,12 +147,12 @@ def draw_architecture(path):
     adapter = (1040, 800, 1380, 890)
 
     box(draw, host, "Mininet host (h1)", font)
-    box(draw, switch, "Open vSwitch bridge\n(OpenFlow 1.3)", font)
-    box(draw, controller, "Os-Ken controller\n(daim_bridge_controller.py)", font)
-    box(draw, bridge, "ctypes bridge\n(daim_core_bridge.py)", font)
-    box(draw, core, "libdaim_core.so\nDAIM Core: tables + NO_RULE signal", font, fill="#FDF3E7", outline="#C45A24")
-    box(draw, app, "Learning application\n(daim_learning_app.c)\nwrites PACKET_FORWARDING_TABLE", small, fill="#FDF3E7", outline="#C45A24")
-    box(draw, adapter, "OVS adapter\n(posix_spawnp -> ovs-ofctl)", font, fill="#FDF3E7", outline="#C45A24")
+    box(draw, switch, "OVS switch\nOpenFlow 1.3", font)
+    box(draw, controller, "Os-Ken\ncontroller", font)
+    box(draw, bridge, "Python bridge\nctypes", font)
+    box(draw, core, "DAIM Core\nTables + NO_RULE", font, fill="#FDF3E7", outline="#C45A24")
+    box(draw, app, "Learning application\nWrites forwarding table", small, fill="#FDF3E7", outline="#C45A24")
+    box(draw, adapter, "OVS adapter\nPersistent or CLI", font, fill="#FDF3E7", outline="#C45A24")
 
     h_arrow(draw, host[2], switch[0], 178, "traffic", small, label_dy=-26)
 
@@ -169,17 +169,17 @@ def draw_architecture(path):
     v_arrow(draw, sx, 275, switch[3], "", small, color="#666666")
     draw.text((sx + 30, 282), "PacketOut (buffered packet)", fill="#666666", font=small)
 
-    v_arrow(draw, 1010, controller[3], bridge[1], "packet_in(bridge, in_port,\nmac_src, mac_dst)", small)
-    v_arrow(draw, 1010, bridge[3], core[1], "daim_core_emit(NO_RULE, info)", small)
+    v_arrow(draw, 1010, controller[3], bridge[1], "Packet-In fields", small)
+    v_arrow(draw, 1010, bridge[3], core[1], "Emit NO_RULE", small)
 
     # core -> app: right-angle connector down and left, single label
     core_app_y = 745
     draw.line((core[0] + 60, core[3], core[0] + 60, core_app_y), fill="#333333", width=3)
     draw.line((core[0] + 60, core_app_y, app[0] + 170, core_app_y), fill="#333333", width=3)
-    v_arrow(draw, app[0] + 170, core_app_y, app[1], "invoke registered NO_RULE handler", small, label_dx=14)
+    v_arrow(draw, app[0] + 170, core_app_y, app[1], "Invoke handler", small, label_dx=14)
 
     # app -> adapter
-    h_arrow(draw, app[2], adapter[0], 845, "flow_add(bridge, match+action)\nif destination known", small, label_dy=-40)
+    h_arrow(draw, app[2], adapter[0], 845, "Install decision", small, label_dy=-40)
 
     # adapter -> switch (installs rule): long return arrow up the right side,
     # then left along a lane above the title-adjacent margin and down into
@@ -190,7 +190,7 @@ def draw_architecture(path):
     draw.line((x_return, 845, x_return, 65), fill="#2457A6", width=3)
     draw.line((x_return, 65, sw_target, 65), fill="#2457A6", width=3)
     v_arrow(draw, sw_target, 65, switch[1], "", small, color="#2457A6")
-    draw.text((1360, 480), "ovs-ofctl\nadd-flow\n(installs\nrule)", fill="#2457A6", font=small)
+    draw.text((1370, 480), "Flow-Mod\ninstalls rule", fill="#2457A6", font=small)
 
     draw.text((20, 950), "Grey = controller-owned wire path. Orange boxes = DAIM Core/application/adapter (this paper's implemented subset). The table-write step is shown in Figure 2.", fill="#555555", font=small)
     image.save(path)
@@ -200,9 +200,9 @@ def draw_sequence(path):
     width, height = 1700, 1150
     image = Image.new("RGB", (width, height), "white")
     draw = ImageDraw.Draw(image)
-    title_font = ImageFont.load_default(size=26)
-    font = ImageFont.load_default(size=18)
-    small = ImageFont.load_default(size=16)
+    title_font = ImageFont.load_default(size=42)
+    font = ImageFont.load_default(size=32)
+    small = ImageFont.load_default(size=32)
 
     draw.text((20, 20), "Packet-In -> NO_RULE -> installed OVS rule: message sequence", fill="#111111", font=title_font)
 
@@ -223,15 +223,15 @@ def draw_sequence(path):
 
     xs = {name: x for name, x in actors}
     steps = [
-        ("Host", "OVS switch", "ICMP/ARP packet", False),
-        ("OVS switch", "Os-Ken\ncontroller", "Packet-In (no matching flow)", False),
-        ("Os-Ken\ncontroller", "ctypes bridge", "packet_in(bridge, in_port, mac_src, mac_dst)", False),
-        ("ctypes bridge", "DAIM Core\n(libdaim_core.so)", "daim_core_emit(NO_RULE, info)", False),
-        ("DAIM Core\n(libdaim_core.so)", "Learning\napplication", "invoke registered NO_RULE handler", False),
-        ("Learning\napplication", "DAIM Core\n(libdaim_core.so)", "daim_table_write(FORWARDING_TABLE, ADD)", True),
-        ("Learning\napplication", "OVS adapter", "flow_add(bridge, match+action) [if destination known]", False),
-        ("OVS adapter", "OVS switch", "ovs-ofctl add-flow (installs rule)", False),
-        ("Os-Ken\ncontroller", "OVS switch", "PacketOut (buffered packet)", True),
+        ("Host", "OVS switch", "1  Packet", False),
+        ("OVS switch", "Os-Ken\ncontroller", "2  Packet-In", False),
+        ("Os-Ken\ncontroller", "ctypes bridge", "3  Bridge callback", False),
+        ("ctypes bridge", "DAIM Core\n(libdaim_core.so)", "4  Emit NO_RULE", False),
+        ("DAIM Core\n(libdaim_core.so)", "Learning\napplication", "5  Invoke handler", False),
+        ("Learning\napplication", "DAIM Core\n(libdaim_core.so)", "6  Write forwarding table", True),
+        ("Learning\napplication", "OVS adapter", "7  Install decision", False),
+        ("OVS adapter", "OVS switch", "8  Flow-Mod", False),
+        ("Os-Ken\ncontroller", "OVS switch", "9  PacketOut", True),
     ]
     y = 190
     step_h = 100
@@ -248,10 +248,10 @@ def draw_topology(path):
     width, height = 1700, 1020
     image = Image.new("RGB", (width, height), "white")
     draw = ImageDraw.Draw(image)
-    title_font = ImageFont.load_default(size=24)
-    font = ImageFont.load_default(size=19)
-    small = ImageFont.load_default(size=17)
-    tiny = ImageFont.load_default(size=15)
+    title_font = ImageFont.load_default(size=40)
+    font = ImageFont.load_default(size=30)
+    small = ImageFont.load_default(size=30)
+    tiny = ImageFont.load_default(size=27)
 
     # Panel A: two-switch Packet-In experiment topology (Section 5.3)
     draw.text((40, 30), "(a) Packet-In experiment topology (Section 5.3)", fill="#111111", font=title_font)
@@ -312,9 +312,9 @@ def draw_comparison(path):
     width, height = 1700, 760
     image = Image.new("RGB", (width, height), "white")
     draw = ImageDraw.Draw(image)
-    title_font = ImageFont.load_default(size=24)
-    font = ImageFont.load_default(size=18)
-    small = ImageFont.load_default(size=16)
+    title_font = ImageFont.load_default(size=40)
+    font = ImageFont.load_default(size=32)
+    small = ImageFont.load_default(size=30)
 
     draw.text((20, 20), "DAIM literature (2013-2018) versus this paper's executable artifact (2026)", fill="#111111", font=title_font)
 

@@ -70,16 +70,16 @@ def summarise(path, rng):
 
 
 def draw_chart(arm, x86, path):
-    width, height = 1500, 620
+    width, height = 1500, 1250
     image = Image.new("RGB", (width, height), "white")
     draw = ImageDraw.Draw(image)
-    font = ImageFont.load_default(size=20)
-    small = ImageFont.load_default(size=15)
+    font = ImageFont.load_default(size=34)
+    small = ImageFont.load_default(size=30)
 
     for panel, (data, title) in enumerate([(arm, "ARM64 (hvf-accelerated)"), (x86, "x86-64 (TCG-emulated)")]):
-        px0 = 90 + panel * 720
-        px1 = px0 + 600
-        top, bottom = 60, 460
+        px0, px1 = 120, 1380
+        top = 70 + panel * 560
+        bottom = top + 430
         draw.line((px0, top, px0, bottom), fill="#222222", width=2)
         draw.line((px0, bottom, px1, bottom), fill="#222222", width=2)
         ymax = max(data[s][m]["bootstrap_95_ci_us"][1] for s in SIZES for m in MODES) * 1.1
@@ -106,8 +106,8 @@ def draw_chart(arm, x86, path):
         draw.text((px0, bottom + 30), "Switches (n); mean install time (us, note differing y-scales)", fill="#222222", font=small)
 
     for i, m in enumerate(MODES):
-        cy = height - 50
-        cx = 90 + i * 350
+        cy = height - 55
+        cx = 80 + i * 350
         draw.rectangle((cx, cy, cx + 16, cy + 12), fill=MODE_COLORS[m])
         draw.text((cx + 22, cy - 2), MODE_LABELS[m], fill="#222222", font=small)
 
