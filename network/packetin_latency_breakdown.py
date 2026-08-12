@@ -17,9 +17,9 @@ One switch, three hosts (h1, h2, h3). Each repetition:
      install. daim_bridge_controller.py matches this event by parsed IPv4
      destination and reports per-stage timestamps as one JSON line.
 
-30 repetitions per adapter mode (process_per_rule, persistent), 60 trials
-total, run in one shuffled (seeded) order so mode is not confounded with
-host/VM drift over the run.
+30 repetitions per mode (DAIM process-per-rule, DAIM persistent, and a matched
+DAIM-free reactive Os-Ken learning switch), 90 trials total, run in one
+shuffled (seeded) order so mode is not confounded with host/VM drift.
 """
 import csv
 import json
@@ -38,9 +38,12 @@ from mininet.topo import Topo
 
 ROOT = Path(__file__).resolve().parents[1]
 CONTROLLER_APP = ROOT / "network/daim_bridge_controller.py"
+REACTIVE_BASELINE_APP = ROOT / "network/osken_reactive_baseline_controller.py"
 RAW = ROOT / "results/network/packetin_latency_breakdown_raw.csv"
-MODES = ["process_per_rule", "persistent"]
-REPETITIONS = 30
+MODES = os.environ.get(
+    "PACKETIN_MODES", "process_per_rule,persistent,reactive_osken"
+).split(",")
+REPETITIONS = int(os.environ.get("PACKETIN_REPETITIONS", "30"))
 SEED = 20260719
 OFP_PORT = 6653
 PERSISTENT_BASE_PORT = 17200
@@ -75,6 +78,7 @@ def read_json_lines_until(proc, watchdog_fired, predicate, timeout_s):
         try:
             event = json.loads(line)
         except json.JSONDecodeError:
+            events.append({"event": "raw_output", "line": line})
             continue
         events.append(event)
         if predicate(event):
@@ -86,6 +90,8 @@ def run_trial(mode, repetition, persistent_port):
     subprocess.run(["mn", "-c"], check=False, stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL)
     subprocess.run(["pkill", "-9", "-f", str(CONTROLLER_APP)], check=False,
                     stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL)
+    subprocess.run(["pkill", "-9", "-f", str(REACTIVE_BASELINE_APP)], check=False,
+                    stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL)
     time.sleep(0.2)
 
     env = dict(os.environ)
@@ -94,8 +100,9 @@ def run_trial(mode, repetition, persistent_port):
     if mode == "persistent":
         env["DAIM_PERSISTENT_PORT"] = str(persistent_port)
 
+    controller_app = REACTIVE_BASELINE_APP if mode == "reactive_osken" else CONTROLLER_APP
     controller = subprocess.Popen(
-        ["osken-manager", str(CONTROLLER_APP), "--ofp-tcp-listen-port", str(OFP_PORT)],
+        ["osken-manager", str(controller_app), "--ofp-tcp-listen-port", str(OFP_PORT)],
         stdout=subprocess.PIPE, stderr=subprocess.STDOUT, text=True, bufsize=1, env=env,
     )
     net = None
@@ -118,13 +125,16 @@ def run_trial(mode, repetition, persistent_port):
             controller_targets.append(f"tcp:127.0.0.1:{persistent_port}")
         subprocess.run(["ovs-vsctl", "set-controller", "s1", *controller_targets], check=True)
 
-        ready, _ = read_json_lines_until(
+        ready, ready_events = read_json_lines_until(
             controller, watchdog_fired,
             lambda e: e.get("event") in ("ready", "adapter_error"),
             READY_TIMEOUT_S,
         )
         if ready is None:
-            raise RuntimeError(f"{mode} rep {repetition}: controller never became ready")
+            raise RuntimeError(
+                f"{mode} rep {repetition}: controller never became ready; "
+                f"last output={ready_events[-12:]}"
+            )
         if ready.get("event") == "adapter_error":
             raise RuntimeError(f"{mode} rep {repetition}: adapter_error: {ready.get('detail')}")
         time.sleep(0.15)  # grace period: table-miss FlowMod applied on the switch
@@ -185,7 +195,11 @@ def main():
         row["trial_order"] = order
         rows.append(row)
 
-    fieldnames = list(rows[0])
+    fieldnames = []
+    for row in rows:
+        for key in row:
+            if key not in fieldnames:
+                fieldnames.append(key)
     with RAW.open("w", newline="") as handle:
         writer = csv.DictWriter(handle, fieldnames=fieldnames)
         writer.writeheader()

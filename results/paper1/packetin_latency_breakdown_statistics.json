@@ -3,16 +3,7 @@
   "source": "results/network/packetin_latency_breakdown_raw.csv",
   "bootstrap_seed": 20260719,
   "bootstrap_resamples": 20000,
-  "stages": [
-    "dispatch",
-    "ctypes_in",
-    "decision",
-    "table_write",
-    "install_call",
-    "ctypes_out",
-    "packetout_send",
-    "confirm"
-  ],
+  "common_completion_semantics": "Packet-In handler entry to rule observable by ovs-ofctl dump-flows",
   "summary": [
     {
       "mode": "process_per_rule",
@@ -21,64 +12,119 @@
       "ping_success_n": 30,
       "priming_ok_n": 30,
       "installed_n": 30,
-      "mean_us": {
-        "dispatch": 89.99316666666667,
-        "ctypes_in": 18.4603,
-        "decision": 0.8958,
-        "table_write": 4.6822,
-        "install_call": 9812.655533333334,
-        "ctypes_out": 4.594433333333333,
-        "packetout_send": 38.73183333333334,
-        "confirm": 1789.4957666666667,
-        "total": 11759.667500000001
+      "stage_statistics": {
+        "controller": {
+          "n": 30,
+          "mean_us": 124.64393333333331,
+          "sd_us": 77.77449416629457,
+          "median_us": 96.158,
+          "p95_us": 291.7900999999999,
+          "p99_us": 361.4584700000001,
+          "max_us": 384.095,
+          "bootstrap_mean_95_ci_us": [
+            99.58605833333333,
+            153.99796333333333
+          ]
+        },
+        "interop": {
+          "n": 30,
+          "mean_us": 33.27086666666666,
+          "sd_us": 23.883366362579533,
+          "median_us": 23.103,
+          "p95_us": 95.54829999999995,
+          "p99_us": 108.69599000000001,
+          "max_us": 111.558,
+          "bootstrap_mean_95_ci_us": [
+            25.96661083333333,
+            42.54327833333331
+          ]
+        },
+        "decision": {
+          "n": 30,
+          "mean_us": 1.1028999999999998,
+          "sd_us": 0.7150028381906532,
+          "median_us": 0.833,
+          "p95_us": 2.00055,
+          "p99_us": 3.6276100000000016,
+          "max_us": 4.292,
+          "bootstrap_mean_95_ci_us": [
+            0.8905658333333333,
+            1.3835341666666665
+          ]
+        },
+        "table_write": {
+          "n": 30,
+          "mean_us": 0.4848,
+          "sd_us": 0.21673110624410402,
+          "median_us": 0.458,
+          "p95_us": 0.9852999999999996,
+          "p99_us": 1.1009300000000002,
+          "max_us": 1.125,
+          "bootstrap_mean_95_ci_us": [
+            0.414,
+            0.5653666666666666
+          ]
+        },
+        "install_call": {
+          "n": 30,
+          "mean_us": 12013.352733333333,
+          "sd_us": 3163.915969482765,
+          "median_us": 10257.7785,
+          "p95_us": 17781.198999999993,
+          "p99_us": 19372.14595,
+          "max_us": 19668.046,
+          "bootstrap_mean_95_ci_us": [
+            10963.250116666663,
+            13183.756550833332
+          ]
+        },
+        "packetout": {
+          "n": 30,
+          "mean_us": 46.2571,
+          "sd_us": 17.47503594461303,
+          "median_us": 40.897,
+          "p95_us": 66.07169999999998,
+          "p99_us": 108.67256000000005,
+          "max_us": 124.894,
+          "bootstrap_mean_95_ci_us": [
+            41.094140833333334,
+            53.247085833333315
+          ]
+        },
+        "confirm": {
+          "n": 30,
+          "mean_us": 2176.8429666666666,
+          "sd_us": 677.1601520096176,
+          "median_us": 2058.9889999999996,
+          "p95_us": 2861.8704,
+          "p99_us": 4304.209000000002,
+          "max_us": 4887.167,
+          "bootstrap_mean_95_ci_us": [
+            1963.0996183333332,
+            2442.3104633333337
+          ]
+        }
       },
-      "sd_us": {
-        "dispatch": 35.33463977076723,
-        "ctypes_in": 5.064708972474338,
-        "decision": 0.315458221727018,
-        "table_write": 22.922497789816408,
-        "install_call": 1410.0438227504144,
-        "ctypes_out": 2.8829473027744914,
-        "packetout_send": 19.54921860169305,
-        "confirm": 421.54432295235273,
-        "total": 1582.166553997828
+      "stage_mean_us": {
+        "controller": 124.64393333333331,
+        "interop": 33.27086666666666,
+        "decision": 1.1028999999999998,
+        "table_write": 0.4848,
+        "install_call": 12013.352733333333,
+        "packetout": 46.2571,
+        "confirm": 2176.8429666666666
       },
-      "bootstrap_95_ci_us": {
-        "dispatch": [
-          79.28963,
-          103.98127583333331
-        ],
-        "ctypes_in": [
-          16.9503675,
-          20.514633333333332
-        ],
-        "decision": [
-          0.7972,
-          1.0207333333333335
-        ],
-        "table_write": [
-          0.4570666666666666,
-          13.085200833333332
-        ],
-        "install_call": [
-          9419.50805666667,
-          10399.988158333334
-        ],
-        "ctypes_out": [
-          3.8999666666666664,
-          5.752832499999997
-        ],
-        "packetout_send": [
-          33.326326666666674,
-          46.73084166666666
-        ],
-        "confirm": [
-          1654.8156733333333,
-          1950.2558425000002
-        ],
-        "total": [
-          11296.604315833334,
-          12391.964985833332
+      "total": {
+        "n": 30,
+        "mean_us": 14396.152533333334,
+        "sd_us": 3739.676255616924,
+        "median_us": 12630.963500000002,
+        "p95_us": 20836.901049999993,
+        "p99_us": 23872.729380000004,
+        "max_us": 24767.054,
+        "bootstrap_mean_95_ci_us": [
+          13168.387555833333,
+          15784.046494999999
         ]
       }
     },
@@ -89,67 +135,250 @@
       "ping_success_n": 30,
       "priming_ok_n": 30,
       "installed_n": 30,
-      "mean_us": {
-        "dispatch": 87.47486666666666,
-        "ctypes_in": 13.912966666666666,
-        "decision": 0.5319,
-        "table_write": 0.4000000000000001,
-        "install_call": 23.914666666666665,
-        "ctypes_out": 2.236266666666667,
-        "packetout_send": 22.639566666666667,
-        "confirm": 2436.641433333333,
-        "total": 2587.8196666666668
+      "stage_statistics": {
+        "controller": {
+          "n": 30,
+          "mean_us": 75.92613333333334,
+          "sd_us": 34.096966007947486,
+          "median_us": 61.481,
+          "p95_us": 143.58305,
+          "p99_us": 168.50405000000003,
+          "max_us": 177.626,
+          "bootstrap_mean_95_ci_us": [
+            64.91143416666667,
+            88.80757249999999
+          ]
+        },
+        "interop": {
+          "n": 30,
+          "mean_us": 14.3585,
+          "sd_us": 3.9757322877852244,
+          "median_us": 13.73,
+          "p95_us": 20.57704999999999,
+          "p99_us": 28.20432000000001,
+          "max_us": 30.667,
+          "bootstrap_mean_95_ci_us": [
+            13.1297225,
+            15.894419166666664
+          ]
+        },
+        "decision": {
+          "n": 30,
+          "mean_us": 0.5244333333333333,
+          "sd_us": 0.38357489789981125,
+          "median_us": 0.417,
+          "p95_us": 0.9445499999999989,
+          "p99_us": 2.012500000000001,
+          "max_us": 2.375,
+          "bootstrap_mean_95_ci_us": [
+            0.4212333333333333,
+            0.6826333333333333
+          ]
+        },
+        "table_write": {
+          "n": 30,
+          "mean_us": 0.45616666666666666,
+          "sd_us": 0.12528204960816608,
+          "median_us": 0.458,
+          "p95_us": 0.7167999999999999,
+          "p99_us": 0.74246,
+          "max_us": 0.75,
+          "bootstrap_mean_95_ci_us": [
+            0.414,
+            0.5016016666666666
+          ]
+        },
+        "install_call": {
+          "n": 30,
+          "mean_us": 34.19683333333333,
+          "sd_us": 31.568219803973015,
+          "median_us": 23.147,
+          "p95_us": 108.02684999999998,
+          "p99_us": 130.01734000000002,
+          "max_us": 137.921,
+          "bootstrap_mean_95_ci_us": [
+            24.176095,
+            46.21724166666665
+          ]
+        },
+        "packetout": {
+          "n": 30,
+          "mean_us": 19.635099999999998,
+          "sd_us": 5.641186371616377,
+          "median_us": 18.7295,
+          "p95_us": 28.714649999999992,
+          "p99_us": 38.51524000000001,
+          "max_us": 41.834,
+          "bootstrap_mean_95_ci_us": [
+            17.871373333333338,
+            21.82912666666666
+          ]
+        },
+        "confirm": {
+          "n": 30,
+          "mean_us": 2516.1944000000003,
+          "sd_us": 1834.6914983060944,
+          "median_us": 2148.163,
+          "p95_us": 3284.4065499999992,
+          "p99_us": 9414.681460000007,
+          "max_us": 11865.334,
+          "bootstrap_mean_95_ci_us": [
+            2058.05567,
+            3255.5077799999985
+          ]
+        }
       },
-      "sd_us": {
-        "dispatch": 58.636092467972695,
-        "ctypes_in": 7.707374321381118,
-        "decision": 0.34693459087388157,
-        "table_write": 0.18290472364330693,
-        "install_call": 17.2461382470622,
-        "ctypes_out": 1.9100918182179065,
-        "packetout_send": 13.171090329236966,
-        "confirm": 907.4266684654976,
-        "total": 979.5123769184528
+      "stage_mean_us": {
+        "controller": 75.92613333333334,
+        "interop": 14.3585,
+        "decision": 0.5244333333333333,
+        "table_write": 0.45616666666666666,
+        "install_call": 34.19683333333333,
+        "packetout": 19.635099999999998,
+        "confirm": 2516.1944000000003
       },
-      "bootstrap_95_ci_us": {
-        "dispatch": [
-          70.0617975,
-          111.3796699999999
-        ],
-        "ctypes_in": [
-          11.622533333333335,
-          16.99649833333333
-        ],
-        "decision": [
-          0.43043333333333333,
-          0.6696283333333309
-        ],
-        "table_write": [
-          0.34303333333333336,
-          0.4708
-        ],
-        "install_call": [
-          18.490995,
-          30.432963333333323
-        ],
-        "ctypes_out": [
-          1.6932333333333338,
-          3.0002675000000005
-        ],
-        "packetout_send": [
-          18.629795833333333,
-          27.780132499999993
-        ],
-        "confirm": [
-          2147.448555833333,
-          2775.7524433333333
-        ],
-        "total": [
-          2273.153584166667,
-          2958.998262499999
+      "total": {
+        "n": 30,
+        "mean_us": 2661.350066666666,
+        "sd_us": 1846.3091987015598,
+        "median_us": 2297.7560000000003,
+        "p95_us": 3409.962599999999,
+        "p99_us": 9582.460880000006,
+        "max_us": 12050.398,
+        "bootstrap_mean_95_ci_us": [
+          2196.255230833333,
+          3414.8507066666652
+        ]
+      }
+    },
+    {
+      "mode": "reactive_osken",
+      "n": 30,
+      "confirmed_n": 30,
+      "ping_success_n": 30,
+      "priming_ok_n": 30,
+      "installed_n": 30,
+      "stage_statistics": {
+        "controller": {
+          "n": 30,
+          "mean_us": 121.25036666666666,
+          "sd_us": 180.29092972891368,
+          "median_us": 57.4225,
+          "p95_us": 438.39549999999934,
+          "p99_us": 808.2846900000003,
+          "max_us": 919.163,
+          "bootstrap_mean_95_ci_us": [
+            69.33097666666666,
+            193.36176916666656
+          ]
+        },
+        "interop": {
+          "n": 30,
+          "mean_us": 0.0,
+          "sd_us": 0.0,
+          "median_us": 0.0,
+          "p95_us": 0.0,
+          "p99_us": 0.0,
+          "max_us": 0.0,
+          "bootstrap_mean_95_ci_us": [
+            0.0,
+            0.0
+          ]
+        },
+        "decision": {
+          "n": 30,
+          "mean_us": 2.0195333333333334,
+          "sd_us": 1.0573050234646946,
+          "median_us": 1.5625,
+          "p95_us": 4.119149999999999,
+          "p99_us": 5.167610000000001,
+          "max_us": 5.542,
+          "bootstrap_mean_95_ci_us": [
+            1.6861000000000002,
+            2.426600833333333
+          ]
+        },
+        "table_write": {
+          "n": 30,
+          "mean_us": 0.0,
+          "sd_us": 0.0,
+          "median_us": 0.0,
+          "p95_us": 0.0,
+          "p99_us": 0.0,
+          "max_us": 0.0,
+          "bootstrap_mean_95_ci_us": [
+            0.0,
+            0.0
+          ]
+        },
+        "install_call": {
+          "n": 30,
+          "mean_us": 133.07786666666667,
+          "sd_us": 69.38175353532641,
+          "median_us": 107.293,
+          "p95_us": 252.81489999999997,
+          "p99_us": 275.96636,
+          "max_us": 282.96,
+          "bootstrap_mean_95_ci_us": [
+            109.55878666666668,
+            157.9797866666667
+          ]
+        },
+        "packetout": {
+          "n": 30,
+          "mean_us": 10.98273333333333,
+          "sd_us": 4.72082722100425,
+          "median_us": 8.9585,
+          "p95_us": 21.033549999999995,
+          "p99_us": 22.989140000000003,
+          "max_us": 23.376,
+          "bootstrap_mean_95_ci_us": [
+            9.429596666666665,
+            12.718740000000002
+          ]
+        },
+        "confirm": {
+          "n": 30,
+          "mean_us": 2666.2601000000004,
+          "sd_us": 1131.4924805182159,
+          "median_us": 2142.0370000000003,
+          "p95_us": 4953.759649999999,
+          "p99_us": 5431.3642500000005,
+          "max_us": 5522.185,
+          "bootstrap_mean_95_ci_us": [
+            2293.8943408333334,
+            3079.6065599999997
+          ]
+        }
+      },
+      "stage_mean_us": {
+        "controller": 121.25036666666666,
+        "interop": 0.0,
+        "decision": 2.0195333333333334,
+        "table_write": 0.0,
+        "install_call": 133.07786666666667,
+        "packetout": 10.98273333333333,
+        "confirm": 2666.2601000000004
+      },
+      "total": {
+        "n": 30,
+        "mean_us": 2933.5906000000004,
+        "sd_us": 1262.4278270537948,
+        "median_us": 2372.723,
+        "p95_us": 5437.479249999998,
+        "p99_us": 5881.505880000001,
+        "max_us": 5923.448,
+        "bootstrap_mean_95_ci_us": [
+          2513.596213333333,
+          3398.9171600000004
         ]
       }
     }
   ],
-  "interpretation": "Stage-decomposed latency of the reactive Packet-In path (real OpenFlow Packet-In -> NO_RULE -> DAIM Core decision -> confirmed installed OVS rule), 30 randomised-order repetitions per adapter mode. Extends the prior functional-only Packet-In acceptance test (STAGE_PACKETIN_BRIDGE_REPORT.md) with a real latency distribution, addressing the construct- and internal-validity threats named in the manuscript for this specific experiment."
+  "comparison": {
+    "persistent_vs_reactive_osken_mean_ratio": 0.907198866353971,
+    "persistent_vs_reactive_osken_median_ratio": 0.9684046557478476,
+    "process_vs_reactive_osken_mean_ratio": 4.907348875924722
+  },
+  "interpretation": "Randomised matched L2-learning comparison: both DAIM modes and the DAIM-free Os-Ken controller process the same first Packet-In for a known destination, install the same priority/match/action rule, and end at the same switch-side rule-observation boundary."
 }

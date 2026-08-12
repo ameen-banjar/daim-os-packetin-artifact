@@ -1,8 +1,11 @@
 #!/usr/bin/env python3
-"""Statistics and figure for the Packet-In stage-latency breakdown
-(packetin_latency_breakdown_raw.csv). Mirrors stage2_full_compare_analysis.py's
-bootstrap methodology; unlike that script there is no switch-count axis, so
-the figure is a stacked bar per adapter mode instead of a line-per-size plot."""
+"""Analyse the matched reactive Packet-In benchmark.
+
+All modes start at Os-Ken Packet-In handler entry and finish when the installed
+rule is observable through the same OVS dump-flows probe. The DAIM modes retain
+their internal C/ctypes decomposition; the DAIM-free Os-Ken baseline exposes
+its Python parse, state-update, decision, and native Flow-Mod stages.
+"""
 import csv
 import json
 from pathlib import Path
@@ -15,51 +18,72 @@ RAW = ROOT / "results/network/packetin_latency_breakdown_raw.csv"
 OUT = ROOT / "results/paper1"
 SEED = 20260719
 BOOTSTRAPS = 20000
-MODES = ["process_per_rule", "persistent"]
-LABELS = {"process_per_rule": "DAIM (process-per-rule)", "persistent": "DAIM (persistent adapter)"}
-COLORS = {
-    "dispatch": "#8A8A8A",
-    "ctypes_in": "#C9A227",
-    "decision": "#2457A6",
-    "table_write": "#6BA292",
-    "install_call": "#C45A24",
-    "ctypes_out": "#C9A227",
-    "packetout_send": "#8A8A8A",
-    "confirm": "#8E3B46",
+MODES = ["process_per_rule", "persistent", "reactive_osken"]
+LABELS = {
+    "process_per_rule": "DAIM: process/rule",
+    "persistent": "DAIM: persistent",
+    "reactive_osken": "Os-Ken reactive",
 }
-STAGES = ["dispatch", "ctypes_in", "decision", "table_write", "install_call",
-          "ctypes_out", "packetout_send", "confirm"]
+STAGES = ["controller", "interop", "decision", "table_write", "install_call", "packetout", "confirm"]
 STAGE_LABELS = {
-    "dispatch": "Os-Ken dispatch + bridge lookup",
-    "ctypes_in": "ctypes crossing (in)",
-    "decision": "Core decision (learn+lookup)",
-    "table_write": "daim_table_write",
-    "install_call": "OVS install call (flow_add)",
-    "ctypes_out": "ctypes crossing (out)",
-    "packetout_send": "PacketOut send",
-    "confirm": "Switch-side confirmation (dump-flows)",
+    "controller": "Controller dispatch / parse",
+    "interop": "ctypes boundary",
+    "decision": "Learning decision / state",
+    "table_write": "DAIM table write",
+    "install_call": "Flow installation call",
+    "packetout": "PacketOut send",
+    "confirm": "Common OVS rule-observation probe",
 }
+COLORS = {stage: "#333333" for stage in STAGES}
+
+
+def integer(row, key):
+    value = row.get(key)
+    return None if value in (None, "") else int(value)
 
 
 def stage_deltas_us(row):
-    ns = {k: (None if v in ("", None) else int(v)) for k, v in row.items()
-          if k.startswith(("t_", "c_"))}
-    out = {
-        "dispatch": ns["t_pre_ctypes_ns"] - ns["t_dispatch_enter_ns"],
-        "ctypes_in": ns["c_entry_ns"] - ns["t_pre_ctypes_ns"],
-        "decision": ns["c_decision_done_ns"] - ns["c_entry_ns"],
-        "table_write": ns["c_table_write_done_ns"] - ns["c_decision_done_ns"],
-        "install_call": ns["c_install_done_ns"] - ns["c_table_write_done_ns"],
-        "ctypes_out": ns["t_post_ctypes_ns"] - ns["c_exit_ns"],
-        "packetout_send": ns["t_packetout_sent_ns"] - ns["t_post_ctypes_ns"],
-    }
-    if ns["t_confirmed_ns"] is not None:
-        out["confirm"] = ns["t_confirmed_ns"] - ns["t_packetout_sent_ns"]
-        out["total"] = ns["t_confirmed_ns"] - ns["t_dispatch_enter_ns"]
+    mode = row["mode"]
+    if mode == "reactive_osken":
+        start = integer(row, "t_dispatch_enter_ns")
+        parsed = integer(row, "t_parse_done_ns")
+        state_done = integer(row, "t_state_update_done_ns")
+        decision_done = integer(row, "t_decision_done_ns")
+        install_done = integer(row, "t_flowmod_sent_ns")
+        packetout_done = integer(row, "t_packetout_sent_ns")
+        confirmed = integer(row, "t_confirmed_ns")
+        values = {
+            "controller": parsed - start,
+            "interop": 0,
+            "decision": decision_done - parsed,
+            "table_write": 0,
+            "install_call": install_done - decision_done,
+            "packetout": packetout_done - install_done,
+            "confirm": confirmed - packetout_done if confirmed is not None else None,
+            "total": confirmed - start if confirmed is not None else None,
+        }
     else:
-        out["confirm"] = None
-        out["total"] = None
-    return {k: (v / 1000.0 if v is not None else None) for k, v in out.items()}
+        dispatch = integer(row, "t_dispatch_enter_ns")
+        pre_ctypes = integer(row, "t_pre_ctypes_ns")
+        c_entry = integer(row, "c_entry_ns")
+        decision_done = integer(row, "c_decision_done_ns")
+        table_done = integer(row, "c_table_write_done_ns")
+        install_done = integer(row, "c_install_done_ns")
+        c_exit = integer(row, "c_exit_ns")
+        post_ctypes = integer(row, "t_post_ctypes_ns")
+        packetout_done = integer(row, "t_packetout_sent_ns")
+        confirmed = integer(row, "t_confirmed_ns")
+        values = {
+            "controller": pre_ctypes - dispatch,
+            "interop": (c_entry - pre_ctypes) + (post_ctypes - c_exit),
+            "decision": decision_done - c_entry,
+            "table_write": table_done - decision_done,
+            "install_call": install_done - table_done,
+            "packetout": packetout_done - post_ctypes,
+            "confirm": confirmed - packetout_done if confirmed is not None else None,
+            "total": confirmed - dispatch if confirmed is not None else None,
+        }
+    return {key: (value / 1000.0 if value is not None else None) for key, value in values.items()}
 
 
 def bootstrap_ci(values, rng):
@@ -69,50 +93,112 @@ def bootstrap_ci(values, rng):
     return [float(np.quantile(means, 0.025)), float(np.quantile(means, 0.975))]
 
 
+def descriptive(values, rng):
+    data = np.asarray(values, dtype=float)
+    return {
+        "n": int(len(data)),
+        "mean_us": float(np.mean(data)),
+        "sd_us": float(np.std(data, ddof=1)) if len(data) > 1 else 0.0,
+        "median_us": float(np.median(data)),
+        "p95_us": float(np.percentile(data, 95)),
+        "p99_us": float(np.percentile(data, 99)),
+        "max_us": float(np.max(data)),
+        "bootstrap_mean_95_ci_us": bootstrap_ci(data, rng),
+    }
+
+
+def font(size, bold=False):
+    candidates = [
+        "/System/Library/Fonts/Supplemental/Arial Bold.ttf" if bold else "/System/Library/Fonts/Supplemental/Arial.ttf",
+        "/usr/share/fonts/truetype/dejavu/DejaVuSans-Bold.ttf" if bold else "/usr/share/fonts/truetype/dejavu/DejaVuSans.ttf",
+    ]
+    for candidate in candidates:
+        try:
+            return ImageFont.truetype(candidate, size)
+        except OSError:
+            pass
+    return ImageFont.load_default(size=size)
+
+
 def draw_chart(summary, path):
-    width, height = 1400, 560
+    width, height = 1900, 1560
     image = Image.new("RGB", (width, height), "white")
     draw = ImageDraw.Draw(image)
-    font = ImageFont.load_default(size=36)
-    small = ImageFont.load_default(size=31)
-    left, top, right, bottom = 220, 40, 1350, 380
+    title_font, label_font, axis_font, note_font = font(46, True), font(36), font(32), font(31)
+    left, top, right, bottom = 390, 125, 1810, 485
+    draw.text((left, 30), "Matched reactive Packet-In latency", fill="#111111", font=title_font)
+    draw.text((25, 82), "A. Total latency distribution", fill="#111111", font=label_font)
     draw.line((left, top, left, bottom), fill="#222222", width=3)
     draw.line((left, bottom, right, bottom), fill="#222222", width=3)
+    max_total = max(item["total"]["max_us"] for item in summary) * 1.04
 
-    max_total = max(sum(s["mean_us"][st] for st in STAGES if s["mean_us"][st] is not None)
-                     for s in summary)
-    xmax = max_total * 1.15
+    def x_of(value):
+        return left + (value / max_total) * (right - left)
 
-    def x_of(v):
-        return left + (v / xmax) * (right - left)
+    bar_h = 30
+    for idx, item in enumerate(summary):
+        y0 = top + 62 + idx * 102
+        total = item["total"]
+        draw.text((30, y0 - 16), LABELS[item["mode"]], fill="#111111", font=label_font)
+        draw.line((x_of(total["median_us"]), y0, x_of(total["p99_us"]), y0), fill="#C8D3E0", width=12)
+        draw.ellipse((x_of(total["median_us"])-9, y0-9, x_of(total["median_us"])+9, y0+9), fill="#0072B2")
+        xp95 = x_of(total["p95_us"])
+        draw.rectangle((xp95-9, y0-9, xp95+9, y0+9), outline="#E69F00", fill="white", width=4)
+        xp99 = x_of(total["p99_us"])
+        draw.polygon([(xp99,y0-11),(xp99-11,y0+9),(xp99+11,y0+9)], outline="#7A5195", fill="white")
+        tail = f"median {total['median_us']/1000:.3f}  |  p95 {total['p95_us']/1000:.3f}  |  p99 {total['p99_us']/1000:.3f} ms"
+        draw.text((left, y0 + 24), tail, fill="#333333", font=note_font)
 
-    bar_h = 90
-    for idx, s in enumerate(summary):
-        y0 = top + 20 + idx * 170
-        cum = 0.0
-        for st in STAGES:
-            v = s["mean_us"][st]
-            if v is None:
-                continue
-            x0, x1 = x_of(cum), x_of(cum + v)
-            draw.rectangle((x0, y0, x1, y0 + bar_h), fill=COLORS[st])
-            cum += v
-        draw.text((10, y0 + bar_h / 2 - 10), LABELS[s["mode"]], fill="#111111", font=font)
-        draw.text((left, y0 + bar_h + 6), f"total {cum / 1000.0:.3f} ms", fill="#333333", font=small)
+    tick_step = max_total / 6
+    for idx in range(7):
+        value = idx * tick_step
+        x = x_of(value)
+        draw.line((x, top, x, bottom), fill="#E5E5E5", width=1)
+        draw.text((x - 30, bottom + 12), f"{value/1000:.1f}", fill="#222222", font=axis_font)
+    draw.text((left + 540, bottom + 55), "Latency (ms)", fill="#222222", font=label_font)
+    key_y = 548
+    draw.ellipse((40, key_y, 62, key_y + 22), fill="#0072B2"); draw.text((74, key_y - 6), "median", fill="#111111", font=note_font)
+    draw.rectangle((250, key_y, 272, key_y + 22), outline="#E69F00", fill="white", width=5); draw.text((284, key_y - 6), "p95", fill="#111111", font=note_font)
+    draw.polygon([(440,key_y-2),(428,key_y+22),(452,key_y+22)], outline="#7A5195", fill="white"); draw.text((466, key_y - 6), "p99", fill="#111111", font=note_font)
 
-    for tick_us in range(0, int(xmax) + 1, max(1, int(xmax) // 8 or 1)):
-        x = x_of(tick_us)
-        draw.line((x, top, x, bottom), fill="#eeeeee", width=1)
-        draw.text((x - 14, bottom + 6), f"{tick_us / 1000.0:.1f}", fill="#222222", font=small)
-    draw.text((left, bottom + 28), "Mean stage latency, stacked (ms)", fill="#222222", font=font)
+    mode_colors = ["#0072B2", "#D55E00", "#009E73"]
+    offsets = [-28, 0, 28]
 
-    ly = bottom + 70
-    col_x = [left, left + 620]
-    for i, st in enumerate(STAGES):
-        cx = col_x[i // 4]
-        cy = ly + (i % 4) * 26
-        draw.rectangle((cx, cy, cx + 20, cy + 16), fill=COLORS[st])
-        draw.text((cx + 28, cy - 2), STAGE_LABELS[st], fill="#222222", font=small)
+    def marker(x, y, mi):
+        color = mode_colors[mi]
+        if mi == 0: draw.ellipse((x-10,y-10,x+10,y+10), fill=color)
+        elif mi == 1: draw.rectangle((x-10,y-10,x+10,y+10), outline=color, width=5, fill="white")
+        else: draw.polygon([(x,y-12),(x-12,y+10),(x+12,y+10)], outline=color, fill="white")
+
+    def stage_panel(title, stages, unit, divisor, ptop, pbottom):
+        draw.text((25, ptop-60), title, fill="#111111", font=label_font)
+        plot_right = 1540
+        max_value = max(item["stage_mean_us"][s]/divisor for s in stages for item in summary) * 1.18 or 1
+        def px(value): return left + (value/max_value)*(plot_right-left)
+        for ti in range(6):
+            value = max_value*ti/5
+            x = px(value)
+            draw.line((x,ptop-10,x,pbottom), fill="#E1E7EF", width=1)
+            draw.text((x-20,pbottom+6),f"{value:.2f}" if max_value<10 else f"{value:.0f}",fill="#333333",font=note_font)
+        row_h=(pbottom-ptop)/len(stages)
+        for si, stage in enumerate(stages):
+            y=ptop+(si+0.5)*row_h
+            draw.text((25,y-14),STAGE_LABELS[stage],fill="#222222",font=note_font)
+            for mi,item in enumerate(summary):
+                value=item["stage_mean_us"][stage]/divisor
+                yy=y+offsets[mi]
+                x=px(value)
+                marker(x,yy,mi)
+                draw.text((x+16,yy-14),f"{value:.3f}" if value<1 else f"{value:.2f}",fill=mode_colors[mi],font=font(27, True))
+        draw.text((left+450,pbottom+42),f"Mean stage latency ({unit}, linear scale)",fill="#222222",font=label_font)
+
+    stage_panel("B. Internal processing stages", ["controller","interop","decision","table_write","packetout"], "µs", 1.0, 650, 1010)
+    stage_panel("C. Southbound and switch-observation stages", ["install_call","confirm"], "ms", 1000.0, 1160, 1335)
+
+    ly = 1500
+    marker(70,ly,0); draw.text((98,ly-16),"DAIM process/rule",fill="#111111",font=note_font)
+    marker(560,ly,1); draw.text((588,ly-16),"DAIM persistent",fill="#111111",font=note_font)
+    marker(1040,ly,2); draw.text((1068,ly-16),"Os-Ken reactive",fill="#111111",font=note_font)
     image.save(path)
 
 
@@ -121,57 +207,54 @@ def main():
     with RAW.open(newline="") as handle:
         raw = list(csv.DictReader(handle))
     rng = np.random.default_rng(SEED)
-
     summary = []
     for mode in MODES:
-        mode_rows = [r for r in raw if r["mode"] == mode]
-        deltas = [stage_deltas_us(r) for r in mode_rows]
-        mean_us, ci_us, sd_us, n_by_stage = {}, {}, {}, {}
-        for stage in STAGES + ["total"]:
-            values = [d[stage] for d in deltas if d[stage] is not None]
-            n_by_stage[stage] = len(values)
-            if values:
-                mean_us[stage] = float(np.mean(values))
-                sd_us[stage] = float(np.std(values, ddof=1)) if len(values) > 1 else 0.0
-                ci_us[stage] = bootstrap_ci(values, rng) if len(values) > 1 else [mean_us[stage], mean_us[stage]]
-            else:
-                mean_us[stage] = None
-                sd_us[stage] = None
-                ci_us[stage] = None
+        rows = [row for row in raw if row["mode"] == mode]
+        deltas = [stage_deltas_us(row) for row in rows]
+        stage_stats = {}
+        for stage in STAGES:
+            values = [item[stage] for item in deltas if item[stage] is not None]
+            stage_stats[stage] = descriptive(values, rng) if values else None
+        totals = [item["total"] for item in deltas if item["total"] is not None]
         summary.append({
             "mode": mode,
-            "n": len(mode_rows),
-            "confirmed_n": n_by_stage["confirm"],
-            "ping_success_n": sum(int(r["ping_success"]) for r in mode_rows),
-            "priming_ok_n": sum(int(r["priming_ok"]) for r in mode_rows),
-            "installed_n": sum(1 for r in mode_rows if r["installed"] in ("True", "1", "true")),
-            "mean_us": mean_us,
-            "sd_us": sd_us,
-            "bootstrap_95_ci_us": ci_us,
+            "n": len(rows),
+            "confirmed_n": len(totals),
+            "ping_success_n": sum(int(row["ping_success"]) for row in rows),
+            "priming_ok_n": sum(int(row["priming_ok"]) for row in rows),
+            "installed_n": sum(row.get("installed") in ("True", "1", "true") for row in rows),
+            "stage_statistics": stage_stats,
+            "stage_mean_us": {stage: stage_stats[stage]["mean_us"] if stage_stats[stage] else 0.0 for stage in STAGES},
+            "total": descriptive(totals, rng),
         })
 
+    by_mode = {item["mode"]: item for item in summary}
+    comparison = {
+        "persistent_vs_reactive_osken_mean_ratio": by_mode["persistent"]["total"]["mean_us"] / by_mode["reactive_osken"]["total"]["mean_us"],
+        "persistent_vs_reactive_osken_median_ratio": by_mode["persistent"]["total"]["median_us"] / by_mode["reactive_osken"]["total"]["median_us"],
+        "process_vs_reactive_osken_mean_ratio": by_mode["process_per_rule"]["total"]["mean_us"] / by_mode["reactive_osken"]["total"]["mean_us"],
+    }
     result = {
         "evidence_level": "measured_emulation",
         "source": str(RAW.relative_to(ROOT)),
         "bootstrap_seed": SEED,
         "bootstrap_resamples": BOOTSTRAPS,
-        "stages": STAGES,
+        "common_completion_semantics": "Packet-In handler entry to rule observable by ovs-ofctl dump-flows",
         "summary": summary,
+        "comparison": comparison,
         "interpretation": (
-            "Stage-decomposed latency of the reactive Packet-In path (real "
-            "OpenFlow Packet-In -> NO_RULE -> DAIM Core decision -> "
-            "confirmed installed OVS rule), 30 randomised-order repetitions "
-            "per adapter mode. Extends the prior functional-only Packet-In "
-            "acceptance test (STAGE_PACKETIN_BRIDGE_REPORT.md) with a real "
-            "latency distribution, addressing the construct- and "
-            "internal-validity threats named in the manuscript for this "
-            "specific experiment."
+            "Randomised matched L2-learning comparison: both DAIM modes and the "
+            "DAIM-free Os-Ken controller process the same first Packet-In for a "
+            "known destination, install the same priority/match/action rule, and "
+            "end at the same switch-side rule-observation boundary."
         ),
     }
-    (OUT / "packetin_latency_breakdown_statistics.json").write_text(json.dumps(result, indent=2) + "\n")
-    draw_chart(summary, OUT / "packetin_latency_breakdown.png")
-    print(OUT / "packetin_latency_breakdown_statistics.json")
-    print(OUT / "packetin_latency_breakdown.png")
+    stats_path = OUT / "packetin_latency_breakdown_statistics.json"
+    figure_path = OUT / "packetin_latency_breakdown.png"
+    stats_path.write_text(json.dumps(result, indent=2) + "\n")
+    draw_chart(summary, figure_path)
+    print(stats_path)
+    print(figure_path)
 
 
 if __name__ == "__main__":

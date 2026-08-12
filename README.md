@@ -37,8 +37,10 @@ repository and DOI above.
   Packet-In integration experiment, the 4-way adapter-overhead
   microbenchmark (`stage2_full_compare.py` and its randomised/paired
   variant), the reactive Packet-In stage-latency breakdown
-  (`packetin_latency_breakdown.py`), the sustained-load control-plane
-  profile (`control_plane_load_profile.py`), and the host-load diagnostic
+  (`packetin_latency_breakdown.py`, plus the DAIM-free
+  `osken_reactive_baseline_controller.py` baseline it compares against),
+  the sustained-load control-plane profile
+  (`control_plane_load_profile.py`), and the host-load diagnostic
   (`stage2_host_load_diagnostic.py`).
 - `environment/` — Lima/QEMU VM manifests and the provisioning script used
   for all network-integration evidence: the primary ARM64 environment
@@ -68,8 +70,10 @@ is documented with its own report under `results/network/`:
 - Persistent OpenFlow 1.3 adapter and a 4-way (process-per-rule/
   persistent/direct-`ovs-ofctl`/DAIM-free-Os-Ken) overhead comparison
   (`STAGE2_FULL_COMPARE_REPORT.md`).
-- 8-stage, 60-trial randomised-order latency breakdown of the reactive
-  Packet-In path (`PACKETIN_LATENCY_BREAKDOWN_REPORT.md`).
+- 8-stage, 90-trial randomised-order latency breakdown of the reactive
+  Packet-In path across three matched modes (DAIM process-per-rule, DAIM
+  persistent, and a DAIM-free reactive Os-Ken baseline)
+  (`PACKETIN_LATENCY_BREAKDOWN_REPORT.md`).
 - Sustained multi-sender throughput/CPU/control-traffic profile, at both
   5 and 30 repetitions per mode (`CONTROL_PLANE_LOAD_PROFILE_REPORT.md`).
 - A randomised-order, paired, 30-repetition (480-trial) re-run of the
