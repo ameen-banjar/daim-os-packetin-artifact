@@ -15,6 +15,17 @@ OUT = ROOT / "results/paper1"
 SEED = 20260718
 BOOTSTRAPS = 20000
 
+def styled_segment(draw, a, b, style="solid", width=4, color="#111111"):
+    x0,y0=a; x1,y1=b
+    length=max(1.0,((x1-x0)**2+(y1-y0)**2)**0.5)
+    pattern=[length] if style=="solid" else [24,12]
+    pos=0.0; pi=0; on=True
+    while pos<length:
+        end=min(length,pos+pattern[pi%len(pattern)])
+        if on:
+            draw.line((x0+(x1-x0)*pos/length,y0+(y1-y0)*pos/length,x0+(x1-x0)*end/length,y0+(y1-y0)*end/length),fill=color,width=width)
+        pos=end; pi+=1; on=not on
+
 
 def bootstrap_ci(values, rng):
     values = np.asarray(values, dtype=float)
@@ -38,7 +49,7 @@ def draw_chart(rows, path):
     image = Image.new("RGB", (width, height), "white")
     draw = ImageDraw.Draw(image)
     font = ImageFont.load_default(size=36)
-    small = ImageFont.load_default(size=30)
+    small = ImageFont.load_default(size=38)
     left, top, right, bottom = 130, 80, 1420, 760
     draw.line((left, top, left, bottom), fill="#222222", width=3)
     draw.line((left, bottom, right, bottom), fill="#222222", width=3)
@@ -49,7 +60,7 @@ def draw_chart(rows, path):
         draw.text((45, y - 12), str(tick), fill="#222222", font=small)
     sizes = sorted({r["network_size"] for r in rows})
     modes = ["daim_adapter", "direct_ovs"]
-    colors = {"daim_adapter": "#2457A6", "direct_ovs": "#C45A24"}
+    colors = {"daim_adapter": "#0072B2", "direct_ovs": "#D55E00"}
     labels = {"daim_adapter": "DAIM adapter", "direct_ovs": "Direct ovs-ofctl"}
     offsets = {"daim_adapter": -6, "direct_ovs": 6}
 
@@ -68,33 +79,71 @@ def draw_chart(rows, path):
             draw.line((x, y_lo, x, y_hi), fill=colors[mode], width=2)
             draw.line((x - 7, y_lo, x + 7, y_lo), fill=colors[mode], width=2)
             draw.line((x - 7, y_hi, x + 7, y_hi), fill=colors[mode], width=2)
-        draw.line(points, fill=colors[mode], width=6)
+        for a, b in zip(points, points[1:]):
+            styled_segment(draw, a, b, "solid" if mode == "daim_adapter" else "dashed", 5 if mode == "daim_adapter" else 3, colors[mode])
         for x, y in points:
-            draw.ellipse((x - 9, y - 9, x + 9, y + 9), fill=colors[mode])
+            if mode == "daim_adapter":
+                draw.ellipse((x-9,y-9,x+9,y+9),fill=colors[mode])
+            else:
+                draw.rectangle((x-9,y-9,x+9,y+9),outline=colors[mode],width=4,fill="white")
     for idx, size in enumerate(sizes):
         x = left + idx * (right - left) / (len(sizes) - 1)
         draw.text((x - 18, bottom + 18), str(size), fill="#222222", font=font)
     draw.text((530, 815), "Number of OVS switches", fill="#222222", font=font)
     draw.text((20, 20), "Mean per-switch rule installation time (ms), whiskers = bootstrap 95% CI", fill="#222222", font=font)
-    draw.rectangle((1000, 95, 1030, 125), fill=colors["daim_adapter"])
+    draw.ellipse((1006, 101, 1024, 119), fill=colors["daim_adapter"])
+    styled_segment(draw, (990,110), (1038,110), "solid", 4, colors["daim_adapter"])
     draw.text((1045, 95), labels["daim_adapter"], fill="#222222", font=small)
-    draw.rectangle((1000, 140, 1030, 170), fill=colors["direct_ovs"])
+    draw.rectangle((1006, 146, 1024, 164), outline=colors["direct_ovs"], width=3, fill="white")
+    styled_segment(draw, (990,155), (1038,155), "dashed", 3, colors["direct_ovs"])
     draw.text((1045, 140), labels["direct_ovs"], fill="#222222", font=small)
     image.save(path)
 
 
-def box(draw, xy, text, font, fill="#EFF3F9", outline="#2457A6", text_color="#1F2933"):
+def dashed_rectangle(draw, xy, outline, width=3, dash=14, gap=8, dotted=False):
     x0, y0, x1, y1 = xy
-    draw.rectangle(xy, fill=fill, outline=outline, width=3)
-    lines = text.split("\n")
+    if dotted:
+        dash, gap = width + 1, 10
+    edges = [((x0, y0), (x1, y0)), ((x1, y0), (x1, y1)), ((x1, y1), (x0, y1)), ((x0, y1), (x0, y0))]
+    for (ex0, ey0), (ex1, ey1) in edges:
+        length = ((ex1 - ex0) ** 2 + (ey1 - ey0) ** 2) ** 0.5
+        if length == 0:
+            continue
+        ux, uy = (ex1 - ex0) / length, (ey1 - ey0) / length
+        pos = 0.0
+        draw_on = True
+        while pos < length:
+            step = dash if draw_on else gap
+            end = min(length, pos + step)
+            if draw_on:
+                draw.line((ex0 + ux * pos, ey0 + uy * pos, ex0 + ux * end, ey0 + uy * end), fill=outline, width=width)
+            pos = end
+            draw_on = not draw_on
+
+
+def box(draw, xy, text, font, fill="#F1F1F1", outline="#333333", text_color="#1F2933", border="solid", tag=None, tag_font=None, tag_color=None):
+    x0, y0, x1, y1 = xy
+    draw.rectangle(xy, fill=fill)
+    if border == "solid":
+        draw.rectangle(xy, outline=outline, width=3)
+    elif border == "dashed":
+        dashed_rectangle(draw, xy, outline, width=3, dash=16, gap=10)
+    elif border == "dotted":
+        dashed_rectangle(draw, xy, outline, width=4, dotted=True)
+    lines = text.split("\n") if text else []
     line_h = font.size + 6
-    total_h = line_h * len(lines)
+    tag_h = (tag_font.size + 6) if tag else 0
+    total_h = line_h * len(lines) + tag_h
     ty = y0 + ((y1 - y0) - total_h) / 2
     for line in lines:
         bbox = draw.textbbox((0, 0), line, font=font)
         tw = bbox[2] - bbox[0]
         draw.text((x0 + ((x1 - x0) - tw) / 2, ty), line, fill=text_color, font=font)
         ty += line_h
+    if tag:
+        bbox = draw.textbbox((0, 0), tag, font=tag_font)
+        tw = bbox[2] - bbox[0]
+        draw.text((x0 + ((x1 - x0) - tw) / 2, ty + 4), tag, fill=tag_color or outline, font=tag_font)
 
 
 def h_arrow(draw, x0, x1, y, label, font, color="#333333", dashed=False, label_dy=-26):
@@ -114,7 +163,10 @@ def h_arrow(draw, x0, x1, y, label, font, color="#333333", dashed=False, label_d
     if label:
         bbox = draw.textbbox((0, 0), label, font=font)
         tw = bbox[2] - bbox[0]
-        draw.text((min(x0, x1) + abs(x1 - x0) / 2 - tw / 2, y + label_dy), label, fill=color, font=font)
+        tx = min(x0, x1) + abs(x1 - x0) / 2 - tw / 2
+        ty = y + label_dy
+        draw.rectangle((tx - 8, ty - 3, tx + tw + 8, ty + font.size + 4), fill="white")
+        draw.text((tx, ty), label, fill=color, font=font)
 
 
 def v_arrow(draw, x, y0, y1, label, font, color="#333333", label_dx=10):
@@ -129,7 +181,7 @@ def v_arrow(draw, x, y0, y1, label, font, color="#333333", label_dx=10):
 
 
 def draw_architecture(path):
-    width, height = 1700, 1010
+    width, height = 1800, 1150
     image = Image.new("RGB", (width, height), "white")
     draw = ImageDraw.Draw(image)
     title_font = ImageFont.load_default(size=42)
@@ -138,61 +190,90 @@ def draw_architecture(path):
 
     draw.text((20, 20), "DAIM-OS table-and-signal control path: component architecture", fill="#111111", font=title_font)
 
-    host = (60, 150, 300, 230)
-    switch = (420, 150, 720, 230)
-    controller = (840, 150, 1180, 230)
-    bridge = (840, 380, 1180, 460)
-    core = (840, 590, 1180, 690)
-    app = (560, 800, 900, 890)
-    adapter = (1040, 800, 1380, 890)
+    host = (70, 180, 330, 270)
+    switch = (430, 180, 750, 270)
+    controller = (930, 180, 1270, 270)
+    bridge = (930, 400, 1270, 490)
+    core = (930, 610, 1270, 720)
+    app = (540, 850, 940, 950)
+    adapter = (1100, 850, 1480, 950)
 
-    box(draw, host, "Mininet host (h1)", font)
-    box(draw, switch, "OVS switch\nOpenFlow 1.3", font)
-    box(draw, controller, "Os-Ken\ncontroller", font)
-    box(draw, bridge, "Python bridge\nctypes", font)
-    box(draw, core, "DAIM Core\nTables + NO_RULE", font, fill="#FDF3E7", outline="#C45A24")
-    box(draw, app, "Learning application\nWrites forwarding table", small, fill="#FDF3E7", outline="#C45A24")
-    box(draw, adapter, "OVS adapter\nPersistent or CLI", font, fill="#FDF3E7", outline="#C45A24")
+    EXT_FILL, EXT_LINE = "#EAF2FB", "#0072B2"
+    GLUE_FILL, GLUE_LINE = "#F0EAFB", "#6B4E9E"
+    DAIM_FILL, DAIM_LINE = "#FFF0E6", "#D55E00"
+    tag_font = ImageFont.load_default(size=24)
+
+    EXT_TAG = "[external dependency]"
+    GLUE_TAG = "[glue code, this artifact]"
+    DAIM_TAG = "[DAIM-OS concept, impl. here]"
+
+    box(draw, host, "Mininet host (h1)", font, fill=EXT_FILL, outline=EXT_LINE, border="solid",
+        tag=EXT_TAG, tag_font=tag_font, tag_color=EXT_LINE)
+    box(draw, switch, "OVS switch, OpenFlow 1.3", font, fill=EXT_FILL, outline=EXT_LINE, border="solid",
+        tag=EXT_TAG, tag_font=tag_font, tag_color=EXT_LINE)
+    box(draw, controller, "Os-Ken controller", font, fill=EXT_FILL, outline=EXT_LINE, border="solid",
+        tag=EXT_TAG, tag_font=tag_font, tag_color=EXT_LINE)
+    box(draw, bridge, "Python bridge (ctypes)", font, fill=GLUE_FILL, outline=GLUE_LINE, border="dashed",
+        tag=GLUE_TAG, tag_font=tag_font, tag_color=GLUE_LINE)
+    box(draw, core, "DAIM Core\nTables + NO_RULE", font, fill=DAIM_FILL, outline=DAIM_LINE, border="dotted",
+        tag=DAIM_TAG, tag_font=tag_font, tag_color=DAIM_LINE)
+    box(draw, app, "DAIM learning application", font, fill=DAIM_FILL, outline=DAIM_LINE, border="dotted",
+        tag=DAIM_TAG, tag_font=tag_font, tag_color=DAIM_LINE)
+    box(draw, adapter, "OVS adapter (persistent or CLI)", font, fill=DAIM_FILL, outline=DAIM_LINE, border="dotted",
+        tag=DAIM_TAG, tag_font=tag_font, tag_color=DAIM_LINE)
 
     h_arrow(draw, host[2], switch[0], 178, "traffic", small, label_dy=-26)
 
     # switch <-> controller: routed above/below the boxes so labels never
     # cross box borders or text.
-    sx, cx = 650, 900
-    draw.line((sx, switch[1], sx, 100), fill="#333333", width=3)
-    draw.line((sx, 100, cx, 100), fill="#333333", width=3)
-    v_arrow(draw, cx, 100, controller[1], "", small)
-    draw.text((sx + 30, 78), "Packet-In (table-miss)", fill="#333333", font=small)
+    sx, cx = 660, 1010
+    draw.line((sx, switch[1], sx, 115), fill="#333333", width=3)
+    draw.line((sx, 115, cx, 115), fill="#333333", width=3)
+    v_arrow(draw, cx, 115, controller[1], "", small)
+    draw.text((700, 72), "Packet-In (table-miss)", fill="#333333", font=small)
 
-    draw.line((cx, controller[3], cx, 275), fill="#666666", width=2)
-    draw.line((cx, 275, sx, 275), fill="#666666", width=2)
-    v_arrow(draw, sx, 275, switch[3], "", small, color="#666666")
-    draw.text((sx + 30, 282), "PacketOut (buffered packet)", fill="#666666", font=small)
+    draw.line((cx, controller[3], cx, 320), fill="#666666", width=2)
+    draw.line((cx, 320, sx, 320), fill="#666666", width=2)
+    v_arrow(draw, sx, 320, switch[3], "", small, color="#666666")
+    draw.text((700, 328), "PacketOut (buffered)", fill="#666666", font=small)
 
-    v_arrow(draw, 1010, controller[3], bridge[1], "Packet-In fields", small)
-    v_arrow(draw, 1010, bridge[3], core[1], "Emit NO_RULE", small)
+    v_arrow(draw, 1100, controller[3], bridge[1], "Packet-In fields", small, label_dx=18)
+    v_arrow(draw, 1100, bridge[3], core[1], "Emit NO_RULE", small, label_dx=18)
 
     # core -> app: right-angle connector down and left, single label
-    core_app_y = 745
-    draw.line((core[0] + 60, core[3], core[0] + 60, core_app_y), fill="#333333", width=3)
-    draw.line((core[0] + 60, core_app_y, app[0] + 170, core_app_y), fill="#333333", width=3)
-    v_arrow(draw, app[0] + 170, core_app_y, app[1], "Invoke handler", small, label_dx=14)
+    core_app_y = 790
+    draw.line((core[0] + 70, core[3], core[0] + 70, core_app_y), fill="#333333", width=3)
+    draw.line((core[0] + 70, core_app_y, app[0] + 200, core_app_y), fill="#333333", width=3)
+    v_arrow(draw, app[0] + 200, core_app_y, app[1], "", small)
+    draw.text((app[0] + 215, 795), "Invoke handler", fill="#333333", font=small)
 
     # app -> adapter
-    h_arrow(draw, app[2], adapter[0], 845, "Install decision", small, label_dy=-40)
+    h_arrow(draw, app[2], adapter[0], 900, "", small)
 
     # adapter -> switch (installs rule): long return arrow up the right side,
     # then left along a lane above the title-adjacent margin and down into
     # the switch box at a point clear of the Packet-In/PacketOut stubs.
-    x_return = 1600
-    sw_target = 500
-    draw.line((adapter[2], 845, x_return, 845), fill="#2457A6", width=3)
-    draw.line((x_return, 845, x_return, 65), fill="#2457A6", width=3)
-    draw.line((x_return, 65, sw_target, 65), fill="#2457A6", width=3)
-    v_arrow(draw, sw_target, 65, switch[1], "", small, color="#2457A6")
-    draw.text((1370, 480), "Flow-Mod\ninstalls rule", fill="#2457A6", font=small)
+    x_return = 1660
+    sw_target = 520
+    draw.line((adapter[2], 900, x_return, 900), fill="#111111", width=5)
+    draw.line((x_return, 900, x_return, 125), fill="#111111", width=5)
+    draw.line((x_return, 125, sw_target, 125), fill="#111111", width=5)
+    v_arrow(draw, sw_target, 125, switch[1], "", small, color="#111111")
+    draw.text((1420, 520), "Flow-Mod\ninstalls rule", fill="#111111", font=small)
 
-    draw.text((20, 950), "Grey = controller-owned wire path. Orange boxes = DAIM Core/application/adapter (this paper's implemented subset). The table-write step is shown in Figure 2.", fill="#555555", font=small)
+    legend_y = 1005
+    row_h = 40
+    legend_font = ImageFont.load_default(size=26)
+
+    def legend_swatch_row(x, y, fill, outline, border, text):
+        box(draw, (x, y, x + 40, y + 28), "", legend_font, fill=fill, outline=outline, border=border)
+        draw.text((x + 52, y + 2), text, fill="#222222", font=legend_font)
+
+    legend_swatch_row(30, legend_y, EXT_FILL, EXT_LINE, "solid", "solid border = external dependency, unmodified")
+    legend_swatch_row(950, legend_y, DAIM_FILL, DAIM_LINE, "dotted", "dotted border = DAIM-OS concept, C impl. here")
+    legend_swatch_row(30, legend_y + row_h, GLUE_FILL, GLUE_LINE, "dashed", "dashed border = glue code for this artifact")
+    draw.text((950, legend_y + row_h + 2), "Border style (not colour alone) marks category", fill="#222222", font=legend_font)
+    draw.text((30, legend_y + 2 * row_h), "Heavy black line = Flow-Mod installation", fill="#222222", font=legend_font)
     image.save(path)
 
 
@@ -201,24 +282,27 @@ def draw_sequence(path):
     image = Image.new("RGB", (width, height), "white")
     draw = ImageDraw.Draw(image)
     title_font = ImageFont.load_default(size=42)
-    font = ImageFont.load_default(size=32)
-    small = ImageFont.load_default(size=32)
+    font = ImageFont.load_default(size=28)
+    small = ImageFont.load_default(size=27)
 
     draw.text((20, 20), "Packet-In -> NO_RULE -> installed OVS rule: message sequence", fill="#111111", font=title_font)
 
     actors = [
-        ("Host", 90),
-        ("OVS switch", 330),
-        ("Os-Ken\ncontroller", 570),
+        ("Host", 120),
+        ("OVS switch", 350),
+        ("Os-Ken\ncontroller", 590),
         ("ctypes bridge", 830),
-        ("DAIM Core\n(libdaim_core.so)", 1110),
-        ("Learning\napplication", 1370),
+        ("DAIM Core\n(libdaim_core.so)", 1080),
+        ("Learning\napplication", 1350),
         ("OVS adapter", 1590),
     ]
-    top_y = 70
+    top_y = 110
     bottom_y = 1080
-    for name, x in actors:
-        box(draw, (x - 90, top_y, x + 90, top_y + 70), name, font)
+    for idx, (name, x) in enumerate(actors):
+        implemented = idx >= 4
+        box(draw, (x - 100, top_y, x + 100, top_y + 78), name, font,
+            fill="#FFF0E6" if implemented else "#EAF2FB",
+            outline="#D55E00" if implemented else "#0072B2")
         draw.line((x, top_y + 70, x, bottom_y), fill="#BBBBBB", width=2)
 
     xs = {name: x for name, x in actors}
@@ -233,14 +317,14 @@ def draw_sequence(path):
         ("OVS adapter", "OVS switch", "8  Flow-Mod", False),
         ("Os-Ken\ncontroller", "OVS switch", "9  PacketOut", True),
     ]
-    y = 190
-    step_h = 100
+    y = 230
+    step_h = 95
     for src, dst, label, dashed in steps:
         x0, x1 = xs[src], xs[dst]
-        h_arrow(draw, x0, x1, y, label, small, color="#2457A6" if not dashed else "#888888", dashed=dashed, label_dy=-20)
+        h_arrow(draw, x0, x1, y, label, small, color="#111111", dashed=dashed, label_dy=-20)
         y += step_h
 
-    draw.text((20, 1100), "Dashed arrows = messages already possible without DAIM (return path / persistence).", fill="#555555", font=small)
+    draw.text((20, 1100), "Dashed arrows: return messages already possible without DAIM.", fill="#555555", font=small)
     image.save(path)
 
 
@@ -257,10 +341,10 @@ def draw_topology(path):
     draw.text((40, 30), "(a) Packet-In experiment topology (Section 5.3)", fill="#111111", font=title_font)
     ax_y = 170
     a_boxes = [
-        ("h1", 60, "#EFF3F9", "#2457A6"),
-        ("s1\n(OVS)", 280, "#FDF3E7", "#C45A24"),
-        ("s2\n(OVS)", 560, "#FDF3E7", "#C45A24"),
-        ("h2", 780, "#EFF3F9", "#2457A6"),
+        ("h1", 60, "#EAF2FB", "#0072B2"),
+        ("s1\n(OVS)", 280, "#FFF0E6", "#D55E00"),
+        ("s2\n(OVS)", 560, "#FFF0E6", "#D55E00"),
+        ("h2", 780, "#EAF2FB", "#0072B2"),
     ]
     prev = None
     for label, x, fill, outline in a_boxes:
@@ -284,26 +368,21 @@ def draw_topology(path):
             centers.append(x + 15)
             continue
         bx = (x, by0 - 35, x + 120, by0 + 35)
-        fill, outline = ("#FDF3E7", "#C45A24")
+        fill, outline = ("#FFF0E6", "#D55E00")
         box(draw, bx, lab, small, fill=fill, outline=outline)
         centers.append((bx[0] + bx[2]) / 2)
         hbx = (x + 10, by0 + 90, x + 110, by0 + 150)
-        box(draw, hbx, "h", tiny, fill="#EFF3F9", outline="#2457A6")
+        box(draw, hbx, "h", tiny, fill="#EAF2FB", outline="#0072B2")
         v_arrow(draw, (hbx[0] + hbx[2]) / 2, hbx[1], bx[3], "", tiny)
-    for i in range(len(centers) - 1):
-        if labels[i] == "..." or labels[i + 1] == "...":
-            x0 = centers[i] + (25 if labels[i] != "..." else 0)
-            x1 = centers[i + 1] - (25 if labels[i + 1] != "..." else 0)
-        else:
-            x0, x1 = centers[i] + 60, centers[i + 1] - 60
+    for x0, x1 in [(180,260),(380,460),(580,875),(945,1100),(1220,1300)]:
         draw.line((x0, by0, x1, by0), fill="#333333", width=3)
     draw.text((40, 820), "One host per switch; each switch receives one priority=100,ip,actions=normal rule.\nEvery topology rebuilt and cleaned before each of the 5 repetitions per (mode, N).", fill="#555555", font=tiny)
 
     # Testbed info box
     info_box = (40, 900, 1660, 1000)
-    draw.rectangle(info_box, fill="#F4F6F9", outline="#888888", width=2)
-    draw.text((60, 918), "Testbed: Ubuntu 24.04 LTS ARM64, Lima/QEMU VM (4 vCPU, 6 GiB RAM)  ·  Open vSwitch 3.3.4  ·  Mininet 2.3.0  ·  OpenFlow 1.3  ·  Os-Ken 2.6.0", fill="#222222", font=small)
-    draw.text((60, 948), "Core/adapter conformance tests were additionally run on macOS ARM64, Apple Clang 21.0.0 (Section 5.1).", fill="#555555", font=tiny)
+    draw.rectangle(info_box, fill="#F7F9FC", outline="#6B7280", width=2)
+    draw.text((60, 912), "Ubuntu 24.04 ARM64 · Lima/QEMU · 4 vCPU · 6 GiB RAM · OVS 3.3.4 · Mininet 2.3.0", fill="#222222", font=small)
+    draw.text((60, 952), "OpenFlow 1.3 · Os-Ken 2.6.0. Conformance tests also ran on macOS ARM64 (Section 5.1).", fill="#555555", font=tiny)
 
     image.save(path)
 
@@ -320,8 +399,8 @@ def draw_comparison(path):
 
     left = (60, 100, 760, 650)
     right = (1040, 100, 1640, 650)
-    draw.rectangle(left, fill="#F4F6F9", outline="#666666", width=3)
-    draw.rectangle(right, fill="#FDF3E7", outline="#C45A24", width=3)
+    draw.rectangle(left, fill="#EAF2FB", outline="#0072B2", width=3)
+    draw.rectangle(right, fill="#FFF0E6", outline="#D55E00", width=3)
     draw.text((left[0] + 24, left[1] + 20), "DAIM literature, 2013-2018 [1-3, 17, 18, 31, 32]", fill="#222222", font=font)
     draw.text((right[0] + 24, right[1] + 20), "This paper, 2026", fill="#222222", font=font)
 
@@ -367,9 +446,9 @@ def draw_comparison(path):
         ty += 34
 
     h_arrow(draw, left[2] + 15, right[0] - 15, 300, "", small)
-    draw.text((left[2] + 25, 330), "same table/signal\nabstractions; new\nexecutable artifact\nand evidence", fill="#2457A6", font=small)
+    draw.text((left[2] + 25, 330), "same table/signal\nabstractions; new\nexecutable artifact\nand evidence", fill="#111111", font=small)
 
-    draw.text((20, 700), "No historical DAIM performance number is reused in this paper; the right column lists what is newly measured here (Section 2.3).", fill="#555555", font=small)
+    draw.text((20, 700), "No historical DAIM performance result is reused; the right column lists evidence newly produced in this study.", fill="#555555", font=small)
     image.save(path)
 
 
