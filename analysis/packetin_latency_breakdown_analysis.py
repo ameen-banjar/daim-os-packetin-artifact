@@ -24,13 +24,14 @@ LABELS = {
     "persistent": "DAIM: persistent",
     "reactive_osken": "Os-Ken reactive",
 }
-STAGES = ["controller", "interop", "decision", "table_write", "install_call", "packetout", "confirm"]
+STAGES = ["controller", "interop", "decision", "table_write", "install_call", "c_exit_tail", "packetout", "confirm"]
 STAGE_LABELS = {
     "controller": "Controller dispatch / parse",
-    "interop": "ctypes boundary",
+    "interop": "Python-C interop (entry+exit legs; marshalling + possible lock wait, not pure ctypes cost)",
     "decision": "Learning decision / state",
     "table_write": "DAIM table write",
     "install_call": "Flow installation call",
+    "c_exit_tail": "Remaining C-side time after install call, still holding the lock (before c_exit_ns; excludes unlock/return, which is in interop)",
     "packetout": "PacketOut send",
     "confirm": "Common OVS rule-observation probe",
 }
@@ -58,6 +59,7 @@ def stage_deltas_us(row):
             "decision": decision_done - parsed,
             "table_write": 0,
             "install_call": install_done - decision_done,
+            "c_exit_tail": 0,
             "packetout": packetout_done - install_done,
             "confirm": confirmed - packetout_done if confirmed is not None else None,
             "total": confirmed - start if confirmed is not None else None,
@@ -79,6 +81,7 @@ def stage_deltas_us(row):
             "decision": decision_done - c_entry,
             "table_write": table_done - decision_done,
             "install_call": install_done - table_done,
+            "c_exit_tail": c_exit - install_done,
             "packetout": packetout_done - post_ctypes,
             "confirm": confirmed - packetout_done if confirmed is not None else None,
             "total": confirmed - dispatch if confirmed is not None else None,
@@ -192,7 +195,7 @@ def draw_chart(summary, path):
                 draw.text((x+16,yy-14),f"{value:.3f}" if value<1 else f"{value:.2f}",fill=mode_colors[mi],font=font(27, True))
         draw.text((left+450,pbottom+42),f"Mean stage latency ({unit}, linear scale)",fill="#222222",font=label_font)
 
-    stage_panel("B. Internal processing stages", ["controller","interop","decision","table_write","packetout"], "µs", 1.0, 650, 1010)
+    stage_panel("B. Internal processing stages", ["controller","interop","decision","table_write","c_exit_tail","packetout"], "µs", 1.0, 650, 1010)
     stage_panel("C. Southbound and switch-observation stages", ["install_call","confirm"], "ms", 1000.0, 1160, 1335)
 
     ly = 1500
