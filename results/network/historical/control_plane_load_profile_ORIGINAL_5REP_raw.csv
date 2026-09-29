@@ -1,0 +1,11 @@
+mode,repetition,evidence_level,n_senders,priming_ok,signal_ok,pings_succeeded,pings_attempted,no_rule_events,flows_installed,elapsed_s,throughput_installs_per_s,cpu_s,max_rss_kib,control_bytes_total,control_messages_total,control_bytes_source,echo_replies_sent,ovs_vswitchd_cpu_s_delta,ovs_vswitchd_rss_kib_after
+process_per_rule,1,measured_emulation,40,1,1,40,40,213,84,1.08226286,77.61515534220587,0.07977799999999996,65700,8064,84,computed_wire_format,,0.0,74276
+process_per_rule,2,measured_emulation,40,1,1,40,40,215,84,1.08052936,77.73967382061696,0.08080300000000001,65608,8064,84,computed_wire_format,,1.0,74356
+process_per_rule,3,measured_emulation,40,1,1,40,40,219,84,1.106675033,75.9030406354166,0.08714299999999997,65580,8064,84,computed_wire_format,,0.0,74476
+process_per_rule,4,measured_emulation,40,1,1,40,40,236,84,1.231509899,68.208952334211,0.09766300000000006,65696,8064,84,computed_wire_format,,0.0,74460
+process_per_rule,5,measured_emulation,40,1,1,40,40,230,84,1.156437722,72.63685575279081,0.10351000000000005,65684,8064,84,computed_wire_format,,1.0,74516
+persistent,1,measured_emulation,40,1,1,40,40,160,84,0.318631677,263.6272726895261,0.04033300000000001,65700,8064,84,measured,0,0.0,74528
+persistent,2,measured_emulation,40,1,1,40,40,160,84,0.305228878,275.2033180818494,0.036918000000000006,65672,8064,84,measured,0,0.0,74596
+persistent,3,measured_emulation,40,1,1,40,40,146,84,0.310376449,270.63909091891185,0.038041999999999965,65708,8064,84,measured,0,0.0,74596
+persistent,4,measured_emulation,40,1,1,40,40,151,84,0.305667041,274.80882376193125,0.036253000000000035,65704,8064,84,measured,0,0.0,74672
+persistent,5,measured_emulation,40,1,1,40,40,145,84,0.303214635,277.0314829955355,0.03395999999999999,65648,8064,84,measured,0,0.0,74688

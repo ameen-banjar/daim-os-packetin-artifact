@@ -1,0 +1,55 @@
+{
+  "evidence_level": "measured_emulation",
+  "source": "results/network/stage2_full_compare_independent_rerun_raw.csv",
+  "note": "Point estimates only, no bootstrap -- this rerun is reported as a qualitative replication check (does the mean ordering hold?), not an inferential claim; see INDEPENDENT_CLEAN_RERUN_REPORT.md.",
+  "summary": [
+    {
+      "network_size": 8,
+      "mode": "daim_process_per_rule",
+      "n": 5,
+      "mean_ms": 10.990181025000002
+    },
+    {
+      "network_size": 8,
+      "mode": "daim_persistent",
+      "n": 5,
+      "mean_ms": 5.330994575
+    },
+    {
+      "network_size": 8,
+      "mode": "direct_ovs_cli",
+      "n": 5,
+      "mean_ms": 11.38509195
+    },
+    {
+      "network_size": 8,
+      "mode": "direct_osken",
+      "n": 5,
+      "mean_ms": 2.1090468249999996
+    },
+    {
+      "network_size": 64,
+      "mode": "daim_process_per_rule",
+      "n": 5,
+      "mean_ms": 13.77797344375
+    },
+    {
+      "network_size": 64,
+      "mode": "daim_persistent",
+      "n": 5,
+      "mean_ms": 14.244912081249998
+    },
+    {
+      "network_size": 64,
+      "mode": "direct_ovs_cli",
+      "n": 5,
+      "mean_ms": 14.126793731249998
+    },
+    {
+      "network_size": 64,
+      "mode": "direct_osken",
+      "n": 5,
+      "mean_ms": 13.54558605
+    }
+  ]
+}
