@@ -1,0 +1,222 @@
+{
+  "seed": 20260929,
+  "n_blocks": 30,
+  "arms": [
+    "persistent",
+    "reactive_osken"
+  ],
+  "recover_window_s": 30,
+  "note": "Randomised arm order within each block; the block itself always contains one trial of each arm.",
+  "blocks": [
+    {
+      "block": 1,
+      "order": [
+        "persistent",
+        "reactive_osken"
+      ]
+    },
+    {
+      "block": 2,
+      "order": [
+        "persistent",
+        "reactive_osken"
+      ]
+    },
+    {
+      "block": 3,
+      "order": [
+        "persistent",
+        "reactive_osken"
+      ]
+    },
+    {
+      "block": 4,
+      "order": [
+        "reactive_osken",
+        "persistent"
+      ]
+    },
+    {
+      "block": 5,
+      "order": [
+        "persistent",
+        "reactive_osken"
+      ]
+    },
+    {
+      "block": 6,
+      "order": [
+        "reactive_osken",
+        "persistent"
+      ]
+    },
+    {
+      "block": 7,
+      "order": [
+        "persistent",
+        "reactive_osken"
+      ]
+    },
+    {
+      "block": 8,
+      "order": [
+        "persistent",
+        "reactive_osken"
+      ]
+    },
+    {
+      "block": 9,
+      "order": [
+        "reactive_osken",
+        "persistent"
+      ]
+    },
+    {
+      "block": 10,
+      "order": [
+        "reactive_osken",
+        "persistent"
+      ]
+    },
+    {
+      "block": 11,
+      "order": [
+        "persistent",
+        "reactive_osken"
+      ]
+    },
+    {
+      "block": 12,
+      "order": [
+        "persistent",
+        "reactive_osken"
+      ]
+    },
+    {
+      "block": 13,
+      "order": [
+        "persistent",
+        "reactive_osken"
+      ]
+    },
+    {
+      "block": 14,
+      "order": [
+        "persistent",
+        "reactive_osken"
+      ]
+    },
+    {
+      "block": 15,
+      "order": [
+        "persistent",
+        "reactive_osken"
+      ]
+    },
+    {
+      "block": 16,
+      "order": [
+        "reactive_osken",
+        "persistent"
+      ]
+    },
+    {
+      "block": 17,
+      "order": [
+        "reactive_osken",
+        "persistent"
+      ]
+    },
+    {
+      "block": 18,
+      "order": [
+        "reactive_osken",
+        "persistent"
+      ]
+    },
+    {
+      "block": 19,
+      "order": [
+        "persistent",
+        "reactive_osken"
+      ]
+    },
+    {
+      "block": 20,
+      "order": [
+        "persistent",
+        "reactive_osken"
+      ]
+    },
+    {
+      "block": 21,
+      "order": [
+        "reactive_osken",
+        "persistent"
+      ]
+    },
+    {
+      "block": 22,
+      "order": [
+        "reactive_osken",
+        "persistent"
+      ]
+    },
+    {
+      "block": 23,
+      "order": [
+        "persistent",
+        "reactive_osken"
+      ]
+    },
+    {
+      "block": 24,
+      "order": [
+        "persistent",
+        "reactive_osken"
+      ]
+    },
+    {
+      "block": 25,
+      "order": [
+        "persistent",
+        "reactive_osken"
+      ]
+    },
+    {
+      "block": 26,
+      "order": [
+        "reactive_osken",
+        "persistent"
+      ]
+    },
+    {
+      "block": 27,
+      "order": [
+        "reactive_osken",
+        "persistent"
+      ]
+    },
+    {
+      "block": 28,
+      "order": [
+        "reactive_osken",
+        "persistent"
+      ]
+    },
+    {
+      "block": 29,
+      "order": [
+        "persistent",
+        "reactive_osken"
+      ]
+    },
+    {
+      "block": 30,
+      "order": [
+        "persistent",
+        "reactive_osken"
+      ]
+    }
+  ]
+}
