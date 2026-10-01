@@ -84,3 +84,25 @@ This campaign supplies previously missing single-instance service comparisons, b
 Inspection of the first completed platform block found an ODL controller-crash case with successful communication to the new destination while the controller cgroup was already empty. A later successful probe in that case is not evidence of restoration after an observed interruption. The frozen analysis's `recovered` fields therefore describe successful post-action service observation; they cannot alone establish a preceding outage.
 
 The collection procedure and frozen analysis remain unchanged. A separately labelled supplementary interpretation uses the saved downtime probe to distinguish continuing reachability from service observed after probe loss. For host movement, no probe occurs during detach/attach; the first post-move probe determines whether loss was observed during the subsequent observation period. No observed probe loss does not establish uninterrupted service between probes. This interpretive check was defined during collection, not before the first attempt, and must be identified as such in reporting.
+
+## Completed collection and verification
+
+All 340 scheduled attempts are retained: 339 procedures completed and one
+setup error was not replaced. The post-collection audit checked 8,167 distinct
+probe events, including an independent packet-count parse, and 5,617 flow reads
+with zero reported consistency findings. The first eight records remain
+unchanged. All 36 source hashes matched the applicable amendment after collection;
+the four experimental services stopped and no scheduled experimental bridge
+remained. The three pre-existing bridges remained untouched.
+
+The host monitor retained 787 samples. Memory-pressure code 2 was present in
+all samples, and host swap counters increased by 254,480 input pages and
+233,098 output pages (16,384 bytes per page). Host CPU idle ranged from 19.90%
+to 88.20%. These are whole-window observations, including pauses and diagnostics;
+they cannot isolate a controller's cost or explain an individual failure.
+No attempt was discarded based on the later resource summary.
+
+The numerical results, eligibility denominators, separate outage interpretation
+and limitations are in `R5_SERVICE_CAMPAIGN_RESULTS_20261001.md`. The local
+artifact reproduces five derived outputs byte-for-byte. This is an author-side
+package check, not independent laboratory reproduction or a public DOI release.
