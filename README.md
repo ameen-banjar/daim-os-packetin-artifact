@@ -1,5 +1,11 @@
 # DAIM-OS Packet-In Artifact
 
+> **Local revision candidate, 1 October 2026:** A corrected Section 5.6
+> sample is documented in [Corrected Packet In experiment](docs/CORRECTED_PACKETIN_20261001.md).
+> Historical capture and ping-check defects limit the older dataset; its
+> results must not be confused with the corrected sample. These local
+> additions are not yet included in the published v1.1.0 DOI snapshot.
+
 Reproducibility artifact for the paper:
 
 **"Reconstructing the DAIM-OS Table-and-Signal Control Path: An Executable

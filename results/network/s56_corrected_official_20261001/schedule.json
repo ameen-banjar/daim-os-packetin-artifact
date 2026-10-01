@@ -1,0 +1,452 @@
+[
+  {
+    "block": 1,
+    "mode": "reactive_osken",
+    "scenario": "normal"
+  },
+  {
+    "block": 1,
+    "mode": "persistent",
+    "scenario": "normal"
+  },
+  {
+    "block": 1,
+    "mode": "process_per_rule",
+    "scenario": "normal"
+  },
+  {
+    "block": 2,
+    "mode": "process_per_rule",
+    "scenario": "normal"
+  },
+  {
+    "block": 2,
+    "mode": "reactive_osken",
+    "scenario": "normal"
+  },
+  {
+    "block": 2,
+    "mode": "persistent",
+    "scenario": "normal"
+  },
+  {
+    "block": 3,
+    "mode": "persistent",
+    "scenario": "normal"
+  },
+  {
+    "block": 3,
+    "mode": "reactive_osken",
+    "scenario": "normal"
+  },
+  {
+    "block": 3,
+    "mode": "process_per_rule",
+    "scenario": "normal"
+  },
+  {
+    "block": 4,
+    "mode": "persistent",
+    "scenario": "normal"
+  },
+  {
+    "block": 4,
+    "mode": "reactive_osken",
+    "scenario": "normal"
+  },
+  {
+    "block": 4,
+    "mode": "process_per_rule",
+    "scenario": "normal"
+  },
+  {
+    "block": 5,
+    "mode": "persistent",
+    "scenario": "normal"
+  },
+  {
+    "block": 5,
+    "mode": "process_per_rule",
+    "scenario": "normal"
+  },
+  {
+    "block": 5,
+    "mode": "reactive_osken",
+    "scenario": "normal"
+  },
+  {
+    "block": 6,
+    "mode": "persistent",
+    "scenario": "normal"
+  },
+  {
+    "block": 6,
+    "mode": "reactive_osken",
+    "scenario": "normal"
+  },
+  {
+    "block": 6,
+    "mode": "process_per_rule",
+    "scenario": "normal"
+  },
+  {
+    "block": 7,
+    "mode": "process_per_rule",
+    "scenario": "normal"
+  },
+  {
+    "block": 7,
+    "mode": "reactive_osken",
+    "scenario": "normal"
+  },
+  {
+    "block": 7,
+    "mode": "persistent",
+    "scenario": "normal"
+  },
+  {
+    "block": 8,
+    "mode": "reactive_osken",
+    "scenario": "normal"
+  },
+  {
+    "block": 8,
+    "mode": "persistent",
+    "scenario": "normal"
+  },
+  {
+    "block": 8,
+    "mode": "process_per_rule",
+    "scenario": "normal"
+  },
+  {
+    "block": 9,
+    "mode": "reactive_osken",
+    "scenario": "normal"
+  },
+  {
+    "block": 9,
+    "mode": "persistent",
+    "scenario": "normal"
+  },
+  {
+    "block": 9,
+    "mode": "process_per_rule",
+    "scenario": "normal"
+  },
+  {
+    "block": 10,
+    "mode": "process_per_rule",
+    "scenario": "normal"
+  },
+  {
+    "block": 10,
+    "mode": "reactive_osken",
+    "scenario": "normal"
+  },
+  {
+    "block": 10,
+    "mode": "persistent",
+    "scenario": "normal"
+  },
+  {
+    "block": 11,
+    "mode": "reactive_osken",
+    "scenario": "normal"
+  },
+  {
+    "block": 11,
+    "mode": "persistent",
+    "scenario": "normal"
+  },
+  {
+    "block": 11,
+    "mode": "process_per_rule",
+    "scenario": "normal"
+  },
+  {
+    "block": 12,
+    "mode": "persistent",
+    "scenario": "normal"
+  },
+  {
+    "block": 12,
+    "mode": "reactive_osken",
+    "scenario": "normal"
+  },
+  {
+    "block": 12,
+    "mode": "process_per_rule",
+    "scenario": "normal"
+  },
+  {
+    "block": 13,
+    "mode": "persistent",
+    "scenario": "normal"
+  },
+  {
+    "block": 13,
+    "mode": "process_per_rule",
+    "scenario": "normal"
+  },
+  {
+    "block": 13,
+    "mode": "reactive_osken",
+    "scenario": "normal"
+  },
+  {
+    "block": 14,
+    "mode": "process_per_rule",
+    "scenario": "normal"
+  },
+  {
+    "block": 14,
+    "mode": "persistent",
+    "scenario": "normal"
+  },
+  {
+    "block": 14,
+    "mode": "reactive_osken",
+    "scenario": "normal"
+  },
+  {
+    "block": 15,
+    "mode": "process_per_rule",
+    "scenario": "normal"
+  },
+  {
+    "block": 15,
+    "mode": "reactive_osken",
+    "scenario": "normal"
+  },
+  {
+    "block": 15,
+    "mode": "persistent",
+    "scenario": "normal"
+  },
+  {
+    "block": 16,
+    "mode": "reactive_osken",
+    "scenario": "normal"
+  },
+  {
+    "block": 16,
+    "mode": "persistent",
+    "scenario": "normal"
+  },
+  {
+    "block": 16,
+    "mode": "process_per_rule",
+    "scenario": "normal"
+  },
+  {
+    "block": 17,
+    "mode": "reactive_osken",
+    "scenario": "normal"
+  },
+  {
+    "block": 17,
+    "mode": "process_per_rule",
+    "scenario": "normal"
+  },
+  {
+    "block": 17,
+    "mode": "persistent",
+    "scenario": "normal"
+  },
+  {
+    "block": 18,
+    "mode": "process_per_rule",
+    "scenario": "normal"
+  },
+  {
+    "block": 18,
+    "mode": "reactive_osken",
+    "scenario": "normal"
+  },
+  {
+    "block": 18,
+    "mode": "persistent",
+    "scenario": "normal"
+  },
+  {
+    "block": 19,
+    "mode": "process_per_rule",
+    "scenario": "normal"
+  },
+  {
+    "block": 19,
+    "mode": "persistent",
+    "scenario": "normal"
+  },
+  {
+    "block": 19,
+    "mode": "reactive_osken",
+    "scenario": "normal"
+  },
+  {
+    "block": 20,
+    "mode": "persistent",
+    "scenario": "normal"
+  },
+  {
+    "block": 20,
+    "mode": "reactive_osken",
+    "scenario": "normal"
+  },
+  {
+    "block": 20,
+    "mode": "process_per_rule",
+    "scenario": "normal"
+  },
+  {
+    "block": 21,
+    "mode": "process_per_rule",
+    "scenario": "normal"
+  },
+  {
+    "block": 21,
+    "mode": "persistent",
+    "scenario": "normal"
+  },
+  {
+    "block": 21,
+    "mode": "reactive_osken",
+    "scenario": "normal"
+  },
+  {
+    "block": 22,
+    "mode": "reactive_osken",
+    "scenario": "normal"
+  },
+  {
+    "block": 22,
+    "mode": "process_per_rule",
+    "scenario": "normal"
+  },
+  {
+    "block": 22,
+    "mode": "persistent",
+    "scenario": "normal"
+  },
+  {
+    "block": 23,
+    "mode": "reactive_osken",
+    "scenario": "normal"
+  },
+  {
+    "block": 23,
+    "mode": "process_per_rule",
+    "scenario": "normal"
+  },
+  {
+    "block": 23,
+    "mode": "persistent",
+    "scenario": "normal"
+  },
+  {
+    "block": 24,
+    "mode": "process_per_rule",
+    "scenario": "normal"
+  },
+  {
+    "block": 24,
+    "mode": "persistent",
+    "scenario": "normal"
+  },
+  {
+    "block": 24,
+    "mode": "reactive_osken",
+    "scenario": "normal"
+  },
+  {
+    "block": 25,
+    "mode": "reactive_osken",
+    "scenario": "normal"
+  },
+  {
+    "block": 25,
+    "mode": "persistent",
+    "scenario": "normal"
+  },
+  {
+    "block": 25,
+    "mode": "process_per_rule",
+    "scenario": "normal"
+  },
+  {
+    "block": 26,
+    "mode": "reactive_osken",
+    "scenario": "normal"
+  },
+  {
+    "block": 26,
+    "mode": "process_per_rule",
+    "scenario": "normal"
+  },
+  {
+    "block": 26,
+    "mode": "persistent",
+    "scenario": "normal"
+  },
+  {
+    "block": 27,
+    "mode": "persistent",
+    "scenario": "normal"
+  },
+  {
+    "block": 27,
+    "mode": "process_per_rule",
+    "scenario": "normal"
+  },
+  {
+    "block": 27,
+    "mode": "reactive_osken",
+    "scenario": "normal"
+  },
+  {
+    "block": 28,
+    "mode": "process_per_rule",
+    "scenario": "normal"
+  },
+  {
+    "block": 28,
+    "mode": "reactive_osken",
+    "scenario": "normal"
+  },
+  {
+    "block": 28,
+    "mode": "persistent",
+    "scenario": "normal"
+  },
+  {
+    "block": 29,
+    "mode": "reactive_osken",
+    "scenario": "normal"
+  },
+  {
+    "block": 29,
+    "mode": "persistent",
+    "scenario": "normal"
+  },
+  {
+    "block": 29,
+    "mode": "process_per_rule",
+    "scenario": "normal"
+  },
+  {
+    "block": 30,
+    "mode": "process_per_rule",
+    "scenario": "normal"
+  },
+  {
+    "block": 30,
+    "mode": "persistent",
+    "scenario": "normal"
+  },
+  {
+    "block": 30,
+    "mode": "reactive_osken",
+    "scenario": "normal"
+  }
+]

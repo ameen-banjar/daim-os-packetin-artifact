@@ -1,0 +1,34 @@
+{
+  "parameters": {
+    "ready_s": 20.0,
+    "warmup_s": 5.0,
+    "confirm_s": 3.0,
+    "poll_sleep_s": 0.0005,
+    "call_s": 1.0,
+    "ping_wait_s": 1,
+    "warmup_quiet_s": 0.2,
+    "seed": 20261001,
+    "bootstrap": 20000
+  },
+  "hashes": {
+    "s56_corrected_runner.py": "7369db644ab3856563a08027c248f71a0c0b80f430d7e8a7fab4572c28ce363d",
+    "s56_corrected_controller.py": "fe08b0dd8b650c2a6c296be58497a4a4d192093c70dcd1509c1c0bf535c7db3c",
+    "s56_measurement.py": "0fd0b141b52e91bef01750fbf14f67b28fbefa8ff9db834bb29fb44e44e4675a",
+    "daim_core_bridge.py": "6677f8bdea8e2154ff5294659043f2ea18dd52943e37e226ca75f5edc4f88231",
+    "libdaim_core.so": "c006b7bb603ed7fba08f8dbc0906b869a07920586e2bfff9bd2d749346831c4e"
+  },
+  "phase": "verify",
+  "clock": {
+    "implementation": "clock_gettime(CLOCK_MONOTONIC)",
+    "monotonic": true,
+    "adjustable": false,
+    "resolution": 1e-09
+  },
+  "uname": [
+    "Linux",
+    "lima-daim-lab-qemu",
+    "6.8.0-137-generic",
+    "#137-Ubuntu SMP PREEMPT_DYNAMIC Fri Jul 17 19:15:13 UTC 2026",
+    "aarch64"
+  ]
+}

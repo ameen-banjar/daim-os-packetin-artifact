@@ -1,0 +1,15 @@
+/usr/local/lib/python3.12/dist-packages/os_ken/lib/hub.py:30: EventletDeprecationWarning: 
+Eventlet is deprecated. It is currently being maintained in bugfix mode, and
+we strongly recommend against using it for new projects.
+
+If you are already using Eventlet, we recommend migrating to a different
+framework.  For more detail see
+https://eventlet.readthedocs.io/en/latest/asyncio/migration.html
+
+  import eventlet
+1 RLock(s) were not greened, to fix this error make sure you run eventlet.monkey_patch() before importing any other modules.
+loading app /Users/abanjar/All Project/DAIM/DAIM-Program/experiments/network/s56_corrected_controller.py
+loading app os_ken.controller.ofp_handler
+instantiating app /Users/abanjar/All Project/DAIM/DAIM-Program/experiments/network/s56_corrected_controller.py of CorrectedController
+instantiating app os_ken.controller.ofp_handler of OFPHandler
+{"event": "ready", "mode": "reactive_osken", "trial_id": "s56_corrected_verify_v3-6-reactive_osken-1deb6a2e"}

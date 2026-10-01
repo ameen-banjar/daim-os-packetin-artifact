@@ -1,0 +1,107 @@
+[
+  {
+    "block": 0,
+    "mode": "process_per_rule",
+    "scenario": "warmup_only"
+  },
+  {
+    "block": 0,
+    "mode": "persistent",
+    "scenario": "warmup_only"
+  },
+  {
+    "block": 0,
+    "mode": "reactive_osken",
+    "scenario": "warmup_only"
+  },
+  {
+    "block": 0,
+    "mode": "process_per_rule",
+    "scenario": "wrong_identity"
+  },
+  {
+    "block": 0,
+    "mode": "persistent",
+    "scenario": "wrong_identity"
+  },
+  {
+    "block": 0,
+    "mode": "reactive_osken",
+    "scenario": "wrong_identity"
+  },
+  {
+    "block": 0,
+    "mode": "process_per_rule",
+    "scenario": "normal"
+  },
+  {
+    "block": 0,
+    "mode": "persistent",
+    "scenario": "normal"
+  },
+  {
+    "block": 0,
+    "mode": "reactive_osken",
+    "scenario": "normal"
+  },
+  {
+    "block": 0,
+    "mode": "process_per_rule",
+    "scenario": "unexpected_rule"
+  },
+  {
+    "block": 0,
+    "mode": "persistent",
+    "scenario": "unexpected_rule"
+  },
+  {
+    "block": 0,
+    "mode": "reactive_osken",
+    "scenario": "unexpected_rule"
+  },
+  {
+    "block": 0,
+    "mode": "process_per_rule",
+    "scenario": "ping_failure"
+  },
+  {
+    "block": 0,
+    "mode": "persistent",
+    "scenario": "ping_failure"
+  },
+  {
+    "block": 0,
+    "mode": "reactive_osken",
+    "scenario": "ping_failure"
+  },
+  {
+    "block": 0,
+    "mode": "process_per_rule",
+    "scenario": "observer_timeout"
+  },
+  {
+    "block": 0,
+    "mode": "persistent",
+    "scenario": "observer_timeout"
+  },
+  {
+    "block": 0,
+    "mode": "reactive_osken",
+    "scenario": "observer_timeout"
+  },
+  {
+    "block": 0,
+    "mode": "process_per_rule",
+    "scenario": "observer_error"
+  },
+  {
+    "block": 0,
+    "mode": "persistent",
+    "scenario": "observer_error"
+  },
+  {
+    "block": 0,
+    "mode": "reactive_osken",
+    "scenario": "observer_error"
+  }
+]

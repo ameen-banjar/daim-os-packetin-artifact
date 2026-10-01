@@ -1,0 +1,39 @@
+/usr/local/lib/python3.12/dist-packages/os_ken/lib/hub.py:30: EventletDeprecationWarning: 
+Eventlet is deprecated. It is currently being maintained in bugfix mode, and
+we strongly recommend against using it for new projects.
+
+If you are already using Eventlet, we recommend migrating to a different
+framework.  For more detail see
+https://eventlet.readthedocs.io/en/latest/asyncio/migration.html
+
+  import eventlet
+1 RLock(s) were not greened, to fix this error make sure you run eventlet.monkey_patch() before importing any other modules.
+loading app /Users/abanjar/All Project/DAIM/DAIM-Program/experiments/network/s56_corrected_controller.py
+loading app os_ken.controller.ofp_handler
+instantiating app /Users/abanjar/All Project/DAIM/DAIM-Program/experiments/network/s56_corrected_controller.py of CorrectedController
+instantiating app os_ken.controller.ofp_handler of OFPHandler
+{"event": "ready", "mode": "process_per_rule", "trial_id": "s56_corrected_verify_v3-16-process_per_rule-ecba172b"}
+CorrectedController: Exception occurred during handler processing. Backtrace from offending handler [packet_in] servicing event [EventOFPPacketIn] follows.
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.12/dist-packages/os_ken/base/app_manager.py", line 289, in _event_loop
+    handler(ev)
+  File "/Users/abanjar/All Project/DAIM/DAIM-Program/experiments/network/s56_corrected_controller.py", line 150, in packet_in
+    observed = observe(CONFIG.get('observer_bridge', CONFIG['bridge']),
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/abanjar/All Project/DAIM/DAIM-Program/experiments/network/s56_measurement.py", line 111, in observe
+    poll = reader(bridge, timeout=min(PARAMETERS['call_s'], max(0.001, deadline-time.perf_counter())))
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/abanjar/All Project/DAIM/DAIM-Program/experiments/network/s56_measurement.py", line 95, in dump_once
+    p = subprocess.run(['ovs-ofctl', '-O', 'OpenFlow13', 'dump-flows', bridge],
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.12/subprocess.py", line 550, in run
+    stdout, stderr = process.communicate(input, timeout=timeout)
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.12/subprocess.py", line 1209, in communicate
+    stdout, stderr = self._communicate(input, endtime, timeout)
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.12/subprocess.py", line 2116, in _communicate
+    self._check_timeout(endtime, orig_timeout, stdout, stderr)
+  File "/usr/lib/python3.12/subprocess.py", line 1253, in _check_timeout
+    raise TimeoutExpired(
+subprocess.TimeoutExpired: Command '['ovs-ofctl', '-O', 'OpenFlow13', 'dump-flows', 'secba172b']' timed out after 0.0020707689982373267 seconds

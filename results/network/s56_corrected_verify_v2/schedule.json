@@ -1,0 +1,47 @@
+[
+  {
+    "block": 0,
+    "mode": "process_per_rule",
+    "scenario": "warmup_only"
+  },
+  {
+    "block": 0,
+    "mode": "persistent",
+    "scenario": "warmup_only"
+  },
+  {
+    "block": 0,
+    "mode": "reactive_osken",
+    "scenario": "warmup_only"
+  },
+  {
+    "block": 0,
+    "mode": "process_per_rule",
+    "scenario": "wrong_identity"
+  },
+  {
+    "block": 0,
+    "mode": "persistent",
+    "scenario": "wrong_identity"
+  },
+  {
+    "block": 0,
+    "mode": "reactive_osken",
+    "scenario": "wrong_identity"
+  },
+  {
+    "block": 0,
+    "mode": "process_per_rule",
+    "scenario": "normal"
+  },
+  {
+    "block": 0,
+    "mode": "persistent",
+    "scenario": "normal"
+  },
+  {
+    "block": 0,
+    "mode": "reactive_osken",
+    "scenario": "normal"
+  }
+]

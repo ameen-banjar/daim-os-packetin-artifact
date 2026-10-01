@@ -1,0 +1,16 @@
+/usr/local/lib/python3.12/dist-packages/os_ken/lib/hub.py:30: EventletDeprecationWarning: 
+Eventlet is deprecated. It is currently being maintained in bugfix mode, and
+we strongly recommend against using it for new projects.
+
+If you are already using Eventlet, we recommend migrating to a different
+framework.  For more detail see
+https://eventlet.readthedocs.io/en/latest/asyncio/migration.html
+
+  import eventlet
+1 RLock(s) were not greened, to fix this error make sure you run eventlet.monkey_patch() before importing any other modules.
+loading app /Users/abanjar/All Project/DAIM/DAIM-Program/experiments/network/s56_corrected_controller.py
+loading app os_ken.controller.ofp_handler
+instantiating app /Users/abanjar/All Project/DAIM/DAIM-Program/experiments/network/s56_corrected_controller.py of CorrectedController
+instantiating app os_ken.controller.ofp_handler of OFPHandler
+{"event": "ready", "mode": "process_per_rule", "trial_id": "s56_corrected_verify_v2-7-process_per_rule-45f98613"}
+{"event": "timing", "mode": "process_per_rule", "identity": {"trial_id": "s56_corrected_verify_v2-7-process_per_rule-45f98613", "bridge": "s45f98613", "dpid": 913873337535007, "in_port": 1, "src_mac": "02:56:00:00:00:01", "dst_mac": "02:56:00:00:00:02", "eth_type": 2048, "src_ip": "10.56.0.1", "dst_ip": "10.56.0.2", "ip_proto": 1, "icmp_type": 8, "icmp_id": 20007, "icmp_seq": 1}, "timestamps": {"t_dispatch_enter_ns": 142817809725209, "t_pre_ctypes_ns": 142817810334766, "t_post_ctypes_ns": 142817825188375, "c_entry_ns": 142817810482832, "c_decision_done_ns": 142817810484165, "c_table_write_done_ns": 142817810487207, "c_install_done_ns": 142817825181207, "c_exit_ns": 142817825181374, "t_packetout_sent_ns": 142817825354652}, "observation": {"status": "confirmed", "confirmed_ns": 142817829776408, "polls": [{"start_ns": 142817825394867, "end_ns": 142817829776408, "rc": 0, "stdout": "OFPST_FLOW reply (OF1.3) (xid=0x2):\n cookie=0x0, duration=1.235s, table=0, n_packets=2, n_bytes=196, priority=100,in_port=2,dl_dst=02:56:00:00:00:03 actions=output:3\n cookie=0x0, duration=1.219s, table=0, n_packets=1, n_bytes=98, priority=100,in_port=3,dl_dst=02:56:00:00:00:02 actions=output:2\n cookie=0x0, duration=0.004s, table=0, n_packets=0, n_bytes=0, priority=100,in_port=1,dl_dst=02:56:00:00:00:02 actions=output:2\n cookie=0x0, duration=1.279s, table=0, n_packets=5, n_bytes=378, priority=0 actions=CONTROLLER:65535\n", "stderr": "", "rules": [{"cookie": "0x0", "duration": "1.235s", "table": "0", "n_packets": "2", "n_bytes": "196", "priority": "100", "in_port": "2", "dl_dst": "02:56:00:00:00:03", "actions": "output:3"}, {"cookie": "0x0", "duration": "1.219s", "table": "0", "n_packets": "1", "n_bytes": "98", "priority": "100", "in_port": "3", "dl_dst": "02:56:00:00:00:02", "actions": "output:2"}, {"cookie": "0x0", "duration": "0.004s", "table": "0", "n_packets": "0", "n_bytes": "0", "priority": "100", "in_port": "1", "dl_dst": "02:56:00:00:00:02", "actions": "output:2"}, {"cookie": "0x0", "duration": "1.279s", "table": "0", "n_packets": "5", "n_bytes": "378", "priority": "0", "actions": "controller:65535"}], "error": null, "matched": true}]}, "chosen_out_port": 2, "executor_results": [{"rc": 0, "stderr": ""}, {"rc": 0, "stderr": ""}, {"rc": 0, "stderr": ""}]}

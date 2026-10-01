@@ -1,0 +1,270 @@
+{
+  "attempts": 90,
+  "seed": 20261001,
+  "bootstrap_samples": 20000,
+  "interval": "95% percentile; marginal not multiplicity-adjusted",
+  "metric": "handler entry to completion of first read confirming full target rule",
+  "inference": "latency estimates conditional on valid confirmed measurements; no timeout imputation",
+  "modes": {
+    "process_per_rule": {
+      "scheduled": 30,
+      "valid_confirmed_n": 30,
+      "connectivity": {
+        "succeeded": 30
+      },
+      "rule_observation": {
+        "confirmed": 30
+      },
+      "protocol": {
+        "met": 30
+      },
+      "mean_ms": 17.267697566666666,
+      "median_ms": 16.409197,
+      "p95_ms": 24.42292834999999,
+      "p99_ms": 27.7184892,
+      "min_ms": 13.546039,
+      "max_ms": 28.45321,
+      "mean_ci_ms": [
+        16.16241212666667,
+        18.595394947499997
+      ],
+      "median_ci_ms": [
+        15.570191000000001,
+        16.939426174999948
+      ],
+      "stage_means_ms": {
+        "dispatch": 0.1423742,
+        "interop": 0.06020363333333333,
+        "core_decision": 0.0014306,
+        "table_write": 0.0006098,
+        "adapter_call": 13.690126300000001,
+        "c_exit_tail": 0.0001807,
+        "post_call_and_packetout": 0.07515606666666666,
+        "confirmation_wait": 3.2976162666666666
+      },
+      "stage_percent_of_mean_total": {
+        "dispatch": 0.8245117766878038,
+        "interop": 0.3486488751664821,
+        "core_decision": 0.008284833542380377,
+        "table_write": 0.0035314493877698543,
+        "adapter_call": 79.28171226734501,
+        "c_exit_tail": 0.001046462617858335,
+        "post_call_and_packetout": 0.43524080947391003,
+        "confirmation_wait": 19.0970235257788
+      },
+      "integer_stage_sum_mismatches": 0
+    },
+    "persistent": {
+      "scheduled": 30,
+      "valid_confirmed_n": 30,
+      "connectivity": {
+        "succeeded": 30
+      },
+      "rule_observation": {
+        "confirmed": 30
+      },
+      "protocol": {
+        "met": 30
+      },
+      "mean_ms": 4.1139436,
+      "median_ms": 4.134322,
+      "p95_ms": 5.806615949999999,
+      "p99_ms": 6.05826947,
+      "min_ms": 2.684149,
+      "max_ms": 6.15967,
+      "mean_ci_ms": [
+        3.8149128733333337,
+        4.425022909999999
+      ],
+      "median_ci_ms": [
+        3.7393549999999998,
+        4.550147
+      ],
+      "stage_means_ms": {
+        "dispatch": 0.15777083333333333,
+        "interop": 0.03416863333333333,
+        "core_decision": 0.0011861666666666667,
+        "table_write": 0.0007236666666666666,
+        "adapter_call": 0.062194099999999995,
+        "c_exit_tail": 6.946666666666667e-05,
+        "post_call_and_packetout": 0.06281640000000001,
+        "confirmation_wait": 3.7950143333333335
+      },
+      "stage_percent_of_mean_total": {
+        "dispatch": 3.8350266477482418,
+        "interop": 0.8305566788356878,
+        "core_decision": 0.0288328373453313,
+        "table_write": 0.017590583076215888,
+        "adapter_call": 1.5117878621379253,
+        "c_exit_tail": 0.0016885663349071357,
+        "post_call_and_packetout": 1.5269144671793755,
+        "confirmation_wait": 92.24760235734233
+      },
+      "integer_stage_sum_mismatches": 0
+    },
+    "reactive_osken": {
+      "scheduled": 30,
+      "valid_confirmed_n": 30,
+      "connectivity": {
+        "succeeded": 30
+      },
+      "rule_observation": {
+        "confirmed": 30
+      },
+      "protocol": {
+        "met": 30
+      },
+      "mean_ms": 3.8768278666666665,
+      "median_ms": 3.702781,
+      "p95_ms": 5.261569049999999,
+      "p99_ms": 5.9436367400000005,
+      "min_ms": 2.878281,
+      "max_ms": 6.198313,
+      "mean_ci_ms": [
+        3.5981120391666668,
+        4.184464295000001
+      ],
+      "median_ci_ms": [
+        3.3088805,
+        4.1370065
+      ]
+    }
+  },
+  "paired": {
+    "persistent minus process_per_rule": {
+      "common_valid_blocks": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23,
+        24,
+        25,
+        26,
+        27,
+        28,
+        29,
+        30
+      ],
+      "n": 30,
+      "mean_difference_ms": -13.153753966666667,
+      "median_difference_ms": -12.214839,
+      "mean_ci_ms": [
+        -14.631207140833332,
+        -11.913006290833332
+      ],
+      "median_ci_ms": [
+        -12.845885500000001,
+        -11.3423765
+      ]
+    },
+    "persistent minus reactive_osken": {
+      "common_valid_blocks": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23,
+        24,
+        25,
+        26,
+        27,
+        28,
+        29,
+        30
+      ],
+      "n": 30,
+      "mean_difference_ms": 0.23711573333333325,
+      "median_difference_ms": 0.2482839999999995,
+      "mean_ci_ms": [
+        -0.2127774441666667,
+        0.6955143674999997
+      ],
+      "median_ci_ms": [
+        -0.38385599999999975,
+        0.8090754999999998
+      ]
+    },
+    "process_per_rule minus reactive_osken": {
+      "common_valid_blocks": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23,
+        24,
+        25,
+        26,
+        27,
+        28,
+        29,
+        30
+      ],
+      "n": 30,
+      "mean_difference_ms": 13.390869699999998,
+      "median_difference_ms": 12.5009405,
+      "mean_ci_ms": [
+        12.31889327,
+        14.670809786666666
+      ],
+      "median_ci_ms": [
+        11.833147,
+        13.129304999999999
+      ]
+    }
+  }
+}

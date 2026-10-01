@@ -1,0 +1,16 @@
+/usr/local/lib/python3.12/dist-packages/os_ken/lib/hub.py:30: EventletDeprecationWarning: 
+Eventlet is deprecated. It is currently being maintained in bugfix mode, and
+we strongly recommend against using it for new projects.
+
+If you are already using Eventlet, we recommend migrating to a different
+framework.  For more detail see
+https://eventlet.readthedocs.io/en/latest/asyncio/migration.html
+
+  import eventlet
+1 RLock(s) were not greened, to fix this error make sure you run eventlet.monkey_patch() before importing any other modules.
+loading app /Users/abanjar/All Project/DAIM/DAIM-Program/experiments/network/s56_corrected_controller.py
+loading app os_ken.controller.ofp_handler
+instantiating app /Users/abanjar/All Project/DAIM/DAIM-Program/experiments/network/s56_corrected_controller.py of CorrectedController
+instantiating app os_ken.controller.ofp_handler of OFPHandler
+{"event": "ready", "mode": "reactive_osken", "trial_id": "s56_corrected_verify_v4-21-reactive_osken-99e0b9f8"}
+{"event": "timing", "mode": "reactive_osken", "identity": {"trial_id": "s56_corrected_verify_v4-21-reactive_osken-99e0b9f8", "bridge": "s99e0b9f8", "dpid": 1063404049813021, "in_port": 1, "src_mac": "02:56:00:00:00:01", "dst_mac": "02:56:00:00:00:02", "eth_type": 2048, "src_ip": "10.56.0.1", "dst_ip": "10.56.0.2", "ip_proto": 1, "icmp_type": 8, "icmp_id": 20021, "icmp_seq": 1}, "timestamps": {"t_dispatch_enter_ns": 143155053413438, "t_parse_done_ns": 143155053528866, "t_state_update_done_ns": 143155053529824, "t_decision_done_ns": 143155053530408, "t_flowmod_sent_ns": 143155053633751, "t_packetout_sent_ns": 143155053643669}, "observation": {"status": "tool_error", "confirmed_ns": null, "polls": [{"start_ns": 143155053651336, "end_ns": 143155055945763, "rc": 1, "stdout": "", "stderr": "ovs-ofctl: s56absent is not a bridge or a socket\n", "rules": null, "error": "nonzero_exit"}]}, "chosen_out_port": 2, "executor_results": []}

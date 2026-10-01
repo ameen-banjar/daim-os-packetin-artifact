@@ -1,0 +1,35 @@
+{
+  "parameters": {
+    "ready_s": 20.0,
+    "warmup_s": 5.0,
+    "confirm_s": 3.0,
+    "poll_sleep_s": 0.0005,
+    "call_s": 1.0,
+    "ping_wait_s": 1,
+    "warmup_quiet_s": 0.2,
+    "seed": 20261001,
+    "bootstrap": 20000
+  },
+  "hashes": {
+    "s56_corrected_runner.py": "f9527fcdc64d4e0429b30348fca8897cdf9c54d2f0cf37068f56914d935b46c5",
+    "s56_corrected_controller.py": "965ccdfc8277027a3ebd30c0c2f136b31895fe06410240167397fadd8bac714f",
+    "s56_measurement.py": "45413a231fc8f8bf4b1c2e280767d5f94ef8dd0057ac3160ecfebabfd1648f80",
+    "daim_core_bridge.py": "6677f8bdea8e2154ff5294659043f2ea18dd52943e37e226ca75f5edc4f88231",
+    "test_s56_measurement.py": "08015415c4262d9670f1da32d13ee4be6daba4f6e63d6cf1fa63d8a223a151ef",
+    "libdaim_core.so": "c006b7bb603ed7fba08f8dbc0906b869a07920586e2bfff9bd2d749346831c4e"
+  },
+  "phase": "verify",
+  "clock": {
+    "implementation": "clock_gettime(CLOCK_MONOTONIC)",
+    "monotonic": true,
+    "adjustable": false,
+    "resolution": 1e-09
+  },
+  "uname": [
+    "Linux",
+    "lima-daim-lab-qemu",
+    "6.8.0-137-generic",
+    "#137-Ubuntu SMP PREEMPT_DYNAMIC Fri Jul 17 19:15:13 UTC 2026",
+    "aarch64"
+  ]
+}
