@@ -1,0 +1,8 @@
+[
+  {
+    "scenario": "switch_restart",
+    "switches": 1,
+    "flows": 1,
+    "repetition": 1
+  }
+]

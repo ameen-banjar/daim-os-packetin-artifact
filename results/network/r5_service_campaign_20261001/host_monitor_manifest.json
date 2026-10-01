@@ -1,0 +1,8 @@
+{
+  "source_sha256": "415b9ae311c2ca093e2cbda1ed210959c4dcf79bb851cb6046792eb487137c6b",
+  "source": "experiments/network/r5_host_resource_monitor.py",
+  "at_utc": "2026-10-01T09:50:48.724080+00:00",
+  "sampling": "Commands followed by 10-second sleep; exact per-command start/end recorded",
+  "top": "Two snapshots one second apart; use second CPU interval",
+  "scope": "macOS host context only, no assertion of background-process isolation"
+}

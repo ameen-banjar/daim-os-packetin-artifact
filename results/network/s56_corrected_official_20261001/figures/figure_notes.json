@@ -1,0 +1,21 @@
+{
+  "source": "experiments/results/network/s56_corrected_official_20261001",
+  "labels": {
+    "dispatch": "Handler entry \u2192 bridge call",
+    "interop": "Python\u2013C entry/return intervals",
+    "core_decision": "C entry \u2192 decision timestamp",
+    "table_write": "Decision \u2192 table-write timestamp",
+    "adapter_call": "OVS adapter-call interval",
+    "c_exit_tail": "C installation done \u2192 C exit",
+    "post_call_and_packetout": "C return \u2192 PacketOut submission return",
+    "confirmation_wait": "PacketOut submission return \u2192 rule observed"
+  },
+  "stage_sum": "All eight intervals sum exactly before rounding in every DAIM trial",
+  "caveats": [
+    "Entry/return interval includes conversions and possible lock waiting",
+    "PacketOut timestamp follows the application send_msg call; it is not a wire-transmission timestamp",
+    "Confirmation interval does not isolate OVS execution from observer/tool/scheduling delays",
+    "Intervals are marginal, not multiplicity-adjusted superiority or equivalence tests",
+    "Tiny stages remain in data/plot but may not be visually resolvable"
+  ]
+}

@@ -1,0 +1,26 @@
+{
+  "platform": "reactive_osken",
+  "unit": "daim-review-osken.service",
+  "port": 6653,
+  "out": "/home/ubuntu/review_campaign/results/r5_service_campaign_20261001/block01_reactive_osken",
+  "phase": "bounded",
+  "settle": 10,
+  "recovery_window": 30,
+  "block": 1,
+  "case": null,
+  "resume": true,
+  "resume_after_recorded_attempts": 8,
+  "recorded_attempts_are_never_retried": true,
+  "source_sha256": {
+    "r5_service_campaign.py": "5705dc0c905c1d0cce7c8a131e21355f0d14dc3208e667a792c87715aa55ecd8",
+    "s56_measurement.py": "45413a231fc8f8bf4b1c2e280767d5f94ef8dd0057ac3160ecfebabfd1648f80"
+  },
+  "recovery_eligibility": "interpret recovery only when fault_baseline_valid; retain every other result separately",
+  "health_readiness": "after fixed 10-second settle, retry disjoint health-pair probes within bounded 20-second initiation window; retain every probe; no trial exclusion on readiness failure",
+  "recovery_window_definition": "from restore initiation through first successful probe COMPLETION; late completions retained but not counted within window",
+  "unit_of_analysis": "one complete topology/workload run",
+  "metric": "externally observed cold-endpoint service probes including ARP; not pure controller throughput",
+  "topology": "independent L2 domains sharing one controller; concurrent probes between fresh unique endpoint pairs; disjoint health-check pair per switch",
+  "startup_policy": "one controller session per platform; unique DPID and MAC identities per run",
+  "inference": "bounded exploratory sample, no architectural performance ranking"
+}

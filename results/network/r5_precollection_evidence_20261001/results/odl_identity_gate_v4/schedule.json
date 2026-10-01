@@ -1,0 +1,14 @@
+[
+  {
+    "scenario": "scale",
+    "switches": 16,
+    "flows": 32,
+    "repetition": 1
+  },
+  {
+    "scenario": "scale",
+    "switches": 1,
+    "flows": 1,
+    "repetition": 1
+  }
+]

@@ -1,0 +1,33 @@
+[
+  {
+    "platform": "odl",
+    "cache": "/home/ubuntu/odl-spike/karaf-0.24.0/data/cache/org.eclipse.osgi/254/4/bundleFile",
+    "source": "/home/ubuntu/odl-spike/karaf-0.24.0/system/org/opendaylight/l2switch/main-impl/4.0.0/main-impl-4.0.0.jar",
+    "different_entries": [
+      "META-INF/MANIFEST.MF"
+    ],
+    "extra_entries": [],
+    "class_hashes": {
+      "org/opendaylight/l2switch/flow/ReactiveFlowWriter.class": "edb3c023f9b4d8b206a9ba9629da22ceda843410c2db73a3dedf5e0075cb839d"
+    },
+    "all_class_bytes_identical": true
+  },
+  {
+    "platform": "onos",
+    "cache": "/home/ubuntu/onos-spike/onos-2.7.0/apache-karaf-4.2.9/data/cache/bundle215/version0.10/bundle.jar",
+    "source": "/home/ubuntu/onos-spike/onos-2.7.0/apache-karaf-4.2.9/system/org/onosproject/onos-apps-fwd/2.7.0/onos-apps-fwd-2.7.0.jar",
+    "different_entries": [
+      "META-INF/MANIFEST.MF"
+    ],
+    "extra_entries": [],
+    "class_hashes": {
+      "org/onosproject/fwd/ReactiveForwardMetrics.class": "38931dedf97851eb58e17c98c8ca57863e38938894abfbd687f3dbab61087dbe",
+      "org/onosproject/fwd/ReactiveForwarding$InternalTopologyListener.class": "fdbf1078d96ee1062e1d1c06b7ac83e427bf6a8eaf1a594e2e33b64869cbc99a",
+      "org/onosproject/fwd/ReactiveForwarding$ReactivePacketProcessor.class": "3ccfaaefd72d3f60a52dcf1d80dc8f78e7c7fe2522c3bfbdd9f3b917bc7dd86e",
+      "org/onosproject/fwd/ReactiveForwarding$SrcDstPair.class": "68ec7dc143108a85eb333d97f4bae1258a088248d91f4a0c8fe20b6f157cf77c",
+      "org/onosproject/fwd/ReactiveForwarding.class": "30a33127330e10036842d283c89a4dd3b51a689a8879c50d71f8197c23ee1bb0",
+      "org/onosproject/fwd/ReactiveForwardingCommand.class": "7b86136e0c1d6da2031fb0e19b94963532eab96f26042524110d8dd2f7ea66c4"
+    },
+    "all_class_bytes_identical": true
+  }
+]

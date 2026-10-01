@@ -1,0 +1,12 @@
+[
+  {
+    "path": "/home/ubuntu/onos-spike/onos-2.7.0/apache-karaf-4.2.9/system/org/onosproject/onos-apps-fwd/2.7.0/onos-apps-fwd-2.7.0.jar",
+    "backup": "/home/ubuntu/review_campaign/onos-apps-fwd-2.7.0.jar.PRE_NATIVE",
+    "native_sha256": "595b9a6b85ecb54048a8cb3470be17aba70efc9737ccf5ee8d6ffb4abde1bcd9"
+  },
+  {
+    "path": "/home/ubuntu/odl-spike/karaf-0.24.0/system/org/opendaylight/l2switch/main-impl/4.0.0/main-impl-4.0.0.jar",
+    "backup": "/home/ubuntu/review_campaign/main-impl-4.0.0.jar.PRE_NATIVE",
+    "native_sha256": "e01980d7bf8f7e57881440fac4e1575fa20c5481b2b8c8c14b57f9012fc71be0"
+  }
+]

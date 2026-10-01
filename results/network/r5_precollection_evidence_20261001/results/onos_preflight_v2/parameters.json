@@ -1,0 +1,19 @@
+{
+  "platform": "onos_native_fwd",
+  "unit": "daim-review-onos.service",
+  "port": 6653,
+  "out": "/home/ubuntu/review_campaign/results/onos_preflight_v2",
+  "phase": "preflight",
+  "settle": 10,
+  "recovery_window": "from restore initiation through first successful probe COMPLETION; late completions retained but not counted within window",
+  "source_sha256": {
+    "r5_service_campaign.py": "19ad5d96a826a1ce29b8372bb08468eb5719ca8487e0e966a8a969bdee29ef63",
+    "s56_measurement.py": "45413a231fc8f8bf4b1c2e280767d5f94ef8dd0057ac3160ecfebabfd1648f80"
+  },
+  "recovery_eligibility": "interpret recovery only when fault_baseline_valid; retain every other result separately",
+  "unit_of_analysis": "one complete topology/workload run",
+  "metric": "externally observed cold-endpoint service probes including ARP; not pure controller throughput",
+  "topology": "independent L2 domains sharing one controller; concurrent probes between fresh unique endpoint pairs; disjoint health-check pair per switch",
+  "startup_policy": "one controller session per platform; unique DPID and MAC identities per run",
+  "inference": "bounded exploratory sample, no architectural performance ranking"
+}

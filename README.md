@@ -5,14 +5,19 @@
 > Historical capture and ping-check defects limit the older dataset; its
 > results must not be confused with the corrected sample. These local
 > additions are not yet included in the published v1.1.0 DOI snapshot.
+> The additional 340-attempt service campaign is documented in
+> [its results](docs/R5_SERVICE_CAMPAIGN_RESULTS_20261001.md) and
+> [reanalysis instructions](network/R5_SERVICE_CAMPAIGN_REPRODUCTION.md).
+> Manuscript/response integration and public release remain pending.
 
-Reproducibility artifact for the paper:
+Artifact lineage — original submission title:
 
 **"Reconstructing the DAIM-OS Table-and-Signal Control Path: An Executable
 OpenFlow 1.3 Artifact and Evaluation"** — Ameen Banjar (2026).
 
-This repository contains only the code, raw data, logs, and figures cited by
-that paper. It is deliberately scoped to that single paper: the author's
+This local candidate retains the original Paper 1 evidence and adds corrected
+and additional experiments awaiting consistent manuscript integration. It is
+scoped to that single paper: the author's
 related work on autonomous link recovery, cross-environment reproducibility,
 policy-conflict resolution, and intent assurance are separate, independent
 contributions with their own artifacts, not included here.
@@ -40,16 +45,15 @@ repository and DOI above.
   unit/concurrency tests.
 - `network/` — the real Os-Ken OpenFlow 1.3 controller and ctypes bridge
   (`daim_bridge_controller.py`, `daim_core_bridge.py`), the two-switch
-  Packet-In integration experiment, the 4-way adapter-overhead
-  microbenchmark (`stage2_full_compare.py` and its randomised/paired
-  variant), the reactive Packet-In stage-latency breakdown
+  Packet-In integration experiment, the historical four-path timing experiment with different timing
+  boundaries (`stage2_full_compare.py` and its randomised/paired variant), the reactive Packet-In stage-latency breakdown
   (`packetin_latency_breakdown.py`, plus the DAIM-free
   `osken_reactive_baseline_controller.py` baseline it compares against),
   the sustained-load control-plane profile
   (`control_plane_load_profile.py`), and the host-load diagnostic
   (`stage2_host_load_diagnostic.py`).
 - `environment/` — Lima/QEMU VM manifests and the provisioning script used
-  for all network-integration evidence: the primary ARM64 environment
+  for the original network-integration evidence: the primary ARM64 environment
   (`daim-lab-qemu.yaml`) and a second, independently built x86-64
   environment (`daim-lab-qemu-x86_64.yaml`, run under QEMU TCG emulation
   since no physical x86-64 machine was available). See `network/README.md`
@@ -67,64 +71,66 @@ repository and DOI above.
   conformance evidence (Section 6.1 of the paper).
 - `docs/DATA_DICTIONARY.md` — column definitions for the interface-probe CSV.
 
-## Post-review evidence (in response to external Q1-standard review)
+## Historical evidence and its interpretation limits
 
-The following experiments were added after an external review of an
-earlier draft; each closes a specific, named threat to validity, and each
-is documented with its own report under `results/network/`:
+The original reports and raw records remain unchanged for provenance. Later
+source inspection found that the old reactive capture could select the warm-up
+packet, that several historical ping-success predicates accepted total loss,
+and that the four-path benchmark measured different spans without traversing
+DAIM Core/ctypes. Recomputing old statistics does not repair those defects.
+See [the validity note](docs/HISTORICAL_DATA_VALIDITY_20261001.md).
 
-- Persistent OpenFlow 1.3 adapter and a 4-way (process-per-rule/
-  persistent/direct-`ovs-ofctl`/DAIM-free-Os-Ken) overhead comparison
-  (`STAGE2_FULL_COMPARE_REPORT.md`).
-- 8-stage, 90-trial randomised-order latency breakdown of the reactive
-  Packet-In path across three matched modes (DAIM process-per-rule, DAIM
-  persistent, and a DAIM-free reactive Os-Ken baseline)
-  (`PACKETIN_LATENCY_BREAKDOWN_REPORT.md`).
-- Sustained multi-sender throughput/CPU/control-traffic profile, at both
-  5 and 30 repetitions per mode (`CONTROL_PLANE_LOAD_PROFILE_REPORT.md`).
-- A randomised-order, paired, 30-repetition (480-trial) re-run of the
-  4-way comparison, which replicates the original finding at small/medium
-  scale and revises it at the largest tested size due to a heavy-tailed
-  variance the original 5-repetition sample could not detect
-  (`STAGE2_FULL_COMPARE_PAIRED_REPORT.md`).
-- The same comparison on a second, independently built x86-64 environment
-  (`STAGE2_FULL_COMPARE_X86_64_REPORT.md`) and an independent clean rerun
-  on a third, unrelated VM (`INDEPENDENT_CLEAN_RERUN_REPORT.md`); both
-  independently reproduce the large-scale fragility finding above.
-- A host-load diagnostic that could not identify the cause of that
-  fragility, but independently confirms how intermittent it is
-  (`STAGE2_HOST_LOAD_DIAGNOSTIC_REPORT.md`).
+The randomized four-path rerun changed both sample size and ordering. Its
+changed conclusion cannot be attributed solely to either factor. The clean-VM
+and second-architecture reruns were performed by the author, not independently
+replicated by another research group. Their historical filenames are retained.
 
-## Reproducing the results
+## Corrected and additional local evidence
 
-Inside the provisioned Ubuntu 24.04 ARM64 VM (see `environment/`):
+- [Corrected Section 5.6](docs/CORRECTED_PACKETIN_20261001.md): 90 scheduled
+  attempts, full packet identity and full-rule observation, with a
+  [standalone results report](docs/S56_CORRECTED_RESULTS_20261001.md).
+- [Additional service campaign](docs/R5_SERVICE_CAMPAIGN_RESULTS_20261001.md):
+  340 scheduled attempts across DAIM process-per-rule, Os-Ken, ONOS and ODL;
+  339 completed procedures and one retained setup error. This covers bounded
+  switch/endpoint-pair counts, resources and five disruption procedures.
+  Completion is not service success. The host experienced memory pressure and
+  swapping, native applications differ, and n=5 per condition is exploratory.
+- The existing 60-attempt controlled-restart study is a separate experiment;
+  it is not pooled with the additional campaign or reclassified as failover.
+
+The additional campaign used the recorded Multipass VM and native-controller
+configuration, not the original Lima environment. Its complete raw records and
+logs are included. `results/network/r5_service_campaign_20261001/package_export.json`
+explicitly lists eight unused
+peer/distributed source files omitted from the private frozen source inventory,
+plus the local monitor stop sentinel. Those unused sources were not linked into
+the Paper 1 library. The original source manifests retain their hashes for
+provenance; the complete private snapshot remains in the working repository.
+No raw trial or host-monitor record is omitted by this source selection.
+Separate precollection diagnostic records are retained in
+`results/network/r5_precollection_evidence_20261001/`, with their own explicit
+export inventory; the density-check archive is retained alongside it. Failed
+diagnostics and the superseded draft plan are not part of the official sample.
+[Package reanalysis verification](docs/PACKAGE_REANALYSIS_20261001.json) records
+five byte-identical derived outputs and five passing parser/matcher tests.
+
+## Reproduction
+
+For corrected-data analysis and new network collection, use the separate
+[Section 5.6 instructions](docs/CORRECTED_PACKETIN_20261001.md) and
+[service-campaign instructions](network/R5_SERVICE_CAMPAIGN_REPRODUCTION.md).
+The latter distinguish reanalysis from provisioning native controllers and
+collecting a new sample. Network collection is not performed by analysis calls.
+Working-repository path prefixes in preserved provenance documents describe
+that original layout; package files are under `network/`, `analysis/` and
+`results/` here.
+
+The old collectors remain as historical source. Their defective success gates
+must not be used to gather a newly validated sample. Historical reanalysis can
+be performed in a disposable copy because those scripts use fixed output paths:
 
 ```sh
-# Core, adapter, and learning-application tests (strict + sanitizer builds)
-make -C implementation clean check
-
-# Stage 1: two-switch OVS integration
-sudo bash network/run_stage1.sh
-
-# Packet-In -> NO_RULE -> installed OVS rule, with a real Os-Ken controller
-sudo python3 network/run_daim_bridge_smoke.py
-
-# Stage 2: matched adapter-overhead microbenchmark (8/16/32/64 switches)
-sudo bash network/run_stage2_final_local.sh
-
-# Recompute statistics and regenerate all five original figures from the raw CSV
-python3 analysis/paper1_analysis.py
-
-# 4-way comparison, reactive-path latency breakdown, sustained-load profile,
-# and their randomised/paired/host-load-diagnostic variants (all invocations
-# need PATH preserved through sudo -- see network/README.md):
-sudo env "PATH=$PATH" python3 network/stage2_full_compare.py
-sudo env "PATH=$PATH" python3 network/packetin_latency_breakdown.py
-sudo env "PATH=$PATH" python3 network/control_plane_load_profile.py
-sudo env "PATH=$PATH" python3 network/stage2_full_compare_paired.py       # 480 trials, ~75 min
-sudo env "PATH=$PATH" python3 network/stage2_host_load_diagnostic.py      # 120 trials, ~25 min
-
-# Corresponding analyses (one script per experiment above, same naming)
 python3 analysis/stage2_full_compare_analysis.py
 python3 analysis/packetin_latency_breakdown_analysis.py
 python3 analysis/control_plane_load_profile_analysis.py
@@ -132,23 +138,24 @@ python3 analysis/stage2_full_compare_paired_analysis.py
 python3 analysis/stage2_host_load_diagnostic_analysis.py
 ```
 
-The second-environment (`stage2_full_compare_x86_64_analysis.py`) and
-independent-clean-rerun evidence require provisioning a second VM from
-`environment/daim-lab-qemu-x86_64.yaml` or `environment/daim-lab-qemu.yaml`
-respectively; see the corresponding reports under `results/network/` for
-the exact steps taken.
+Matching an old output establishes numerical reproducibility only. It does not
+validate the old packet identity, connectivity claims or comparison boundaries.
+The unchanged single-Core tests remain available through
+`make -C implementation clean check` on a supported build environment.
 
 ## Evidence labels
 
-Every raw-data file and report in this artifact carries one of the evidence
-labels used throughout the paper:
+The historical documentation uses these evidence-origin labels:
 
 - `measured`: produced by compiling and running the published C headers.
 - `measured_emulation`: produced by a real Linux/Open vSwitch/Mininet
   execution recorded in this repository.
 
-No pilot-model, simulated, or historical (2013-2018) numerical result is
-included in this artifact; every number here was produced for this paper.
+The new network campaigns are emulated executions, not physical-switch tests.
+Their records use the explicit outcome fields and provenance described in their
+protocols; not every record has a literal evidence-label field. An origin label
+does not establish measurement validity. Historical limitations, diagnostic
+fixtures and the new validated checks remain explicitly distinguished.
 
 ## License
 

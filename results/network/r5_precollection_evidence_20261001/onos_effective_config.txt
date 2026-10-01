@@ -1,0 +1,17 @@
+org.onosproject.fwd.ReactiveForwarding
+    name=matchIpv6Address, type=boolean, value=false, defaultValue=false, description=Enable matching IPv6 Addresses; default is false.
+    name=matchIpv6FlowLabel, type=boolean, value=false, defaultValue=false, description=Enable matching IPv6 FlowLabel; default is false.
+    name=ignoreIPv4Multicast, type=boolean, value=false, defaultValue=false, description=Ignore (do not forward) IPv4 multicast packets; default is false.
+    name=matchIcmpFields, type=boolean, value=false, defaultValue=false, description=Enable matching ICMPv4 and ICMPv6 fields; default is false.
+    name=flowTimeout, type=integer, value=300, defaultValue=10, description=Configure Flow Timeout for installed flow rules; default is 10 sec.
+    name=matchTcpUdpPorts, type=boolean, value=false, defaultValue=false, description=Enable matching TCP/UDP ports; default is false.
+    name=recordMetrics, type=boolean, value=false, defaultValue=false, description=Enable record metrics for reactive forwarding.
+    name=matchDstMacOnly, type=boolean, value=false, defaultValue=false, description=Enable matching Dst Mac Only; default is false.
+    name=matchIpv4Address, type=boolean, value=false, defaultValue=false, description=Enable matching IPv4 Addresses; default is false.
+    name=matchVlanId, type=boolean, value=false, defaultValue=false, description=Enable matching Vlan ID; default is false.
+    name=matchIpv4Dscp, type=boolean, value=false, defaultValue=false, description=Enable matching IPv4 DSCP and ECN; default is false.
+    name=ipv6Forwarding, type=boolean, value=false, defaultValue=false, description=Enable IPv6 forwarding; default is false.
+    name=packetOutOfppTable, type=boolean, value=false, defaultValue=false, description=Enable first packet forwarding using OFPP_TABLE port instead of PacketOut with actual port; default is false.
+    name=packetOutOnly, type=boolean, value=false, defaultValue=false, description=Enable packet-out only forwarding; default is false.
+    name=flowPriority, type=integer, value=100, defaultValue=10, description=Configure Flow Priority for installed flow rules; default is 10.
+    name=inheritFlowTreatment, type=boolean, value=false, defaultValue=false, description=Enable use of builder from packet context to define flow treatment; default is false.

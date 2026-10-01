@@ -1,0 +1,3692 @@
+{
+  "planned_attempts": 340,
+  "recorded_attempts": 340,
+  "collection_complete": true,
+  "raw_sha256": {
+    "block01_daim_process_per_rule/attempts.jsonl": "cc47d2ab25a9107cacbd5a206591c8295c9baf2fe6502a937ade3eeb54ec6604",
+    "block01_odl_native_l2switch/attempts.jsonl": "067ce07e321e91f71d652dc14ad5093661a4d51a09c27ae12a2301097a0d195c",
+    "block01_onos_native_fwd/attempts.jsonl": "51bc4c4bedbf52460d1e6d760b638c4a43bf5bffa7bab82b869ea74aea724261",
+    "block01_reactive_osken/attempts.jsonl": "ae3eb7d9eefe2c5eb5e38d1f7bda65f48704bf35cd88977a169b001262e1ae3c",
+    "block02_daim_process_per_rule/attempts.jsonl": "e720f02e9bdbbb103e20d6506deafc50a9e2adaa34e73718f4f2a6da17eda5eb",
+    "block02_odl_native_l2switch/attempts.jsonl": "1d8b35efa873a5bc560630dd562bca5d0a44a1907d11b1afa8df38d8dfc333c2",
+    "block02_onos_native_fwd/attempts.jsonl": "95dc26a1d10f2efa79d13c3ef8d0e3a617c3df089528437e0071d525c59ac32d",
+    "block02_reactive_osken/attempts.jsonl": "06c9d07bde488220226e46f22f9a780b7738432854e83b1a1c20c4550dee39d3",
+    "block03_daim_process_per_rule/attempts.jsonl": "d7871ec62014591a51f8bbceb5327a95dbd10e5aa2e2e667d8921b54ddfbdebc",
+    "block03_odl_native_l2switch/attempts.jsonl": "bc119e891d189ddb50390c3ddba2936253f3af21c8115cc7a80c786c3c6238a7",
+    "block03_onos_native_fwd/attempts.jsonl": "946468d9dde509723a5631a52efabf81df12a4d6ba7e2c40ba54bcec3bee4a94",
+    "block03_reactive_osken/attempts.jsonl": "cf404acc52fd500cf9c62c5140c57b976457de58ca8b75ba38ec5885cae9b003",
+    "block04_daim_process_per_rule/attempts.jsonl": "c9afe575730ec49db6d9191f66bcc17165fff47caecbbe7a38ac56204067509b",
+    "block04_odl_native_l2switch/attempts.jsonl": "7b31544613fdd18bfb2193970dd2d639a5d2331f53dd7c2d42faf93f9b20d244",
+    "block04_onos_native_fwd/attempts.jsonl": "fd81f51ea84f08a49a6e10932212af41ed696f4c84f7bf086a79c15807089d4e",
+    "block04_reactive_osken/attempts.jsonl": "21c04527bbca97e9cd8ea85a9110c70835e7e34fa43b9795dd2452891db3bacd",
+    "block05_daim_process_per_rule/attempts.jsonl": "15ac4436056a6afe7a3c1ec6d914301b27e5b48f10c41b46586758f84c3960c9",
+    "block05_odl_native_l2switch/attempts.jsonl": "078c714b52aab7accec8b38e10581622ec6e02a3dc246cdb3e388c233e6c1935",
+    "block05_onos_native_fwd/attempts.jsonl": "ef6980aa32ceb882cf4cccd208e87c6b0c8c93ef6cce9c5724408e4ca2897096",
+    "block05_reactive_osken/attempts.jsonl": "28cf4a1d8907e8d890b924212513be786158633e9ba1fcedd4be42726902e859"
+  },
+  "inference": "Run-level exploratory descriptive results; no pooled-packet inferential tests or platform/architecture superiority claims",
+  "metric": "External cold-endpoint service including ARP and native app policy; not pure rule-installation latency",
+  "limitations": [
+    "n=5 per condition; native applications differ",
+    "controller cgroup excludes OVS and harness",
+    "memory is current snapshot, not trial peak",
+    "fault recovery requires successful pre-fault baseline",
+    "no automatic failover, distributed consistency or physical switches",
+    "nominal 95% Clopper-Pearson intervals assume independent run-level Bernoulli trials with constant probability; unadjusted for multiple conditions"
+  ],
+  "groups": [
+    {
+      "platform": "daim_process_per_rule",
+      "scenario": "controller_crash",
+      "switches": 1,
+      "concurrent_pairs": 1,
+      "scheduled_n": 5,
+      "recorded_n": 5,
+      "status": {
+        "completed": 5
+      },
+      "cold_eligible_runs_n": 5,
+      "cold_eligibility": "completed run with valid probe execution; connection/readiness outcomes retained separately",
+      "warmup_success_n": 5,
+      "whole_cold_batch_success_n": 5,
+      "valid_probe_total": 5,
+      "successful_probe_total": 5,
+      "run_cold_success_fraction": {
+        "n": 5,
+        "mean": 1.0,
+        "median": 1.0,
+        "min": 1.0,
+        "max": 1.0
+      },
+      "cold_batch_wall_s_all_completed": {
+        "n": 5,
+        "mean": 0.0447299522,
+        "median": 0.045914401,
+        "min": 0.042000861,
+        "max": 0.046157727
+      },
+      "cgroup_cpu_s_workload_bracket": {
+        "n": 5,
+        "mean": 0.0220486,
+        "median": 0.022206,
+        "min": 0.021055,
+        "max": 0.023433
+      },
+      "cgroup_current_memory_mib_after_workload": {
+        "n": 5,
+        "mean": 48.025,
+        "median": 48.0,
+        "min": 47.9921875,
+        "max": 48.0859375
+      },
+      "whole_cold_batch_success_nominal_95ci": [
+        0.4781762498950185,
+        1.0
+      ],
+      "recovery_eligible_n": 5,
+      "recovered_within_30s_n": 5,
+      "recovery_not_observed_within_30s_n": 0,
+      "recovery_observed_s_success_conditional": {
+        "n": 5,
+        "mean": 2.3692115714,
+        "median": 2.337872903,
+        "min": 2.276260953,
+        "max": 2.517653738
+      },
+      "recovery_ineligible_n": 0,
+      "failed_baseline_n": 0,
+      "no_recovery_observation_n": 0,
+      "recovery_success_nominal_95ci": [
+        0.4781762498950185,
+        1.0
+      ]
+    },
+    {
+      "platform": "daim_process_per_rule",
+      "scenario": "controller_restart",
+      "switches": 1,
+      "concurrent_pairs": 1,
+      "scheduled_n": 5,
+      "recorded_n": 5,
+      "status": {
+        "completed": 5
+      },
+      "cold_eligible_runs_n": 5,
+      "cold_eligibility": "completed run with valid probe execution; connection/readiness outcomes retained separately",
+      "warmup_success_n": 5,
+      "whole_cold_batch_success_n": 5,
+      "valid_probe_total": 5,
+      "successful_probe_total": 5,
+      "run_cold_success_fraction": {
+        "n": 5,
+        "mean": 1.0,
+        "median": 1.0,
+        "min": 1.0,
+        "max": 1.0
+      },
+      "cold_batch_wall_s_all_completed": {
+        "n": 5,
+        "mean": 0.0404405102,
+        "median": 0.043455737,
+        "min": 0.025816006,
+        "max": 0.045500928
+      },
+      "cgroup_cpu_s_workload_bracket": {
+        "n": 5,
+        "mean": 0.0203272,
+        "median": 0.021806,
+        "min": 0.01297,
+        "max": 0.023385
+      },
+      "cgroup_current_memory_mib_after_workload": {
+        "n": 5,
+        "mean": 48.03515625,
+        "median": 48.05078125,
+        "min": 47.93359375,
+        "max": 48.09765625
+      },
+      "whole_cold_batch_success_nominal_95ci": [
+        0.4781762498950185,
+        1.0
+      ],
+      "recovery_eligible_n": 5,
+      "recovered_within_30s_n": 5,
+      "recovery_not_observed_within_30s_n": 0,
+      "recovery_observed_s_success_conditional": {
+        "n": 5,
+        "mean": 2.3795973554,
+        "median": 2.434744234,
+        "min": 2.220055292,
+        "max": 2.487943127
+      },
+      "recovery_ineligible_n": 0,
+      "failed_baseline_n": 0,
+      "no_recovery_observation_n": 0,
+      "recovery_success_nominal_95ci": [
+        0.4781762498950185,
+        1.0
+      ]
+    },
+    {
+      "platform": "daim_process_per_rule",
+      "scenario": "host_move",
+      "switches": 1,
+      "concurrent_pairs": 1,
+      "scheduled_n": 5,
+      "recorded_n": 5,
+      "status": {
+        "completed": 5
+      },
+      "cold_eligible_runs_n": 5,
+      "cold_eligibility": "completed run with valid probe execution; connection/readiness outcomes retained separately",
+      "warmup_success_n": 5,
+      "whole_cold_batch_success_n": 5,
+      "valid_probe_total": 5,
+      "successful_probe_total": 5,
+      "run_cold_success_fraction": {
+        "n": 5,
+        "mean": 1.0,
+        "median": 1.0,
+        "min": 1.0,
+        "max": 1.0
+      },
+      "cold_batch_wall_s_all_completed": {
+        "n": 5,
+        "mean": 0.0364429036,
+        "median": 0.03759233,
+        "min": 0.02439597,
+        "max": 0.049878301
+      },
+      "cgroup_cpu_s_workload_bracket": {
+        "n": 5,
+        "mean": 0.0183444,
+        "median": 0.018971,
+        "min": 0.011957,
+        "max": 0.02598
+      },
+      "cgroup_current_memory_mib_after_workload": {
+        "n": 5,
+        "mean": 48.0359375,
+        "median": 48.0078125,
+        "min": 48.0078125,
+        "max": 48.09765625
+      },
+      "whole_cold_batch_success_nominal_95ci": [
+        0.4781762498950185,
+        1.0
+      ],
+      "recovery_eligible_n": 5,
+      "recovered_within_30s_n": 0,
+      "recovery_not_observed_within_30s_n": 5,
+      "recovery_observed_s_success_conditional": {
+        "n": 0
+      },
+      "recovery_ineligible_n": 0,
+      "failed_baseline_n": 0,
+      "no_recovery_observation_n": 0,
+      "recovery_success_nominal_95ci": [
+        0.0,
+        0.5218237501049816
+      ]
+    },
+    {
+      "platform": "daim_process_per_rule",
+      "scenario": "link_restore",
+      "switches": 1,
+      "concurrent_pairs": 1,
+      "scheduled_n": 5,
+      "recorded_n": 5,
+      "status": {
+        "completed": 5
+      },
+      "cold_eligible_runs_n": 5,
+      "cold_eligibility": "completed run with valid probe execution; connection/readiness outcomes retained separately",
+      "warmup_success_n": 5,
+      "whole_cold_batch_success_n": 5,
+      "valid_probe_total": 5,
+      "successful_probe_total": 5,
+      "run_cold_success_fraction": {
+        "n": 5,
+        "mean": 1.0,
+        "median": 1.0,
+        "min": 1.0,
+        "max": 1.0
+      },
+      "cold_batch_wall_s_all_completed": {
+        "n": 5,
+        "mean": 0.0387674434,
+        "median": 0.038870468,
+        "min": 0.025639434,
+        "max": 0.045841755
+      },
+      "cgroup_cpu_s_workload_bracket": {
+        "n": 5,
+        "mean": 0.0189778,
+        "median": 0.019326,
+        "min": 0.012426,
+        "max": 0.022536
+      },
+      "cgroup_current_memory_mib_after_workload": {
+        "n": 5,
+        "mean": 48.07265625,
+        "median": 48.05859375,
+        "min": 47.9921875,
+        "max": 48.2265625
+      },
+      "whole_cold_batch_success_nominal_95ci": [
+        0.4781762498950185,
+        1.0
+      ],
+      "recovery_eligible_n": 5,
+      "recovered_within_30s_n": 5,
+      "recovery_not_observed_within_30s_n": 0,
+      "recovery_observed_s_success_conditional": {
+        "n": 5,
+        "mean": 0.0408383736,
+        "median": 0.041954241,
+        "min": 0.032097663,
+        "max": 0.046617905
+      },
+      "recovery_ineligible_n": 0,
+      "failed_baseline_n": 0,
+      "no_recovery_observation_n": 0,
+      "recovery_success_nominal_95ci": [
+        0.4781762498950185,
+        1.0
+      ]
+    },
+    {
+      "platform": "daim_process_per_rule",
+      "scenario": "scale",
+      "switches": 1,
+      "concurrent_pairs": 1,
+      "scheduled_n": 5,
+      "recorded_n": 5,
+      "status": {
+        "completed": 5
+      },
+      "cold_eligible_runs_n": 5,
+      "cold_eligibility": "completed run with valid probe execution; connection/readiness outcomes retained separately",
+      "warmup_success_n": 5,
+      "whole_cold_batch_success_n": 5,
+      "valid_probe_total": 5,
+      "successful_probe_total": 5,
+      "run_cold_success_fraction": {
+        "n": 5,
+        "mean": 1.0,
+        "median": 1.0,
+        "min": 1.0,
+        "max": 1.0
+      },
+      "cold_batch_wall_s_all_completed": {
+        "n": 5,
+        "mean": 0.0445225028,
+        "median": 0.0449219,
+        "min": 0.043078631,
+        "max": 0.046210634
+      },
+      "cgroup_cpu_s_workload_bracket": {
+        "n": 5,
+        "mean": 0.021609,
+        "median": 0.021165,
+        "min": 0.020926,
+        "max": 0.023366
+      },
+      "cgroup_current_memory_mib_after_workload": {
+        "n": 5,
+        "mean": 48.05078125,
+        "median": 48.0390625,
+        "min": 48.01953125,
+        "max": 48.08203125
+      },
+      "whole_cold_batch_success_nominal_95ci": [
+        0.4781762498950185,
+        1.0
+      ]
+    },
+    {
+      "platform": "daim_process_per_rule",
+      "scenario": "scale",
+      "switches": 1,
+      "concurrent_pairs": 8,
+      "scheduled_n": 5,
+      "recorded_n": 5,
+      "status": {
+        "completed": 5
+      },
+      "cold_eligible_runs_n": 5,
+      "cold_eligibility": "completed run with valid probe execution; connection/readiness outcomes retained separately",
+      "warmup_success_n": 5,
+      "whole_cold_batch_success_n": 5,
+      "valid_probe_total": 40,
+      "successful_probe_total": 40,
+      "run_cold_success_fraction": {
+        "n": 5,
+        "mean": 1.0,
+        "median": 1.0,
+        "min": 1.0,
+        "max": 1.0
+      },
+      "cold_batch_wall_s_all_completed": {
+        "n": 5,
+        "mean": 0.1861951222,
+        "median": 0.182165908,
+        "min": 0.178384036,
+        "max": 0.203543568
+      },
+      "cgroup_cpu_s_workload_bracket": {
+        "n": 5,
+        "mean": 0.103453,
+        "median": 0.100869,
+        "min": 0.097728,
+        "max": 0.117291
+      },
+      "cgroup_current_memory_mib_after_workload": {
+        "n": 5,
+        "mean": 48.01640625,
+        "median": 48.01171875,
+        "min": 47.9765625,
+        "max": 48.05078125
+      },
+      "whole_cold_batch_success_nominal_95ci": [
+        0.4781762498950185,
+        1.0
+      ]
+    },
+    {
+      "platform": "daim_process_per_rule",
+      "scenario": "scale",
+      "switches": 1,
+      "concurrent_pairs": 32,
+      "scheduled_n": 5,
+      "recorded_n": 5,
+      "status": {
+        "completed": 5
+      },
+      "cold_eligible_runs_n": 5,
+      "cold_eligibility": "completed run with valid probe execution; connection/readiness outcomes retained separately",
+      "warmup_success_n": 5,
+      "whole_cold_batch_success_n": 5,
+      "valid_probe_total": 160,
+      "successful_probe_total": 160,
+      "run_cold_success_fraction": {
+        "n": 5,
+        "mean": 1.0,
+        "median": 1.0,
+        "min": 1.0,
+        "max": 1.0
+      },
+      "cold_batch_wall_s_all_completed": {
+        "n": 5,
+        "mean": 0.6316961174,
+        "median": 0.616094608,
+        "min": 0.597764681,
+        "max": 0.678245301
+      },
+      "cgroup_cpu_s_workload_bracket": {
+        "n": 5,
+        "mean": 0.3717288,
+        "median": 0.359895,
+        "min": 0.341689,
+        "max": 0.414194
+      },
+      "cgroup_current_memory_mib_after_workload": {
+        "n": 5,
+        "mean": 47.98984375,
+        "median": 47.9765625,
+        "min": 47.94140625,
+        "max": 48.0390625
+      },
+      "whole_cold_batch_success_nominal_95ci": [
+        0.4781762498950185,
+        1.0
+      ]
+    },
+    {
+      "platform": "daim_process_per_rule",
+      "scenario": "scale",
+      "switches": 4,
+      "concurrent_pairs": 1,
+      "scheduled_n": 5,
+      "recorded_n": 5,
+      "status": {
+        "completed": 5
+      },
+      "cold_eligible_runs_n": 5,
+      "cold_eligibility": "completed run with valid probe execution; connection/readiness outcomes retained separately",
+      "warmup_success_n": 5,
+      "whole_cold_batch_success_n": 5,
+      "valid_probe_total": 5,
+      "successful_probe_total": 5,
+      "run_cold_success_fraction": {
+        "n": 5,
+        "mean": 1.0,
+        "median": 1.0,
+        "min": 1.0,
+        "max": 1.0
+      },
+      "cold_batch_wall_s_all_completed": {
+        "n": 5,
+        "mean": 0.0333255838,
+        "median": 0.036241837,
+        "min": 0.023077809,
+        "max": 0.03754477
+      },
+      "cgroup_cpu_s_workload_bracket": {
+        "n": 5,
+        "mean": 0.016784,
+        "median": 0.017738,
+        "min": 0.011887,
+        "max": 0.018569
+      },
+      "cgroup_current_memory_mib_after_workload": {
+        "n": 5,
+        "mean": 48.0703125,
+        "median": 48.06640625,
+        "min": 48.01953125,
+        "max": 48.10546875
+      },
+      "whole_cold_batch_success_nominal_95ci": [
+        0.4781762498950185,
+        1.0
+      ]
+    },
+    {
+      "platform": "daim_process_per_rule",
+      "scenario": "scale",
+      "switches": 4,
+      "concurrent_pairs": 8,
+      "scheduled_n": 5,
+      "recorded_n": 5,
+      "status": {
+        "completed": 5
+      },
+      "cold_eligible_runs_n": 5,
+      "cold_eligibility": "completed run with valid probe execution; connection/readiness outcomes retained separately",
+      "warmup_success_n": 5,
+      "whole_cold_batch_success_n": 5,
+      "valid_probe_total": 40,
+      "successful_probe_total": 40,
+      "run_cold_success_fraction": {
+        "n": 5,
+        "mean": 1.0,
+        "median": 1.0,
+        "min": 1.0,
+        "max": 1.0
+      },
+      "cold_batch_wall_s_all_completed": {
+        "n": 5,
+        "mean": 0.170516425,
+        "median": 0.171018498,
+        "min": 0.157383982,
+        "max": 0.179327484
+      },
+      "cgroup_cpu_s_workload_bracket": {
+        "n": 5,
+        "mean": 0.0966984,
+        "median": 0.094747,
+        "min": 0.089298,
+        "max": 0.105021
+      },
+      "cgroup_current_memory_mib_after_workload": {
+        "n": 5,
+        "mean": 48.05078125,
+        "median": 48.05859375,
+        "min": 48.02734375,
+        "max": 48.0703125
+      },
+      "whole_cold_batch_success_nominal_95ci": [
+        0.4781762498950185,
+        1.0
+      ]
+    },
+    {
+      "platform": "daim_process_per_rule",
+      "scenario": "scale",
+      "switches": 4,
+      "concurrent_pairs": 32,
+      "scheduled_n": 5,
+      "recorded_n": 5,
+      "status": {
+        "completed": 5
+      },
+      "cold_eligible_runs_n": 5,
+      "cold_eligibility": "completed run with valid probe execution; connection/readiness outcomes retained separately",
+      "warmup_success_n": 5,
+      "whole_cold_batch_success_n": 5,
+      "valid_probe_total": 160,
+      "successful_probe_total": 160,
+      "run_cold_success_fraction": {
+        "n": 5,
+        "mean": 1.0,
+        "median": 1.0,
+        "min": 1.0,
+        "max": 1.0
+      },
+      "cold_batch_wall_s_all_completed": {
+        "n": 5,
+        "mean": 0.630197782,
+        "median": 0.627386696,
+        "min": 0.591185632,
+        "max": 0.667445786
+      },
+      "cgroup_cpu_s_workload_bracket": {
+        "n": 5,
+        "mean": 0.3771922,
+        "median": 0.379711,
+        "min": 0.356386,
+        "max": 0.408211
+      },
+      "cgroup_current_memory_mib_after_workload": {
+        "n": 5,
+        "mean": 48.04453125,
+        "median": 48.0390625,
+        "min": 47.98828125,
+        "max": 48.12109375
+      },
+      "whole_cold_batch_success_nominal_95ci": [
+        0.4781762498950185,
+        1.0
+      ]
+    },
+    {
+      "platform": "daim_process_per_rule",
+      "scenario": "scale",
+      "switches": 8,
+      "concurrent_pairs": 1,
+      "scheduled_n": 5,
+      "recorded_n": 5,
+      "status": {
+        "completed": 5
+      },
+      "cold_eligible_runs_n": 5,
+      "cold_eligibility": "completed run with valid probe execution; connection/readiness outcomes retained separately",
+      "warmup_success_n": 5,
+      "whole_cold_batch_success_n": 5,
+      "valid_probe_total": 5,
+      "successful_probe_total": 5,
+      "run_cold_success_fraction": {
+        "n": 5,
+        "mean": 1.0,
+        "median": 1.0,
+        "min": 1.0,
+        "max": 1.0
+      },
+      "cold_batch_wall_s_all_completed": {
+        "n": 5,
+        "mean": 0.0304101256,
+        "median": 0.030723269,
+        "min": 0.024154151,
+        "max": 0.035495482
+      },
+      "cgroup_cpu_s_workload_bracket": {
+        "n": 5,
+        "mean": 0.0154234,
+        "median": 0.015526,
+        "min": 0.012337,
+        "max": 0.01811
+      },
+      "cgroup_current_memory_mib_after_workload": {
+        "n": 5,
+        "mean": 48.0890625,
+        "median": 48.08984375,
+        "min": 48.00390625,
+        "max": 48.16796875
+      },
+      "whole_cold_batch_success_nominal_95ci": [
+        0.4781762498950185,
+        1.0
+      ]
+    },
+    {
+      "platform": "daim_process_per_rule",
+      "scenario": "scale",
+      "switches": 8,
+      "concurrent_pairs": 8,
+      "scheduled_n": 5,
+      "recorded_n": 5,
+      "status": {
+        "completed": 5
+      },
+      "cold_eligible_runs_n": 5,
+      "cold_eligibility": "completed run with valid probe execution; connection/readiness outcomes retained separately",
+      "warmup_success_n": 5,
+      "whole_cold_batch_success_n": 5,
+      "valid_probe_total": 40,
+      "successful_probe_total": 40,
+      "run_cold_success_fraction": {
+        "n": 5,
+        "mean": 1.0,
+        "median": 1.0,
+        "min": 1.0,
+        "max": 1.0
+      },
+      "cold_batch_wall_s_all_completed": {
+        "n": 5,
+        "mean": 0.1634074916,
+        "median": 0.161683121,
+        "min": 0.155996774,
+        "max": 0.17098893
+      },
+      "cgroup_cpu_s_workload_bracket": {
+        "n": 5,
+        "mean": 0.0913694,
+        "median": 0.089595,
+        "min": 0.089158,
+        "max": 0.097362
+      },
+      "cgroup_current_memory_mib_after_workload": {
+        "n": 5,
+        "mean": 48.11953125,
+        "median": 48.12890625,
+        "min": 48.08203125,
+        "max": 48.15625
+      },
+      "whole_cold_batch_success_nominal_95ci": [
+        0.4781762498950185,
+        1.0
+      ]
+    },
+    {
+      "platform": "daim_process_per_rule",
+      "scenario": "scale",
+      "switches": 8,
+      "concurrent_pairs": 32,
+      "scheduled_n": 5,
+      "recorded_n": 5,
+      "status": {
+        "completed": 5
+      },
+      "cold_eligible_runs_n": 5,
+      "cold_eligibility": "completed run with valid probe execution; connection/readiness outcomes retained separately",
+      "warmup_success_n": 5,
+      "whole_cold_batch_success_n": 5,
+      "valid_probe_total": 160,
+      "successful_probe_total": 160,
+      "run_cold_success_fraction": {
+        "n": 5,
+        "mean": 1.0,
+        "median": 1.0,
+        "min": 1.0,
+        "max": 1.0
+      },
+      "cold_batch_wall_s_all_completed": {
+        "n": 5,
+        "mean": 0.6266831172,
+        "median": 0.598102678,
+        "min": 0.582124427,
+        "max": 0.73283088
+      },
+      "cgroup_cpu_s_workload_bracket": {
+        "n": 5,
+        "mean": 0.373524,
+        "median": 0.354315,
+        "min": 0.339937,
+        "max": 0.446646
+      },
+      "cgroup_current_memory_mib_after_workload": {
+        "n": 5,
+        "mean": 48.065625,
+        "median": 48.03125,
+        "min": 48.015625,
+        "max": 48.140625
+      },
+      "whole_cold_batch_success_nominal_95ci": [
+        0.4781762498950185,
+        1.0
+      ]
+    },
+    {
+      "platform": "daim_process_per_rule",
+      "scenario": "scale",
+      "switches": 16,
+      "concurrent_pairs": 1,
+      "scheduled_n": 5,
+      "recorded_n": 5,
+      "status": {
+        "completed": 5
+      },
+      "cold_eligible_runs_n": 5,
+      "cold_eligibility": "completed run with valid probe execution; connection/readiness outcomes retained separately",
+      "warmup_success_n": 5,
+      "whole_cold_batch_success_n": 5,
+      "valid_probe_total": 5,
+      "successful_probe_total": 5,
+      "run_cold_success_fraction": {
+        "n": 5,
+        "mean": 1.0,
+        "median": 1.0,
+        "min": 1.0,
+        "max": 1.0
+      },
+      "cold_batch_wall_s_all_completed": {
+        "n": 5,
+        "mean": 0.0240805078,
+        "median": 0.024435685,
+        "min": 0.022957028,
+        "max": 0.02474942
+      },
+      "cgroup_cpu_s_workload_bracket": {
+        "n": 5,
+        "mean": 0.0123954,
+        "median": 0.01219,
+        "min": 0.011577,
+        "max": 0.013575
+      },
+      "cgroup_current_memory_mib_after_workload": {
+        "n": 5,
+        "mean": 48.21484375,
+        "median": 48.20703125,
+        "min": 48.18359375,
+        "max": 48.26953125
+      },
+      "whole_cold_batch_success_nominal_95ci": [
+        0.4781762498950185,
+        1.0
+      ]
+    },
+    {
+      "platform": "daim_process_per_rule",
+      "scenario": "scale",
+      "switches": 16,
+      "concurrent_pairs": 8,
+      "scheduled_n": 5,
+      "recorded_n": 5,
+      "status": {
+        "completed": 5
+      },
+      "cold_eligible_runs_n": 5,
+      "cold_eligibility": "completed run with valid probe execution; connection/readiness outcomes retained separately",
+      "warmup_success_n": 5,
+      "whole_cold_batch_success_n": 5,
+      "valid_probe_total": 40,
+      "successful_probe_total": 40,
+      "run_cold_success_fraction": {
+        "n": 5,
+        "mean": 1.0,
+        "median": 1.0,
+        "min": 1.0,
+        "max": 1.0
+      },
+      "cold_batch_wall_s_all_completed": {
+        "n": 5,
+        "mean": 0.1556778424,
+        "median": 0.155923233,
+        "min": 0.150393416,
+        "max": 0.16124969
+      },
+      "cgroup_cpu_s_workload_bracket": {
+        "n": 5,
+        "mean": 0.0872274,
+        "median": 0.086945,
+        "min": 0.084904,
+        "max": 0.089636
+      },
+      "cgroup_current_memory_mib_after_workload": {
+        "n": 5,
+        "mean": 48.19609375,
+        "median": 48.19921875,
+        "min": 48.17578125,
+        "max": 48.21875
+      },
+      "whole_cold_batch_success_nominal_95ci": [
+        0.4781762498950185,
+        1.0
+      ]
+    },
+    {
+      "platform": "daim_process_per_rule",
+      "scenario": "scale",
+      "switches": 16,
+      "concurrent_pairs": 32,
+      "scheduled_n": 5,
+      "recorded_n": 5,
+      "status": {
+        "completed": 5
+      },
+      "cold_eligible_runs_n": 5,
+      "cold_eligibility": "completed run with valid probe execution; connection/readiness outcomes retained separately",
+      "warmup_success_n": 5,
+      "whole_cold_batch_success_n": 5,
+      "valid_probe_total": 160,
+      "successful_probe_total": 160,
+      "run_cold_success_fraction": {
+        "n": 5,
+        "mean": 1.0,
+        "median": 1.0,
+        "min": 1.0,
+        "max": 1.0
+      },
+      "cold_batch_wall_s_all_completed": {
+        "n": 5,
+        "mean": 0.6104143345999999,
+        "median": 0.606129865,
+        "min": 0.59895283,
+        "max": 0.628206207
+      },
+      "cgroup_cpu_s_workload_bracket": {
+        "n": 5,
+        "mean": 0.352653,
+        "median": 0.350633,
+        "min": 0.340723,
+        "max": 0.370142
+      },
+      "cgroup_current_memory_mib_after_workload": {
+        "n": 5,
+        "mean": 48.1,
+        "median": 48.1015625,
+        "min": 48.08203125,
+        "max": 48.11328125
+      },
+      "whole_cold_batch_success_nominal_95ci": [
+        0.4781762498950185,
+        1.0
+      ]
+    },
+    {
+      "platform": "daim_process_per_rule",
+      "scenario": "switch_restart",
+      "switches": 1,
+      "concurrent_pairs": 1,
+      "scheduled_n": 5,
+      "recorded_n": 5,
+      "status": {
+        "completed": 5
+      },
+      "cold_eligible_runs_n": 5,
+      "cold_eligibility": "completed run with valid probe execution; connection/readiness outcomes retained separately",
+      "warmup_success_n": 5,
+      "whole_cold_batch_success_n": 5,
+      "valid_probe_total": 5,
+      "successful_probe_total": 5,
+      "run_cold_success_fraction": {
+        "n": 5,
+        "mean": 1.0,
+        "median": 1.0,
+        "min": 1.0,
+        "max": 1.0
+      },
+      "cold_batch_wall_s_all_completed": {
+        "n": 5,
+        "mean": 0.033932875,
+        "median": 0.027678331,
+        "min": 0.024148429,
+        "max": 0.047126835
+      },
+      "cgroup_cpu_s_workload_bracket": {
+        "n": 5,
+        "mean": 0.0172914,
+        "median": 0.014167,
+        "min": 0.012478,
+        "max": 0.023988
+      },
+      "cgroup_current_memory_mib_after_workload": {
+        "n": 5,
+        "mean": 48.0171875,
+        "median": 48.00390625,
+        "min": 48.0,
+        "max": 48.0390625
+      },
+      "whole_cold_batch_success_nominal_95ci": [
+        0.4781762498950185,
+        1.0
+      ],
+      "recovery_eligible_n": 5,
+      "recovered_within_30s_n": 5,
+      "recovery_not_observed_within_30s_n": 0,
+      "recovery_observed_s_success_conditional": {
+        "n": 5,
+        "mean": 1.299597794,
+        "median": 1.25649818,
+        "min": 1.178411896,
+        "max": 1.462239724
+      },
+      "recovery_ineligible_n": 0,
+      "failed_baseline_n": 0,
+      "no_recovery_observation_n": 0,
+      "recovery_success_nominal_95ci": [
+        0.4781762498950185,
+        1.0
+      ]
+    },
+    {
+      "platform": "odl_native_l2switch",
+      "scenario": "controller_crash",
+      "switches": 1,
+      "concurrent_pairs": 1,
+      "scheduled_n": 5,
+      "recorded_n": 5,
+      "status": {
+        "completed": 5
+      },
+      "cold_eligible_runs_n": 5,
+      "cold_eligibility": "completed run with valid probe execution; connection/readiness outcomes retained separately",
+      "warmup_success_n": 3,
+      "whole_cold_batch_success_n": 3,
+      "valid_probe_total": 5,
+      "successful_probe_total": 3,
+      "run_cold_success_fraction": {
+        "n": 5,
+        "mean": 0.6,
+        "median": 1.0,
+        "min": 0.0,
+        "max": 1.0
+      },
+      "cold_batch_wall_s_all_completed": {
+        "n": 5,
+        "mean": 0.4100564366,
+        "median": 0.003852841,
+        "min": 0.002881653,
+        "max": 1.02429175
+      },
+      "cgroup_cpu_s_workload_bracket": {
+        "n": 5,
+        "mean": 0.044398799999999995,
+        "median": 0.016876,
+        "min": 0.009457,
+        "max": 0.108442
+      },
+      "cgroup_current_memory_mib_after_workload": {
+        "n": 5,
+        "mean": 717.21640625,
+        "median": 744.31640625,
+        "min": 591.1015625,
+        "max": 808.5703125
+      },
+      "whole_cold_batch_success_nominal_95ci": [
+        0.14663279963467313,
+        0.9472550494736831
+      ],
+      "recovery_eligible_n": 3,
+      "recovered_within_30s_n": 3,
+      "recovery_not_observed_within_30s_n": 0,
+      "recovery_observed_s_success_conditional": {
+        "n": 3,
+        "mean": 0.02304204,
+        "median": 0.013889188,
+        "min": 0.013481193,
+        "max": 0.041755739
+      },
+      "recovery_ineligible_n": 2,
+      "failed_baseline_n": 2,
+      "no_recovery_observation_n": 0,
+      "recovery_success_nominal_95ci": [
+        0.2924017738212866,
+        1.0
+      ]
+    },
+    {
+      "platform": "odl_native_l2switch",
+      "scenario": "controller_restart",
+      "switches": 1,
+      "concurrent_pairs": 1,
+      "scheduled_n": 5,
+      "recorded_n": 5,
+      "status": {
+        "completed": 5
+      },
+      "cold_eligible_runs_n": 5,
+      "cold_eligibility": "completed run with valid probe execution; connection/readiness outcomes retained separately",
+      "warmup_success_n": 3,
+      "whole_cold_batch_success_n": 3,
+      "valid_probe_total": 5,
+      "successful_probe_total": 3,
+      "run_cold_success_fraction": {
+        "n": 5,
+        "mean": 0.6,
+        "median": 1.0,
+        "min": 0.0,
+        "max": 1.0
+      },
+      "cold_batch_wall_s_all_completed": {
+        "n": 5,
+        "mean": 0.4090676748,
+        "median": 0.00688081,
+        "min": 0.003905689,
+        "max": 1.022685837
+      },
+      "cgroup_cpu_s_workload_bracket": {
+        "n": 5,
+        "mean": 0.060693000000000004,
+        "median": 0.024419,
+        "min": 0.015935,
+        "max": 0.145079
+      },
+      "cgroup_current_memory_mib_after_workload": {
+        "n": 5,
+        "mean": 762.72265625,
+        "median": 768.40625,
+        "min": 671.2734375,
+        "max": 817.16796875
+      },
+      "whole_cold_batch_success_nominal_95ci": [
+        0.14663279963467313,
+        0.9472550494736831
+      ],
+      "recovery_eligible_n": 3,
+      "recovered_within_30s_n": 3,
+      "recovery_not_observed_within_30s_n": 0,
+      "recovery_observed_s_success_conditional": {
+        "n": 3,
+        "mean": 0.03475981166666667,
+        "median": 0.024254166,
+        "min": 0.015807018,
+        "max": 0.064218251
+      },
+      "recovery_ineligible_n": 2,
+      "failed_baseline_n": 2,
+      "no_recovery_observation_n": 0,
+      "recovery_success_nominal_95ci": [
+        0.2924017738212866,
+        1.0
+      ]
+    },
+    {
+      "platform": "odl_native_l2switch",
+      "scenario": "host_move",
+      "switches": 1,
+      "concurrent_pairs": 1,
+      "scheduled_n": 5,
+      "recorded_n": 5,
+      "status": {
+        "completed": 5
+      },
+      "cold_eligible_runs_n": 5,
+      "cold_eligibility": "completed run with valid probe execution; connection/readiness outcomes retained separately",
+      "warmup_success_n": 5,
+      "whole_cold_batch_success_n": 5,
+      "valid_probe_total": 5,
+      "successful_probe_total": 5,
+      "run_cold_success_fraction": {
+        "n": 5,
+        "mean": 1.0,
+        "median": 1.0,
+        "min": 1.0,
+        "max": 1.0
+      },
+      "cold_batch_wall_s_all_completed": {
+        "n": 5,
+        "mean": 0.0070447724,
+        "median": 0.00622816,
+        "min": 0.005997826,
+        "max": 0.008841858
+      },
+      "cgroup_cpu_s_workload_bracket": {
+        "n": 5,
+        "mean": 0.0266658,
+        "median": 0.02623,
+        "min": 0.014393,
+        "max": 0.038788
+      },
+      "cgroup_current_memory_mib_after_workload": {
+        "n": 5,
+        "mean": 736.00390625,
+        "median": 784.2734375,
+        "min": 609.1171875,
+        "max": 816.98828125
+      },
+      "whole_cold_batch_success_nominal_95ci": [
+        0.4781762498950185,
+        1.0
+      ],
+      "recovery_eligible_n": 5,
+      "recovered_within_30s_n": 0,
+      "recovery_not_observed_within_30s_n": 5,
+      "recovery_observed_s_success_conditional": {
+        "n": 0
+      },
+      "recovery_ineligible_n": 0,
+      "failed_baseline_n": 0,
+      "no_recovery_observation_n": 0,
+      "recovery_success_nominal_95ci": [
+        0.0,
+        0.5218237501049816
+      ]
+    },
+    {
+      "platform": "odl_native_l2switch",
+      "scenario": "link_restore",
+      "switches": 1,
+      "concurrent_pairs": 1,
+      "scheduled_n": 5,
+      "recorded_n": 5,
+      "status": {
+        "completed": 5
+      },
+      "cold_eligible_runs_n": 5,
+      "cold_eligibility": "completed run with valid probe execution; connection/readiness outcomes retained separately",
+      "warmup_success_n": 1,
+      "whole_cold_batch_success_n": 1,
+      "valid_probe_total": 5,
+      "successful_probe_total": 1,
+      "run_cold_success_fraction": {
+        "n": 5,
+        "mean": 0.2,
+        "median": 0.0,
+        "min": 0.0,
+        "max": 1.0
+      },
+      "cold_batch_wall_s_all_completed": {
+        "n": 5,
+        "mean": 0.8238438652,
+        "median": 1.019215173,
+        "min": 0.004902266,
+        "max": 1.063131389
+      },
+      "cgroup_cpu_s_workload_bracket": {
+        "n": 5,
+        "mean": 0.0794238,
+        "median": 0.085106,
+        "min": 0.014111,
+        "max": 0.148258
+      },
+      "cgroup_current_memory_mib_after_workload": {
+        "n": 5,
+        "mean": 725.15625,
+        "median": 763.83203125,
+        "min": 628.24609375,
+        "max": 783.96875
+      },
+      "whole_cold_batch_success_nominal_95ci": [
+        0.0050507633794680575,
+        0.7164179361180896
+      ],
+      "recovery_eligible_n": 1,
+      "recovered_within_30s_n": 1,
+      "recovery_not_observed_within_30s_n": 0,
+      "recovery_observed_s_success_conditional": {
+        "n": 1,
+        "mean": 0.015284436,
+        "median": 0.015284436,
+        "min": 0.015284436,
+        "max": 0.015284436
+      },
+      "recovery_ineligible_n": 4,
+      "failed_baseline_n": 4,
+      "no_recovery_observation_n": 0,
+      "recovery_success_nominal_95ci": [
+        0.025,
+        1.0
+      ]
+    },
+    {
+      "platform": "odl_native_l2switch",
+      "scenario": "scale",
+      "switches": 1,
+      "concurrent_pairs": 1,
+      "scheduled_n": 5,
+      "recorded_n": 5,
+      "status": {
+        "completed": 5
+      },
+      "cold_eligible_runs_n": 5,
+      "cold_eligibility": "completed run with valid probe execution; connection/readiness outcomes retained separately",
+      "warmup_success_n": 3,
+      "whole_cold_batch_success_n": 3,
+      "valid_probe_total": 5,
+      "successful_probe_total": 3,
+      "run_cold_success_fraction": {
+        "n": 5,
+        "mean": 0.6,
+        "median": 1.0,
+        "min": 0.0,
+        "max": 1.0
+      },
+      "cold_batch_wall_s_all_completed": {
+        "n": 5,
+        "mean": 0.40989499459999995,
+        "median": 0.007076958,
+        "min": 0.004740331,
+        "max": 1.018573426
+      },
+      "cgroup_cpu_s_workload_bracket": {
+        "n": 5,
+        "mean": 0.0312612,
+        "median": 0.025176,
+        "min": 0.020532,
+        "max": 0.055586
+      },
+      "cgroup_current_memory_mib_after_workload": {
+        "n": 5,
+        "mean": 771.884375,
+        "median": 784.171875,
+        "min": 705.53125,
+        "max": 809.25
+      },
+      "whole_cold_batch_success_nominal_95ci": [
+        0.14663279963467313,
+        0.9472550494736831
+      ]
+    },
+    {
+      "platform": "odl_native_l2switch",
+      "scenario": "scale",
+      "switches": 1,
+      "concurrent_pairs": 8,
+      "scheduled_n": 5,
+      "recorded_n": 5,
+      "status": {
+        "completed": 5
+      },
+      "cold_eligible_runs_n": 5,
+      "cold_eligibility": "completed run with valid probe execution; connection/readiness outcomes retained separately",
+      "warmup_success_n": 3,
+      "whole_cold_batch_success_n": 3,
+      "valid_probe_total": 40,
+      "successful_probe_total": 24,
+      "run_cold_success_fraction": {
+        "n": 5,
+        "mean": 0.6,
+        "median": 1.0,
+        "min": 0.0,
+        "max": 1.0
+      },
+      "cold_batch_wall_s_all_completed": {
+        "n": 5,
+        "mean": 0.42458265619999996,
+        "median": 0.038448064,
+        "min": 0.0167941,
+        "max": 1.023560413
+      },
+      "cgroup_cpu_s_workload_bracket": {
+        "n": 5,
+        "mean": 0.0886534,
+        "median": 0.088531,
+        "min": 0.061419,
+        "max": 0.12318
+      },
+      "cgroup_current_memory_mib_after_workload": {
+        "n": 5,
+        "mean": 755.76796875,
+        "median": 766.796875,
+        "min": 674.9140625,
+        "max": 792.83984375
+      },
+      "whole_cold_batch_success_nominal_95ci": [
+        0.14663279963467313,
+        0.9472550494736831
+      ]
+    },
+    {
+      "platform": "odl_native_l2switch",
+      "scenario": "scale",
+      "switches": 1,
+      "concurrent_pairs": 32,
+      "scheduled_n": 5,
+      "recorded_n": 5,
+      "status": {
+        "completed": 5
+      },
+      "cold_eligible_runs_n": 5,
+      "cold_eligibility": "completed run with valid probe execution; connection/readiness outcomes retained separately",
+      "warmup_success_n": 4,
+      "whole_cold_batch_success_n": 4,
+      "valid_probe_total": 160,
+      "successful_probe_total": 128,
+      "run_cold_success_fraction": {
+        "n": 5,
+        "mean": 0.8,
+        "median": 1.0,
+        "min": 0.0,
+        "max": 1.0
+      },
+      "cold_batch_wall_s_all_completed": {
+        "n": 5,
+        "mean": 0.2548464024,
+        "median": 0.058272585,
+        "min": 0.037499444,
+        "max": 1.05935865
+      },
+      "cgroup_cpu_s_workload_bracket": {
+        "n": 5,
+        "mean": 0.15970679999999998,
+        "median": 0.148466,
+        "min": 0.087045,
+        "max": 0.25597
+      },
+      "cgroup_current_memory_mib_after_workload": {
+        "n": 5,
+        "mean": 778.0,
+        "median": 771.23046875,
+        "min": 750.703125,
+        "max": 812.72265625
+      },
+      "whole_cold_batch_success_nominal_95ci": [
+        0.28358206388191043,
+        0.9949492366205319
+      ]
+    },
+    {
+      "platform": "odl_native_l2switch",
+      "scenario": "scale",
+      "switches": 4,
+      "concurrent_pairs": 1,
+      "scheduled_n": 5,
+      "recorded_n": 5,
+      "status": {
+        "completed": 5
+      },
+      "cold_eligible_runs_n": 5,
+      "cold_eligibility": "completed run with valid probe execution; connection/readiness outcomes retained separately",
+      "warmup_success_n": 4,
+      "whole_cold_batch_success_n": 4,
+      "valid_probe_total": 5,
+      "successful_probe_total": 4,
+      "run_cold_success_fraction": {
+        "n": 5,
+        "mean": 0.8,
+        "median": 1.0,
+        "min": 0.0,
+        "max": 1.0
+      },
+      "cold_batch_wall_s_all_completed": {
+        "n": 5,
+        "mean": 0.2045405484,
+        "median": 0.004307591,
+        "min": 0.001998794,
+        "max": 1.008348536
+      },
+      "cgroup_cpu_s_workload_bracket": {
+        "n": 5,
+        "mean": 0.0322206,
+        "median": 0.019203,
+        "min": 0.007267,
+        "max": 0.102673
+      },
+      "cgroup_current_memory_mib_after_workload": {
+        "n": 5,
+        "mean": 747.3421875,
+        "median": 752.6953125,
+        "min": 666.70703125,
+        "max": 809.47265625
+      },
+      "whole_cold_batch_success_nominal_95ci": [
+        0.28358206388191043,
+        0.9949492366205319
+      ]
+    },
+    {
+      "platform": "odl_native_l2switch",
+      "scenario": "scale",
+      "switches": 4,
+      "concurrent_pairs": 8,
+      "scheduled_n": 5,
+      "recorded_n": 5,
+      "status": {
+        "completed": 5
+      },
+      "cold_eligible_runs_n": 5,
+      "cold_eligibility": "completed run with valid probe execution; connection/readiness outcomes retained separately",
+      "warmup_success_n": 3,
+      "whole_cold_batch_success_n": 3,
+      "valid_probe_total": 40,
+      "successful_probe_total": 24,
+      "run_cold_success_fraction": {
+        "n": 5,
+        "mean": 0.6,
+        "median": 1.0,
+        "min": 0.0,
+        "max": 1.0
+      },
+      "cold_batch_wall_s_all_completed": {
+        "n": 5,
+        "mean": 0.416365641,
+        "median": 0.017615992,
+        "min": 0.012969424,
+        "max": 1.019381833
+      },
+      "cgroup_cpu_s_workload_bracket": {
+        "n": 5,
+        "mean": 0.0817544,
+        "median": 0.072413,
+        "min": 0.048833,
+        "max": 0.151221
+      },
+      "cgroup_current_memory_mib_after_workload": {
+        "n": 5,
+        "mean": 728.659375,
+        "median": 738.4921875,
+        "min": 650.80859375,
+        "max": 770.703125
+      },
+      "whole_cold_batch_success_nominal_95ci": [
+        0.14663279963467313,
+        0.9472550494736831
+      ]
+    },
+    {
+      "platform": "odl_native_l2switch",
+      "scenario": "scale",
+      "switches": 4,
+      "concurrent_pairs": 32,
+      "scheduled_n": 5,
+      "recorded_n": 5,
+      "status": {
+        "completed": 5
+      },
+      "cold_eligible_runs_n": 5,
+      "cold_eligibility": "completed run with valid probe execution; connection/readiness outcomes retained separately",
+      "warmup_success_n": 2,
+      "whole_cold_batch_success_n": 2,
+      "valid_probe_total": 160,
+      "successful_probe_total": 64,
+      "run_cold_success_fraction": {
+        "n": 5,
+        "mean": 0.4,
+        "median": 0.0,
+        "min": 0.0,
+        "max": 1.0
+      },
+      "cold_batch_wall_s_all_completed": {
+        "n": 5,
+        "mean": 0.6690348281999999,
+        "median": 1.040963982,
+        "min": 0.04538133,
+        "max": 1.102779013
+      },
+      "cgroup_cpu_s_workload_bracket": {
+        "n": 5,
+        "mean": 0.2245814,
+        "median": 0.200238,
+        "min": 0.104026,
+        "max": 0.426745
+      },
+      "cgroup_current_memory_mib_after_workload": {
+        "n": 5,
+        "mean": 739.0578125,
+        "median": 753.20703125,
+        "min": 631.37890625,
+        "max": 807.55859375
+      },
+      "whole_cold_batch_success_nominal_95ci": [
+        0.052744950526316906,
+        0.853367200365327
+      ]
+    },
+    {
+      "platform": "odl_native_l2switch",
+      "scenario": "scale",
+      "switches": 8,
+      "concurrent_pairs": 1,
+      "scheduled_n": 5,
+      "recorded_n": 5,
+      "status": {
+        "completed": 5
+      },
+      "cold_eligible_runs_n": 5,
+      "cold_eligibility": "completed run with valid probe execution; connection/readiness outcomes retained separately",
+      "warmup_success_n": 3,
+      "whole_cold_batch_success_n": 3,
+      "valid_probe_total": 5,
+      "successful_probe_total": 3,
+      "run_cold_success_fraction": {
+        "n": 5,
+        "mean": 0.6,
+        "median": 1.0,
+        "min": 0.0,
+        "max": 1.0
+      },
+      "cold_batch_wall_s_all_completed": {
+        "n": 5,
+        "mean": 0.4073678906,
+        "median": 0.003771256,
+        "min": 0.002662689,
+        "max": 1.017893113
+      },
+      "cgroup_cpu_s_workload_bracket": {
+        "n": 5,
+        "mean": 0.0373128,
+        "median": 0.020421,
+        "min": 0.008568,
+        "max": 0.086656
+      },
+      "cgroup_current_memory_mib_after_workload": {
+        "n": 5,
+        "mean": 749.1421875,
+        "median": 749.65234375,
+        "min": 692.1171875,
+        "max": 806.296875
+      },
+      "whole_cold_batch_success_nominal_95ci": [
+        0.14663279963467313,
+        0.9472550494736831
+      ]
+    },
+    {
+      "platform": "odl_native_l2switch",
+      "scenario": "scale",
+      "switches": 8,
+      "concurrent_pairs": 8,
+      "scheduled_n": 5,
+      "recorded_n": 5,
+      "status": {
+        "completed": 5
+      },
+      "cold_eligible_runs_n": 5,
+      "cold_eligibility": "completed run with valid probe execution; connection/readiness outcomes retained separately",
+      "warmup_success_n": 4,
+      "whole_cold_batch_success_n": 4,
+      "valid_probe_total": 40,
+      "successful_probe_total": 32,
+      "run_cold_success_fraction": {
+        "n": 5,
+        "mean": 0.8,
+        "median": 1.0,
+        "min": 0.0,
+        "max": 1.0
+      },
+      "cold_batch_wall_s_all_completed": {
+        "n": 5,
+        "mean": 0.2129974458,
+        "median": 0.01291757,
+        "min": 0.009892623,
+        "max": 1.010988047
+      },
+      "cgroup_cpu_s_workload_bracket": {
+        "n": 5,
+        "mean": 0.0559278,
+        "median": 0.045601,
+        "min": 0.031315,
+        "max": 0.09346
+      },
+      "cgroup_current_memory_mib_after_workload": {
+        "n": 5,
+        "mean": 744.196875,
+        "median": 728.19921875,
+        "min": 694.640625,
+        "max": 794.125
+      },
+      "whole_cold_batch_success_nominal_95ci": [
+        0.28358206388191043,
+        0.9949492366205319
+      ]
+    },
+    {
+      "platform": "odl_native_l2switch",
+      "scenario": "scale",
+      "switches": 8,
+      "concurrent_pairs": 32,
+      "scheduled_n": 5,
+      "recorded_n": 5,
+      "status": {
+        "completed": 5
+      },
+      "cold_eligible_runs_n": 5,
+      "cold_eligibility": "completed run with valid probe execution; connection/readiness outcomes retained separately",
+      "warmup_success_n": 3,
+      "whole_cold_batch_success_n": 3,
+      "valid_probe_total": 160,
+      "successful_probe_total": 96,
+      "run_cold_success_fraction": {
+        "n": 5,
+        "mean": 0.6,
+        "median": 1.0,
+        "min": 0.0,
+        "max": 1.0
+      },
+      "cold_batch_wall_s_all_completed": {
+        "n": 5,
+        "mean": 0.4474225552,
+        "median": 0.056824683,
+        "min": 0.041949585,
+        "max": 1.051573275
+      },
+      "cgroup_cpu_s_workload_bracket": {
+        "n": 5,
+        "mean": 0.20636480000000001,
+        "median": 0.15145,
+        "min": 0.107396,
+        "max": 0.488838
+      },
+      "cgroup_current_memory_mib_after_workload": {
+        "n": 5,
+        "mean": 745.56953125,
+        "median": 749.0078125,
+        "min": 687.390625,
+        "max": 794.73828125
+      },
+      "whole_cold_batch_success_nominal_95ci": [
+        0.14663279963467313,
+        0.9472550494736831
+      ]
+    },
+    {
+      "platform": "odl_native_l2switch",
+      "scenario": "scale",
+      "switches": 16,
+      "concurrent_pairs": 1,
+      "scheduled_n": 5,
+      "recorded_n": 5,
+      "status": {
+        "completed": 5
+      },
+      "cold_eligible_runs_n": 5,
+      "cold_eligibility": "completed run with valid probe execution; connection/readiness outcomes retained separately",
+      "warmup_success_n": 4,
+      "whole_cold_batch_success_n": 4,
+      "valid_probe_total": 5,
+      "successful_probe_total": 4,
+      "run_cold_success_fraction": {
+        "n": 5,
+        "mean": 0.8,
+        "median": 1.0,
+        "min": 0.0,
+        "max": 1.0
+      },
+      "cold_batch_wall_s_all_completed": {
+        "n": 5,
+        "mean": 0.2149921426,
+        "median": 0.002949428,
+        "min": 0.002089749,
+        "max": 1.063914329
+      },
+      "cgroup_cpu_s_workload_bracket": {
+        "n": 5,
+        "mean": 0.087191,
+        "median": 0.013969,
+        "min": 0.005877,
+        "max": 0.344808
+      },
+      "cgroup_current_memory_mib_after_workload": {
+        "n": 5,
+        "mean": 743.58203125,
+        "median": 743.66796875,
+        "min": 653.1015625,
+        "max": 805.58203125
+      },
+      "whole_cold_batch_success_nominal_95ci": [
+        0.28358206388191043,
+        0.9949492366205319
+      ]
+    },
+    {
+      "platform": "odl_native_l2switch",
+      "scenario": "scale",
+      "switches": 16,
+      "concurrent_pairs": 8,
+      "scheduled_n": 5,
+      "recorded_n": 5,
+      "status": {
+        "completed": 5
+      },
+      "cold_eligible_runs_n": 5,
+      "cold_eligibility": "completed run with valid probe execution; connection/readiness outcomes retained separately",
+      "warmup_success_n": 3,
+      "whole_cold_batch_success_n": 4,
+      "valid_probe_total": 40,
+      "successful_probe_total": 32,
+      "run_cold_success_fraction": {
+        "n": 5,
+        "mean": 0.8,
+        "median": 1.0,
+        "min": 0.0,
+        "max": 1.0
+      },
+      "cold_batch_wall_s_all_completed": {
+        "n": 5,
+        "mean": 0.21347674179999998,
+        "median": 0.013443094,
+        "min": 0.008581172,
+        "max": 1.01067227
+      },
+      "cgroup_cpu_s_workload_bracket": {
+        "n": 5,
+        "mean": 0.061902,
+        "median": 0.042148,
+        "min": 0.029199,
+        "max": 0.129986
+      },
+      "cgroup_current_memory_mib_after_workload": {
+        "n": 5,
+        "mean": 734.7046875,
+        "median": 725.7421875,
+        "min": 709.19921875,
+        "max": 773.01953125
+      },
+      "whole_cold_batch_success_nominal_95ci": [
+        0.28358206388191043,
+        0.9949492366205319
+      ]
+    },
+    {
+      "platform": "odl_native_l2switch",
+      "scenario": "scale",
+      "switches": 16,
+      "concurrent_pairs": 32,
+      "scheduled_n": 5,
+      "recorded_n": 5,
+      "status": {
+        "completed": 5
+      },
+      "cold_eligible_runs_n": 5,
+      "cold_eligibility": "completed run with valid probe execution; connection/readiness outcomes retained separately",
+      "warmup_success_n": 2,
+      "whole_cold_batch_success_n": 2,
+      "valid_probe_total": 160,
+      "successful_probe_total": 118,
+      "run_cold_success_fraction": {
+        "n": 5,
+        "mean": 0.7375,
+        "median": 0.9375,
+        "min": 0.0,
+        "max": 1.0
+      },
+      "cold_batch_wall_s_all_completed": {
+        "n": 5,
+        "mean": 0.6399347814,
+        "median": 1.031916276,
+        "min": 0.038694398,
+        "max": 1.046995759
+      },
+      "cgroup_cpu_s_workload_bracket": {
+        "n": 5,
+        "mean": 0.3085226,
+        "median": 0.318301,
+        "min": 0.116267,
+        "max": 0.659561
+      },
+      "cgroup_current_memory_mib_after_workload": {
+        "n": 5,
+        "mean": 758.76640625,
+        "median": 771.2578125,
+        "min": 703.859375,
+        "max": 784.609375
+      },
+      "whole_cold_batch_success_nominal_95ci": [
+        0.052744950526316906,
+        0.853367200365327
+      ]
+    },
+    {
+      "platform": "odl_native_l2switch",
+      "scenario": "switch_restart",
+      "switches": 1,
+      "concurrent_pairs": 1,
+      "scheduled_n": 5,
+      "recorded_n": 5,
+      "status": {
+        "completed": 5
+      },
+      "cold_eligible_runs_n": 5,
+      "cold_eligibility": "completed run with valid probe execution; connection/readiness outcomes retained separately",
+      "warmup_success_n": 4,
+      "whole_cold_batch_success_n": 4,
+      "valid_probe_total": 5,
+      "successful_probe_total": 4,
+      "run_cold_success_fraction": {
+        "n": 5,
+        "mean": 0.8,
+        "median": 1.0,
+        "min": 0.0,
+        "max": 1.0
+      },
+      "cold_batch_wall_s_all_completed": {
+        "n": 5,
+        "mean": 0.2078738444,
+        "median": 0.006380251,
+        "min": 0.005111278,
+        "max": 1.016143296
+      },
+      "cgroup_cpu_s_workload_bracket": {
+        "n": 5,
+        "mean": 0.044398,
+        "median": 0.030085,
+        "min": 0.019745,
+        "max": 0.113127
+      },
+      "cgroup_current_memory_mib_after_workload": {
+        "n": 5,
+        "mean": 694.3453125,
+        "median": 698.0859375,
+        "min": 646.984375,
+        "max": 766.73046875
+      },
+      "whole_cold_batch_success_nominal_95ci": [
+        0.28358206388191043,
+        0.9949492366205319
+      ],
+      "recovery_eligible_n": 4,
+      "recovered_within_30s_n": 4,
+      "recovery_not_observed_within_30s_n": 0,
+      "recovery_observed_s_success_conditional": {
+        "n": 4,
+        "mean": 20.83454021575,
+        "median": 26.379978383999998,
+        "min": 1.235718574,
+        "max": 29.342485521
+      },
+      "recovery_ineligible_n": 1,
+      "failed_baseline_n": 1,
+      "no_recovery_observation_n": 0,
+      "recovery_success_nominal_95ci": [
+        0.3976353643835253,
+        1.0
+      ]
+    },
+    {
+      "platform": "onos_native_fwd",
+      "scenario": "controller_crash",
+      "switches": 1,
+      "concurrent_pairs": 1,
+      "scheduled_n": 5,
+      "recorded_n": 5,
+      "status": {
+        "completed": 5
+      },
+      "cold_eligible_runs_n": 5,
+      "cold_eligibility": "completed run with valid probe execution; connection/readiness outcomes retained separately",
+      "warmup_success_n": 5,
+      "whole_cold_batch_success_n": 5,
+      "valid_probe_total": 5,
+      "successful_probe_total": 5,
+      "run_cold_success_fraction": {
+        "n": 5,
+        "mean": 1.0,
+        "median": 1.0,
+        "min": 1.0,
+        "max": 1.0
+      },
+      "cold_batch_wall_s_all_completed": {
+        "n": 5,
+        "mean": 0.0141416924,
+        "median": 0.013121807,
+        "min": 0.012316865,
+        "max": 0.017812191
+      },
+      "cgroup_cpu_s_workload_bracket": {
+        "n": 5,
+        "mean": 0.026017600000000002,
+        "median": 0.027086,
+        "min": 0.01367,
+        "max": 0.03894
+      },
+      "cgroup_current_memory_mib_after_workload": {
+        "n": 5,
+        "mean": 1017.91640625,
+        "median": 1048.25390625,
+        "min": 885.89453125,
+        "max": 1149.78125
+      },
+      "whole_cold_batch_success_nominal_95ci": [
+        0.4781762498950185,
+        1.0
+      ],
+      "recovery_eligible_n": 5,
+      "recovered_within_30s_n": 0,
+      "recovery_not_observed_within_30s_n": 5,
+      "recovery_observed_s_success_conditional": {
+        "n": 0
+      },
+      "recovery_ineligible_n": 0,
+      "failed_baseline_n": 0,
+      "no_recovery_observation_n": 0,
+      "recovery_success_nominal_95ci": [
+        0.0,
+        0.5218237501049816
+      ]
+    },
+    {
+      "platform": "onos_native_fwd",
+      "scenario": "controller_restart",
+      "switches": 1,
+      "concurrent_pairs": 1,
+      "scheduled_n": 5,
+      "recorded_n": 5,
+      "status": {
+        "completed": 5
+      },
+      "cold_eligible_runs_n": 5,
+      "cold_eligibility": "completed run with valid probe execution; connection/readiness outcomes retained separately",
+      "warmup_success_n": 5,
+      "whole_cold_batch_success_n": 5,
+      "valid_probe_total": 5,
+      "successful_probe_total": 5,
+      "run_cold_success_fraction": {
+        "n": 5,
+        "mean": 1.0,
+        "median": 1.0,
+        "min": 1.0,
+        "max": 1.0
+      },
+      "cold_batch_wall_s_all_completed": {
+        "n": 5,
+        "mean": 0.0115472682,
+        "median": 0.012061171,
+        "min": 0.007207693,
+        "max": 0.01497847
+      },
+      "cgroup_cpu_s_workload_bracket": {
+        "n": 5,
+        "mean": 0.019272400000000002,
+        "median": 0.015502,
+        "min": 0.008578,
+        "max": 0.040381
+      },
+      "cgroup_current_memory_mib_after_workload": {
+        "n": 5,
+        "mean": 1053.63203125,
+        "median": 1038.1796875,
+        "min": 991.1015625,
+        "max": 1179.16015625
+      },
+      "whole_cold_batch_success_nominal_95ci": [
+        0.4781762498950185,
+        1.0
+      ],
+      "recovery_eligible_n": 5,
+      "recovered_within_30s_n": 2,
+      "recovery_not_observed_within_30s_n": 3,
+      "recovery_observed_s_success_conditional": {
+        "n": 2,
+        "mean": 28.818691233499997,
+        "median": 28.818691233499997,
+        "min": 28.208460911,
+        "max": 29.428921556
+      },
+      "recovery_ineligible_n": 0,
+      "failed_baseline_n": 0,
+      "no_recovery_observation_n": 0,
+      "recovery_success_nominal_95ci": [
+        0.052744950526316906,
+        0.853367200365327
+      ]
+    },
+    {
+      "platform": "onos_native_fwd",
+      "scenario": "host_move",
+      "switches": 1,
+      "concurrent_pairs": 1,
+      "scheduled_n": 5,
+      "recorded_n": 5,
+      "status": {
+        "completed": 5
+      },
+      "cold_eligible_runs_n": 5,
+      "cold_eligibility": "completed run with valid probe execution; connection/readiness outcomes retained separately",
+      "warmup_success_n": 5,
+      "whole_cold_batch_success_n": 5,
+      "valid_probe_total": 5,
+      "successful_probe_total": 5,
+      "run_cold_success_fraction": {
+        "n": 5,
+        "mean": 1.0,
+        "median": 1.0,
+        "min": 1.0,
+        "max": 1.0
+      },
+      "cold_batch_wall_s_all_completed": {
+        "n": 5,
+        "mean": 0.014412562,
+        "median": 0.014168791,
+        "min": 0.013240982,
+        "max": 0.015672523
+      },
+      "cgroup_cpu_s_workload_bracket": {
+        "n": 5,
+        "mean": 0.026842,
+        "median": 0.029378,
+        "min": 0.013914,
+        "max": 0.042687
+      },
+      "cgroup_current_memory_mib_after_workload": {
+        "n": 5,
+        "mean": 1039.62109375,
+        "median": 1004.42578125,
+        "min": 996.48046875,
+        "max": 1144.7265625
+      },
+      "whole_cold_batch_success_nominal_95ci": [
+        0.4781762498950185,
+        1.0
+      ],
+      "recovery_eligible_n": 5,
+      "recovered_within_30s_n": 0,
+      "recovery_not_observed_within_30s_n": 5,
+      "recovery_observed_s_success_conditional": {
+        "n": 0
+      },
+      "recovery_ineligible_n": 0,
+      "failed_baseline_n": 0,
+      "no_recovery_observation_n": 0,
+      "recovery_success_nominal_95ci": [
+        0.0,
+        0.5218237501049816
+      ]
+    },
+    {
+      "platform": "onos_native_fwd",
+      "scenario": "link_restore",
+      "switches": 1,
+      "concurrent_pairs": 1,
+      "scheduled_n": 5,
+      "recorded_n": 5,
+      "status": {
+        "completed": 5
+      },
+      "cold_eligible_runs_n": 5,
+      "cold_eligibility": "completed run with valid probe execution; connection/readiness outcomes retained separately",
+      "warmup_success_n": 5,
+      "whole_cold_batch_success_n": 5,
+      "valid_probe_total": 5,
+      "successful_probe_total": 5,
+      "run_cold_success_fraction": {
+        "n": 5,
+        "mean": 1.0,
+        "median": 1.0,
+        "min": 1.0,
+        "max": 1.0
+      },
+      "cold_batch_wall_s_all_completed": {
+        "n": 5,
+        "mean": 0.0117663214,
+        "median": 0.012564206,
+        "min": 0.006907446,
+        "max": 0.016054662
+      },
+      "cgroup_cpu_s_workload_bracket": {
+        "n": 5,
+        "mean": 0.025714400000000002,
+        "median": 0.026641,
+        "min": 0.011646,
+        "max": 0.044404
+      },
+      "cgroup_current_memory_mib_after_workload": {
+        "n": 5,
+        "mean": 1042.1609375,
+        "median": 1003.6171875,
+        "min": 985.42578125,
+        "max": 1179.0234375
+      },
+      "whole_cold_batch_success_nominal_95ci": [
+        0.4781762498950185,
+        1.0
+      ],
+      "recovery_eligible_n": 5,
+      "recovered_within_30s_n": 5,
+      "recovery_not_observed_within_30s_n": 0,
+      "recovery_observed_s_success_conditional": {
+        "n": 5,
+        "mean": 0.0547566862,
+        "median": 0.059825519,
+        "min": 0.038861482,
+        "max": 0.06435903
+      },
+      "recovery_ineligible_n": 0,
+      "failed_baseline_n": 0,
+      "no_recovery_observation_n": 0,
+      "recovery_success_nominal_95ci": [
+        0.4781762498950185,
+        1.0
+      ]
+    },
+    {
+      "platform": "onos_native_fwd",
+      "scenario": "scale",
+      "switches": 1,
+      "concurrent_pairs": 1,
+      "scheduled_n": 5,
+      "recorded_n": 5,
+      "status": {
+        "completed": 5
+      },
+      "cold_eligible_runs_n": 5,
+      "cold_eligibility": "completed run with valid probe execution; connection/readiness outcomes retained separately",
+      "warmup_success_n": 5,
+      "whole_cold_batch_success_n": 5,
+      "valid_probe_total": 5,
+      "successful_probe_total": 5,
+      "run_cold_success_fraction": {
+        "n": 5,
+        "mean": 1.0,
+        "median": 1.0,
+        "min": 1.0,
+        "max": 1.0
+      },
+      "cold_batch_wall_s_all_completed": {
+        "n": 5,
+        "mean": 0.0115593166,
+        "median": 0.012757087,
+        "min": 0.007413303,
+        "max": 0.015273163
+      },
+      "cgroup_cpu_s_workload_bracket": {
+        "n": 5,
+        "mean": 0.0160098,
+        "median": 0.016947,
+        "min": 0.007652,
+        "max": 0.030327
+      },
+      "cgroup_current_memory_mib_after_workload": {
+        "n": 5,
+        "mean": 1057.26953125,
+        "median": 1044.73046875,
+        "min": 993.69921875,
+        "max": 1151.58984375
+      },
+      "whole_cold_batch_success_nominal_95ci": [
+        0.4781762498950185,
+        1.0
+      ]
+    },
+    {
+      "platform": "onos_native_fwd",
+      "scenario": "scale",
+      "switches": 1,
+      "concurrent_pairs": 8,
+      "scheduled_n": 5,
+      "recorded_n": 5,
+      "status": {
+        "completed": 5
+      },
+      "cold_eligible_runs_n": 5,
+      "cold_eligibility": "completed run with valid probe execution; connection/readiness outcomes retained separately",
+      "warmup_success_n": 5,
+      "whole_cold_batch_success_n": 5,
+      "valid_probe_total": 40,
+      "successful_probe_total": 40,
+      "run_cold_success_fraction": {
+        "n": 5,
+        "mean": 1.0,
+        "median": 1.0,
+        "min": 1.0,
+        "max": 1.0
+      },
+      "cold_batch_wall_s_all_completed": {
+        "n": 5,
+        "mean": 0.0518099846,
+        "median": 0.033197437,
+        "min": 0.028129577,
+        "max": 0.114277069
+      },
+      "cgroup_cpu_s_workload_bracket": {
+        "n": 5,
+        "mean": 0.1176716,
+        "median": 0.065684,
+        "min": 0.053154,
+        "max": 0.325362
+      },
+      "cgroup_current_memory_mib_after_workload": {
+        "n": 5,
+        "mean": 1046.33046875,
+        "median": 1001.83203125,
+        "min": 919.1875,
+        "max": 1173.4609375
+      },
+      "whole_cold_batch_success_nominal_95ci": [
+        0.4781762498950185,
+        1.0
+      ]
+    },
+    {
+      "platform": "onos_native_fwd",
+      "scenario": "scale",
+      "switches": 1,
+      "concurrent_pairs": 32,
+      "scheduled_n": 5,
+      "recorded_n": 5,
+      "status": {
+        "completed": 5
+      },
+      "cold_eligible_runs_n": 5,
+      "cold_eligibility": "completed run with valid probe execution; connection/readiness outcomes retained separately",
+      "warmup_success_n": 5,
+      "whole_cold_batch_success_n": 5,
+      "valid_probe_total": 160,
+      "successful_probe_total": 160,
+      "run_cold_success_fraction": {
+        "n": 5,
+        "mean": 1.0,
+        "median": 1.0,
+        "min": 1.0,
+        "max": 1.0
+      },
+      "cold_batch_wall_s_all_completed": {
+        "n": 5,
+        "mean": 0.1059688394,
+        "median": 0.110000247,
+        "min": 0.08492256,
+        "max": 0.118080743
+      },
+      "cgroup_cpu_s_workload_bracket": {
+        "n": 5,
+        "mean": 0.2150432,
+        "median": 0.216403,
+        "min": 0.134623,
+        "max": 0.267346
+      },
+      "cgroup_current_memory_mib_after_workload": {
+        "n": 5,
+        "mean": 1067.871875,
+        "median": 1053.42578125,
+        "min": 994.3671875,
+        "max": 1167.15234375
+      },
+      "whole_cold_batch_success_nominal_95ci": [
+        0.4781762498950185,
+        1.0
+      ]
+    },
+    {
+      "platform": "onos_native_fwd",
+      "scenario": "scale",
+      "switches": 4,
+      "concurrent_pairs": 1,
+      "scheduled_n": 5,
+      "recorded_n": 5,
+      "status": {
+        "completed": 5
+      },
+      "cold_eligible_runs_n": 5,
+      "cold_eligibility": "completed run with valid probe execution; connection/readiness outcomes retained separately",
+      "warmup_success_n": 5,
+      "whole_cold_batch_success_n": 5,
+      "valid_probe_total": 5,
+      "successful_probe_total": 5,
+      "run_cold_success_fraction": {
+        "n": 5,
+        "mean": 1.0,
+        "median": 1.0,
+        "min": 1.0,
+        "max": 1.0
+      },
+      "cold_batch_wall_s_all_completed": {
+        "n": 5,
+        "mean": 0.008640589800000001,
+        "median": 0.008487859,
+        "min": 0.006014059,
+        "max": 0.011649713
+      },
+      "cgroup_cpu_s_workload_bracket": {
+        "n": 5,
+        "mean": 0.0172748,
+        "median": 0.01832,
+        "min": 0.006752,
+        "max": 0.024647
+      },
+      "cgroup_current_memory_mib_after_workload": {
+        "n": 5,
+        "mean": 1079.27265625,
+        "median": 1050.3359375,
+        "min": 1002.859375,
+        "max": 1179.1875
+      },
+      "whole_cold_batch_success_nominal_95ci": [
+        0.4781762498950185,
+        1.0
+      ]
+    },
+    {
+      "platform": "onos_native_fwd",
+      "scenario": "scale",
+      "switches": 4,
+      "concurrent_pairs": 8,
+      "scheduled_n": 5,
+      "recorded_n": 5,
+      "status": {
+        "completed": 5
+      },
+      "cold_eligible_runs_n": 5,
+      "cold_eligibility": "completed run with valid probe execution; connection/readiness outcomes retained separately",
+      "warmup_success_n": 5,
+      "whole_cold_batch_success_n": 5,
+      "valid_probe_total": 40,
+      "successful_probe_total": 40,
+      "run_cold_success_fraction": {
+        "n": 5,
+        "mean": 1.0,
+        "median": 1.0,
+        "min": 1.0,
+        "max": 1.0
+      },
+      "cold_batch_wall_s_all_completed": {
+        "n": 5,
+        "mean": 0.0284547546,
+        "median": 0.029188508,
+        "min": 0.024165837,
+        "max": 0.029929258
+      },
+      "cgroup_cpu_s_workload_bracket": {
+        "n": 5,
+        "mean": 0.06895180000000001,
+        "median": 0.070108,
+        "min": 0.062597,
+        "max": 0.076993
+      },
+      "cgroup_current_memory_mib_after_workload": {
+        "n": 5,
+        "mean": 1026.69453125,
+        "median": 1011.51953125,
+        "min": 938.61328125,
+        "max": 1122.65625
+      },
+      "whole_cold_batch_success_nominal_95ci": [
+        0.4781762498950185,
+        1.0
+      ]
+    },
+    {
+      "platform": "onos_native_fwd",
+      "scenario": "scale",
+      "switches": 4,
+      "concurrent_pairs": 32,
+      "scheduled_n": 5,
+      "recorded_n": 5,
+      "status": {
+        "completed": 5
+      },
+      "cold_eligible_runs_n": 5,
+      "cold_eligibility": "completed run with valid probe execution; connection/readiness outcomes retained separately",
+      "warmup_success_n": 5,
+      "whole_cold_batch_success_n": 5,
+      "valid_probe_total": 160,
+      "successful_probe_total": 160,
+      "run_cold_success_fraction": {
+        "n": 5,
+        "mean": 1.0,
+        "median": 1.0,
+        "min": 1.0,
+        "max": 1.0
+      },
+      "cold_batch_wall_s_all_completed": {
+        "n": 5,
+        "mean": 0.0675426322,
+        "median": 0.057007787,
+        "min": 0.049679961,
+        "max": 0.115933449
+      },
+      "cgroup_cpu_s_workload_bracket": {
+        "n": 5,
+        "mean": 0.1241362,
+        "median": 0.100365,
+        "min": 0.085882,
+        "max": 0.224943
+      },
+      "cgroup_current_memory_mib_after_workload": {
+        "n": 5,
+        "mean": 1065.12890625,
+        "median": 1053.3203125,
+        "min": 977.5703125,
+        "max": 1145.921875
+      },
+      "whole_cold_batch_success_nominal_95ci": [
+        0.4781762498950185,
+        1.0
+      ]
+    },
+    {
+      "platform": "onos_native_fwd",
+      "scenario": "scale",
+      "switches": 8,
+      "concurrent_pairs": 1,
+      "scheduled_n": 5,
+      "recorded_n": 5,
+      "status": {
+        "completed": 5
+      },
+      "cold_eligible_runs_n": 5,
+      "cold_eligibility": "completed run with valid probe execution; connection/readiness outcomes retained separately",
+      "warmup_success_n": 5,
+      "whole_cold_batch_success_n": 5,
+      "valid_probe_total": 5,
+      "successful_probe_total": 5,
+      "run_cold_success_fraction": {
+        "n": 5,
+        "mean": 1.0,
+        "median": 1.0,
+        "min": 1.0,
+        "max": 1.0
+      },
+      "cold_batch_wall_s_all_completed": {
+        "n": 5,
+        "mean": 0.0086849876,
+        "median": 0.00867218,
+        "min": 0.007845797,
+        "max": 0.009595234
+      },
+      "cgroup_cpu_s_workload_bracket": {
+        "n": 5,
+        "mean": 0.0110174,
+        "median": 0.011208,
+        "min": 0.00815,
+        "max": 0.014316
+      },
+      "cgroup_current_memory_mib_after_workload": {
+        "n": 5,
+        "mean": 1038.37734375,
+        "median": 1046.9453125,
+        "min": 919.0390625,
+        "max": 1163.01953125
+      },
+      "whole_cold_batch_success_nominal_95ci": [
+        0.4781762498950185,
+        1.0
+      ]
+    },
+    {
+      "platform": "onos_native_fwd",
+      "scenario": "scale",
+      "switches": 8,
+      "concurrent_pairs": 8,
+      "scheduled_n": 5,
+      "recorded_n": 5,
+      "status": {
+        "completed": 5
+      },
+      "cold_eligible_runs_n": 5,
+      "cold_eligibility": "completed run with valid probe execution; connection/readiness outcomes retained separately",
+      "warmup_success_n": 5,
+      "whole_cold_batch_success_n": 5,
+      "valid_probe_total": 40,
+      "successful_probe_total": 40,
+      "run_cold_success_fraction": {
+        "n": 5,
+        "mean": 1.0,
+        "median": 1.0,
+        "min": 1.0,
+        "max": 1.0
+      },
+      "cold_batch_wall_s_all_completed": {
+        "n": 5,
+        "mean": 0.0180647092,
+        "median": 0.014217291,
+        "min": 0.013099141,
+        "max": 0.030633029
+      },
+      "cgroup_cpu_s_workload_bracket": {
+        "n": 5,
+        "mean": 0.041241599999999996,
+        "median": 0.037007,
+        "min": 0.020939,
+        "max": 0.077098
+      },
+      "cgroup_current_memory_mib_after_workload": {
+        "n": 5,
+        "mean": 1063.63203125,
+        "median": 1053.9765625,
+        "min": 977.15234375,
+        "max": 1145.71484375
+      },
+      "whole_cold_batch_success_nominal_95ci": [
+        0.4781762498950185,
+        1.0
+      ]
+    },
+    {
+      "platform": "onos_native_fwd",
+      "scenario": "scale",
+      "switches": 8,
+      "concurrent_pairs": 32,
+      "scheduled_n": 5,
+      "recorded_n": 5,
+      "status": {
+        "completed": 5
+      },
+      "cold_eligible_runs_n": 5,
+      "cold_eligibility": "completed run with valid probe execution; connection/readiness outcomes retained separately",
+      "warmup_success_n": 5,
+      "whole_cold_batch_success_n": 5,
+      "valid_probe_total": 160,
+      "successful_probe_total": 160,
+      "run_cold_success_fraction": {
+        "n": 5,
+        "mean": 1.0,
+        "median": 1.0,
+        "min": 1.0,
+        "max": 1.0
+      },
+      "cold_batch_wall_s_all_completed": {
+        "n": 5,
+        "mean": 0.046471835,
+        "median": 0.044121752,
+        "min": 0.034246275,
+        "max": 0.062462888
+      },
+      "cgroup_cpu_s_workload_bracket": {
+        "n": 5,
+        "mean": 0.0818498,
+        "median": 0.076431,
+        "min": 0.048535,
+        "max": 0.120161
+      },
+      "cgroup_current_memory_mib_after_workload": {
+        "n": 5,
+        "mean": 1072.8609375,
+        "median": 1046.5859375,
+        "min": 987.0390625,
+        "max": 1178.625
+      },
+      "whole_cold_batch_success_nominal_95ci": [
+        0.4781762498950185,
+        1.0
+      ]
+    },
+    {
+      "platform": "onos_native_fwd",
+      "scenario": "scale",
+      "switches": 16,
+      "concurrent_pairs": 1,
+      "scheduled_n": 5,
+      "recorded_n": 5,
+      "status": {
+        "completed": 5
+      },
+      "cold_eligible_runs_n": 5,
+      "cold_eligibility": "completed run with valid probe execution; connection/readiness outcomes retained separately",
+      "warmup_success_n": 5,
+      "whole_cold_batch_success_n": 5,
+      "valid_probe_total": 5,
+      "successful_probe_total": 5,
+      "run_cold_success_fraction": {
+        "n": 5,
+        "mean": 1.0,
+        "median": 1.0,
+        "min": 1.0,
+        "max": 1.0
+      },
+      "cold_batch_wall_s_all_completed": {
+        "n": 5,
+        "mean": 0.0074312732,
+        "median": 0.007057645,
+        "min": 0.006700515,
+        "max": 0.00895065
+      },
+      "cgroup_cpu_s_workload_bracket": {
+        "n": 5,
+        "mean": 0.0128162,
+        "median": 0.011698,
+        "min": 0.00632,
+        "max": 0.023911
+      },
+      "cgroup_current_memory_mib_after_workload": {
+        "n": 5,
+        "mean": 1053.68125,
+        "median": 1045.5625,
+        "min": 939.43359375,
+        "max": 1152.140625
+      },
+      "whole_cold_batch_success_nominal_95ci": [
+        0.4781762498950185,
+        1.0
+      ]
+    },
+    {
+      "platform": "onos_native_fwd",
+      "scenario": "scale",
+      "switches": 16,
+      "concurrent_pairs": 8,
+      "scheduled_n": 5,
+      "recorded_n": 5,
+      "status": {
+        "completed": 5
+      },
+      "cold_eligible_runs_n": 5,
+      "cold_eligibility": "completed run with valid probe execution; connection/readiness outcomes retained separately",
+      "warmup_success_n": 5,
+      "whole_cold_batch_success_n": 5,
+      "valid_probe_total": 40,
+      "successful_probe_total": 40,
+      "run_cold_success_fraction": {
+        "n": 5,
+        "mean": 1.0,
+        "median": 1.0,
+        "min": 1.0,
+        "max": 1.0
+      },
+      "cold_batch_wall_s_all_completed": {
+        "n": 5,
+        "mean": 0.0129524202,
+        "median": 0.010618064,
+        "min": 0.010529674,
+        "max": 0.01742731
+      },
+      "cgroup_cpu_s_workload_bracket": {
+        "n": 5,
+        "mean": 0.026622,
+        "median": 0.020358,
+        "min": 0.015644,
+        "max": 0.046643
+      },
+      "cgroup_current_memory_mib_after_workload": {
+        "n": 5,
+        "mean": 1059.46171875,
+        "median": 1048.20703125,
+        "min": 936.40234375,
+        "max": 1173.2265625
+      },
+      "whole_cold_batch_success_nominal_95ci": [
+        0.4781762498950185,
+        1.0
+      ]
+    },
+    {
+      "platform": "onos_native_fwd",
+      "scenario": "scale",
+      "switches": 16,
+      "concurrent_pairs": 32,
+      "scheduled_n": 5,
+      "recorded_n": 5,
+      "status": {
+        "completed": 5
+      },
+      "cold_eligible_runs_n": 5,
+      "cold_eligibility": "completed run with valid probe execution; connection/readiness outcomes retained separately",
+      "warmup_success_n": 5,
+      "whole_cold_batch_success_n": 5,
+      "valid_probe_total": 160,
+      "successful_probe_total": 160,
+      "run_cold_success_fraction": {
+        "n": 5,
+        "mean": 1.0,
+        "median": 1.0,
+        "min": 1.0,
+        "max": 1.0
+      },
+      "cold_batch_wall_s_all_completed": {
+        "n": 5,
+        "mean": 0.0408893366,
+        "median": 0.038619743,
+        "min": 0.034703196,
+        "max": 0.04775812
+      },
+      "cgroup_cpu_s_workload_bracket": {
+        "n": 5,
+        "mean": 0.0801492,
+        "median": 0.067446,
+        "min": 0.064619,
+        "max": 0.107564
+      },
+      "cgroup_current_memory_mib_after_workload": {
+        "n": 5,
+        "mean": 1063.09296875,
+        "median": 1027.79296875,
+        "min": 991.21875,
+        "max": 1159.55078125
+      },
+      "whole_cold_batch_success_nominal_95ci": [
+        0.4781762498950185,
+        1.0
+      ]
+    },
+    {
+      "platform": "onos_native_fwd",
+      "scenario": "switch_restart",
+      "switches": 1,
+      "concurrent_pairs": 1,
+      "scheduled_n": 5,
+      "recorded_n": 5,
+      "status": {
+        "completed": 5
+      },
+      "cold_eligible_runs_n": 5,
+      "cold_eligibility": "completed run with valid probe execution; connection/readiness outcomes retained separately",
+      "warmup_success_n": 5,
+      "whole_cold_batch_success_n": 5,
+      "valid_probe_total": 5,
+      "successful_probe_total": 5,
+      "run_cold_success_fraction": {
+        "n": 5,
+        "mean": 1.0,
+        "median": 1.0,
+        "min": 1.0,
+        "max": 1.0
+      },
+      "cold_batch_wall_s_all_completed": {
+        "n": 5,
+        "mean": 0.0125587162,
+        "median": 0.014143249,
+        "min": 0.007684373,
+        "max": 0.016114302
+      },
+      "cgroup_cpu_s_workload_bracket": {
+        "n": 5,
+        "mean": 0.027170200000000002,
+        "median": 0.024384,
+        "min": 0.016798,
+        "max": 0.046559
+      },
+      "cgroup_current_memory_mib_after_workload": {
+        "n": 5,
+        "mean": 1012.98984375,
+        "median": 1038.06640625,
+        "min": 887.81640625,
+        "max": 1115.33984375
+      },
+      "whole_cold_batch_success_nominal_95ci": [
+        0.4781762498950185,
+        1.0
+      ],
+      "recovery_eligible_n": 5,
+      "recovered_within_30s_n": 5,
+      "recovery_not_observed_within_30s_n": 0,
+      "recovery_observed_s_success_conditional": {
+        "n": 5,
+        "mean": 1.247871001,
+        "median": 1.253425962,
+        "min": 1.151847835,
+        "max": 1.319208615
+      },
+      "recovery_ineligible_n": 0,
+      "failed_baseline_n": 0,
+      "no_recovery_observation_n": 0,
+      "recovery_success_nominal_95ci": [
+        0.4781762498950185,
+        1.0
+      ]
+    },
+    {
+      "platform": "reactive_osken",
+      "scenario": "controller_crash",
+      "switches": 1,
+      "concurrent_pairs": 1,
+      "scheduled_n": 5,
+      "recorded_n": 5,
+      "status": {
+        "completed": 5
+      },
+      "cold_eligible_runs_n": 5,
+      "cold_eligibility": "completed run with valid probe execution; connection/readiness outcomes retained separately",
+      "warmup_success_n": 5,
+      "whole_cold_batch_success_n": 5,
+      "valid_probe_total": 5,
+      "successful_probe_total": 5,
+      "run_cold_success_fraction": {
+        "n": 5,
+        "mean": 1.0,
+        "median": 1.0,
+        "min": 1.0,
+        "max": 1.0
+      },
+      "cold_batch_wall_s_all_completed": {
+        "n": 5,
+        "mean": 0.010015441199999999,
+        "median": 0.010380208,
+        "min": 0.008648625,
+        "max": 0.010965731
+      },
+      "cgroup_cpu_s_workload_bracket": {
+        "n": 5,
+        "mean": 0.0023038,
+        "median": 0.002262,
+        "min": 0.00184,
+        "max": 0.002871
+      },
+      "cgroup_current_memory_mib_after_workload": {
+        "n": 5,
+        "mean": 47.85859375,
+        "median": 47.85546875,
+        "min": 47.828125,
+        "max": 47.89453125
+      },
+      "whole_cold_batch_success_nominal_95ci": [
+        0.4781762498950185,
+        1.0
+      ],
+      "recovery_eligible_n": 5,
+      "recovered_within_30s_n": 5,
+      "recovery_not_observed_within_30s_n": 0,
+      "recovery_observed_s_success_conditional": {
+        "n": 5,
+        "mean": 2.441959566,
+        "median": 2.403440508,
+        "min": 2.310479056,
+        "max": 2.583867193
+      },
+      "recovery_ineligible_n": 0,
+      "failed_baseline_n": 0,
+      "no_recovery_observation_n": 0,
+      "recovery_success_nominal_95ci": [
+        0.4781762498950185,
+        1.0
+      ]
+    },
+    {
+      "platform": "reactive_osken",
+      "scenario": "controller_restart",
+      "switches": 1,
+      "concurrent_pairs": 1,
+      "scheduled_n": 5,
+      "recorded_n": 5,
+      "status": {
+        "completed": 5
+      },
+      "cold_eligible_runs_n": 5,
+      "cold_eligibility": "completed run with valid probe execution; connection/readiness outcomes retained separately",
+      "warmup_success_n": 5,
+      "whole_cold_batch_success_n": 5,
+      "valid_probe_total": 5,
+      "successful_probe_total": 5,
+      "run_cold_success_fraction": {
+        "n": 5,
+        "mean": 1.0,
+        "median": 1.0,
+        "min": 1.0,
+        "max": 1.0
+      },
+      "cold_batch_wall_s_all_completed": {
+        "n": 5,
+        "mean": 0.0081035966,
+        "median": 0.007577971,
+        "min": 0.003666221,
+        "max": 0.012344768
+      },
+      "cgroup_cpu_s_workload_bracket": {
+        "n": 5,
+        "mean": 0.0019274000000000001,
+        "median": 0.002167,
+        "min": 0.000883,
+        "max": 0.002788
+      },
+      "cgroup_current_memory_mib_after_workload": {
+        "n": 5,
+        "mean": 47.86953125,
+        "median": 47.875,
+        "min": 47.82421875,
+        "max": 47.890625
+      },
+      "whole_cold_batch_success_nominal_95ci": [
+        0.4781762498950185,
+        1.0
+      ],
+      "recovery_eligible_n": 5,
+      "recovered_within_30s_n": 5,
+      "recovery_not_observed_within_30s_n": 0,
+      "recovery_observed_s_success_conditional": {
+        "n": 5,
+        "mean": 2.3485393948,
+        "median": 2.383679449,
+        "min": 2.239657215,
+        "max": 2.451854561
+      },
+      "recovery_ineligible_n": 0,
+      "failed_baseline_n": 0,
+      "no_recovery_observation_n": 0,
+      "recovery_success_nominal_95ci": [
+        0.4781762498950185,
+        1.0
+      ]
+    },
+    {
+      "platform": "reactive_osken",
+      "scenario": "host_move",
+      "switches": 1,
+      "concurrent_pairs": 1,
+      "scheduled_n": 5,
+      "recorded_n": 5,
+      "status": {
+        "completed": 5
+      },
+      "cold_eligible_runs_n": 5,
+      "cold_eligibility": "completed run with valid probe execution; connection/readiness outcomes retained separately",
+      "warmup_success_n": 5,
+      "whole_cold_batch_success_n": 5,
+      "valid_probe_total": 5,
+      "successful_probe_total": 5,
+      "run_cold_success_fraction": {
+        "n": 5,
+        "mean": 1.0,
+        "median": 1.0,
+        "min": 1.0,
+        "max": 1.0
+      },
+      "cold_batch_wall_s_all_completed": {
+        "n": 5,
+        "mean": 0.0103601336,
+        "median": 0.010258127,
+        "min": 0.008981964,
+        "max": 0.012583285
+      },
+      "cgroup_cpu_s_workload_bracket": {
+        "n": 5,
+        "mean": 0.0030176,
+        "median": 0.002381,
+        "min": 0.002291,
+        "max": 0.005591
+      },
+      "cgroup_current_memory_mib_after_workload": {
+        "n": 5,
+        "mean": 47.86875,
+        "median": 47.87109375,
+        "min": 47.84765625,
+        "max": 47.890625
+      },
+      "whole_cold_batch_success_nominal_95ci": [
+        0.4781762498950185,
+        1.0
+      ],
+      "recovery_eligible_n": 5,
+      "recovered_within_30s_n": 0,
+      "recovery_not_observed_within_30s_n": 5,
+      "recovery_observed_s_success_conditional": {
+        "n": 0
+      },
+      "recovery_ineligible_n": 0,
+      "failed_baseline_n": 0,
+      "no_recovery_observation_n": 0,
+      "recovery_success_nominal_95ci": [
+        0.0,
+        0.5218237501049816
+      ]
+    },
+    {
+      "platform": "reactive_osken",
+      "scenario": "link_restore",
+      "switches": 1,
+      "concurrent_pairs": 1,
+      "scheduled_n": 5,
+      "recorded_n": 5,
+      "status": {
+        "completed": 5
+      },
+      "cold_eligible_runs_n": 5,
+      "cold_eligibility": "completed run with valid probe execution; connection/readiness outcomes retained separately",
+      "warmup_success_n": 5,
+      "whole_cold_batch_success_n": 5,
+      "valid_probe_total": 5,
+      "successful_probe_total": 5,
+      "run_cold_success_fraction": {
+        "n": 5,
+        "mean": 1.0,
+        "median": 1.0,
+        "min": 1.0,
+        "max": 1.0
+      },
+      "cold_batch_wall_s_all_completed": {
+        "n": 5,
+        "mean": 0.0091512592,
+        "median": 0.009426662,
+        "min": 0.00720526,
+        "max": 0.01074901
+      },
+      "cgroup_cpu_s_workload_bracket": {
+        "n": 5,
+        "mean": 0.0019678,
+        "median": 0.002179,
+        "min": 0.000935,
+        "max": 0.002338
+      },
+      "cgroup_current_memory_mib_after_workload": {
+        "n": 5,
+        "mean": 47.859375,
+        "median": 47.87109375,
+        "min": 47.8125,
+        "max": 47.890625
+      },
+      "whole_cold_batch_success_nominal_95ci": [
+        0.4781762498950185,
+        1.0
+      ],
+      "recovery_eligible_n": 5,
+      "recovered_within_30s_n": 5,
+      "recovery_not_observed_within_30s_n": 0,
+      "recovery_observed_s_success_conditional": {
+        "n": 5,
+        "mean": 0.0426738676,
+        "median": 0.044686303,
+        "min": 0.033134478,
+        "max": 0.047488781
+      },
+      "recovery_ineligible_n": 0,
+      "failed_baseline_n": 0,
+      "no_recovery_observation_n": 0,
+      "recovery_success_nominal_95ci": [
+        0.4781762498950185,
+        1.0
+      ]
+    },
+    {
+      "platform": "reactive_osken",
+      "scenario": "scale",
+      "switches": 1,
+      "concurrent_pairs": 1,
+      "scheduled_n": 5,
+      "recorded_n": 5,
+      "status": {
+        "completed": 5
+      },
+      "cold_eligible_runs_n": 5,
+      "cold_eligibility": "completed run with valid probe execution; connection/readiness outcomes retained separately",
+      "warmup_success_n": 5,
+      "whole_cold_batch_success_n": 5,
+      "valid_probe_total": 5,
+      "successful_probe_total": 5,
+      "run_cold_success_fraction": {
+        "n": 5,
+        "mean": 1.0,
+        "median": 1.0,
+        "min": 1.0,
+        "max": 1.0
+      },
+      "cold_batch_wall_s_all_completed": {
+        "n": 5,
+        "mean": 0.0084763402,
+        "median": 0.008962204,
+        "min": 0.006302104,
+        "max": 0.010135131
+      },
+      "cgroup_cpu_s_workload_bracket": {
+        "n": 5,
+        "mean": 0.001935,
+        "median": 0.001869,
+        "min": 0.001501,
+        "max": 0.002491
+      },
+      "cgroup_current_memory_mib_after_workload": {
+        "n": 5,
+        "mean": 47.8828125,
+        "median": 47.8828125,
+        "min": 47.87109375,
+        "max": 47.890625
+      },
+      "whole_cold_batch_success_nominal_95ci": [
+        0.4781762498950185,
+        1.0
+      ]
+    },
+    {
+      "platform": "reactive_osken",
+      "scenario": "scale",
+      "switches": 1,
+      "concurrent_pairs": 8,
+      "scheduled_n": 5,
+      "recorded_n": 5,
+      "status": {
+        "completed": 5
+      },
+      "cold_eligible_runs_n": 5,
+      "cold_eligibility": "completed run with valid probe execution; connection/readiness outcomes retained separately",
+      "warmup_success_n": 5,
+      "whole_cold_batch_success_n": 5,
+      "valid_probe_total": 40,
+      "successful_probe_total": 40,
+      "run_cold_success_fraction": {
+        "n": 5,
+        "mean": 1.0,
+        "median": 1.0,
+        "min": 1.0,
+        "max": 1.0
+      },
+      "cold_batch_wall_s_all_completed": {
+        "n": 5,
+        "mean": 0.020348575,
+        "median": 0.020113863,
+        "min": 0.017967735,
+        "max": 0.022777046
+      },
+      "cgroup_cpu_s_workload_bracket": {
+        "n": 5,
+        "mean": 0.0084136,
+        "median": 0.007981,
+        "min": 0.007102,
+        "max": 0.009757
+      },
+      "cgroup_current_memory_mib_after_workload": {
+        "n": 5,
+        "mean": 47.86875,
+        "median": 47.875,
+        "min": 47.828125,
+        "max": 47.88671875
+      },
+      "whole_cold_batch_success_nominal_95ci": [
+        0.4781762498950185,
+        1.0
+      ]
+    },
+    {
+      "platform": "reactive_osken",
+      "scenario": "scale",
+      "switches": 1,
+      "concurrent_pairs": 32,
+      "scheduled_n": 5,
+      "recorded_n": 5,
+      "status": {
+        "execution_error": 1,
+        "completed": 4
+      },
+      "cold_eligible_runs_n": 4,
+      "cold_eligibility": "completed run with valid probe execution; connection/readiness outcomes retained separately",
+      "warmup_success_n": 4,
+      "whole_cold_batch_success_n": 4,
+      "valid_probe_total": 128,
+      "successful_probe_total": 128,
+      "run_cold_success_fraction": {
+        "n": 4,
+        "mean": 1.0,
+        "median": 1.0,
+        "min": 1.0,
+        "max": 1.0
+      },
+      "cold_batch_wall_s_all_completed": {
+        "n": 4,
+        "mean": 0.04959851575,
+        "median": 0.048678576,
+        "min": 0.048167961,
+        "max": 0.05286895
+      },
+      "cgroup_cpu_s_workload_bracket": {
+        "n": 4,
+        "mean": 0.020099,
+        "median": 0.019353,
+        "min": 0.018365,
+        "max": 0.023325
+      },
+      "cgroup_current_memory_mib_after_workload": {
+        "n": 4,
+        "mean": 47.8798828125,
+        "median": 47.880859375,
+        "min": 47.8671875,
+        "max": 47.890625
+      },
+      "whole_cold_batch_success_nominal_95ci": [
+        0.3976353643835253,
+        1.0
+      ]
+    },
+    {
+      "platform": "reactive_osken",
+      "scenario": "scale",
+      "switches": 4,
+      "concurrent_pairs": 1,
+      "scheduled_n": 5,
+      "recorded_n": 5,
+      "status": {
+        "completed": 5
+      },
+      "cold_eligible_runs_n": 5,
+      "cold_eligibility": "completed run with valid probe execution; connection/readiness outcomes retained separately",
+      "warmup_success_n": 5,
+      "whole_cold_batch_success_n": 5,
+      "valid_probe_total": 5,
+      "successful_probe_total": 5,
+      "run_cold_success_fraction": {
+        "n": 5,
+        "mean": 1.0,
+        "median": 1.0,
+        "min": 1.0,
+        "max": 1.0
+      },
+      "cold_batch_wall_s_all_completed": {
+        "n": 5,
+        "mean": 0.007851019800000001,
+        "median": 0.008129512,
+        "min": 0.007079167,
+        "max": 0.008583734
+      },
+      "cgroup_cpu_s_workload_bracket": {
+        "n": 5,
+        "mean": 0.0020066,
+        "median": 0.001887,
+        "min": 0.001766,
+        "max": 0.00256
+      },
+      "cgroup_current_memory_mib_after_workload": {
+        "n": 5,
+        "mean": 47.89140625,
+        "median": 47.87890625,
+        "min": 47.87890625,
+        "max": 47.91796875
+      },
+      "whole_cold_batch_success_nominal_95ci": [
+        0.4781762498950185,
+        1.0
+      ]
+    },
+    {
+      "platform": "reactive_osken",
+      "scenario": "scale",
+      "switches": 4,
+      "concurrent_pairs": 8,
+      "scheduled_n": 5,
+      "recorded_n": 5,
+      "status": {
+        "completed": 5
+      },
+      "cold_eligible_runs_n": 5,
+      "cold_eligibility": "completed run with valid probe execution; connection/readiness outcomes retained separately",
+      "warmup_success_n": 5,
+      "whole_cold_batch_success_n": 5,
+      "valid_probe_total": 40,
+      "successful_probe_total": 40,
+      "run_cold_success_fraction": {
+        "n": 5,
+        "mean": 1.0,
+        "median": 1.0,
+        "min": 1.0,
+        "max": 1.0
+      },
+      "cold_batch_wall_s_all_completed": {
+        "n": 5,
+        "mean": 0.015440533,
+        "median": 0.015677741,
+        "min": 0.014176011,
+        "max": 0.017029807
+      },
+      "cgroup_cpu_s_workload_bracket": {
+        "n": 5,
+        "mean": 0.0069256,
+        "median": 0.007363,
+        "min": 0.0043,
+        "max": 0.008627
+      },
+      "cgroup_current_memory_mib_after_workload": {
+        "n": 5,
+        "mean": 47.88515625,
+        "median": 47.87109375,
+        "min": 47.85546875,
+        "max": 47.921875
+      },
+      "whole_cold_batch_success_nominal_95ci": [
+        0.4781762498950185,
+        1.0
+      ]
+    },
+    {
+      "platform": "reactive_osken",
+      "scenario": "scale",
+      "switches": 4,
+      "concurrent_pairs": 32,
+      "scheduled_n": 5,
+      "recorded_n": 5,
+      "status": {
+        "completed": 5
+      },
+      "cold_eligible_runs_n": 5,
+      "cold_eligibility": "completed run with valid probe execution; connection/readiness outcomes retained separately",
+      "warmup_success_n": 5,
+      "whole_cold_batch_success_n": 5,
+      "valid_probe_total": 160,
+      "successful_probe_total": 160,
+      "run_cold_success_fraction": {
+        "n": 5,
+        "mean": 1.0,
+        "median": 1.0,
+        "min": 1.0,
+        "max": 1.0
+      },
+      "cold_batch_wall_s_all_completed": {
+        "n": 5,
+        "mean": 0.0385500666,
+        "median": 0.041450311,
+        "min": 0.022660086,
+        "max": 0.048195625
+      },
+      "cgroup_cpu_s_workload_bracket": {
+        "n": 5,
+        "mean": 0.019004,
+        "median": 0.020129,
+        "min": 0.012864,
+        "max": 0.022254
+      },
+      "cgroup_current_memory_mib_after_workload": {
+        "n": 5,
+        "mean": 47.90703125,
+        "median": 47.91796875,
+        "min": 47.87109375,
+        "max": 47.9296875
+      },
+      "whole_cold_batch_success_nominal_95ci": [
+        0.4781762498950185,
+        1.0
+      ]
+    },
+    {
+      "platform": "reactive_osken",
+      "scenario": "scale",
+      "switches": 8,
+      "concurrent_pairs": 1,
+      "scheduled_n": 5,
+      "recorded_n": 5,
+      "status": {
+        "completed": 5
+      },
+      "cold_eligible_runs_n": 5,
+      "cold_eligibility": "completed run with valid probe execution; connection/readiness outcomes retained separately",
+      "warmup_success_n": 5,
+      "whole_cold_batch_success_n": 5,
+      "valid_probe_total": 5,
+      "successful_probe_total": 5,
+      "run_cold_success_fraction": {
+        "n": 5,
+        "mean": 1.0,
+        "median": 1.0,
+        "min": 1.0,
+        "max": 1.0
+      },
+      "cold_batch_wall_s_all_completed": {
+        "n": 5,
+        "mean": 0.0059855764,
+        "median": 0.005976278,
+        "min": 0.004780523,
+        "max": 0.006950928
+      },
+      "cgroup_cpu_s_workload_bracket": {
+        "n": 5,
+        "mean": 0.0014218,
+        "median": 0.001306,
+        "min": 0.000953,
+        "max": 0.001867
+      },
+      "cgroup_current_memory_mib_after_workload": {
+        "n": 5,
+        "mean": 47.93828125,
+        "median": 47.9375,
+        "min": 47.92578125,
+        "max": 47.95703125
+      },
+      "whole_cold_batch_success_nominal_95ci": [
+        0.4781762498950185,
+        1.0
+      ]
+    },
+    {
+      "platform": "reactive_osken",
+      "scenario": "scale",
+      "switches": 8,
+      "concurrent_pairs": 8,
+      "scheduled_n": 5,
+      "recorded_n": 5,
+      "status": {
+        "completed": 5
+      },
+      "cold_eligible_runs_n": 5,
+      "cold_eligibility": "completed run with valid probe execution; connection/readiness outcomes retained separately",
+      "warmup_success_n": 5,
+      "whole_cold_batch_success_n": 5,
+      "valid_probe_total": 40,
+      "successful_probe_total": 40,
+      "run_cold_success_fraction": {
+        "n": 5,
+        "mean": 1.0,
+        "median": 1.0,
+        "min": 1.0,
+        "max": 1.0
+      },
+      "cold_batch_wall_s_all_completed": {
+        "n": 5,
+        "mean": 0.011112692,
+        "median": 0.011465041,
+        "min": 0.009349051,
+        "max": 0.012736704
+      },
+      "cgroup_cpu_s_workload_bracket": {
+        "n": 5,
+        "mean": 0.0050322,
+        "median": 0.004817,
+        "min": 0.004589,
+        "max": 0.006119
+      },
+      "cgroup_current_memory_mib_after_workload": {
+        "n": 5,
+        "mean": 47.9484375,
+        "median": 47.953125,
+        "min": 47.9296875,
+        "max": 47.95703125
+      },
+      "whole_cold_batch_success_nominal_95ci": [
+        0.4781762498950185,
+        1.0
+      ]
+    },
+    {
+      "platform": "reactive_osken",
+      "scenario": "scale",
+      "switches": 8,
+      "concurrent_pairs": 32,
+      "scheduled_n": 5,
+      "recorded_n": 5,
+      "status": {
+        "completed": 5
+      },
+      "cold_eligible_runs_n": 5,
+      "cold_eligibility": "completed run with valid probe execution; connection/readiness outcomes retained separately",
+      "warmup_success_n": 5,
+      "whole_cold_batch_success_n": 5,
+      "valid_probe_total": 160,
+      "successful_probe_total": 160,
+      "run_cold_success_fraction": {
+        "n": 5,
+        "mean": 1.0,
+        "median": 1.0,
+        "min": 1.0,
+        "max": 1.0
+      },
+      "cold_batch_wall_s_all_completed": {
+        "n": 5,
+        "mean": 0.0341691394,
+        "median": 0.031887789,
+        "min": 0.027384197,
+        "max": 0.042691394
+      },
+      "cgroup_cpu_s_workload_bracket": {
+        "n": 5,
+        "mean": 0.0171934,
+        "median": 0.016253,
+        "min": 0.015038,
+        "max": 0.020316
+      },
+      "cgroup_current_memory_mib_after_workload": {
+        "n": 5,
+        "mean": 47.9421875,
+        "median": 47.94140625,
+        "min": 47.93359375,
+        "max": 47.95703125
+      },
+      "whole_cold_batch_success_nominal_95ci": [
+        0.4781762498950185,
+        1.0
+      ]
+    },
+    {
+      "platform": "reactive_osken",
+      "scenario": "scale",
+      "switches": 16,
+      "concurrent_pairs": 1,
+      "scheduled_n": 5,
+      "recorded_n": 5,
+      "status": {
+        "completed": 5
+      },
+      "cold_eligible_runs_n": 5,
+      "cold_eligibility": "completed run with valid probe execution; connection/readiness outcomes retained separately",
+      "warmup_success_n": 5,
+      "whole_cold_batch_success_n": 5,
+      "valid_probe_total": 5,
+      "successful_probe_total": 5,
+      "run_cold_success_fraction": {
+        "n": 5,
+        "mean": 1.0,
+        "median": 1.0,
+        "min": 1.0,
+        "max": 1.0
+      },
+      "cold_batch_wall_s_all_completed": {
+        "n": 5,
+        "mean": 0.0051030226,
+        "median": 0.004908005,
+        "min": 0.004805771,
+        "max": 0.005943145
+      },
+      "cgroup_cpu_s_workload_bracket": {
+        "n": 5,
+        "mean": 0.0011252,
+        "median": 0.001139,
+        "min": 0.00091,
+        "max": 0.001311
+      },
+      "cgroup_current_memory_mib_after_workload": {
+        "n": 5,
+        "mean": 48.03046875,
+        "median": 48.03125,
+        "min": 48.01171875,
+        "max": 48.04296875
+      },
+      "whole_cold_batch_success_nominal_95ci": [
+        0.4781762498950185,
+        1.0
+      ]
+    },
+    {
+      "platform": "reactive_osken",
+      "scenario": "scale",
+      "switches": 16,
+      "concurrent_pairs": 8,
+      "scheduled_n": 5,
+      "recorded_n": 5,
+      "status": {
+        "completed": 5
+      },
+      "cold_eligible_runs_n": 5,
+      "cold_eligibility": "completed run with valid probe execution; connection/readiness outcomes retained separately",
+      "warmup_success_n": 5,
+      "whole_cold_batch_success_n": 5,
+      "valid_probe_total": 40,
+      "successful_probe_total": 40,
+      "run_cold_success_fraction": {
+        "n": 5,
+        "mean": 1.0,
+        "median": 1.0,
+        "min": 1.0,
+        "max": 1.0
+      },
+      "cold_batch_wall_s_all_completed": {
+        "n": 5,
+        "mean": 0.0108424342,
+        "median": 0.011121795,
+        "min": 0.008849961,
+        "max": 0.012721315
+      },
+      "cgroup_cpu_s_workload_bracket": {
+        "n": 5,
+        "mean": 0.0045484,
+        "median": 0.004288,
+        "min": 0.00419,
+        "max": 0.005092
+      },
+      "cgroup_current_memory_mib_after_workload": {
+        "n": 5,
+        "mean": 48.0234375,
+        "median": 48.01953125,
+        "min": 48.015625,
+        "max": 48.03515625
+      },
+      "whole_cold_batch_success_nominal_95ci": [
+        0.4781762498950185,
+        1.0
+      ]
+    },
+    {
+      "platform": "reactive_osken",
+      "scenario": "scale",
+      "switches": 16,
+      "concurrent_pairs": 32,
+      "scheduled_n": 5,
+      "recorded_n": 5,
+      "status": {
+        "completed": 5
+      },
+      "cold_eligible_runs_n": 5,
+      "cold_eligibility": "completed run with valid probe execution; connection/readiness outcomes retained separately",
+      "warmup_success_n": 5,
+      "whole_cold_batch_success_n": 5,
+      "valid_probe_total": 160,
+      "successful_probe_total": 160,
+      "run_cold_success_fraction": {
+        "n": 5,
+        "mean": 1.0,
+        "median": 1.0,
+        "min": 1.0,
+        "max": 1.0
+      },
+      "cold_batch_wall_s_all_completed": {
+        "n": 5,
+        "mean": 0.0275326808,
+        "median": 0.029186175,
+        "min": 0.024437756,
+        "max": 0.030160828
+      },
+      "cgroup_cpu_s_workload_bracket": {
+        "n": 5,
+        "mean": 0.0144148,
+        "median": 0.014321,
+        "min": 0.013125,
+        "max": 0.016413
+      },
+      "cgroup_current_memory_mib_after_workload": {
+        "n": 5,
+        "mean": 48.01640625,
+        "median": 48.01171875,
+        "min": 48.0078125,
+        "max": 48.03125
+      },
+      "whole_cold_batch_success_nominal_95ci": [
+        0.4781762498950185,
+        1.0
+      ]
+    },
+    {
+      "platform": "reactive_osken",
+      "scenario": "switch_restart",
+      "switches": 1,
+      "concurrent_pairs": 1,
+      "scheduled_n": 5,
+      "recorded_n": 5,
+      "status": {
+        "completed": 5
+      },
+      "cold_eligible_runs_n": 5,
+      "cold_eligibility": "completed run with valid probe execution; connection/readiness outcomes retained separately",
+      "warmup_success_n": 5,
+      "whole_cold_batch_success_n": 5,
+      "valid_probe_total": 5,
+      "successful_probe_total": 5,
+      "run_cold_success_fraction": {
+        "n": 5,
+        "mean": 1.0,
+        "median": 1.0,
+        "min": 1.0,
+        "max": 1.0
+      },
+      "cold_batch_wall_s_all_completed": {
+        "n": 5,
+        "mean": 0.0100019626,
+        "median": 0.01026513,
+        "min": 0.008710218,
+        "max": 0.011082252
+      },
+      "cgroup_cpu_s_workload_bracket": {
+        "n": 5,
+        "mean": 0.0024768,
+        "median": 0.002687,
+        "min": 0.001931,
+        "max": 0.002773
+      },
+      "cgroup_current_memory_mib_after_workload": {
+        "n": 5,
+        "mean": 47.853125,
+        "median": 47.859375,
+        "min": 47.828125,
+        "max": 47.875
+      },
+      "whole_cold_batch_success_nominal_95ci": [
+        0.4781762498950185,
+        1.0
+      ],
+      "recovery_eligible_n": 5,
+      "recovered_within_30s_n": 5,
+      "recovery_not_observed_within_30s_n": 0,
+      "recovery_observed_s_success_conditional": {
+        "n": 5,
+        "mean": 1.308051738,
+        "median": 1.325522126,
+        "min": 1.168434386,
+        "max": 1.431809965
+      },
+      "recovery_ineligible_n": 0,
+      "failed_baseline_n": 0,
+      "no_recovery_observation_n": 0,
+      "recovery_success_nominal_95ci": [
+        0.4781762498950185,
+        1.0
+      ]
+    }
+  ]
+}

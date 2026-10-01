@@ -1,0 +1,32 @@
+{"trial_id": "00002a", "platform": "reactive_osken", "spec": {"scenario": "scale", "switches": 4, "flows": 1, "repetition": 1}, "status": "completed", "warmup_all_succeeded": true, "successful_probe_n": 1, "batch_s": 0.007220178, "recovered": null, "error": null}
+{"trial_id": "00002b", "platform": "reactive_osken", "spec": {"scenario": "controller_crash", "switches": 1, "flows": 1, "repetition": 1}, "status": "completed", "warmup_all_succeeded": true, "successful_probe_n": 1, "batch_s": 0.010394709, "recovered": true, "error": null}
+{"trial_id": "00002c", "platform": "reactive_osken", "spec": {"scenario": "scale", "switches": 4, "flows": 8, "repetition": 1}, "status": "completed", "warmup_all_succeeded": true, "successful_probe_n": 8, "batch_s": 0.014176011, "recovered": null, "error": null}
+{"trial_id": "00002d", "platform": "reactive_osken", "spec": {"scenario": "scale", "switches": 16, "flows": 32, "repetition": 1}, "status": "completed", "warmup_all_succeeded": true, "successful_probe_n": 32, "batch_s": 0.024437756, "recovered": null, "error": null}
+{"trial_id": "00002e", "platform": "reactive_osken", "spec": {"scenario": "scale", "switches": 1, "flows": 1, "repetition": 1}, "status": "completed", "warmup_all_succeeded": true, "successful_probe_n": 1, "batch_s": 0.009287542, "recovered": null, "error": null}
+{"trial_id": "00002f", "platform": "reactive_osken", "spec": {"scenario": "host_move", "switches": 1, "flows": 1, "repetition": 1}, "status": "completed", "warmup_all_succeeded": true, "successful_probe_n": 1, "batch_s": 0.012583285, "recovered": false, "error": null}
+{"trial_id": "000030", "platform": "reactive_osken", "spec": {"scenario": "link_restore", "switches": 1, "flows": 1, "repetition": 1}, "status": "completed", "warmup_all_succeeded": true, "successful_probe_n": 1, "batch_s": 0.01074901, "recovered": true, "error": null}
+{"trial_id": "000031", "platform": "reactive_osken", "spec": {"scenario": "scale", "switches": 1, "flows": 32, "repetition": 1}, "status": "execution_error", "warmup_all_succeeded": null, "successful_probe_n": null, "batch_s": null, "recovered": null, "error": "RuntimeError('Experimental management socket did not appear: /var/run/openvswitch/r0000310.mgmt')"}
+Traceback (most recent call last):
+  File "/home/ubuntu/review_campaign/network/r5_service_campaign.py", line 314, in <module>
+    if __name__=='__main__':main()
+                            ^^^^^^
+  File "/home/ubuntu/review_campaign/network/r5_service_campaign.py", line 312, in main
+    raise RuntimeError('Instrument execution error preserved; collection paused')
+RuntimeError: Instrument execution error preserved; collection paused
+Traceback (most recent call last):
+  File "/home/ubuntu/review_campaign/network/r5_service_campaign.py", line 343, in <module>
+    if __name__=='__main__':main()
+                            ^^^^^^
+  File "/home/ubuntu/review_campaign/network/r5_service_campaign.py", line 316, in main
+    assert old[key]==getattr(args,key),(key,old[key],getattr(args,key))
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: ('recovery_window', 'from restore initiation through first successful probe COMPLETION; late completions retained but not counted within window', 30)
+{"trial_id": "000035", "platform": "reactive_osken", "spec": {"scenario": "scale", "switches": 1, "flows": 8, "repetition": 1}, "status": "completed", "warmup_all_succeeded": true, "successful_probe_n": 8, "batch_s": 0.020113863, "recovered": null, "error": null}
+{"trial_id": "000036", "platform": "reactive_osken", "spec": {"scenario": "scale", "switches": 8, "flows": 1, "repetition": 1}, "status": "completed", "warmup_all_succeeded": true, "successful_probe_n": 1, "batch_s": 0.005503898, "recovered": null, "error": null}
+{"trial_id": "000037", "platform": "reactive_osken", "spec": {"scenario": "controller_restart", "switches": 1, "flows": 1, "repetition": 1}, "status": "completed", "warmup_all_succeeded": true, "successful_probe_n": 1, "batch_s": 0.007577971, "recovered": true, "error": null}
+{"trial_id": "000038", "platform": "reactive_osken", "spec": {"scenario": "scale", "switches": 16, "flows": 1, "repetition": 1}, "status": "completed", "warmup_all_succeeded": true, "successful_probe_n": 1, "batch_s": 0.004835917, "recovered": null, "error": null}
+{"trial_id": "000039", "platform": "reactive_osken", "spec": {"scenario": "scale", "switches": 8, "flows": 32, "repetition": 1}, "status": "completed", "warmup_all_succeeded": true, "successful_probe_n": 32, "batch_s": 0.042691394, "recovered": null, "error": null}
+{"trial_id": "00003a", "platform": "reactive_osken", "spec": {"scenario": "switch_restart", "switches": 1, "flows": 1, "repetition": 1}, "status": "completed", "warmup_all_succeeded": true, "successful_probe_n": 1, "batch_s": 0.008710218, "recovered": true, "error": null}
+{"trial_id": "00003b", "platform": "reactive_osken", "spec": {"scenario": "scale", "switches": 4, "flows": 32, "repetition": 1}, "status": "completed", "warmup_all_succeeded": true, "successful_probe_n": 32, "batch_s": 0.043878643, "recovered": null, "error": null}
+{"trial_id": "00003c", "platform": "reactive_osken", "spec": {"scenario": "scale", "switches": 16, "flows": 8, "repetition": 1}, "status": "completed", "warmup_all_succeeded": true, "successful_probe_n": 8, "batch_s": 0.012721315, "recovered": null, "error": null}
+{"trial_id": "00003d", "platform": "reactive_osken", "spec": {"scenario": "scale", "switches": 8, "flows": 8, "repetition": 1}, "status": "completed", "warmup_all_succeeded": true, "successful_probe_n": 8, "batch_s": 0.010490363, "recovered": null, "error": null}

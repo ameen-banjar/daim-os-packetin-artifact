@@ -1,0 +1,18 @@
+{
+  "daim-review-daim.service": {
+    "sha256": "8421baeecf87f744a2f03a6f84cdce9f1b9fff79779819b6137787bcb6166800",
+    "content": "[Unit]\nDescription=DAIM review isolated daim\nAfter=network.target openvswitch-switch.service\n[Service]\nType=simple\nUser=ubuntu\nWorkingDirectory=/home/ubuntu/review_campaign\nEnvironment=\"PATH=/home/ubuntu/daim_venv/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin\"\nEnvironment=\"DAIM_ADAPTER_MODE=process_per_rule\"\nEnvironment=\"DAIM_BRIDGE_MAP=/home/ubuntu/review_campaign/bridge_map.json\"\nExecStart=/home/ubuntu/daim_venv/bin/osken-manager /home/ubuntu/review_campaign/network/r5_daim_service_controller.py --ofp-tcp-listen-port 6653\nCPUAccounting=yes\nMemoryAccounting=yes\nMemoryMax=2500M\nTasksMax=4096\nTimeoutStopSec=20\nKillMode=control-group\nRestart=no\n"
+  },
+  "daim-review-osken.service": {
+    "sha256": "9498621ccf642a8ff4c356f1e72c46256134f0b291fe72b22d24aa4d0380900f",
+    "content": "[Unit]\nDescription=DAIM review isolated osken\nAfter=network.target openvswitch-switch.service\n[Service]\nType=simple\nUser=ubuntu\nWorkingDirectory=/home/ubuntu/review_campaign\nEnvironment=\"PATH=/home/ubuntu/daim_venv/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin\"\nEnvironment=\"DAIM_BRIDGE_MAP=/home/ubuntu/review_campaign/bridge_map.json\"\nExecStart=/home/ubuntu/daim_venv/bin/osken-manager /home/ubuntu/review_campaign/network/r5_osken_service_controller.py --ofp-tcp-listen-port 6653\nCPUAccounting=yes\nMemoryAccounting=yes\nMemoryMax=2500M\nTasksMax=4096\nTimeoutStopSec=20\nKillMode=control-group\nRestart=no\n"
+  },
+  "daim-review-onos.service": {
+    "sha256": "3e35aa410817c44d2e898b65f63d3467aa61fc76fafea4c97e700e86d9af1224",
+    "content": "[Unit]\nDescription=DAIM review isolated onos\nAfter=network.target openvswitch-switch.service\n[Service]\nType=simple\nUser=ubuntu\nWorkingDirectory=/home/ubuntu/onos-spike/onos-2.7.0/apache-karaf-4.2.9\nEnvironment=\"PATH=/home/ubuntu/daim_venv/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin\"\nEnvironment=\"JAVA_HOME=/home/ubuntu/onos-spike/jdk11-legacy/jdk-11.0.16+8\"\nEnvironment=\"JAVA_MIN_MEM=256M\"\nEnvironment=\"JAVA_MAX_MEM=1536M\"\nExecStart=/home/ubuntu/onos-spike/onos-2.7.0/apache-karaf-4.2.9/bin/karaf server\nCPUAccounting=yes\nMemoryAccounting=yes\nMemoryMax=2500M\nTasksMax=4096\nTimeoutStopSec=20\nKillMode=control-group\nRestart=no\n"
+  },
+  "daim-review-odl.service": {
+    "sha256": "232345f518cb5b7054d5a871f7d941c5579ad414880b7f9620afe074218c61b6",
+    "content": "[Unit]\nDescription=DAIM review isolated odl\nAfter=network.target openvswitch-switch.service\n[Service]\nType=simple\nUser=ubuntu\nWorkingDirectory=/home/ubuntu/odl-spike/karaf-0.24.0\nEnvironment=\"PATH=/home/ubuntu/daim_venv/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin\"\nEnvironment=\"JAVA_HOME=/usr/lib/jvm/java-21-openjdk-arm64\"\nEnvironment=\"JAVA_MIN_MEM=256M\"\nEnvironment=\"JAVA_MAX_MEM=1536M\"\nExecStart=/home/ubuntu/odl-spike/karaf-0.24.0/bin/karaf server\nCPUAccounting=yes\nMemoryAccounting=yes\nMemoryMax=2500M\nTasksMax=4096\nTimeoutStopSec=20\nKillMode=control-group\nRestart=no\n"
+  }
+}

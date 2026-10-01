@@ -1,0 +1,139 @@
+{
+  "wall_ns": 1790857704655777354,
+  "source_basis": "amendment_02.json",
+  "source_sha256": {
+    "network/r5_service_campaign.py": "5705dc0c905c1d0cce7c8a131e21355f0d14dc3208e667a792c87715aa55ecd8",
+    "network/r5_service_campaign_supervisor.py": "b06a6219112deb131dcb0a1c5ad7f66f53851f96e11df7ca0512d74e62fb2955",
+    "network/s56_measurement.py": "45413a231fc8f8bf4b1c2e280767d5f94ef8dd0057ac3160ecfebabfd1648f80",
+    "network/daim_bridge_controller.py": "bd3535157b3e4eb33c784171cd24d1a5cefc86d7f6162ae57d58e3405048f37e",
+    "network/daim_core_bridge.py": "6677f8bdea8e2154ff5294659043f2ea18dd52943e37e226ca75f5edc4f88231",
+    "network/r5_daim_service_controller.py": "48f2797265f7a6f05ba8eb7a75868d0253b517f23d7258ba886e66fcc88e2a5c",
+    "network/r5_osken_service_controller.py": "1781a1070692ca7d5073cb9e91cb6be67190df70acb709592128ccb7cf841285",
+    "network/osken_reactive_baseline_controller.py": "9bc83d7dfe57688d4b8756fe6bfb0fefff40c872c7ea35e46c73a120325dd1b5",
+    "analysis/r5_service_campaign_analysis.py": "c7eab2b1efaf7740dc76f3a673a840c1001ca428bbab9e118b9a739539a5e51a",
+    "implementation/build/libdaim_core.so": "c006b7bb603ed7fba08f8dbc0906b869a07920586e2bfff9bd2d749346831c4e",
+    "service_manifest.json": "001da48196167bf26db9086b08a8e4df63c16adbd6493265dee8d829fc64ef58",
+    "native_bundle_manifest.json": "51e0cd3a96ee9b174291baef7f59eacf72c052657ab103e1611093c010294d31",
+    "active_bundle_verification.json": "9042bc97e294785ac81fb63898bc2245aa271837846e698040d64a9a0bc6b7ca",
+    "environment_snapshot.json": "028f09d583ba8d9b353b2cc9f4412c8c7d72cf518e8681971cd40b0f4e3f256b",
+    "implementation/Makefile": "1e5ff109ad396b6e0c3beb4a4713f9e50c73e4117779784266aaf8f3913d400e",
+    "implementation/src/daim_learning_app.c": "1b7c3c1e03214719e555e875c4f6bc68726502457c3afad9e22a566283d05047",
+    "implementation/src/mock_switch_adapter.c": "3c762fd0d8fc7902d1c3f93f4f844a6cbbf56090b9fc1f345e42c293fa94670a",
+    "implementation/src/daim_peer_protocol.c": "6226d23d60aff444a0894990be8dcecbe464b32ed6d7d1a45683eba8fb4f986d",
+    "implementation/src/daim_core.c": "ae48aec676538035a86b653d6331145062228ef942ec10e6635481529c8ccfff",
+    "implementation/src/ovs_persistent_adapter.c": "575396f3d5f19da4dc960a0ffba88dd36c4ba2cb4619365d81312d8f776434a8",
+    "implementation/src/ovs_switch_adapter.c": "7f77f81de0eb093c285d9d77b4da268b94e3ef7de5f21ab53ac3f2288d45fba4",
+    "implementation/src/daim_peer_transport.c": "897106c609a28681f0c70bbbfa8ee410e2b8bfcaccd30e4987b14ade1e6cfc9f",
+    "implementation/src/daim_distributed_learning_app.c": "711cb237bbeceabc5937744fdf812c18bc2d3ad71c1ff7b82977c18cb37547d9",
+    "implementation/src/daim_distributed_state.c": "525ef8f680bdf471ec8036c277d3700b55b701149813f6195da897dade25f798",
+    "implementation/include/daim_peer_transport.h": "3f0757ff4637684a7a2e5677d926f65d352845aa986dad79fd2a7aa8b454b178",
+    "implementation/include/ovs_switch_adapter.h": "a49bf7d0c5c2ea7e2d4150e28e093b7f1f149aa275faaa7f9817d1d813ba956e",
+    "implementation/include/daim_core.h": "a7cd0abd2bdf2ebf47715a7ec5661d8a576f640065d1f0210ba4c075c6ed9665",
+    "implementation/include/ovs_persistent_adapter.h": "084400b41965635df6061a951e6cf69094918b286a8d25316a9da78f9c3e3864",
+    "implementation/include/daim_distributed_learning_app.h": "c80fc41ef97b17cd4be0069b2995924478277bf794b52c7f9aff649b3658323e",
+    "implementation/include/daim_peer_protocol.h": "ea4d698a6a8b35a397af9c724837a58a88f10038d4c99e03d1b357d313f8329a",
+    "implementation/include/daim_distributed_state.h": "aee5dfdf77bd27156eb94a914dd8369ac04f289797b87cf81a79bfdb2199363f",
+    "implementation/include/daim_learning_app.h": "64d0066c8144cab457260b238313ae7175049e23fb3f32f0792bf83ea21bb975",
+    "implementation/include/daim_switch_adapter.h": "7b78ddb50a531c83b84da3c5722ccd310226927c9c3cc5332430814979960a8c",
+    "vendor/DAIM-OS-v1.0.0/daim_os_sys_api.h": "e54275c210cb79bb2153b4999acbc413096729fb04584d5d830b391133242135",
+    "vendor/DAIM-OS-v1.0.0/daim_os_api.h": "9840e7c9f1df6ff494ad53baaed233bfbe7fb092be2d18b7223b0e0d6069c07c",
+    "vendor/DAIM-OS-v1.0.0/daim_os_cloud.h": "dc945477ee1f298cce744dc1d8da8b57d2cf15587310457000fa2b911e58ab83"
+  },
+  "source_mismatches": [],
+  "services": {
+    "daim-review-daim.service": {
+      "argv": [
+        "systemctl",
+        "show",
+        "daim-review-daim.service",
+        "-p",
+        "ActiveState",
+        "-p",
+        "SubState",
+        "-p",
+        "MainPID",
+        "-p",
+        "Result"
+      ],
+      "rc": 0,
+      "stdout": "MainPID=0\nResult=success\nActiveState=inactive\nSubState=dead\n",
+      "stderr": ""
+    },
+    "daim-review-osken.service": {
+      "argv": [
+        "systemctl",
+        "show",
+        "daim-review-osken.service",
+        "-p",
+        "ActiveState",
+        "-p",
+        "SubState",
+        "-p",
+        "MainPID",
+        "-p",
+        "Result"
+      ],
+      "rc": 0,
+      "stdout": "MainPID=0\nResult=success\nActiveState=inactive\nSubState=dead\n",
+      "stderr": ""
+    },
+    "daim-review-onos.service": {
+      "argv": [
+        "systemctl",
+        "show",
+        "daim-review-onos.service",
+        "-p",
+        "ActiveState",
+        "-p",
+        "SubState",
+        "-p",
+        "MainPID",
+        "-p",
+        "Result"
+      ],
+      "rc": 0,
+      "stdout": "MainPID=0\nResult=success\nActiveState=inactive\nSubState=dead\n",
+      "stderr": ""
+    },
+    "daim-review-odl.service": {
+      "argv": [
+        "systemctl",
+        "show",
+        "daim-review-odl.service",
+        "-p",
+        "ActiveState",
+        "-p",
+        "SubState",
+        "-p",
+        "MainPID",
+        "-p",
+        "Result"
+      ],
+      "rc": 0,
+      "stdout": "MainPID=0\nResult=success\nActiveState=inactive\nSubState=dead\n",
+      "stderr": ""
+    }
+  },
+  "ovs_bridges": {
+    "argv": [
+      "ovs-vsctl",
+      "list-br"
+    ],
+    "rc": 0,
+    "stdout": "s3\ns4\ns5\n",
+    "stderr": ""
+  },
+  "remaining_scheduled_experimental_bridges": [],
+  "controller_listener": {
+    "argv": [
+      "ss",
+      "-lntp",
+      "sport = :6653"
+    ],
+    "rc": 0,
+    "stdout": "State Recv-Q Send-Q Local Address:Port Peer Address:PortProcess\n",
+    "stderr": ""
+  },
+  "identity_ledger": "384",
+  "scope": "Post-collection snapshot. No service, interface, source, or raw measurement is changed by this check."
+}

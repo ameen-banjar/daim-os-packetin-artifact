@@ -1,0 +1,140 @@
+2026-10-01T11:34:06+01:00 daim-lab-2 systemd[1]: Started daim-review-osken.service - DAIM review isolated osken.
+2026-10-01T11:34:06+01:00 daim-lab-2 osken-manager[320993]: /home/ubuntu/daim_venv/lib/python3.12/site-packages/os_ken/lib/hub.py:30: EventletDeprecationWarning:
+2026-10-01T11:34:06+01:00 daim-lab-2 osken-manager[320993]: Eventlet is deprecated. It is currently being maintained in bugfix mode, and
+2026-10-01T11:34:06+01:00 daim-lab-2 osken-manager[320993]: we strongly recommend against using it for new projects.
+2026-10-01T11:34:06+01:00 daim-lab-2 osken-manager[320993]: If you are already using Eventlet, we recommend migrating to a different
+2026-10-01T11:34:06+01:00 daim-lab-2 osken-manager[320993]: framework.  For more detail see
+2026-10-01T11:34:06+01:00 daim-lab-2 osken-manager[320993]: https://eventlet.readthedocs.io/en/latest/asyncio/migration.html
+2026-10-01T11:34:06+01:00 daim-lab-2 osken-manager[320993]:   import eventlet
+2026-10-01T11:34:07+01:00 daim-lab-2 osken-manager[320993]: 1 RLock(s) were not greened, to fix this error make sure you run eventlet.monkey_patch() before importing any other modules.
+2026-10-01T11:34:07+01:00 daim-lab-2 osken-manager[320993]: loading app /home/ubuntu/review_campaign/network/r5_osken_service_controller.py
+2026-10-01T11:34:07+01:00 daim-lab-2 osken-manager[320993]: loading app os_ken.controller.ofp_handler
+2026-10-01T11:34:07+01:00 daim-lab-2 osken-manager[320993]: instantiating app /home/ubuntu/review_campaign/network/r5_osken_service_controller.py of CampaignOskenController
+2026-10-01T11:34:07+01:00 daim-lab-2 osken-manager[320993]: instantiating app os_ken.controller.ofp_handler of OFPHandler
+2026-10-01T11:34:38+01:00 daim-lab-2 osken-manager[320993]: {"event": "ready", "mode": "reactive_osken"}
+2026-10-01T11:34:56+01:00 daim-lab-2 osken-manager[320993]: {"event": "ready", "mode": "reactive_osken"}
+2026-10-01T11:34:58+01:00 daim-lab-2 osken-manager[320993]: {"event": "ready", "mode": "reactive_osken"}
+2026-10-01T11:34:58+01:00 daim-lab-2 osken-manager[320993]: {"event": "ready", "mode": "reactive_osken"}
+2026-10-01T11:34:58+01:00 daim-lab-2 osken-manager[320993]: {"event": "ready", "mode": "reactive_osken"}
+2026-10-01T11:34:58+01:00 daim-lab-2 osken-manager[320993]: {"event": "ready", "mode": "reactive_osken"}
+2026-10-01T11:34:58+01:00 daim-lab-2 osken-manager[320993]: {"event": "ready", "mode": "reactive_osken"}
+2026-10-01T11:34:58+01:00 daim-lab-2 osken-manager[320993]: {"event": "ready", "mode": "reactive_osken"}
+2026-10-01T11:34:58+01:00 daim-lab-2 osken-manager[320993]: {"event": "ready", "mode": "reactive_osken"}
+2026-10-01T11:34:58+01:00 daim-lab-2 osken-manager[320993]: {"event": "ready", "mode": "reactive_osken"}
+2026-10-01T11:35:15+01:00 daim-lab-2 osken-manager[320993]: {"event": "ready", "mode": "reactive_osken"}
+2026-10-01T11:35:15+01:00 daim-lab-2 osken-manager[320993]: {"event": "ready", "mode": "reactive_osken"}
+2026-10-01T11:35:15+01:00 daim-lab-2 osken-manager[320993]: {"event": "ready", "mode": "reactive_osken"}
+2026-10-01T11:35:15+01:00 daim-lab-2 osken-manager[320993]: {"event": "ready", "mode": "reactive_osken"}
+2026-10-01T11:35:15+01:00 daim-lab-2 osken-manager[320993]: {"event": "ready", "mode": "reactive_osken"}
+2026-10-01T11:35:15+01:00 daim-lab-2 osken-manager[320993]: {"event": "ready", "mode": "reactive_osken"}
+2026-10-01T11:35:16+01:00 daim-lab-2 osken-manager[320993]: {"event": "ready", "mode": "reactive_osken"}
+2026-10-01T11:35:16+01:00 daim-lab-2 osken-manager[320993]: {"event": "ready", "mode": "reactive_osken"}
+2026-10-01T11:35:31+01:00 daim-lab-2 osken-manager[320993]: {"event": "ready", "mode": "reactive_osken"}
+2026-10-01T11:35:32+01:00 daim-lab-2 osken-manager[320993]: {"event": "ready", "mode": "reactive_osken"}
+2026-10-01T11:35:32+01:00 daim-lab-2 osken-manager[320993]: {"event": "ready", "mode": "reactive_osken"}
+2026-10-01T11:35:32+01:00 daim-lab-2 osken-manager[320993]: {"event": "ready", "mode": "reactive_osken"}
+2026-10-01T11:35:32+01:00 daim-lab-2 osken-manager[320993]: {"event": "ready", "mode": "reactive_osken"}
+2026-10-01T11:35:32+01:00 daim-lab-2 osken-manager[320993]: {"event": "ready", "mode": "reactive_osken"}
+2026-10-01T11:35:32+01:00 daim-lab-2 osken-manager[320993]: {"event": "ready", "mode": "reactive_osken"}
+2026-10-01T11:35:32+01:00 daim-lab-2 osken-manager[320993]: {"event": "ready", "mode": "reactive_osken"}
+2026-10-01T11:35:32+01:00 daim-lab-2 osken-manager[320993]: {"event": "ready", "mode": "reactive_osken"}
+2026-10-01T11:35:32+01:00 daim-lab-2 osken-manager[320993]: {"event": "ready", "mode": "reactive_osken"}
+2026-10-01T11:35:32+01:00 daim-lab-2 osken-manager[320993]: {"event": "ready", "mode": "reactive_osken"}
+2026-10-01T11:35:32+01:00 daim-lab-2 osken-manager[320993]: {"event": "ready", "mode": "reactive_osken"}
+2026-10-01T11:35:32+01:00 daim-lab-2 osken-manager[320993]: {"event": "ready", "mode": "reactive_osken"}
+2026-10-01T11:35:32+01:00 daim-lab-2 osken-manager[320993]: {"event": "ready", "mode": "reactive_osken"}
+2026-10-01T11:35:32+01:00 daim-lab-2 osken-manager[320993]: {"event": "ready", "mode": "reactive_osken"}
+2026-10-01T11:35:32+01:00 daim-lab-2 osken-manager[320993]: {"event": "ready", "mode": "reactive_osken"}
+2026-10-01T11:35:46+01:00 daim-lab-2 osken-manager[320993]: {"event": "ready", "mode": "reactive_osken"}
+2026-10-01T11:36:00+01:00 daim-lab-2 osken-manager[320993]: {"event": "ready", "mode": "reactive_osken"}
+2026-10-01T11:36:16+01:00 daim-lab-2 osken-manager[320993]: {"event": "ready", "mode": "reactive_osken"}
+2026-10-01T11:36:31+01:00 daim-lab-2 osken-manager[320993]: {"event": "ready", "mode": "reactive_osken"}
+2026-10-01T11:36:46+01:00 daim-lab-2 systemd[1]: Stopping daim-review-osken.service - DAIM review isolated osken...
+2026-10-01T11:36:46+01:00 daim-lab-2 systemd[1]: daim-review-osken.service: Deactivated successfully.
+2026-10-01T11:36:46+01:00 daim-lab-2 systemd[1]: Stopped daim-review-osken.service - DAIM review isolated osken.
+2026-10-01T11:36:47+01:00 daim-lab-2 systemd[1]: Started daim-review-osken.service - DAIM review isolated osken.
+2026-10-01T11:36:47+01:00 daim-lab-2 osken-manager[338074]: /home/ubuntu/daim_venv/lib/python3.12/site-packages/os_ken/lib/hub.py:30: EventletDeprecationWarning:
+2026-10-01T11:36:47+01:00 daim-lab-2 osken-manager[338074]: Eventlet is deprecated. It is currently being maintained in bugfix mode, and
+2026-10-01T11:36:47+01:00 daim-lab-2 osken-manager[338074]: we strongly recommend against using it for new projects.
+2026-10-01T11:36:47+01:00 daim-lab-2 osken-manager[338074]: If you are already using Eventlet, we recommend migrating to a different
+2026-10-01T11:36:47+01:00 daim-lab-2 osken-manager[338074]: framework.  For more detail see
+2026-10-01T11:36:47+01:00 daim-lab-2 osken-manager[338074]: https://eventlet.readthedocs.io/en/latest/asyncio/migration.html
+2026-10-01T11:36:47+01:00 daim-lab-2 osken-manager[338074]:   import eventlet
+2026-10-01T11:36:47+01:00 daim-lab-2 osken-manager[338074]: 1 RLock(s) were not greened, to fix this error make sure you run eventlet.monkey_patch() before importing any other modules.
+2026-10-01T11:36:47+01:00 daim-lab-2 osken-manager[338074]: loading app /home/ubuntu/review_campaign/network/r5_osken_service_controller.py
+2026-10-01T11:36:47+01:00 daim-lab-2 osken-manager[338074]: loading app os_ken.controller.ofp_handler
+2026-10-01T11:36:47+01:00 daim-lab-2 osken-manager[338074]: instantiating app /home/ubuntu/review_campaign/network/r5_osken_service_controller.py of CampaignOskenController
+2026-10-01T11:36:47+01:00 daim-lab-2 osken-manager[338074]: instantiating app os_ken.controller.ofp_handler of OFPHandler
+2026-10-01T11:36:48+01:00 daim-lab-2 osken-manager[338074]: {"event": "ready", "mode": "reactive_osken"}
+2026-10-01T11:36:50+01:00 daim-lab-2 osken-manager[338074]: {"event": "ready", "mode": "reactive_osken"}
+2026-10-01T11:36:50+01:00 daim-lab-2 osken-manager[338074]: {"event": "ready", "mode": "reactive_osken"}
+2026-10-01T11:36:50+01:00 daim-lab-2 osken-manager[338074]: {"event": "ready", "mode": "reactive_osken"}
+2026-10-01T11:36:50+01:00 daim-lab-2 osken-manager[338074]: {"event": "ready", "mode": "reactive_osken"}
+2026-10-01T11:36:50+01:00 daim-lab-2 osken-manager[338074]: {"event": "ready", "mode": "reactive_osken"}
+2026-10-01T11:36:50+01:00 daim-lab-2 osken-manager[338074]: {"event": "ready", "mode": "reactive_osken"}
+2026-10-01T11:36:50+01:00 daim-lab-2 osken-manager[338074]: {"event": "ready", "mode": "reactive_osken"}
+2026-10-01T11:36:50+01:00 daim-lab-2 osken-manager[338074]: {"event": "ready", "mode": "reactive_osken"}
+2026-10-01T11:37:06+01:00 daim-lab-2 osken-manager[338074]: {"event": "ready", "mode": "reactive_osken"}
+2026-10-01T11:37:06+01:00 daim-lab-2 osken-manager[338074]: {"event": "ready", "mode": "reactive_osken"}
+2026-10-01T11:37:06+01:00 daim-lab-2 osken-manager[338074]: {"event": "ready", "mode": "reactive_osken"}
+2026-10-01T11:37:06+01:00 daim-lab-2 osken-manager[338074]: {"event": "ready", "mode": "reactive_osken"}
+2026-10-01T11:37:06+01:00 daim-lab-2 osken-manager[338074]: {"event": "ready", "mode": "reactive_osken"}
+2026-10-01T11:37:06+01:00 daim-lab-2 osken-manager[338074]: {"event": "ready", "mode": "reactive_osken"}
+2026-10-01T11:37:06+01:00 daim-lab-2 osken-manager[338074]: {"event": "ready", "mode": "reactive_osken"}
+2026-10-01T11:37:06+01:00 daim-lab-2 osken-manager[338074]: {"event": "ready", "mode": "reactive_osken"}
+2026-10-01T11:37:06+01:00 daim-lab-2 osken-manager[338074]: {"event": "ready", "mode": "reactive_osken"}
+2026-10-01T11:37:06+01:00 daim-lab-2 osken-manager[338074]: {"event": "ready", "mode": "reactive_osken"}
+2026-10-01T11:37:06+01:00 daim-lab-2 osken-manager[338074]: {"event": "ready", "mode": "reactive_osken"}
+2026-10-01T11:37:06+01:00 daim-lab-2 osken-manager[338074]: {"event": "ready", "mode": "reactive_osken"}
+2026-10-01T11:37:07+01:00 daim-lab-2 osken-manager[338074]: {"event": "ready", "mode": "reactive_osken"}
+2026-10-01T11:37:07+01:00 daim-lab-2 osken-manager[338074]: {"event": "ready", "mode": "reactive_osken"}
+2026-10-01T11:37:07+01:00 daim-lab-2 osken-manager[338074]: {"event": "ready", "mode": "reactive_osken"}
+2026-10-01T11:37:07+01:00 daim-lab-2 osken-manager[338074]: {"event": "ready", "mode": "reactive_osken"}
+2026-10-01T11:37:22+01:00 daim-lab-2 osken-manager[338074]: {"event": "ready", "mode": "reactive_osken"}
+2026-10-01T11:37:22+01:00 daim-lab-2 osken-manager[338074]: {"event": "ready", "mode": "reactive_osken"}
+2026-10-01T11:37:22+01:00 daim-lab-2 osken-manager[338074]: {"event": "ready", "mode": "reactive_osken"}
+2026-10-01T11:37:22+01:00 daim-lab-2 osken-manager[338074]: {"event": "ready", "mode": "reactive_osken"}
+2026-10-01T11:37:37+01:00 daim-lab-2 osken-manager[338074]: {"event": "ready", "mode": "reactive_osken"}
+2026-10-01T11:37:37+01:00 daim-lab-2 osken-manager[338074]: {"event": "ready", "mode": "reactive_osken"}
+2026-10-01T11:37:37+01:00 daim-lab-2 osken-manager[338074]: {"event": "ready", "mode": "reactive_osken"}
+2026-10-01T11:37:37+01:00 daim-lab-2 osken-manager[338074]: {"event": "ready", "mode": "reactive_osken"}
+2026-10-01T11:37:37+01:00 daim-lab-2 osken-manager[338074]: {"event": "ready", "mode": "reactive_osken"}
+2026-10-01T11:37:37+01:00 daim-lab-2 osken-manager[338074]: {"event": "ready", "mode": "reactive_osken"}
+2026-10-01T11:37:37+01:00 daim-lab-2 osken-manager[338074]: {"event": "ready", "mode": "reactive_osken"}
+2026-10-01T11:37:37+01:00 daim-lab-2 osken-manager[338074]: {"event": "ready", "mode": "reactive_osken"}
+2026-10-01T11:37:37+01:00 daim-lab-2 osken-manager[338074]: {"event": "ready", "mode": "reactive_osken"}
+2026-10-01T11:37:37+01:00 daim-lab-2 osken-manager[338074]: {"event": "ready", "mode": "reactive_osken"}
+2026-10-01T11:37:37+01:00 daim-lab-2 osken-manager[338074]: {"event": "ready", "mode": "reactive_osken"}
+2026-10-01T11:37:37+01:00 daim-lab-2 osken-manager[338074]: {"event": "ready", "mode": "reactive_osken"}
+2026-10-01T11:37:37+01:00 daim-lab-2 osken-manager[338074]: {"event": "ready", "mode": "reactive_osken"}
+2026-10-01T11:37:37+01:00 daim-lab-2 osken-manager[338074]: {"event": "ready", "mode": "reactive_osken"}
+2026-10-01T11:37:37+01:00 daim-lab-2 osken-manager[338074]: {"event": "ready", "mode": "reactive_osken"}
+2026-10-01T11:37:37+01:00 daim-lab-2 osken-manager[338074]: {"event": "ready", "mode": "reactive_osken"}
+2026-10-01T11:37:51+01:00 daim-lab-2 osken-manager[338074]: {"event": "ready", "mode": "reactive_osken"}
+2026-10-01T11:38:07+01:00 daim-lab-2 systemd[1]: daim-review-osken.service: Sent signal SIGKILL to main process 338074 (osken-manager) on client request.
+2026-10-01T11:38:07+01:00 daim-lab-2 systemd[1]: daim-review-osken.service: Main process exited, code=killed, status=9/KILL
+2026-10-01T11:38:07+01:00 daim-lab-2 systemd[1]: daim-review-osken.service: Failed with result 'signal'.
+2026-10-01T11:38:08+01:00 daim-lab-2 systemd[1]: Started daim-review-osken.service - DAIM review isolated osken.
+2026-10-01T11:38:09+01:00 daim-lab-2 osken-manager[347675]: /home/ubuntu/daim_venv/lib/python3.12/site-packages/os_ken/lib/hub.py:30: EventletDeprecationWarning:
+2026-10-01T11:38:09+01:00 daim-lab-2 osken-manager[347675]: Eventlet is deprecated. It is currently being maintained in bugfix mode, and
+2026-10-01T11:38:09+01:00 daim-lab-2 osken-manager[347675]: we strongly recommend against using it for new projects.
+2026-10-01T11:38:09+01:00 daim-lab-2 osken-manager[347675]: If you are already using Eventlet, we recommend migrating to a different
+2026-10-01T11:38:09+01:00 daim-lab-2 osken-manager[347675]: framework.  For more detail see
+2026-10-01T11:38:09+01:00 daim-lab-2 osken-manager[347675]: https://eventlet.readthedocs.io/en/latest/asyncio/migration.html
+2026-10-01T11:38:09+01:00 daim-lab-2 osken-manager[347675]:   import eventlet
+2026-10-01T11:38:09+01:00 daim-lab-2 osken-manager[347675]: 1 RLock(s) were not greened, to fix this error make sure you run eventlet.monkey_patch() before importing any other modules.
+2026-10-01T11:38:09+01:00 daim-lab-2 osken-manager[347675]: loading app /home/ubuntu/review_campaign/network/r5_osken_service_controller.py
+2026-10-01T11:38:09+01:00 daim-lab-2 osken-manager[347675]: loading app os_ken.controller.ofp_handler
+2026-10-01T11:38:09+01:00 daim-lab-2 osken-manager[347675]: instantiating app /home/ubuntu/review_campaign/network/r5_osken_service_controller.py of CampaignOskenController
+2026-10-01T11:38:09+01:00 daim-lab-2 osken-manager[347675]: instantiating app os_ken.controller.ofp_handler of OFPHandler
+2026-10-01T11:38:10+01:00 daim-lab-2 osken-manager[347675]: {"event": "ready", "mode": "reactive_osken"}
+2026-10-01T11:38:12+01:00 daim-lab-2 osken-manager[347675]: {"event": "ready", "mode": "reactive_osken"}
+2026-10-01T11:38:12+01:00 daim-lab-2 osken-manager[347675]: {"event": "ready", "mode": "reactive_osken"}
+2026-10-01T11:38:12+01:00 daim-lab-2 osken-manager[347675]: {"event": "ready", "mode": "reactive_osken"}
+2026-10-01T11:38:12+01:00 daim-lab-2 osken-manager[347675]: {"event": "ready", "mode": "reactive_osken"}
+2026-10-01T11:38:27+01:00 daim-lab-2 osken-manager[347675]: {"event": "ready", "mode": "reactive_osken"}
+2026-10-01T11:38:27+01:00 daim-lab-2 osken-manager[347675]: {"event": "ready", "mode": "reactive_osken"}
+2026-10-01T11:38:27+01:00 daim-lab-2 osken-manager[347675]: {"event": "ready", "mode": "reactive_osken"}
+2026-10-01T11:38:27+01:00 daim-lab-2 osken-manager[347675]: {"event": "ready", "mode": "reactive_osken"}
+2026-10-01T11:38:41+01:00 daim-lab-2 osken-manager[347675]: {"event": "ready", "mode": "reactive_osken"}
+2026-10-01T11:38:59+01:00 daim-lab-2 osken-manager[347675]: {"event": "ready", "mode": "reactive_osken"}

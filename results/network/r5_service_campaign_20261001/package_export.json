@@ -1,0 +1,54 @@
+{
+  "scope": "Selective source export; all raw trial/host records and controller logs included unchanged",
+  "excluded": [
+    {
+      "path": "HOST_MONITOR_STOP",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "reason": "Local host-monitor stop sentinel, not a measurement record."
+    },
+    {
+      "path": "frozen_sources/implementation/include/daim_distributed_learning_app.h",
+      "sha256": "c80fc41ef97b17cd4be0069b2995924478277bf794b52c7f9aff649b3658323e",
+      "reason": "Unused distributed source captured by the original broad inventory; not linked into the Paper 1 library. Full private snapshot retained in working repository."
+    },
+    {
+      "path": "frozen_sources/implementation/include/daim_distributed_state.h",
+      "sha256": "aee5dfdf77bd27156eb94a914dd8369ac04f289797b87cf81a79bfdb2199363f",
+      "reason": "Unused distributed source captured by the original broad inventory; not linked into the Paper 1 library. Full private snapshot retained in working repository."
+    },
+    {
+      "path": "frozen_sources/implementation/include/daim_peer_protocol.h",
+      "sha256": "ea4d698a6a8b35a397af9c724837a58a88f10038d4c99e03d1b357d313f8329a",
+      "reason": "Unused distributed source captured by the original broad inventory; not linked into the Paper 1 library. Full private snapshot retained in working repository."
+    },
+    {
+      "path": "frozen_sources/implementation/include/daim_peer_transport.h",
+      "sha256": "3f0757ff4637684a7a2e5677d926f65d352845aa986dad79fd2a7aa8b454b178",
+      "reason": "Unused distributed source captured by the original broad inventory; not linked into the Paper 1 library. Full private snapshot retained in working repository."
+    },
+    {
+      "path": "frozen_sources/implementation/src/daim_distributed_learning_app.c",
+      "sha256": "711cb237bbeceabc5937744fdf812c18bc2d3ad71c1ff7b82977c18cb37547d9",
+      "reason": "Unused distributed source captured by the original broad inventory; not linked into the Paper 1 library. Full private snapshot retained in working repository."
+    },
+    {
+      "path": "frozen_sources/implementation/src/daim_distributed_state.c",
+      "sha256": "525ef8f680bdf471ec8036c277d3700b55b701149813f6195da897dade25f798",
+      "reason": "Unused distributed source captured by the original broad inventory; not linked into the Paper 1 library. Full private snapshot retained in working repository."
+    },
+    {
+      "path": "frozen_sources/implementation/src/daim_peer_protocol.c",
+      "sha256": "6226d23d60aff444a0894990be8dcecbe464b32ed6d7d1a45683eba8fb4f986d",
+      "reason": "Unused distributed source captured by the original broad inventory; not linked into the Paper 1 library. Full private snapshot retained in working repository."
+    },
+    {
+      "path": "frozen_sources/implementation/src/daim_peer_transport.c",
+      "sha256": "897106c609a28681f0c70bbbfa8ee410e2b8bfcaccd30e4987b14ade1e6cfc9f",
+      "reason": "Unused distributed source captured by the original broad inventory; not linked into the Paper 1 library. Full private snapshot retained in working repository."
+    }
+  ],
+  "copied_files": 165,
+  "private_complete_archive": "r5_service_campaign_FINAL_20261001.tar.gz",
+  "private_archive_sha256": "bf47ad74b064fe49645583a8c794995a60dedc5c50c501f00b97e1f66750a7c0",
+  "source_inventory_note": "Frozen/amended manifests retain the full original inventory. Listed omitted files are unavailable here by design, not missing measurement data. Analysis regeneration does not require them."
+}

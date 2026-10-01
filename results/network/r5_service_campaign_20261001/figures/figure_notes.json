@@ -1,0 +1,27 @@
+{
+  "scale_denominator": "Completed runs with valid probe execution; retain the one setup error separately",
+  "fault_denominator": "Successful pre-fault baseline, eligible observation and demonstrated probe loss",
+  "color": "Fraction within the printed denominator; five scheduled runs per cell, no inferential ranking",
+  "raw_sha256": {
+    "block01_daim_process_per_rule/attempts.jsonl": "cc47d2ab25a9107cacbd5a206591c8295c9baf2fe6502a937ade3eeb54ec6604",
+    "block01_odl_native_l2switch/attempts.jsonl": "067ce07e321e91f71d652dc14ad5093661a4d51a09c27ae12a2301097a0d195c",
+    "block01_onos_native_fwd/attempts.jsonl": "51bc4c4bedbf52460d1e6d760b638c4a43bf5bffa7bab82b869ea74aea724261",
+    "block01_reactive_osken/attempts.jsonl": "ae3eb7d9eefe2c5eb5e38d1f7bda65f48704bf35cd88977a169b001262e1ae3c",
+    "block02_daim_process_per_rule/attempts.jsonl": "e720f02e9bdbbb103e20d6506deafc50a9e2adaa34e73718f4f2a6da17eda5eb",
+    "block02_odl_native_l2switch/attempts.jsonl": "1d8b35efa873a5bc560630dd562bca5d0a44a1907d11b1afa8df38d8dfc333c2",
+    "block02_onos_native_fwd/attempts.jsonl": "95dc26a1d10f2efa79d13c3ef8d0e3a617c3df089528437e0071d525c59ac32d",
+    "block02_reactive_osken/attempts.jsonl": "06c9d07bde488220226e46f22f9a780b7738432854e83b1a1c20c4550dee39d3",
+    "block03_daim_process_per_rule/attempts.jsonl": "d7871ec62014591a51f8bbceb5327a95dbd10e5aa2e2e667d8921b54ddfbdebc",
+    "block03_odl_native_l2switch/attempts.jsonl": "bc119e891d189ddb50390c3ddba2936253f3af21c8115cc7a80c786c3c6238a7",
+    "block03_onos_native_fwd/attempts.jsonl": "946468d9dde509723a5631a52efabf81df12a4d6ba7e2c40ba54bcec3bee4a94",
+    "block03_reactive_osken/attempts.jsonl": "cf404acc52fd500cf9c62c5140c57b976457de58ca8b75ba38ec5885cae9b003",
+    "block04_daim_process_per_rule/attempts.jsonl": "c9afe575730ec49db6d9191f66bcc17165fff47caecbbe7a38ac56204067509b",
+    "block04_odl_native_l2switch/attempts.jsonl": "7b31544613fdd18bfb2193970dd2d639a5d2331f53dd7c2d42faf93f9b20d244",
+    "block04_onos_native_fwd/attempts.jsonl": "fd81f51ea84f08a49a6e10932212af41ed696f4c84f7bf086a79c15807089d4e",
+    "block04_reactive_osken/attempts.jsonl": "21c04527bbca97e9cd8ea85a9110c70835e7e34fa43b9795dd2452891db3bacd",
+    "block05_daim_process_per_rule/attempts.jsonl": "15ac4436056a6afe7a3c1ec6d914301b27e5b48f10c41b46586758f84c3960c9",
+    "block05_odl_native_l2switch/attempts.jsonl": "078c714b52aab7accec8b38e10581622ec6e02a3dc246cdb3e388c233e6c1935",
+    "block05_onos_native_fwd/attempts.jsonl": "ef6980aa32ceb882cf4cccd208e87c6b0c8c93ef6cce9c5724408e4ca2897096",
+    "block05_reactive_osken/attempts.jsonl": "28cf4a1d8907e8d890b924212513be786158633e9ba1fcedd4be42726902e859"
+  }
+}

@@ -1,0 +1,73 @@
+{
+  "uname": {
+    "rc": 0,
+    "stdout": "Linux daim-lab-2 6.8.0-142-generic #142-Ubuntu SMP PREEMPT_DYNAMIC Wed Sep  2 14:30:29 UTC 2026 aarch64 aarch64 aarch64 GNU/Linux\n",
+    "stderr": ""
+  },
+  "cpu": {
+    "rc": 0,
+    "stdout": "Architecture:                            aarch64\nCPU op-mode(s):                          64-bit\nByte Order:                              Little Endian\nCPU(s):                                  4\nOn-line CPU(s) list:                     0-3\nVendor ID:                               Apple\nModel name:                              -\nModel:                                   0\nThread(s) per core:                      1\nCore(s) per socket:                      4\nSocket(s):                               1\nStepping:                                0x0\nBogoMIPS:                                48.00\nFlags:                                   fp asimd evtstrm aes pmull sha1 sha2 crc32 atomics fphp asimdhp cpuid asimdrdm jscvt fcma lrcpc dcpop sha3 asimddp sha512 asimdfhm dit uscat ilrcpc flagm sb paca pacg dcpodp flagm2 frint\nNUMA node(s):                            1\nNUMA node0 CPU(s):                       0-3\nVulnerability Gather data sampling:      Not affected\nVulnerability Indirect target selection: Not affected\nVulnerability Itlb multihit:             Not affected\nVulnerability L1tf:                      Not affected\nVulnerability Mds:                       Not affected\nVulnerability Meltdown:                  Not affected\nVulnerability Mmio stale data:           Not affected\nVulnerability Reg file data sampling:    Not affected\nVulnerability Retbleed:                  Not affected\nVulnerability Spec rstack overflow:      Not affected\nVulnerability Spec store bypass:         Vulnerable\nVulnerability Spectre v1:                Mitigation; __user pointer sanitization\nVulnerability Spectre v2:                Mitigation; CSV2, but not BHB\nVulnerability Srbds:                     Not affected\nVulnerability Tsa:                       Not affected\nVulnerability Tsx async abort:           Not affected\nVulnerability Vmscape:                   Not affected\n",
+    "stderr": ""
+  },
+  "ovs": {
+    "rc": 0,
+    "stdout": "ovs-vswitchd (Open vSwitch) 3.3.9\n",
+    "stderr": ""
+  },
+  "python": {
+    "rc": 0,
+    "stdout": "Python 3.12.3\n",
+    "stderr": ""
+  },
+  "mininet": {
+    "rc": 0,
+    "stdout": "",
+    "stderr": "2.3.0\n"
+  },
+  "memory": {
+    "rc": 0,
+    "stdout": "               total        used        free      shared  buff/cache   available\nMem:      4090548224  1157734400   506687488     1343488  2633076736  2932813824\nSwap:              0           0           0\n",
+    "stderr": ""
+  },
+  "osken": {
+    "rc": 0,
+    "stdout": "2.6.0\n",
+    "stderr": ""
+  },
+  "limits": {
+    "service_memory_max_bytes": 2621440000,
+    "java_heap_max": "1536M",
+    "java_heap_min": "256M",
+    "cpu_pinning": false,
+    "one_platform_at_a_time": true,
+    "other_controller_vms_stopped": true
+  },
+  "onos_config_intended": {
+    "matchDstMacOnly": false,
+    "flowTimeout": 300,
+    "flowPriority": 100,
+    "app": "native fwd 2.7.0; active bytecode verified against original backup"
+  },
+  "odl_config": {
+    "l2switch_initial": "<l2switch-config xmlns=\"urn:opendaylight:l2switch:l2switch-config\">\n  <is-install-dropall-flow>false</is-install-dropall-flow>\n  <is-learning-only-mode>false</is-learning-only-mode>\n</l2switch-config>\n",
+    "features": "################################################################################\n#\n#    Licensed to the Apache Software Foundation (ASF) under one or more\n#    contributor license agreements.  See the NOTICE file distributed with\n#    this work for additional information regarding copyright ownership.\n#    The ASF licenses this file to You under the Apache License, Version 2.0\n#    (the \"License\"); you may not use this file except in compliance with\n#    the License.  You may obtain a copy of the License at\n#\n#       http://www.apache.org/licenses/LICENSE-2.0\n#\n#    Unless required by applicable law or agreed to in writing, software\n#    distributed under the License is distributed on an \"AS IS\" BASIS,\n#    WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.\n#    See the License for the specific language governing permissions and\n#    limitations under the License.\n#\n################################################################################\n\n#\n# Comma separated list of features repositories to register by default\n#\nfeaturesRepositories = file:${karaf.etc}/66dd914e-48c1-4117-b7bf-19b28acacf4a.xml\n\n#\n# Comma separated list of features to install at startup\n#\nfeaturesBoot = 5c0f8f63-0113-4faf-9ae5-7ff000c2356b,odl-l2switch-switch,odl-restconf-nb\n\n#\n# Resource repositories (OBR) that the features resolver can use\n# to resolve requirements/capabilities\n#\n# The format of the resourceRepositories is \n# resourceRepositories=[xml:url|json:url],...\n# for Instance:\n#\n#resourceRepositories=xml:http://host/path/to/index.xml\n# or\n#resourceRepositories=json:http://host/path/to/index.json\n#\n\n#\n# Defines if the boot features are started in asynchronous mode (in a dedicated thread)\n#\nfeaturesBootAsynchronous=false\n\n#\n# Service requirements enforcement\n#\n# By default, the feature resolver checks the service requirements/capabilities of\n# bundles for new features (xml schema >= 1.3.0) in order to automatically installs\n# the required bundles.\n# The following flag can have those values:\n#   - disable: service requirements are completely ignored\n#   - default: service requirements are ignored for old features\n#   - enforce: service requirements are always verified\n#\n#serviceRequirements=default\n\n#\n# Store cfg file for config element in feature\n#\n#configCfgStore=true\n\n#\n# Define if the feature service automatically refresh bundles\n#\nautoRefresh=true\n\n#\n# Configuration of features processing mechanism (overrides, blacklisting, modification of features)\n# XML file defines instructions related to features processing\n# versions.properties may declare properties to resolve placeholders in XML file\n# both files are relative to ${karaf.etc}\n#\n#featureProcessing=org.apache.karaf.features.xml\n#featureProcessingVersions=versions.properties\n"
+  },
+  "state_policy": "Existing dedicated lab controller datastores retained; unique trial DPID/MAC ledger prevents reuse; platform process restarted between blocks; no claim of virgin or production deployment.",
+  "onos_config_observed": "org.onosproject.fwd.ReactiveForwarding\n    name=matchIpv6Address, type=boolean, value=false, defaultValue=false, description=Enable matching IPv6 Addresses; default is false.\n    name=matchIpv6FlowLabel, type=boolean, value=false, defaultValue=false, description=Enable matching IPv6 FlowLabel; default is false.\n    name=ignoreIPv4Multicast, type=boolean, value=false, defaultValue=false, description=Ignore (do not forward) IPv4 multicast packets; default is false.\n    name=matchIcmpFields, type=boolean, value=false, defaultValue=false, description=Enable matching ICMPv4 and ICMPv6 fields; default is false.\n    name=flowTimeout, type=integer, value=300, defaultValue=10, description=Configure Flow Timeout for installed flow rules; default is 10 sec.\n    name=matchTcpUdpPorts, type=boolean, value=false, defaultValue=false, description=Enable matching TCP/UDP ports; default is false.\n    name=recordMetrics, type=boolean, value=false, defaultValue=false, description=Enable record metrics for reactive forwarding.\n    name=matchDstMacOnly, type=boolean, value=false, defaultValue=false, description=Enable matching Dst Mac Only; default is false.\n    name=matchIpv4Address, type=boolean, value=false, defaultValue=false, description=Enable matching IPv4 Addresses; default is false.\n    name=matchVlanId, type=boolean, value=false, defaultValue=false, description=Enable matching Vlan ID; default is false.\n    name=matchIpv4Dscp, type=boolean, value=false, defaultValue=false, description=Enable matching IPv4 DSCP and ECN; default is false.\n    name=ipv6Forwarding, type=boolean, value=false, defaultValue=false, description=Enable IPv6 forwarding; default is false.\n    name=packetOutOfppTable, type=boolean, value=false, defaultValue=false, description=Enable first packet forwarding using OFPP_TABLE port instead of PacketOut with actual port; default is false.\n    name=packetOutOnly, type=boolean, value=false, defaultValue=false, description=Enable packet-out only forwarding; default is false.\n    name=flowPriority, type=integer, value=100, defaultValue=10, description=Configure Flow Priority for installed flow rules; default is 10.\n    name=inheritFlowTreatment, type=boolean, value=false, defaultValue=false, description=Enable use of builder from packet context to define flow treatment; default is false.\n",
+  "precollection_notes": [
+    "Published C Core and learning policies unchanged; DAIM/Os-Ken campaign wrappers only resolve DPID/name from fixture map",
+    "DAIM diagnostic v1 invalidated: OVSDB permission prevented rule installation despite successful PacketOut",
+    "DAIM diagnostic v2 switch restart required socket access reapplied; corrected and verified in switch_gate_v4",
+    "Unique DPID/MAC/IP IDs use a durable shared ledger; cold targets differ from readiness pairs",
+    "Native ODL readiness varies in this setup; failures are retained, not attributed to its architecture",
+    "All callback/flow/transport differences remain native; study is externally observed service workload, not matched internal timing"
+  ],
+  "final_gate_records": [
+    "daim_switch_gate_v4",
+    "daim_identity_gate_v3",
+    "osken_preflight_v1",
+    "odl_crash_gate_v3",
+    "odl_identity_gate_v4",
+    "onos_crash_gate_v3"
+  ]
+}

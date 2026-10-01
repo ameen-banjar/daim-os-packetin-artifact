@@ -1,0 +1,22 @@
+2026-10-01T11:17:33+01:00 daim-lab-2 systemd[1]: Started daim-review-odl.service - DAIM review isolated odl.
+2026-10-01T11:17:33+01:00 daim-lab-2 karaf[248886]: Apache Karaf starting up. Press Enter to open the shell now...
+2026-10-01T11:17:40+01:00 daim-lab-2 karaf[248886]: [7.8K blob data]
+2026-10-01T11:17:40+01:00 daim-lab-2 karaf[248886]: Karaf started in 6s. Bundle stats: 415 active, 416 total
+2026-10-01T11:19:04+01:00 daim-lab-2 systemd[1]: daim-review-odl.service: Sent signal SIGKILL to main process 248830 (karaf) on client request.
+2026-10-01T11:19:04+01:00 daim-lab-2 systemd[1]: daim-review-odl.service: Sending signal SIGKILL to process 248886 (java) on client request.
+2026-10-01T11:19:04+01:00 daim-lab-2 systemd[1]: daim-review-odl.service: Failed to send signal SIGKILL to auxiliary processes on client request: Invalid argument
+2026-10-01T11:19:04+01:00 daim-lab-2 systemd[1]: daim-review-odl.service: Main process exited, code=killed, status=9/KILL
+2026-10-01T11:19:04+01:00 daim-lab-2 systemd[1]: daim-review-odl.service: Failed with result 'signal'.
+2026-10-01T11:19:04+01:00 daim-lab-2 systemd[1]: daim-review-odl.service: Consumed 38.353s CPU time, 764.8M memory peak, 0B memory swap peak.
+2026-10-01T11:19:04+01:00 daim-lab-2 systemd[1]: Started daim-review-odl.service - DAIM review isolated odl.
+2026-10-01T11:19:04+01:00 daim-lab-2 karaf[251430]: Apache Karaf starting up. Press Enter to open the shell now...
+2026-10-01T11:19:11+01:00 daim-lab-2 karaf[251430]: [7.8K blob data]
+2026-10-01T11:19:11+01:00 daim-lab-2 karaf[251430]: Karaf started in 6s. Bundle stats: 415 active, 416 total
+2026-10-01T11:23:17+01:00 daim-lab-2 systemd[1]: Stopping daim-review-odl.service - DAIM review isolated odl...
+2026-10-01T11:23:23+01:00 daim-lab-2 systemd[1]: daim-review-odl.service: Deactivated successfully.
+2026-10-01T11:23:23+01:00 daim-lab-2 systemd[1]: Stopped daim-review-odl.service - DAIM review isolated odl.
+2026-10-01T11:23:23+01:00 daim-lab-2 systemd[1]: daim-review-odl.service: Consumed 1min 4.692s CPU time, 796.4M memory peak, 0B memory swap peak.
+2026-10-01T11:23:25+01:00 daim-lab-2 systemd[1]: Started daim-review-odl.service - DAIM review isolated odl.
+2026-10-01T11:23:26+01:00 daim-lab-2 karaf[267613]: Apache Karaf starting up. Press Enter to open the shell now...
+2026-10-01T11:23:32+01:00 daim-lab-2 karaf[267613]: [7.8K blob data]
+2026-10-01T11:23:32+01:00 daim-lab-2 karaf[267613]: Karaf started in 5s. Bundle stats: 415 active, 416 total

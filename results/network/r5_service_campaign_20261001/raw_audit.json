@@ -1,0 +1,548 @@
+{
+  "recorded_attempts": 340,
+  "status": {
+    "completed": 339,
+    "execution_error": 1
+  },
+  "checked": {
+    "probe_records_checked": 10006,
+    "unique_probe_events": 8167,
+    "independent_count_checks": 10006,
+    "completed_runs": 339,
+    "flow_reads": 5617
+  },
+  "original_prefix_unchanged": true,
+  "findings": [],
+  "probe_count_note": "warmup also repeats the final warmup_history entry; record checks and distinct probe events are therefore reported separately",
+  "supplementary_mobility_flow_observations": [
+    {
+      "trial_id": "000043",
+      "platform": "daim_process_per_rule",
+      "destination_mac": "02:00:00:43:01:04",
+      "removed_ports": [
+        4
+      ],
+      "added_ports": [
+        100
+      ],
+      "recovered": false,
+      "baseline_valid": true,
+      "post_fault_rules_explicitly_matching_destination_mac": [
+        {
+          "bridge": "r0000430",
+          "rule": {
+            "cookie": "0x0",
+            "duration": "31.632s",
+            "table": "0",
+            "n_packets": "28",
+            "n_bytes": "2576",
+            "priority": "100",
+            "in_port": "3",
+            "dl_dst": "02:00:00:43:01:04",
+            "actions": "output:4"
+          }
+        }
+      ]
+    },
+    {
+      "trial_id": "000054",
+      "platform": "odl_native_l2switch",
+      "destination_mac": "02:00:00:54:01:04",
+      "removed_ports": [
+        4
+      ],
+      "added_ports": [
+        100
+      ],
+      "recovered": false,
+      "baseline_valid": true,
+      "post_fault_rules_explicitly_matching_destination_mac": []
+    },
+    {
+      "trial_id": "000065",
+      "platform": "onos_native_fwd",
+      "destination_mac": "02:00:00:65:01:04",
+      "removed_ports": [
+        4
+      ],
+      "added_ports": [
+        100
+      ],
+      "recovered": false,
+      "baseline_valid": true,
+      "post_fault_rules_explicitly_matching_destination_mac": [
+        {
+          "bridge": "r0000650",
+          "rule": {
+            "cookie": "0x9d00004903d2fb",
+            "duration": "31.439s",
+            "table": "0",
+            "n_packets": "26",
+            "n_bytes": "2548",
+            "send_flow_rem priority": "100",
+            "in_port": "3",
+            "dl_src": "02:00:00:65:01:03",
+            "dl_dst": "02:00:00:65:01:04",
+            "actions": "output:4"
+          }
+        }
+      ]
+    },
+    {
+      "trial_id": "00002f",
+      "platform": "reactive_osken",
+      "destination_mac": "02:00:00:2f:01:04",
+      "removed_ports": [
+        4
+      ],
+      "added_ports": [
+        100
+      ],
+      "recovered": false,
+      "baseline_valid": true,
+      "post_fault_rules_explicitly_matching_destination_mac": [
+        {
+          "bridge": "r00002f0",
+          "rule": {
+            "cookie": "0x0",
+            "duration": "31.417s",
+            "table": "0",
+            "n_packets": "25",
+            "n_bytes": "2450",
+            "priority": "100",
+            "in_port": "3",
+            "dl_dst": "02:00:00:2f:01:04",
+            "actions": "output:4"
+          }
+        }
+      ]
+    },
+    {
+      "trial_id": "000092",
+      "platform": "daim_process_per_rule",
+      "destination_mac": "02:00:00:92:01:04",
+      "removed_ports": [
+        4
+      ],
+      "added_ports": [
+        100
+      ],
+      "recovered": false,
+      "baseline_valid": true,
+      "post_fault_rules_explicitly_matching_destination_mac": [
+        {
+          "bridge": "r0000920",
+          "rule": {
+            "cookie": "0x0",
+            "duration": "32.352s",
+            "table": "0",
+            "n_packets": "29",
+            "n_bytes": "2674",
+            "priority": "100",
+            "in_port": "3",
+            "dl_dst": "02:00:00:92:01:04",
+            "actions": "output:4"
+          }
+        }
+      ]
+    },
+    {
+      "trial_id": "0000b4",
+      "platform": "odl_native_l2switch",
+      "destination_mac": "02:00:00:b4:01:04",
+      "removed_ports": [
+        4
+      ],
+      "added_ports": [
+        100
+      ],
+      "recovered": false,
+      "baseline_valid": true,
+      "post_fault_rules_explicitly_matching_destination_mac": []
+    },
+    {
+      "trial_id": "0000a3",
+      "platform": "onos_native_fwd",
+      "destination_mac": "02:00:00:a3:01:04",
+      "removed_ports": [
+        4
+      ],
+      "added_ports": [
+        100
+      ],
+      "recovered": false,
+      "baseline_valid": true,
+      "post_fault_rules_explicitly_matching_destination_mac": [
+        {
+          "bridge": "r0000a30",
+          "rule": {
+            "cookie": "0x9d00008bff6a3c",
+            "duration": "31.233s",
+            "table": "0",
+            "n_packets": "26",
+            "n_bytes": "2548",
+            "send_flow_rem priority": "100",
+            "in_port": "3",
+            "dl_src": "02:00:00:a3:01:03",
+            "dl_dst": "02:00:00:a3:01:04",
+            "actions": "output:4"
+          }
+        }
+      ]
+    },
+    {
+      "trial_id": "000081",
+      "platform": "reactive_osken",
+      "destination_mac": "02:00:00:81:01:04",
+      "removed_ports": [
+        4
+      ],
+      "added_ports": [
+        100
+      ],
+      "recovered": false,
+      "baseline_valid": true,
+      "post_fault_rules_explicitly_matching_destination_mac": [
+        {
+          "bridge": "r0000810",
+          "rule": {
+            "cookie": "0x0",
+            "duration": "31.314s",
+            "table": "0",
+            "n_packets": "25",
+            "n_bytes": "2450",
+            "priority": "100",
+            "in_port": "3",
+            "dl_dst": "02:00:00:81:01:04",
+            "actions": "output:4"
+          }
+        }
+      ]
+    },
+    {
+      "trial_id": "0000e6",
+      "platform": "daim_process_per_rule",
+      "destination_mac": "02:00:00:e6:01:04",
+      "removed_ports": [
+        4
+      ],
+      "added_ports": [
+        100
+      ],
+      "recovered": false,
+      "baseline_valid": true,
+      "post_fault_rules_explicitly_matching_destination_mac": [
+        {
+          "bridge": "r0000e60",
+          "rule": {
+            "cookie": "0x0",
+            "duration": "31.766s",
+            "table": "0",
+            "n_packets": "25",
+            "n_bytes": "2450",
+            "priority": "100",
+            "in_port": "3",
+            "dl_dst": "02:00:00:e6:01:04",
+            "actions": "output:4"
+          }
+        }
+      ]
+    },
+    {
+      "trial_id": "0000d5",
+      "platform": "odl_native_l2switch",
+      "destination_mac": "02:00:00:d5:01:04",
+      "removed_ports": [
+        4
+      ],
+      "added_ports": [
+        100
+      ],
+      "recovered": false,
+      "baseline_valid": true,
+      "post_fault_rules_explicitly_matching_destination_mac": []
+    },
+    {
+      "trial_id": "0000f7",
+      "platform": "onos_native_fwd",
+      "destination_mac": "02:00:00:f7:01:04",
+      "removed_ports": [
+        4
+      ],
+      "added_ports": [
+        100
+      ],
+      "recovered": false,
+      "baseline_valid": true,
+      "post_fault_rules_explicitly_matching_destination_mac": [
+        {
+          "bridge": "r0000f70",
+          "rule": {
+            "cookie": "0x9d0000d657fb86",
+            "duration": "31.963s",
+            "table": "0",
+            "n_packets": "27",
+            "n_bytes": "2646",
+            "send_flow_rem priority": "100",
+            "in_port": "3",
+            "dl_src": "02:00:00:f7:01:03",
+            "dl_dst": "02:00:00:f7:01:04",
+            "actions": "output:4"
+          }
+        }
+      ]
+    },
+    {
+      "trial_id": "0000c4",
+      "platform": "reactive_osken",
+      "destination_mac": "02:00:00:c4:01:04",
+      "removed_ports": [
+        4
+      ],
+      "added_ports": [
+        100
+      ],
+      "recovered": false,
+      "baseline_valid": true,
+      "post_fault_rules_explicitly_matching_destination_mac": [
+        {
+          "bridge": "r0000c40",
+          "rule": {
+            "cookie": "0x0",
+            "duration": "31.471s",
+            "table": "0",
+            "n_packets": "25",
+            "n_bytes": "2450",
+            "priority": "100",
+            "in_port": "3",
+            "dl_dst": "02:00:00:c4:01:04",
+            "actions": "output:4"
+          }
+        }
+      ]
+    },
+    {
+      "trial_id": "000115",
+      "platform": "daim_process_per_rule",
+      "destination_mac": "02:00:01:15:01:04",
+      "removed_ports": [
+        4
+      ],
+      "added_ports": [
+        100
+      ],
+      "recovered": false,
+      "baseline_valid": true,
+      "post_fault_rules_explicitly_matching_destination_mac": [
+        {
+          "bridge": "r0001150",
+          "rule": {
+            "cookie": "0x0",
+            "duration": "32.305s",
+            "table": "0",
+            "n_packets": "26",
+            "n_bytes": "2548",
+            "priority": "100",
+            "in_port": "3",
+            "dl_dst": "02:00:01:15:01:04",
+            "actions": "output:4"
+          }
+        }
+      ]
+    },
+    {
+      "trial_id": "000104",
+      "platform": "odl_native_l2switch",
+      "destination_mac": "02:00:01:04:01:04",
+      "removed_ports": [
+        4
+      ],
+      "added_ports": [
+        100
+      ],
+      "recovered": false,
+      "baseline_valid": true,
+      "post_fault_rules_explicitly_matching_destination_mac": []
+    },
+    {
+      "trial_id": "000137",
+      "platform": "onos_native_fwd",
+      "destination_mac": "02:00:01:37:01:04",
+      "removed_ports": [
+        4
+      ],
+      "added_ports": [
+        100
+      ],
+      "recovered": false,
+      "baseline_valid": true,
+      "post_fault_rules_explicitly_matching_destination_mac": [
+        {
+          "bridge": "r0001370",
+          "rule": {
+            "cookie": "0x9d00004f813e1e",
+            "duration": "32.039s",
+            "table": "0",
+            "n_packets": "27",
+            "n_bytes": "2646",
+            "send_flow_rem priority": "100",
+            "in_port": "3",
+            "dl_src": "02:00:01:37:01:03",
+            "dl_dst": "02:00:01:37:01:04",
+            "actions": "output:4"
+          }
+        }
+      ]
+    },
+    {
+      "trial_id": "000126",
+      "platform": "reactive_osken",
+      "destination_mac": "02:00:01:26:01:04",
+      "removed_ports": [
+        4
+      ],
+      "added_ports": [
+        100
+      ],
+      "recovered": false,
+      "baseline_valid": true,
+      "post_fault_rules_explicitly_matching_destination_mac": [
+        {
+          "bridge": "r0001260",
+          "rule": {
+            "cookie": "0x0",
+            "duration": "31.622s",
+            "table": "0",
+            "n_packets": "26",
+            "n_bytes": "2492",
+            "priority": "100",
+            "in_port": "3",
+            "dl_dst": "02:00:01:26:01:04",
+            "actions": "output:4"
+          }
+        }
+      ]
+    },
+    {
+      "trial_id": "000147",
+      "platform": "daim_process_per_rule",
+      "destination_mac": "02:00:01:47:01:04",
+      "removed_ports": [
+        4
+      ],
+      "added_ports": [
+        100
+      ],
+      "recovered": false,
+      "baseline_valid": true,
+      "post_fault_rules_explicitly_matching_destination_mac": [
+        {
+          "bridge": "r0001470",
+          "rule": {
+            "cookie": "0x0",
+            "duration": "32.330s",
+            "table": "0",
+            "n_packets": "26",
+            "n_bytes": "2548",
+            "priority": "100",
+            "in_port": "3",
+            "dl_dst": "02:00:01:47:01:04",
+            "actions": "output:4"
+          }
+        }
+      ]
+    },
+    {
+      "trial_id": "00017a",
+      "platform": "odl_native_l2switch",
+      "destination_mac": "02:00:01:7a:01:04",
+      "removed_ports": [
+        4
+      ],
+      "added_ports": [
+        100
+      ],
+      "recovered": false,
+      "baseline_valid": true,
+      "post_fault_rules_explicitly_matching_destination_mac": [
+        {
+          "bridge": "r00017a0",
+          "rule": {
+            "cookie": "0x2a000000000000e0",
+            "duration": "32.196s",
+            "table": "0",
+            "n_packets": "28",
+            "n_bytes": "2744",
+            "idle_timeout": "600",
+            "hard_timeout": "300",
+            "priority": "10",
+            "dl_src": "02:00:01:7a:01:03",
+            "dl_dst": "02:00:01:7a:01:04",
+            "actions": "output:4"
+          }
+        }
+      ]
+    },
+    {
+      "trial_id": "000158",
+      "platform": "onos_native_fwd",
+      "destination_mac": "02:00:01:58:01:04",
+      "removed_ports": [
+        4
+      ],
+      "added_ports": [
+        100
+      ],
+      "recovered": false,
+      "baseline_valid": true,
+      "post_fault_rules_explicitly_matching_destination_mac": [
+        {
+          "bridge": "r0001580",
+          "rule": {
+            "cookie": "0x9d00005107812d",
+            "duration": "31.341s",
+            "table": "0",
+            "n_packets": "26",
+            "n_bytes": "2548",
+            "send_flow_rem priority": "100",
+            "in_port": "3",
+            "dl_src": "02:00:01:58:01:03",
+            "dl_dst": "02:00:01:58:01:04",
+            "actions": "output:4"
+          }
+        }
+      ]
+    },
+    {
+      "trial_id": "000169",
+      "platform": "reactive_osken",
+      "destination_mac": "02:00:01:69:01:04",
+      "removed_ports": [
+        4
+      ],
+      "added_ports": [
+        100
+      ],
+      "recovered": false,
+      "baseline_valid": true,
+      "post_fault_rules_explicitly_matching_destination_mac": [
+        {
+          "bridge": "r0001690",
+          "rule": {
+            "cookie": "0x0",
+            "duration": "31.625s",
+            "table": "0",
+            "n_packets": "25",
+            "n_bytes": "2450",
+            "priority": "100",
+            "in_port": "3",
+            "dl_dst": "02:00:01:69:01:04",
+            "actions": "output:4"
+          }
+        }
+      ]
+    }
+  ],
+  "mobility_scope": "Post-hoc projection of rules explicitly naming the destination MAC. Not a full pipeline trace, causal isolation, or proof that a listed rule handled every packet.",
+  "interpretation": "Post-collection consistency audit; does not infer causal correctness or change the frozen estimands"
+}

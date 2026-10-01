@@ -1,0 +1,6 @@
+{
+  "reason": "Ubuntu service cannot resolve bridge name through OVSDB socket; PacketOut delivered traffic but expected adapter rules absent",
+  "evidence": "ovs-vsctl as ubuntu: database connection failed (Permission denied); retained dump-flows contains only miss rules",
+  "scope": "Entire diagnostic run; not official data; raw output retained",
+  "next": "Campaign-only explicit DPID-to-bridge map, no global OVS socket permission change"
+}

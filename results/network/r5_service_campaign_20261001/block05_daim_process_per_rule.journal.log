@@ -1,0 +1,49 @@
+2026-10-01T12:59:32+01:00 daim-lab-2 systemd[1]: Started daim-review-daim.service - DAIM review isolated daim.
+2026-10-01T12:59:32+01:00 daim-lab-2 osken-manager[729561]: /home/ubuntu/daim_venv/lib/python3.12/site-packages/os_ken/lib/hub.py:30: EventletDeprecationWarning:
+2026-10-01T12:59:32+01:00 daim-lab-2 osken-manager[729561]: Eventlet is deprecated. It is currently being maintained in bugfix mode, and
+2026-10-01T12:59:32+01:00 daim-lab-2 osken-manager[729561]: we strongly recommend against using it for new projects.
+2026-10-01T12:59:32+01:00 daim-lab-2 osken-manager[729561]: If you are already using Eventlet, we recommend migrating to a different
+2026-10-01T12:59:32+01:00 daim-lab-2 osken-manager[729561]: framework.  For more detail see
+2026-10-01T12:59:32+01:00 daim-lab-2 osken-manager[729561]: https://eventlet.readthedocs.io/en/latest/asyncio/migration.html
+2026-10-01T12:59:32+01:00 daim-lab-2 osken-manager[729561]:   import eventlet
+2026-10-01T12:59:33+01:00 daim-lab-2 osken-manager[729561]: 1 RLock(s) were not greened, to fix this error make sure you run eventlet.monkey_patch() before importing any other modules.
+2026-10-01T12:59:33+01:00 daim-lab-2 osken-manager[729561]: loading app /home/ubuntu/review_campaign/network/r5_daim_service_controller.py
+2026-10-01T12:59:33+01:00 daim-lab-2 osken-manager[729561]: loading app os_ken.controller.ofp_handler
+2026-10-01T12:59:33+01:00 daim-lab-2 osken-manager[729561]: instantiating app /home/ubuntu/review_campaign/network/r5_daim_service_controller.py of CampaignDaimController
+2026-10-01T12:59:33+01:00 daim-lab-2 osken-manager[729561]: instantiating app os_ken.controller.ofp_handler of OFPHandler
+2026-10-01T13:00:04+01:00 daim-lab-2 osken-manager[729561]: {"event": "ready", "mode": "process_per_rule"}
+2026-10-01T13:00:35+01:00 daim-lab-2 systemd[1]: Stopping daim-review-daim.service - DAIM review isolated daim...
+2026-10-01T13:00:35+01:00 daim-lab-2 systemd[1]: daim-review-daim.service: Deactivated successfully.
+2026-10-01T13:00:35+01:00 daim-lab-2 systemd[1]: Stopped daim-review-daim.service - DAIM review isolated daim.
+2026-10-01T13:00:36+01:00 daim-lab-2 systemd[1]: Started daim-review-daim.service - DAIM review isolated daim.
+2026-10-01T13:00:36+01:00 daim-lab-2 osken-manager[730334]: /home/ubuntu/daim_venv/lib/python3.12/site-packages/os_ken/lib/hub.py:30: EventletDeprecationWarning:
+2026-10-01T13:00:36+01:00 daim-lab-2 osken-manager[730334]: Eventlet is deprecated. It is currently being maintained in bugfix mode, and
+2026-10-01T13:00:36+01:00 daim-lab-2 osken-manager[730334]: we strongly recommend against using it for new projects.
+2026-10-01T13:00:36+01:00 daim-lab-2 osken-manager[730334]: If you are already using Eventlet, we recommend migrating to a different
+2026-10-01T13:00:36+01:00 daim-lab-2 osken-manager[730334]: framework.  For more detail see
+2026-10-01T13:00:36+01:00 daim-lab-2 osken-manager[730334]: https://eventlet.readthedocs.io/en/latest/asyncio/migration.html
+2026-10-01T13:00:36+01:00 daim-lab-2 osken-manager[730334]:   import eventlet
+2026-10-01T13:00:36+01:00 daim-lab-2 osken-manager[730334]: 1 RLock(s) were not greened, to fix this error make sure you run eventlet.monkey_patch() before importing any other modules.
+2026-10-01T13:00:36+01:00 daim-lab-2 osken-manager[730334]: loading app /home/ubuntu/review_campaign/network/r5_daim_service_controller.py
+2026-10-01T13:00:36+01:00 daim-lab-2 osken-manager[730334]: loading app os_ken.controller.ofp_handler
+2026-10-01T13:00:36+01:00 daim-lab-2 osken-manager[730334]: instantiating app /home/ubuntu/review_campaign/network/r5_daim_service_controller.py of CampaignDaimController
+2026-10-01T13:00:36+01:00 daim-lab-2 osken-manager[730334]: instantiating app os_ken.controller.ofp_handler of OFPHandler
+2026-10-01T13:00:37+01:00 daim-lab-2 osken-manager[730334]: {"event": "ready", "mode": "process_per_rule"}
+2026-10-01T13:04:48+01:00 daim-lab-2 systemd[1]: daim-review-daim.service: Sent signal SIGKILL to main process 730334 (osken-manager) on client request.
+2026-10-01T13:04:48+01:00 daim-lab-2 systemd[1]: daim-review-daim.service: Main process exited, code=killed, status=9/KILL
+2026-10-01T13:04:48+01:00 daim-lab-2 systemd[1]: daim-review-daim.service: Failed with result 'signal'.
+2026-10-01T13:04:48+01:00 daim-lab-2 systemd[1]: daim-review-daim.service: Consumed 3.868s CPU time, 50.4M memory peak, 0B memory swap peak.
+2026-10-01T13:04:49+01:00 daim-lab-2 systemd[1]: Started daim-review-daim.service - DAIM review isolated daim.
+2026-10-01T13:04:50+01:00 daim-lab-2 osken-manager[759860]: /home/ubuntu/daim_venv/lib/python3.12/site-packages/os_ken/lib/hub.py:30: EventletDeprecationWarning:
+2026-10-01T13:04:50+01:00 daim-lab-2 osken-manager[759860]: Eventlet is deprecated. It is currently being maintained in bugfix mode, and
+2026-10-01T13:04:50+01:00 daim-lab-2 osken-manager[759860]: we strongly recommend against using it for new projects.
+2026-10-01T13:04:50+01:00 daim-lab-2 osken-manager[759860]: If you are already using Eventlet, we recommend migrating to a different
+2026-10-01T13:04:50+01:00 daim-lab-2 osken-manager[759860]: framework.  For more detail see
+2026-10-01T13:04:50+01:00 daim-lab-2 osken-manager[759860]: https://eventlet.readthedocs.io/en/latest/asyncio/migration.html
+2026-10-01T13:04:50+01:00 daim-lab-2 osken-manager[759860]:   import eventlet
+2026-10-01T13:04:50+01:00 daim-lab-2 osken-manager[759860]: 1 RLock(s) were not greened, to fix this error make sure you run eventlet.monkey_patch() before importing any other modules.
+2026-10-01T13:04:50+01:00 daim-lab-2 osken-manager[759860]: loading app /home/ubuntu/review_campaign/network/r5_daim_service_controller.py
+2026-10-01T13:04:50+01:00 daim-lab-2 osken-manager[759860]: loading app os_ken.controller.ofp_handler
+2026-10-01T13:04:50+01:00 daim-lab-2 osken-manager[759860]: instantiating app /home/ubuntu/review_campaign/network/r5_daim_service_controller.py of CampaignDaimController
+2026-10-01T13:04:50+01:00 daim-lab-2 osken-manager[759860]: instantiating app os_ken.controller.ofp_handler of OFPHandler
+2026-10-01T13:04:51+01:00 daim-lab-2 osken-manager[759860]: {"event": "ready", "mode": "process_per_rule"}

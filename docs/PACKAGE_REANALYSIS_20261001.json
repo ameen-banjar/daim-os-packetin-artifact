@@ -1,0 +1,32 @@
+{
+  "checks": [
+    {
+      "file": "results/network/r5_service_campaign_20261001/statistics.json",
+      "sha256": "c996a6747e8ee90568e5f664b5a63f5a22c1e53cd62c9717e1affbac58ac4061",
+      "byte_identical": true
+    },
+    {
+      "file": "results/network/r5_service_campaign_20261001/outage_interpretation.json",
+      "sha256": "84d2f190dd11c76ad610a47b7e7ebf2f1a403f63e931b93ccdc1507e02bb71d7",
+      "byte_identical": true
+    },
+    {
+      "file": "results/network/r5_service_campaign_20261001/raw_audit.json",
+      "sha256": "8ebbe0f4e675d1e4271007166ec62ddd6f46a2b343388775909f8135190b13a8",
+      "byte_identical": true
+    },
+    {
+      "file": "results/network/r5_service_campaign_20261001/host_resource_summary.json",
+      "sha256": "423f103277283dd39c997f2369b57e0b53fc4ad8f685299a41b71457652294b1",
+      "byte_identical": true
+    },
+    {
+      "file": "results/network/s56_corrected_official_20261001/statistics.json",
+      "sha256": "5cb04d652d5b57b0ee799b4e9ebabaeddb26b9c5800ee44efdcfa2447c31cde8",
+      "byte_identical": true
+    }
+  ],
+  "local_parser_tests_passed": 5,
+  "scope": "Author-side standalone analysis verification from this package; not independent network reproduction",
+  "publication": "Local candidate only; no tag, push or DOI release"
+}

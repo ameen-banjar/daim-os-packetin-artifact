@@ -1,0 +1,8 @@
+[
+  {
+    "scenario": "scale",
+    "switches": 1,
+    "flows": 1,
+    "repetition": 1
+  }
+]

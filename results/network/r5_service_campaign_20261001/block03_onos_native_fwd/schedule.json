@@ -1,0 +1,104 @@
+[
+  {
+    "scenario": "controller_crash",
+    "switches": 1,
+    "flows": 1,
+    "repetition": 3
+  },
+  {
+    "scenario": "scale",
+    "switches": 1,
+    "flows": 8,
+    "repetition": 3
+  },
+  {
+    "scenario": "switch_restart",
+    "switches": 1,
+    "flows": 1,
+    "repetition": 3
+  },
+  {
+    "scenario": "scale",
+    "switches": 4,
+    "flows": 8,
+    "repetition": 3
+  },
+  {
+    "scenario": "scale",
+    "switches": 4,
+    "flows": 1,
+    "repetition": 3
+  },
+  {
+    "scenario": "scale",
+    "switches": 16,
+    "flows": 32,
+    "repetition": 3
+  },
+  {
+    "scenario": "scale",
+    "switches": 16,
+    "flows": 8,
+    "repetition": 3
+  },
+  {
+    "scenario": "scale",
+    "switches": 16,
+    "flows": 1,
+    "repetition": 3
+  },
+  {
+    "scenario": "link_restore",
+    "switches": 1,
+    "flows": 1,
+    "repetition": 3
+  },
+  {
+    "scenario": "scale",
+    "switches": 8,
+    "flows": 8,
+    "repetition": 3
+  },
+  {
+    "scenario": "scale",
+    "switches": 1,
+    "flows": 1,
+    "repetition": 3
+  },
+  {
+    "scenario": "scale",
+    "switches": 8,
+    "flows": 32,
+    "repetition": 3
+  },
+  {
+    "scenario": "scale",
+    "switches": 8,
+    "flows": 1,
+    "repetition": 3
+  },
+  {
+    "scenario": "scale",
+    "switches": 4,
+    "flows": 32,
+    "repetition": 3
+  },
+  {
+    "scenario": "scale",
+    "switches": 1,
+    "flows": 32,
+    "repetition": 3
+  },
+  {
+    "scenario": "host_move",
+    "switches": 1,
+    "flows": 1,
+    "repetition": 3
+  },
+  {
+    "scenario": "controller_restart",
+    "switches": 1,
+    "flows": 1,
+    "repetition": 3
+  }
+]

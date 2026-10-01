@@ -1,0 +1,32 @@
+{
+  "samples": 787,
+  "raw_sha256": "750af6e0e639f3ec6ef5eb02135416592c7d990799539b222a358e106dab6f44",
+  "first_wall_ns": 1790848248838175000,
+  "last_wall_ns": 1790857695566390000,
+  "sample_gap_s": {
+    "n": 786,
+    "min": 11.94454,
+    "median": 12.012487499999999,
+    "max": 12.68789
+  },
+  "cpu_idle_percent_second_top_sample": {
+    "n": 787,
+    "min": 19.9,
+    "median": 75.29,
+    "max": 88.2
+  },
+  "pressure_code_counts": {
+    "2": 787
+  },
+  "vm_stat_page_sizes_bytes": [
+    16384
+  ],
+  "swap_counter_samples": 787,
+  "swap_counters_nondecreasing": true,
+  "swap_page_count_delta": {
+    "Swapins": 254480,
+    "Swapouts": 233098
+  },
+  "errors": [],
+  "interpretation": "Whole-window host context, not VM-only usage or proof of isolation. No causal allocation of host load to individual controllers."
+}
