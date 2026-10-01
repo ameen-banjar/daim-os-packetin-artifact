@@ -39,6 +39,8 @@ Both output directories must be new. PATH configuration is installation-specific
 
 The metric is handler entry to completion of the first read confirming the full target rule. It includes application execution, dispatch and observation cost; it is neither pure OVS internal installation time nor end-user response time. The eight DAIM intervals sum exactly in integer nanoseconds in all 60 DAIM trials.
 
+Raw fields named `t_packetout_sent_ns` and, for the reactive baseline, `t_flowmod_sent_ns` are timestamps after the application's `send_msg()` call returns. They are send-call/submission boundaries, not timestamps captured at wire transmission or switch receipt. The stage labelled `confirmation_wait` begins after the PacketOut submission returns. This semantic clarification changes no timestamps or interval arithmetic; the raw field names and frozen source are retained.
+
 Mean times were 17.268 ms for process-per-rule, 4.114 ms for persistent, and 3.877 ms for reactive Os-Ken. The paired persistent-minus-Os-Ken mean difference was 0.237 ms, with a marginal 95% bootstrap interval from -0.213 to 0.696 ms. This sample supports neither a persistent-DAIM superiority claim nor an equivalence claim relative to Os-Ken. Tail quantiles are descriptive at n=30 per mode.
 
 The new sample uses corrected instrumentation and a later run session. Differences from historical values cannot be attributed solely to the old identity defect. The full protocol is `network/S56_PACKETIN_LATENCY_CORRECTED_PROTOCOL.md`; the original project-path hash record is `results/network/s56_freeze_20261001.json`. Those path prefixes describe the source repository layout, while the package places network/analysis files directly under its root.
