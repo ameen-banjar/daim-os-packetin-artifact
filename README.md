@@ -80,6 +80,13 @@ and that the four-path benchmark measured different spans without traversing
 DAIM Core/ctypes. Recomputing old statistics does not repair those defects.
 See [the validity note](docs/HISTORICAL_DATA_VALIDITY_20261001.md).
 
+**Known wrong comment in a frozen collector:** the header comment of
+`network/stage2_full_compare.py` (lines 3-5) says the four-path benchmark
+separates "DAIM Core/ctypes cost". It does not: the two DAIM paths there are
+standalone C tools that never call DAIM Core or ctypes. The file is left
+byte-identical as the collector of the recorded data. See sections B and D of
+the [corrections log](docs/CORRECTIONS_LOG_20261002.md).
+
 The randomized four-path rerun changed both sample size and ordering. Its
 changed conclusion cannot be attributed solely to either factor. The clean-VM
 and second-architecture reruns were performed by the author, not independently
