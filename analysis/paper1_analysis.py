@@ -91,12 +91,12 @@ def draw_chart(rows, path):
         draw.text((x - 18, bottom + 18), str(size), fill="#222222", font=font)
     draw.text((530, 815), "Number of OVS switches", fill="#222222", font=font)
     draw.text((20, 20), "Mean per-switch rule installation time (ms), whiskers = bootstrap 95% CI", fill="#222222", font=font)
-    draw.ellipse((1006, 101, 1024, 119), fill=colors["daim_adapter"])
-    styled_segment(draw, (990,110), (1038,110), "solid", 4, colors["daim_adapter"])
-    draw.text((1045, 95), labels["daim_adapter"], fill="#222222", font=small)
-    draw.rectangle((1006, 146, 1024, 164), outline=colors["direct_ovs"], width=3, fill="white")
-    styled_segment(draw, (990,155), (1038,155), "dashed", 3, colors["direct_ovs"])
-    draw.text((1045, 140), labels["direct_ovs"], fill="#222222", font=small)
+    draw.ellipse((206, 121, 224, 139), fill=colors["daim_adapter"])
+    styled_segment(draw, (190,130), (238,130), "solid", 4, colors["daim_adapter"])
+    draw.text((245, 115), labels["daim_adapter"], fill="#222222", font=small)
+    draw.rectangle((206, 166, 224, 184), outline=colors["direct_ovs"], width=3, fill="white")
+    styled_segment(draw, (190,175), (238,175), "dashed", 3, colors["direct_ovs"])
+    draw.text((245, 160), labels["direct_ovs"], fill="#222222", font=small)
     image.save(path)
 
 
@@ -190,13 +190,13 @@ def draw_architecture(path):
 
     draw.text((20, 20), "DAIM-OS table-and-signal control path: component architecture", fill="#111111", font=title_font)
 
-    host = (70, 180, 330, 270)
-    switch = (430, 180, 750, 270)
+    host = (30, 180, 310, 270)
+    switch = (400, 180, 790, 270)
     controller = (930, 180, 1270, 270)
     bridge = (930, 400, 1270, 490)
-    core = (930, 610, 1270, 720)
+    core = (900, 610, 1300, 720)
     app = (540, 850, 940, 950)
-    adapter = (1100, 850, 1480, 950)
+    adapter = (1080, 850, 1560, 950)
 
     EXT_FILL, EXT_LINE = "#EAF2FB", "#0072B2"
     GLUE_FILL, GLUE_LINE = "#F0EAFB", "#6B4E9E"
