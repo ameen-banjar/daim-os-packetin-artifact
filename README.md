@@ -81,7 +81,7 @@ DAIM Core/ctypes. Recomputing old statistics does not repair those defects.
 See [the validity note](docs/HISTORICAL_DATA_VALIDITY_20261001.md).
 
 **Known wrong comment in a frozen collector:** the header comment of
-`network/stage2_full_compare.py` (lines 3-5) says the four-path benchmark
+`network/stage2_full_compare.py` (lines 2-6) says the four-path benchmark
 separates "DAIM Core/ctypes cost". It does not: the two DAIM paths there are
 standalone C tools that never call DAIM Core or ctypes. The file is left
 byte-identical as the collector of the recorded data. See sections B and D of

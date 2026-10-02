@@ -33,7 +33,7 @@ summary rows; paired file 0 changed).
 
 ## D. Frozen source comment left in place
 
-`network/stage2_full_compare.py`, header docstring, lines 3-5, says the
+`network/stage2_full_compare.py`, header docstring, lines 2-6, says the
 benchmark makes "process-spawn cost, DAIM Core/ctypes cost, and
 native-controller OpenFlow cost" no longer confounded. **This statement is
 wrong for the code as written**: in this benchmark the `daim_process_per_rule`
