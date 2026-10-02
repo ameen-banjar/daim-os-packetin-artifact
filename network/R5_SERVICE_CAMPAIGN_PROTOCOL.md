@@ -57,6 +57,19 @@ Controlled stop and SIGKILL are distinct interventions. The preserved ONOS fwd s
 
 The host-move clock excludes the physical move operation itself. Controller restart is externally initiated; it is not automatic failover, standby promotion or distributed state recovery. Link and switch events are emulated host-link/OVS events, not physical network failures.
 
+## Table labels and code identifiers
+
+The manuscript tables use readable labels; the raw data, scripts and
+`statistics.json` use the code identifiers below.
+
+| Manuscript label | Code identifier | Procedure |
+| --- | --- | --- |
+| Link restored | `link_restore` | Host link brought down, then up |
+| OVS bridge recreated | `switch_restart` | OVS bridge deleted, then recreated |
+| Host moved | `host_move` | Destination host moved to port 100, original address kept |
+| Controller restart | `controller_restart` | Controlled service stop, then externally initiated start |
+| Controller crash (SIGKILL) | `controller_crash` | SIGKILL of all service processes, then externally initiated start |
+
 ## Resources and analysis
 
 Controller cgroup CPU and current-memory snapshots bracket the measured cold batch. CPU differences are reported only when the service InvocationID is unchanged. They include child processes but exclude OVS and the probe harness; VM resource snapshots are separate. Current memory is not a per-trial peak. The retained systemd MemoryPeak value is a service-lifetime statistic and must not be relabelled as a trial peak.
