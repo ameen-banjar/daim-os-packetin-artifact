@@ -19,11 +19,18 @@ SEED = 20260719
 BOOTSTRAPS = 20000
 MODES = ["process_per_rule", "persistent"]
 LABELS = {"process_per_rule": "DAIM (process-per-rule)", "persistent": "DAIM (persistent adapter)"}
-COLORS = {"process_per_rule": "#C45A24", "persistent": "#2457A6"}
+COLORS = {"process_per_rule": "#0072B2", "persistent": "#F4A261"}
+
+def patterned_bar(draw, box, mode):
+    x0, y0, x1, y1 = box
+    draw.rectangle(box, fill=COLORS[mode], outline="#111111", width=2)
+    if mode == "persistent":
+        for y in range(int(y0) + 8, int(y1), 14):
+            draw.line((x0 + 2, y, x1 - 2, y), fill="#777777", width=2)
 METRICS = [
     ("throughput_installs_per_s", "Throughput (installs/s)", 1.0),
     ("cpu_s", "Controller CPU time (ms)", 1000.0),
-    ("control_bytes_total", "Control bytes sent", 1.0),
+        ("control_bytes_total", "Encoded Flow-Mod bytes", 1.0),
 ]
 
 
@@ -42,17 +49,20 @@ def bootstrap_median_ci(values, rng):
 
 
 def draw_chart(summary, path):
-    width, height = 1400, 480
+    width, height = 1600, 620
     image = Image.new("RGB", (width, height), "white")
     draw = ImageDraw.Draw(image)
-    font = ImageFont.load_default(size=34)
-    small = ImageFont.load_default(size=30)
+    font = ImageFont.load_default(size=38)
+    # The figure is reduced to journal-column width in Word.  A 38 px
+    # legend font renders at roughly 11 pt there, instead of the former
+    # hard-to-read ~8.5 pt.
+    small = ImageFont.load_default(size=38)
 
     panel_w = width // len(METRICS)
     for pi, (key, label, scale) in enumerate(METRICS):
-        px0 = pi * panel_w + 60
-        px1 = (pi + 1) * panel_w - 40
-        top, bottom = 40, 340
+        px0 = pi * panel_w + 80
+        px1 = (pi + 1) * panel_w - 55
+        top, bottom = 100, 430
         draw.line((px0, top, px0, bottom), fill="#222222", width=2)
         draw.line((px0, bottom, px1, bottom), fill="#222222", width=2)
 
@@ -68,19 +78,22 @@ def draw_chart(summary, path):
             x0 = px0 + (i + 0.4) * bar_w
             x1 = x0 + bar_w * 0.6
             y = y_of(vals[i])
-            draw.rectangle((x0, y, x1, bottom), fill=COLORS[mode])
+            patterned_bar(draw, (x0, y, x1, bottom), mode)
             ylo, yhi = y_of(cis[i][0]), y_of(cis[i][1])
             xc = (x0 + x1) / 2
             draw.line((xc, ylo, xc, yhi), fill="#000000", width=2)
-            draw.text((x0 - 5, y - 24), f"{vals[i]:.1f}", fill="#111111", font=small)
+            value_text = f"{vals[i]:.0f}" if key == "control_bytes_total" else f"{vals[i]:.1f}"
+            tw = draw.textbbox((0, 0), value_text, font=small)[2]
+            draw.text((xc - tw / 2, max(40, yhi - 42)), value_text, fill="#111111", font=small)
 
-        draw.text((px0, bottom + 10), label, fill="#222222", font=font)
+        tw = draw.textbbox((0, 0), label, font=font)[2]
+        draw.text(((px0 + px1 - tw) / 2, bottom + 14), label, fill="#222222", font=font)
 
-    ly = height - 50
+    ly = 25
     for i, mode in enumerate(MODES):
-        cx = 60 + i * 420
-        draw.rectangle((cx, ly, cx + 20, ly + 16), fill=COLORS[mode])
-        draw.text((cx + 28, ly - 2), LABELS[mode], fill="#222222", font=small)
+        cx = 350 + i * 520
+        patterned_bar(draw, (cx, ly, cx + 34, ly + 26), mode)
+        draw.text((cx + 44, ly - 7), LABELS[mode], fill="#111111", font=small)
     image.save(path)
 
 
