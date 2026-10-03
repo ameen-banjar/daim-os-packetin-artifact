@@ -70,5 +70,4 @@ Byte-identical statistics from this package show that the included records and
 analysis reproduce the author's derived values. They do not constitute an
 independent laboratory replication, demonstrate equal native applications,
 resolve missing historical ping evidence, or prove hardware/distributed/failover
-properties. Public release and final manuscript integration remain separate
-steps.
+properties.
