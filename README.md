@@ -1,22 +1,24 @@
 # DAIM-OS Packet-In Artifact
 
-> **Local revision candidate, 1 October 2026:** A corrected Section 5.6
-> sample is documented in [Corrected Packet In experiment](docs/CORRECTED_PACKETIN_20261001.md).
+> **Version 1.1.1 (corrective release, October 2026).** Adds a corrected
+> Section 5.6 sample ([Corrected Packet In experiment](docs/CORRECTED_PACKETIN_20261001.md)),
+> the controller-restart-recovery experiment, and a 340-attempt four-platform
+> service campaign ([results](docs/R5_SERVICE_CAMPAIGN_RESULTS_20261001.md),
+> [reanalysis instructions](network/R5_SERVICE_CAMPAIGN_REPRODUCTION.md)).
 > Historical capture and ping-check defects limit the older dataset; its
-> results must not be confused with the corrected sample. These local
-> additions are not yet included in the published v1.1.0 DOI snapshot.
-> The additional 340-attempt service campaign is documented in
-> [its results](docs/R5_SERVICE_CAMPAIGN_RESULTS_20261001.md) and
-> [reanalysis instructions](network/R5_SERVICE_CAMPAIGN_REPRODUCTION.md).
-> Manuscript/response integration and public release remain pending.
+> results must not be confused with the corrected sample. Figure files were
+> redrawn for legibility with no change to any value; see
+> [the corrections log](docs/CORRECTIONS_LOG_20261002.md). Version 1.1.0
+> remains archived and does not contain these additions. Reanalysis checks in
+> this package were run by the author, not independently reproduced by another team.
 
 Artifact lineage — original submission title:
 
 **"Reconstructing the DAIM-OS Table-and-Signal Control Path: An Executable
 OpenFlow 1.3 Artifact and Evaluation"** — Ameen Banjar (2026).
 
-This local candidate retains the original Paper 1 evidence and adds corrected
-and additional experiments awaiting consistent manuscript integration. It is
+This release retains the original Paper 1 evidence and adds corrected
+and additional experiments. It is
 scoped to that single paper: the author's
 related work on autonomous link recovery, cross-environment reproducibility,
 policy-conflict resolution, and intent assurance are separate, independent
@@ -173,5 +175,5 @@ Apache License 2.0 (matching the DAIM-OS specification). See `LICENSE`.
 See `CITATION.cff`. If you use this artifact, please also cite the paper
 once published, and the DAIM-OS specification (DOI above) that it implements.
 
-Version 1.1.0 is archived on Zenodo: https://doi.org/10.5281/zenodo.21855229.
+Version 1.1.0 is archived on Zenodo: https://doi.org/10.5281/zenodo.21855229 (without the corrected and additional experiments).
 The version-independent concept DOI is https://doi.org/10.5281/zenodo.21441309.

@@ -1,6 +1,6 @@
 # Corrected Packet In experiment
 
-This local release candidate includes a new 90-attempt Section 5.6 sample. The earlier `packetin_latency_breakdown_raw.csv` remains a historical record: its capture predicate and retained fields cannot establish the claimed h1 packet identity, and its ping success flag used an unsafe substring check. Do not pool that sample with the corrected sample or present its old figures as validated corrected results.
+This release (v1.1.1) includes a new 90-attempt Section 5.6 sample. The earlier `packetin_latency_breakdown_raw.csv` remains a historical record: its capture predicate and retained fields cannot establish the claimed h1 packet identity, and its ping success flag used an unsafe substring check. Do not pool that sample with the corrected sample or present its old figures as validated corrected results.
 
 The corrected sample is in `results/network/s56_corrected_official_20261001/`. Its 30 randomized blocks contain one attempt per mode. All 90 attempts met the protocol and confirmed the full target rule; all 90 target pings succeeded under packet-count and exit-status checks. The identity and warm-up/arming checks, raw controller logs, every observation poll, raw ping outputs and resource snapshots are retained.
 
@@ -45,4 +45,4 @@ Mean times were 17.268 ms for process-per-rule, 4.114 ms for persistent, and 3.8
 
 The new sample uses corrected instrumentation and a later run session. Differences from historical values cannot be attributed solely to the old identity defect. The full protocol is `network/S56_PACKETIN_LATENCY_CORRECTED_PROTOCOL.md`; the original project-path hash record is `results/network/s56_freeze_20261001.json`. Those path prefixes describe the source repository layout, while the package places network/analysis files directly under its root.
 
-This addition is local and unpublished. It is not present in the previously published v1.1.0 DOI snapshot. Publication/version/DOI and final manuscript integration remain separate steps.
+This addition is part of release v1.1.1. It is not present in the earlier v1.1.0 DOI snapshot.

@@ -3,7 +3,7 @@
 The commands below use the reproduction-package layout, where `analysis/`,
 `network/`, `implementation/` and `results/` are at the package root. In the
 working project those folders are under `experiments/`, except the Paper 1
-documentation. The local candidate is not the published v1.1.0 DOI snapshot.
+documentation. This package (v1.1.1) is not the earlier v1.1.0 DOI snapshot.
 
 ## Analysis from retained records
 

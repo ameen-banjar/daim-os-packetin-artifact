@@ -39,4 +39,4 @@ header comment; the collector source is left byte-identical.
 The packaged `analysis/stage2_full_compare_paired_analysis.py` previously drew a
 different colour scheme from the manuscript's Figure 9; the package now uses the
 same script as the manuscript. The earlier manifest is retained as
-`docs/manifest_before_figure_revision_20261002.sha256`. Not published.
+`docs/manifest_before_figure_revision_20261002.sha256`. Released in v1.1.1.

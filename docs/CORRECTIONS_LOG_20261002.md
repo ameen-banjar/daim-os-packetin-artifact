@@ -1,4 +1,4 @@
-# Corrections log (local package, not published)
+# Corrections log (release v1.1.1)
 
 Three kinds of change are kept separate. None altered a measured value.
 
